@@ -1,11 +1,11 @@
-import "./App.css";
-import Header from "./components/Header";
+import "./App.scss";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
       <h1>Vite + React</h1>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
