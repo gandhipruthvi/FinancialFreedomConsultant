@@ -1,63 +1,57 @@
+import { useState } from "react";
+import { logo, lock, hamburgerMenu, close } from "../assets";
 import "../Styles/Navbar.scss";
 
-function Navbar() {
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+  const handleClick = () => setToggle(!toggle);
+
   return (
     <div className="navbar">
-      <nav>
-        <div className="logo">
-          <img src="../assets/logo.png" alt="logo" />
-          <h1>LOGO</h1>
+      <div className="web-navbar">
+        <img src={logo} className="logo" />
+
+        <div className="nav-items">
+          <ul className="nav-list">
+            <li>Home</li>
+            <li>About</li>
+            <li>Support</li>
+            <li>Platform</li>
+            <li>Pricing</li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Shop</a>
-          </li>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Search</a>
-          </li>
-        </ul>
-        <div className="hamburger">
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
+
+        <div className="login-signup">
+          <button className="login">
+            <img src={lock} />
+            Login
+          </button>
+          <button className="signup">Sign Up For Free</button>
         </div>
-      </nav>
-      <div className="menubar">
+
+        <div className="hamburgerMenuIcon" onClick={handleClick}>
+          <img src={toggle ? close : hamburgerMenu} />
+        </div>
+      </div>
+
+      <div className={toggle ? "dropdownMenu" : "dropdownMenuHide"}>
         <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Shop</a>
-          </li>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Search</a>
-          </li>
+          <li className="dropdownItem">Home</li>
+          <li className="dropdownItem">About</li>
+          <li className="dropdownItem">Support</li>
+          <li className="dropdownItem">Platform</li>
+          <li className="dropdownItem">Pricing</li>
+          <div className="login-signup">
+            <button className="login">
+              <img src={lock} />
+              Login
+            </button>
+            <button className="signup">Sign Up For Free</button>
+          </div>
         </ul>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
