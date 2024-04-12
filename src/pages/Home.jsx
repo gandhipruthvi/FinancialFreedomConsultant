@@ -1,5 +1,4 @@
 import "../Styles/Home.scss";
-import "../assets/quera-icon.css";
 import ServicesImg1 from "../assets/our services/s1.jpg";
 import ServicesImg2 from "../assets/our services/s2.jpg";
 import ServicesImg3 from "../assets/our services/s3.jpg";
