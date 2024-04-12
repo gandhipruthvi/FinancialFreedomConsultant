@@ -19,6 +19,28 @@ function Home() {
         </div>
       </section>
 
+      <section className="bookNowSection">
+        <div className="body-text-content">
+          <p className="body-description">
+            Welcome to Financial Freedom Consultant, where our commitment lies
+            in assisting clients in attaining their financial aspirations.
+          </p>
+        </div>
+
+        <div className="body-text-content">
+          <p className="body-description">
+            Ready for financial freedom? Let us guide you at Financial Freedom
+            Consultants.
+          </p>
+        </div>
+
+        <div className="body-btn">
+          <a href="contact.html" className=" priceItem qu_btn">
+            Join With Us
+          </a>
+        </div>
+      </section>
+
       <section className="serviceSection">
         <div className="marqueeText runRight stokeText">
           <h2>Financial Freedom Consultant.</h2>
