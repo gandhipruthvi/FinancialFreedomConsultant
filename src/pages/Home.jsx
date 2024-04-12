@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="Home">
       <section className="banner">
-        <div className="banner-content">
+        {/* <div className="banner-content">
           <h1>Bright Solutions, Profitable Results.</h1>
           <p>
             Keeping track of the finances is fundamental to the success of every
@@ -15,7 +15,7 @@ function Home() {
             intimidating.
           </p>
           <button className="services-button">Our Services</button>
-        </div>
+        </div> */}
       </section>
 
       <section className="bookNowSection">
