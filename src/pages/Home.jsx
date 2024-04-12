@@ -1,5 +1,4 @@
 import "../Styles/Home.scss";
-import "../assets/our services/quera-icon.css";
 import ServicesImg1 from "../assets/our services/s1.jpg";
 import ServicesImg2 from "../assets/our services/s2.jpg";
 import ServicesImg3 from "../assets/our services/s3.jpg";
@@ -8,7 +7,7 @@ function Home() {
   return (
     <div className="Home">
       <section className="banner">
-        <div className="banner-content">
+        {/* <div className="banner-content">
           <h1>Bright Solutions, Profitable Results.</h1>
           <p>
             Keeping track of the finances is fundamental to the success of every
@@ -16,7 +15,7 @@ function Home() {
             intimidating.
           </p>
           <button className="services-button">Our Services</button>
-        </div>
+        </div> */}
       </section>
 
       <section className="bookNowSection">
