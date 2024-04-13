@@ -1,4 +1,4 @@
-$theme-color: #ed1b24;
+$theme-color: #009CFF;
 
 .fixedHeader {
   position: fixed;
@@ -242,14 +242,14 @@ $theme-color: #ed1b24;
     .qu_btn {
       background: #fff;
       color: #1a1a1a;
+    }
 
-      :before {
-        background: linear-gradient(90deg, rgba(237, 28, 36, 1) 0%, rgba(237, 82, 28, 1) 100%);
-      }
+    .qu_btn:before {
+      background: linear-gradient(90deg, $theme-color 0%, $theme-color 100%) !important;
+    }
 
-      :hover {
-        color: #fff;
-      }
+    .qu_btn:hover {
+      color: #fff;
     }
   }
 
