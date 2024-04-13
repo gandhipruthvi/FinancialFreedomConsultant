@@ -173,6 +173,9 @@ $theme-color: #009CFF;
 / Our Services
 /-------------------------------------------------------------------*/
 .serviceSection {
+    position: relative;
+    padding: 120px 0;
+
     .boxService {
         position: relative;
         background: url('/src/assets/ourservices/3.png') no-repeat center center / cover #f6f6f6;
@@ -422,437 +425,9 @@ $theme-color: #009CFF;
         color: $theme-color;
     }
 
-.icon_box_01 .sm:hover {
-    color: $theme-color;
-}
-
-// Book Now Section ====================================
-.bookNowSection {
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    // align-items: center;
-    background: $theme-color;
-
-    /* Text */
-    .body-text-content {
-        width: 25%;
-        // justify-content: left;
-    }
-
-    .body-description {
-        margin: 30px 0;
-        color: #ffffff;
-        font-family: 'General Sans', sans-serif;
-        font-size: 18px;
-        letter-spacing: .7px;
-        line-height: 1.7rem;
-        // justify-content: left;
-    }
-
-    .about-text-title {
-        margin: 0 0 24px 0;
-        color: #4d4b4b;
-        font-family: 'Poppins', sans-serif;
-        font-size: 24px;
-        font-weight: bold;
-        letter-spacing: .7px;
-    }
-
-    /* Steps */
-    .about-text-step {
-        margin: 16px 0;
-    }
-
-    .about-text-sTitle {
-        font-family: 'Rubik', sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        letter-spacing: .7px;
-    }
-
-    .about-text-description {
-        margin: 8px 24px;
-        color: #4d4b4b;
-        font-family: 'Rubik', sans-serif;
-        letter-spacing: .7px;
-        line-height: 1.6rem;
-    }
-
-    .fa-icon {
-        color: #9D2553;
-    }
-
-    /* Responsive */
-    @media screen and (max-width: 1000px) {
-        .about-section {
-            display: block;
-        }
-
-        .about-image-content {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 0 32px 0;
-        }
-
-        .about-image1 {
-            width: 100%;
-            height: 100%;
-        }
-
-        .about-text-content {
-            width: 100%;
-        }
-    }
-}
-
-//How We Work Section ======================================
-.processSection01 {
-    background: url(/src/assets/bg/work.png) no-repeat center center / cover;
-    position: relative;
-    padding: 120px 0 245px;
-}
-
-.subTitle {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: .9;
-    color: $theme-color;
-    margin: 0 0 24px;
-}
-
-.subTitle span {
-    display: inline-block;
-    width: 50px;
-    height: 2px;
-    background: $theme-color;
-    margin-right: 20px;
-    position: relative;
-    top: -5px;
-}
-
-.subTitle .bright {
-    margin-right: 0;
-    margin-left: 20px;
-}
-
-.secTitle {
-    font-size: 60px;
-    line-height: 65px;
-    margin: 0 0 63px;
-}
-
-.icon_box_03 {
-    position: relative;
-    margin: 0 0 35px;
-}
-
-.icon_box_03 .ib_box {
-    position: relative;
-    z-index: 2;
-    width: 152px;
-    height: 152px;
-    text-align: center;
-    border: 2px solid #ffeff0;
-    border-radius: 50%;
-    font-size: 60px;
-    line-height: 155px;
-    display: inline-block;
-    color: #090909;
-    margin: 0 0 36px;
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.icon_box_03 .ib_box i {
-    color: inherit;
-    transform: scale(1);
-    -moz-transform: scale(1);
-    -webkit-transform: scale(1);
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.icon_box_03 .ib_box span {
-    position: absolute;
-    right: 0;
-    top: -6px;
-    display: block;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    border-radius: 50%;
-    background: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    color: $theme-color;
-    line-height: 50px;
-    -webkit-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
-    -moz-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
-    box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
-}
-
-.icon_box_03 .ib_box:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    content: '';
-    background: $theme-color;
-    border-radius: 50%;
-    z-index: -1;
-    width: calc(100% - 38px);
-    height: calc(100% - 38px);
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(.8);
-    -moz-transform: scale(.8);
-    -webkit-transform: scale(.8);
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-.icon_box_03 h3 {
-    font-size: 24px;
-    line-height: 26px;
-    font-weight: 600;
-    margin: 0 0 16px;
-}
-
-.icon_box_03 h3 a {
-    color: inherit;
-}
-
-.icon_box_03 h3 a:hover {
-    color: $theme-color;
-}
-
-.icon_box_03 p {
-    color: #7f8388;
-    margin: 0 5px;
-}
-
-.icon_box_03:hover .ib_box {
-    border-color: $theme-color;
-}
-
-.icon_box_03:hover .ib_box i {
-    color: #fff;
-    transform: scale(.9);
-    -moz-transform: scale(.9);
-    -webkit-transform: scale(.9);
-}
-
-.icon_box_03:hover .ib_box:after {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
-    -moz-transform: scale(1);
-    -webkit-transform: scale(1);
-}
-
-// Our Services Section ====================================
-.serviceSection {
-    position: relative;
-    padding: 120px 0;
-
-    @media (min-width: 1440px) {
-        .container.largeContainer {
-            max-width: 1250px;
-        }
-    }
-
-    .secDesc {
-        font-size: 18px;
-        color: #1a1a1a;
-        font-weight: 500;
-        margin: 34px 0 9px;
-    }
-
-    .subTitle {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: .9;
+    .icon_box_01 .sm:hover {
         color: $theme-color;
-        margin: 0 0 24px;
     }
-
-    .subTitle span {
-        display: inline-block;
-        width: 50px;
-        height: 2px;
-        background: $theme-color;
-        margin-right: 20px;
-        position: relative;
-        top: -5px;
-    }
-
-    .subTitle .bright {
-        margin-right: 0;
-        margin-left: 20px;
-    }
-
-    // .secTitle {
-    //     font-size: 60px;
-    //     line-height: 65px;
-    //     margin: 0 0 63px;
-    // }
-
-    h4 {
-        position: relative;
-        display: inline-block;
-        font-family: 'Roboto', sans-serif;
-        font-size: 24px;
-        color: $theme-color;
-        margin: 0 0 20px;
-    }
-
-    h4:after {
-        position: absolute;
-        left: -24px;
-        bottom: -76px;
-        content: '';
-        width: 77px;
-        height: 74px;
-        background: url("../assets/our services/2.png") no-repeat left bottom;
-    }
-
-    .icon_box_09 {
-        position: relative;
-        background: url("../assets/our services/15.png") no-repeat right top #fff;
-        padding: 30px 40px 37px;
-        margin: 0 0 30px;
-        -webkit-transition: all .4s ease;
-        -o-transition: all .3s ease;
-        transition: all .4s ease;
-        -webkit-box-shadow: 0px 10px 40px 0px rgba(27, 31, 37, 0.05);
-        -moz-box-shadow: 0px 10px 40px 0px rgba(27, 31, 37, 0.05);
-        box-shadow: 0px 10px 40px 0px rgba(27, 31, 37, 0.05);
-    }
-
-    .icon_box_09:hover {
-        background-color: $theme-color;
-    }
-
-    .icon_box_09>h2 {
-        display: block;
-        color: $theme-color;
-        opacity: .2;
-        font-size: 30px;
-        font-weight: 600;
-        margin: 0 0 -12px;
-        -webkit-transition: all .3s ease;
-        -o-transition: all .3s ease;
-        transition: all .3s ease;
-    }
-
-    .icon_box_09 .ib_box {
-        position: relative;
-        z-index: 2;
-        width: 100px;
-        height: 100px;
-        line-height: 102px;
-        background: #fff;
-        display: inline-block;
-        border-radius: 50%;
-        text-align: center;
-        color: $theme-color;
-        font-size: 45px;
-    }
-
-    .icon_box_09 .ib_box .icon-local_1 {
-        position: relative;
-        top: 6px;
-    }
-
-    .srThumb {
-        position: relative;
-        overflow: hidden;
-        margin: -50px 0 0;
-    }
-
-    .srThumb:before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        content: '';
-        background: rgba(0, 0, 0, .1);
-        visibility: hidden;
-        opacity: 0;
-        -webkit-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-    }
-
-    .icon_box_09:hover .srThumb:before {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .srThumb:after {
-        -webkit-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-        position: absolute;
-        left: 0;
-        bottom: -100%;
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        content: '';
-        background: url("../assets/our services/14.png") no-repeat center bottom;
-    }
-
-    .icon_box_09:hover .srThumb:after {
-        bottom: 0;
-        opacity: 1;
-    }
-
-    .srThumb img {
-        width: 100%;
-        height: auto;
-    }
-
-    .icon_box_09 h3 {
-        font-size: 24px;
-        line-height: 28px;
-        font-weight: 600;
-        margin: 35px 0 12px;
-    }
-
-    .icon_box_09 h3 a {
-        color: inherit;
-    }
-
-    .icon_box_09 p {
-        color: #74777c;
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0 15px;
-        -webkit-transition: all .3s ease;
-        -o-transition: all .3s ease;
-        transition: all .3s ease;
-    }
-
-    .icon_box_09:hover h3 a,
-    .icon_box_09:hover p {
-        color: #ffffff;
-    }
-
-    .icon_box_09 h3 a:hover {
-        color: #1a1a1a;
-        -webkit-transition: all .3s ease;
-        -o-transition: all .3s ease;
-        transition: all .3s ease;
-    }
-
 
     .marqueeText {
         position: absolute;
@@ -959,6 +534,458 @@ $theme-color: #009CFF;
             -moz-transform: translateX(100%);
             -webkit-transform: translateX(100%);
             transform: translateX(100%);
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+/ How We Work Section
+/-------------------------------------------------------------------*/
+.processSection {
+    background: url(/src/assets/bg/work.png) no-repeat center center / cover;
+    position: relative;
+
+    .subTitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: .9;
+        color: $theme-color;
+        margin: 0 0 24px;
+    }
+
+    .subTitle span {
+        display: inline-block;
+        width: 50px;
+        height: 2px;
+        background: $theme-color;
+        margin-right: 20px;
+        position: relative;
+        top: -5px;
+    }
+
+    .subTitle .bright {
+        margin-right: 0;
+        margin-left: 20px;
+    }
+
+    .secTitle {
+        font-size: 60px;
+        line-height: 65px;
+        margin: 0 0 63px;
+    }
+
+    .icon_box_03 {
+        position: relative;
+        margin: 0 0 35px;
+    }
+
+    .icon_box_03 .ib_box {
+        position: relative;
+        z-index: 2;
+        width: 152px;
+        height: 152px;
+        text-align: center;
+        border: 2px solid #ffeff0;
+        border-radius: 50%;
+        font-size: 60px;
+        line-height: 155px;
+        display: inline-block;
+        color: #090909;
+        margin: 0 0 36px;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .icon_box_03 .ib_box i {
+        color: inherit;
+        transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .icon_box_03 .ib_box span {
+        position: absolute;
+        right: 0;
+        top: -6px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        background: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        color: $theme-color;
+        line-height: 50px;
+        -webkit-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
+        box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.09);
+    }
+
+    .icon_box_03 .ib_box:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        background: $theme-color;
+        border-radius: 50%;
+        z-index: -1;
+        width: calc(100% - 38px);
+        height: calc(100% - 38px);
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(.8);
+        -moz-transform: scale(.8);
+        -webkit-transform: scale(.8);
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .icon_box_03 h3 {
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: 600;
+        margin: 0 0 16px;
+    }
+
+    .icon_box_03 h3 a {
+        color: inherit;
+    }
+
+    .icon_box_03 h3 a:hover {
+        color: $theme-color;
+    }
+
+    .icon_box_03 p {
+        color: #7f8388;
+        margin: 0 5px;
+    }
+
+    .icon_box_03:hover .ib_box {
+        border-color: $theme-color;
+    }
+
+    .icon_box_03:hover .ib_box i {
+        color: #fff;
+        transform: scale(.9);
+        -moz-transform: scale(.9);
+        -webkit-transform: scale(.9);
+    }
+
+    .icon_box_03:hover .ib_box:after {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+
+/*------------------------------------------------------------------
+/ Why Choose Us
+/-------------------------------------------------------------------*/
+.whyChooseUsSection {
+    position: relative;
+    background: url("../assets/bg/8.jpg") no-repeat center center / cover;
+    padding: 120px 0 100px;
+
+    .white {
+        color: #fff;
+    }
+
+    .subTitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: .9;
+        color: $theme-color;
+        margin: 0 0 24px;
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 2px;
+            background: $theme-color;
+            margin-right: 20px;
+            position: relative;
+            top: -5px;
+        }
+
+        .bright {
+            margin-right: 0;
+            margin-left: 20px;
+        }
+    }
+
+    .secTitle {
+        font-size: 55px;
+        margin-bottom: 21px;
+    }
+
+    .secDesc {
+        color: #7f849b;
+        line-height: 26px;
+        padding-right: 50px;
+        margin-bottom: 38px;
+    }
+
+    .mt8 {
+        margin-top: 8px;
+    }
+
+    .icon_box_05 {
+        position: relative;
+        padding-left: 110px;
+        margin: 0 0 49px;
+    }
+
+    .icon_box_05 .ib_box {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 5px;
+        width: 82px;
+        height: 82px;
+        text-align: center;
+        color: #fff;
+        line-height: 80px;
+        font-size: 36px;
+        border: 2px solid #2c2f40;
+        border-radius: 50%;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .icon_box_05:hover .ib_box {
+        border-color: transparent;
+    }
+
+    .icon_box_05 .ib_box:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        background: linear-gradient(90deg, #006db3 0%, #4dbaff 100%);
+        border-radius: 50%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(.5);
+        -moz-transform: scale(.5);
+        -webkit-transform: scale(.5);
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .icon_box_05:hover .ib_box:after {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+
+    .pin1 {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        left: 5px;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        background: #0f1327;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        transform: scale(0);
+        -moz-transform: scale(0);
+        -webkit-transform: scale(0);
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .pin1:after {
+        width: 5px;
+        height: 5px;
+        content: '';
+        border-radius: 50%;
+        background: $theme-color;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+    }
+
+    .pin2 {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        width: 15px;
+        height: 15px;
+        background: #0f1327;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        transform: scale(0);
+        -moz-transform: scale(0);
+        -webkit-transform: scale(0);
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .pin2:after {
+        width: 5px;
+        height: 5px;
+        content: '';
+        border-radius: 50%;
+        background: $theme-color;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+    }
+
+    .icon_box_05:hover .pin2,
+    .icon_box_05:hover .pin1 {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+
+    .icon_box_05 h3 {
+        font-size: 20px;
+        line-height: 28px;
+        color: #fff;
+        margin: 0 0 13px;
+    }
+
+    .icon_box_05 h3 a {
+        color: inherit;
+    }
+
+    .icon_box_05 p {
+        font-size: 14px;
+        line-height: 24px;
+        color: #7f849b;
+        margin: 0;
+    }
+}
+
+.whyChooseUsSection2 {
+    .cta {
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding: 45px 55px;
+        margin: -87px 0 119px;
+        -webkit-box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
+        -moz-box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
+        box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
+
+        .icon_box_06 {
+            position: relative;
+            padding: 0 0 0 104px;
+        }
+
+        .icon_box_06 .ib_box {
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 5px;
+            font-size: 70px;
+            line-height: 70px;
+            color: $theme-color;
+            -webkit-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .icon_box_06 h3 {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 600;
+            margin: 0 0 8px;
+        }
+
+        .icon_box_06 h3 a {
+            color: inherit;
+        }
+
+        .icon_box_06 p {
+            font-size: 14px;
+            line-height: 24px;
+            margin: 0;
+        }
+
+        .orcta {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            width: 70px;
+            height: 70px;
+            line-height: 48px;
+            border-radius: 50%;
+            background: $theme-color;
+            padding: 10px;
+            margin-top: 8px;
+        }
+
+        .orcta:after {
+            width: 10px;
+            height: 174px;
+            background: $theme-color;
+            left: 0;
+            right: 0;
+            top: -53px;
+            margin: auto;
+            content: "";
+            z-index: -1;
+            position: absolute;
+        }
+
+        .orcta p {
+            color: $theme-color;
+            background: #fff;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .text-right .icon_box_06 {
+            padding-left: 0;
+            padding-right: 104px;
+        }
+
+        .text-right .icon_box_06 .ib_box {
+            left: auto;
+            right: 0;
         }
     }
 }

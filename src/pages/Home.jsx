@@ -6,7 +6,6 @@ import ServicesImg3 from "../assets/our services/s3.jpg";
 function Home() {
   return (
     <div className="Home">
-
       {/* Banner Carousel */}
       <section className="banner">
         {/* <div className="banner-content">
@@ -66,13 +65,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>01</span>
-                  <i className="icons-monitoring"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icons-monitoring"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -90,13 +83,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>02</span>
-                  <i className="icon-local_3-1"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icon-local_3-1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -114,13 +101,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>03</span>
-                  <i className="icon-local_1"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icon-local_1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -138,13 +119,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>04</span>
-                  <i className="icon-local_11"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icon-local_11"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -162,13 +137,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>05</span>
-                  <i className="icon-Wemseu01"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icon-Wemseu01"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -186,13 +155,7 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
-            <div className="col-xl-3 col-md-6">
-              <div className="icon_box_01">
-                <div className="ibMeta">
                   <span>06</span>
-                  <i className="icon-local_1-1"></i>
-                  <div className="brleft"></div>
-                  <div className="brright"></div>
                   <i className="icon-local_1-1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -226,48 +189,196 @@ function Home() {
       </section>
 
       {/* How We Work Section */}
-      <section className="processSection01">
+      <section className="processSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <div className="subTitle"><span class="bleft"></span>Process<span class="bright"></span></div>
-              <h2 className="secTitle">How We <span>Work</span></h2>
+              <div className="subTitle">
+                <span className="bleft"></span>Process
+                <span className="bright"></span>
+              </div>
+              <h2 className="secTitle">
+                How We <span>Work</span>
+              </h2>
             </div>
           </div>
           <div className="row">
             <div className="col-lg-3 col-md-6 text-center">
               <div className="icon_box_03">
-                <div className="ib_box"><i class="icon-local_1"></i><span>01</span></div>
+                <div className="ib_box">
+                  <i className="icon-local_1"></i>
+                  <span>01</span>
+                </div>
                 <h3>Improvement</h3>
-                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+                <p>
+                  Fessionally fabricate strategic platform without corporate
+                  before fully tested
+                </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
               <div className="icon_box_03">
-                <div className="ib_box"><i class=" icon-local_3"></i><span>02</span></div>
+                <div className="ib_box">
+                  <i className=" icon-local_3"></i>
+                  <span>02</span>
+                </div>
                 <h3>Idea Create</h3>
-                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+                <p>
+                  Fessionally fabricate strategic platform without corporate
+                  before fully tested
+                </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
               <div className="icon_box_03">
-                <div className="ib_box"><i class="icon-local_9"></i><span>03</span></div>
+                <div className="ib_box">
+                  <i className="icon-local_9"></i>
+                  <span>03</span>
+                </div>
                 <h3>Consultancy</h3>
-                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+                <p>
+                  Fessionally fabricate strategic platform without corporate
+                  before fully tested
+                </p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 text-center">
               <div className="icon_box_03">
-                <div className="ib_box"><i class="icon-local_7"></i><span>04</span></div>
+                <div className="ib_box">
+                  <i className="icon-local_7"></i>
+                  <span>04</span>
+                </div>
                 <h3>Success</h3>
-                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+                <p>
+                  Fessionally fabricate strategic platform without corporate
+                  before fully tested
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="whyChooseUs"></section>
+      {/* Why Choose Us Section */}
+      <section className="whyChooseUsSection">
+        <div className="container largeContainer">
+          <div className="row">
+            <div className="col-xl-5">
+              <div className="subTitle">
+                <span className="bleft"></span>Why Choose Us
+              </div>
+              <h2 className="secTitle white">Find Out More Our Features</h2>
+              <p className="secDesc">
+                In addition to payroll cheques, a business writes many other
+                cheques during the course of a year to pay for a wide variety of
+                items including local business taxes,
+              </p>
+            </div>
+            <div className="col-xl-7 mt8">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="icon_box_05">
+                    <div className="ib_box">
+                      <div className="pin1"></div>
+                      <i className="icon-local_1"></i>
+                      <div className="pin2"></div>
+                    </div>
+                    <h3>Improvement</h3>
+                    <p>
+                      All cash received from sales and from all other sources
+                      has to be carefully identified....
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="icon_box_05">
+                    <div className="ib_box">
+                      <div className="pin1"></div>
+                      <i className="icon-local_3"></i>
+                      <div className="pin2"></div>
+                    </div>
+                    <h3>Idea Generate</h3>
+                    <p>
+                      All cash received from sales and from all other sources
+                      has to be carefully identified....
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="icon_box_05">
+                    <div className="ib_box">
+                      <div className="pin1"></div>
+                      <i className="icon-XjxC7N01"></i>
+                      <div className="pin2"></div>
+                    </div>
+                    <h3>Consultancy</h3>
+                    <p>
+                      All cash received from sales and from all other sources
+                      has to be carefully identified....
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="icon_box_05">
+                    <div className="ib_box">
+                      <div className="pin1"></div>
+                      <i className="icon-local_11"></i>
+                      <div className="pin2"></div>
+                    </div>
+                    <h3>Success Business</h3>
+                    <p>
+                      All cash received from sales and from all other sources
+                      has to be carefully identified....
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="whyChooseUsSection2">
+        <div className="container largeContainer">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="cta">
+                <div className="row">
+                  <div className="col-lg-5">
+                    <div className="icon_box_06">
+                      <div className="ib_box">
+                        <i className="icon-local_7"></i>
+                      </div>
+                      <h3>Small / Growing Business!</h3>
+                      <p>
+                        Choose one channel and be great at it. Work toward the
+                        goal of being the leading provider
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 text-center">
+                    <div className="orcta">
+                      <p>or</p>
+                    </div>
+                  </div>
+                  <div className="col-lg-5 text-right">
+                    <div className="icon_box_06">
+                      <div className="ib_box">
+                        <i className="icons-target"></i>
+                      </div>
+                      <h3>Enterprise Level Organization</h3>
+                      <p>
+                        Choose one channel and be great at it. Work toward the
+                        goal of being the leading provider
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

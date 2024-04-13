@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icomoon";
-  src: url("./fonts/icomoon1ce7.eot");
-  src: url("./fonts/icomoon1ce7.eot") format("embedded-opentype"),
-    url("./fonts/icomoon1ce7.ttf") format("truetype"),
-    url("./fonts/icomoon1ce7.woff") format("woff"),
-    url("./fonts/icomoon1ce7.svg") format("svg");
+  src: url("./fonts/icomoon1ce7.eot?8lyjj2");
+  src: url("./fonts/icomoon1ce7.eot?8lyjj2#iefix") format("embedded-opentype"),
+    url("./fonts/icomoon1ce7.ttf?8lyjj2") format("truetype"),
+    url("./fonts/icomoon1ce7.woff?8lyjj2") format("woff"),
+    url("./fonts/icomoon1ce7.svg?8lyjj2#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -68,11 +68,11 @@
 
 @font-face {
   font-family: "icomoons";
-  src: url("../fonts/icomoons0721.eot?xxn58q");
-  src: url("../fonts/icomoons0721.eot?xxn58q#iefix") format("embedded-opentype"),
-    url("../fonts/icomoons0721.ttf?xxn58q") format("truetype"),
-    url("../fonts/icomoons0721.woff?xxn58q") format("woff"),
-    url("../fonts/icomoons0721.svg?xxn58q#icomoon") format("svg");
+  src: url("./fonts/icomoons0721.eot?xxn58q");
+  src: url("./fonts/icomoons0721.eot?xxn58q#iefix") format("embedded-opentype"),
+    url("./fonts/icomoons0721.ttf?xxn58q") format("truetype"),
+    url("./fonts/icomoons0721.woff?xxn58q") format("woff"),
+    url("./fonts/icomoons0721.svg?xxn58q#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
