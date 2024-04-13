@@ -6,6 +6,8 @@ import ServicesImg3 from "../assets/our services/s3.jpg";
 function Home() {
   return (
     <div className="Home">
+
+      {/* Banner Carousel */}
       <section className="banner">
         {/* <div className="banner-content">
           <h1>Bright Solutions, Profitable Results.</h1>
@@ -18,6 +20,7 @@ function Home() {
         </div> */}
       </section>
 
+      {/* Book Now Section */}
       <section className="bookNowSection">
         <div className="body-text-content">
           <p className="body-description">
@@ -40,6 +43,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Our Services Section */}
       <section className="serviceSection">
         <div className="marqueeText runRight stokeText">
           <h2>Financial Freedom Consultant.</h2>
@@ -62,7 +66,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>01</span>
+                  <i className="icons-monitoring"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icons-monitoring"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -80,7 +90,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>02</span>
+                  <i className="icon-local_3-1"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icon-local_3-1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -98,7 +114,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>03</span>
+                  <i className="icon-local_1"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icon-local_1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -116,7 +138,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>04</span>
+                  <i className="icon-local_11"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icon-local_11"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -134,7 +162,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>05</span>
+                  <i className="icon-Wemseu01"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icon-Wemseu01"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -152,7 +186,13 @@ function Home() {
             <div className="col-xl-3 col-md-6">
               <div className="icon_box_01">
                 <div className="ibMeta">
+            <div className="col-xl-3 col-md-6">
+              <div className="icon_box_01">
+                <div className="ibMeta">
                   <span>06</span>
+                  <i className="icon-local_1-1"></i>
+                  <div className="brleft"></div>
+                  <div className="brright"></div>
                   <i className="icon-local_1-1"></i>
                   <div className="brleft"></div>
                   <div className="brright"></div>
@@ -179,79 +219,51 @@ function Home() {
             </div>
           </div>
         </div>
-        {/* <div className="container largeContainer">
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <div className="subTitle">
-                <span className="bleft"></span>Our Services
-                <span className="bright"></span>
-              </div>
-              <h2 className="secTitle">Customers Services</h2>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="icon_box_09 text-center">
-                <h2>01</h2>
-                <div className="ib_box">
-                  <i className="icon-local_1"></i>
-                </div>
-                <div className="srThumb">
-                  <img src={ServicesImg1} alt="Service Image 1" />
-                </div>
-                <h3>
-                  <a href="single-service.html">Startup</a>
-                </h3>
-                <p>A typical business holds many different assets called</p>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="icon_box_09 text-center">
-                <h2>02</h2>
-                <div className="ib_box">
-                  <i className="icon-local_3-1"></i>
-                </div>
-                <div className="srThumb">
-                  <img src={ServicesImg2} alt="Service Image 2" />
-                </div>
-                <h3>
-                  <a href="single-service.html">Business</a>
-                </h3>
-                <p>A typical business holds many different assets called</p>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="icon_box_09 text-center">
-                <h2>03</h2>
-                <div className="ib_box">
-                  <i className="icon-local_1-1"></i>
-                </div>
-                <div className="srThumb">
-                  <img src={ServicesImg3} alt="Service Image 3" />
-                </div>
-                <h3>
-                  <a href="single-service.html">Financial</a>
-                </h3>
-                <p>A typical business holds many different assets called</p>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12 text-center">
-              <p className="secDesc">
-                We help take your small business to the next level. Don’t
-                hesitate to contact us.
-              </p>
-              <h4>30 Minutes Free Consultation</h4>
-              <div className="clearfix"></div>
-              <a className="qu_btn" href="contact.html">
-                Send Request
-              </a>
-            </div>
-          </div>
-        </div> */}
+
         <div className="marqueeText btMr runLeft">
           <h2>Financial Freedom Consultant.</h2>
+        </div>
+      </section>
+
+      {/* How We Work Section */}
+      <section className="processSection01">
+        <div className="container largeContainer">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <div className="subTitle"><span class="bleft"></span>Process<span class="bright"></span></div>
+              <h2 className="secTitle">How We <span>Work</span></h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="icon_box_03">
+                <div className="ib_box"><i class="icon-local_1"></i><span>01</span></div>
+                <h3>Improvement</h3>
+                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="icon_box_03">
+                <div className="ib_box"><i class=" icon-local_3"></i><span>02</span></div>
+                <h3>Idea Create</h3>
+                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="icon_box_03">
+                <div className="ib_box"><i class="icon-local_9"></i><span>03</span></div>
+                <h3>Consultancy</h3>
+                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 text-center">
+              <div className="icon_box_03">
+                <div className="ib_box"><i class="icon-local_7"></i><span>04</span></div>
+                <h3>Success</h3>
+                <p>Fessionally fabricate strategic platform without corporate before fully tested</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
