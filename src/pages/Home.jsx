@@ -55,11 +55,16 @@ function Home() {
           <div className="row">
             <div className="col-xl-6">
               <div className="boxService">
+                <div className="subTitle">
+                  <span className="bleft"></span>Our Services
+                  <span className="bright"></span>
+                </div>
                 <h2 className="secTitle">
-                  We Make Your Agency <span>Full Bright</span>
+                  Customer <span>Services</span>
                 </h2>
                 <p>
-                  Unlock agency potential with comprehensive services, from strategy to execution. Maximize brand impact with comprehensive illumination.
+                  Explore a diverse array of meticulously crafted solutions, each tailored to address your unique
+                  financial needs and aspirations with expertise and care. Trust us to be your partner in financial success.
                 </p>
               </div>
             </div>
@@ -173,7 +178,6 @@ function Home() {
         </div>
       </section>
 
-      {/* How We Work Section */}
       <section className="processSection">
         <div className="container largeContainer">
           <div className="row">

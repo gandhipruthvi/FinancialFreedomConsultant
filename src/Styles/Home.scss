@@ -214,6 +214,29 @@ $theme-color: #009CFF;
         color: $theme-color;
     }
 
+    .subTitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: .9;
+        color: $theme-color;
+        margin: 0 0 24px;
+    }
+
+    .subTitle span {
+        display: inline-block;
+        width: 50px;
+        height: 2px;
+        background: $theme-color;
+        margin-right: 20px;
+        position: relative;
+        top: -5px;
+    }
+
+    .subTitle .bright {
+        margin-right: 0;
+        margin-left: 20px;
+    }
+
     .icon_box_01 {
         position: relative;
         z-index: 2;
@@ -551,6 +574,43 @@ $theme-color: #009CFF;
         }
     }
 }
+
+/*------------------------------------------------------------------
+/ Displaying Numbers Section
+/-------------------------------------------------------------------*/
+.funfactArea {
+    position: absolute;
+    left: 0;
+    top: -160px;
+    width: 66%;
+    background: #fff;
+    border: 10px solid var(--theme-color);
+    border-left: none;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 85px 120px;
+}
+
+//     .fact_01{
+//         position: relative;
+//     }
+//     .fact_01 h2{
+//         color: var(--theme-color);
+//         font-size: 80px;
+//         line-height: 80px;
+//         font-weight: 600;
+//         margin: 0 0 8px;
+//     }
+//     .fact_01 h2 i{
+//         font-style: normal;
+//     }
+//     .fact_01 p{
+//         font-weight: 700;
+//         color: #1a1a1a;
+//         margin: 0;
+//     }
+// }
 
 /*------------------------------------------------------------------
 / How We Work Section
