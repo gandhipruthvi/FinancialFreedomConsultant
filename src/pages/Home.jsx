@@ -26,13 +26,16 @@ function Home() {
             Welcome to <b>Financial Freedom Consultant</b>, where our commitment
             lies in assisting clients in attaining their financial aspirations.
           </p>
-        </div>
-
-        <div className="body-text-content">
           <p className="body-description">
             Ready for financial freedom? Let us guide you at Financial Freedom
             Consultants.
           </p>
+        </div>
+
+        <div className="body-text-content">
+          <h2>Career Counseling</h2>
+          <p className="heading-body-description">At Financial Freedom Consultant, our career counseling service paves the way for a prosperous financial profession.
+            Whether you're beginning your journey or aiming for advancement, count on us for unwavering support at every stage.</p>
         </div>
 
         <div className="body-btn">
@@ -47,7 +50,7 @@ function Home() {
         <div className="marqueeText runRight stokeText">
           <h2>Financial Freedom Consultant.</h2>
         </div>
-        <br />
+        <br /><br />
         <div className="container largeContainer">
           <div className="row">
             <div className="col-xl-6">
@@ -56,9 +59,7 @@ function Home() {
                   We Make Your Agency <span>Full Bright</span>
                 </h2>
                 <p>
-                  This Cheat Sheet offers tips and advice to help you get the
-                  essentials right. here’s a list of the most important tasks of
-                  business accounting and their meaning.
+                  Unlock agency potential with comprehensive services, from strategy to execution. Maximize brand impact with comprehensive illumination.
                 </p>
               </div>
             </div>
@@ -74,8 +75,7 @@ function Home() {
                   <a href="single-service.html">Market Research</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Gain strategic insights and stay ahead in dynamic markets with our expert analysis.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -92,8 +92,7 @@ function Home() {
                   <a href="single-service.html">Startup Business</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Empowering startups with tailored solutions for growth and success in competitive landscape.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -110,8 +109,7 @@ function Home() {
                   <a href="single-service.html">Business Growth</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Fostering business expansion through customized strategic solutions
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -128,8 +126,7 @@ function Home() {
                   <a href="single-service.html">Insurance Task</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Efficiently manage insurance-related tasks with our specialized expertise and support.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -146,8 +143,7 @@ function Home() {
                   <a href="single-service.html">Consultancy</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Expert guidance tailored to your needs for informed decision-making and success.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -164,24 +160,13 @@ function Home() {
                   <a href="single-service.html">Financial Advices</a>
                 </h3>
                 <p>
-                  A typical business holds many different assets called capital,
-                  including office...
+                  Personalized guidance for secure financial futures tailored to your goals and circumstances.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <p className="qu_link">
-                You can also find our{" "}
-                <a href="contact.html">
-                  Consultant Service to contact for the consulting
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+        </div><br />
 
         <div className="marqueeText btMr runLeft">
           <h2>Financial Freedom Consultant.</h2>
@@ -211,8 +196,7 @@ function Home() {
                 </div>
                 <h3>Improvement</h3>
                 <p>
-                  Fessionally fabricate strategic platform without corporate
-                  before fully tested
+                  Continuous enhancement through data-driven insights and client collaboration for optimal results.
                 </p>
               </div>
             </div>
@@ -224,8 +208,7 @@ function Home() {
                 </div>
                 <h3>Idea Create</h3>
                 <p>
-                  Fessionally fabricate strategic platform without corporate
-                  before fully tested
+                  Inspiring innovation through collaborative brainstorming and creative exploration.
                 </p>
               </div>
             </div>
@@ -237,8 +220,7 @@ function Home() {
                 </div>
                 <h3>Consultancy</h3>
                 <p>
-                  Fessionally fabricate strategic platform without corporate
-                  before fully tested
+                  Tailored guidance and expertise for navigating complex challenges and seizing opportunities.
                 </p>
               </div>
             </div>
@@ -250,8 +232,7 @@ function Home() {
                 </div>
                 <h3>Success</h3>
                 <p>
-                  Fessionally fabricate strategic platform without corporate
-                  before fully tested
+                  Partnering with you to define, pursue, and achieve your vision of success.
                 </p>
               </div>
             </div>
@@ -283,10 +264,9 @@ function Home() {
                       <i className="icon-local_1"></i>
                       <div className="pin2"></div>
                     </div>
-                    <h3>Improvement</h3>
+                    <h3>Expertise</h3>
                     <p>
-                      All cash received from sales and from all other sources
-                      has to be carefully identified....
+                      Access to seasoned financial advisors with extensive industry knowledge and proven track records.
                     </p>
                   </div>
                 </div>
@@ -297,10 +277,9 @@ function Home() {
                       <i className="icon-local_3"></i>
                       <div className="pin2"></div>
                     </div>
-                    <h3>Idea Generate</h3>
+                    <h3>Transparency</h3>
                     <p>
-                      All cash received from sales and from all other sources
-                      has to be carefully identified....
+                      We prioritize clear communication and transparency, empowering confident financial decisions.
                     </p>
                   </div>
                 </div>
@@ -311,10 +290,9 @@ function Home() {
                       <i className="icon-XjxC7N01"></i>
                       <div className="pin2"></div>
                     </div>
-                    <h3>Consultancy</h3>
+                    <h3>Client-Centric</h3>
                     <p>
-                      All cash received from sales and from all other sources
-                      has to be carefully identified....
+                      Dedication to understanding your unique financial needs and providing personalized guidance.
                     </p>
                   </div>
                 </div>
@@ -325,10 +303,9 @@ function Home() {
                       <i className="icon-local_11"></i>
                       <div className="pin2"></div>
                     </div>
-                    <h3>Success Business</h3>
+                    <h3>Proven Results</h3>
                     <p>
-                      All cash received from sales and from all other sources
-                      has to be carefully identified....
+                      Demonstrated success in helping clients achieve financial stability, growth, and prosperity.
                     </p>
                   </div>
                 </div>
@@ -351,8 +328,7 @@ function Home() {
                       </div>
                       <h3>Small / Growing Business!</h3>
                       <p>
-                        Choose one channel and be great at it. Work toward the
-                        goal of being the leading provider
+                        Discover how we empower small and growing businesses to thrive in competitive markets.
                       </p>
                     </div>
                   </div>
@@ -368,8 +344,7 @@ function Home() {
                       </div>
                       <h3>Enterprise Level Organization</h3>
                       <p>
-                        Choose one channel and be great at it. Work toward the
-                        goal of being the leading provider
+                        Learn how large enterprises use our services to streamline operations and achieve goals.
                       </p>
                     </div>
                   </div>
@@ -387,9 +362,8 @@ function Home() {
             <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
               <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Testimonial</div>
               <h1 className="mb-4">What Our Clients Say!</h1>
-              <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                clita duo justo et tempor eirmod magna dolore erat amet</p>
+              <p className="mb-4">Discover firsthand experiences and testimonials from our valued clients.
+                Dive into their stories and learn how our services have made a difference in their lives or businesses.</p>
               {/* <a class="btn btn-primary rounded-pill px-4" href="#">Read More</a> */}
             </div>
             <div className="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
