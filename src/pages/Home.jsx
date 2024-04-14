@@ -1,7 +1,32 @@
+import React, { useEffect, useState } from "react";
 import "../Styles/Home.scss";
 import ServicesImg1 from "../assets/our services/s1.jpg";
 import ServicesImg2 from "../assets/our services/s2.jpg";
 import ServicesImg3 from "../assets/our services/s3.jpg";
+
+const easeOutQuad = (t) => t * (2 - t);
+const frameDuration = 1000 / 60;
+
+const CountUpAnimation = ({ children, duration = 3000 }) => {
+  const countTo = parseInt(children, 10);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+    const totalFrames = Math.round(duration / frameDuration);
+    const counter = setInterval(() => {
+      frame++;
+      const progress = easeOutQuad(frame / totalFrames);
+      setCount(countTo * progress);
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+      }
+    }, frameDuration);
+  }, []);
+
+  return Math.floor(count);
+};
 
 function Home() {
   return (
@@ -34,8 +59,12 @@ function Home() {
 
         <div className="body-text-content">
           <h2>Career Counseling</h2>
-          <p className="heading-body-description">At Financial Freedom Consultant, our career counseling service paves the way for a prosperous financial profession.
-            Whether you're beginning your journey or aiming for advancement, count on us for unwavering support at every stage.</p>
+          <p className="heading-body-description">
+            At Financial Freedom Consultant, our career counseling service paves
+            the way for a prosperous financial profession. Whether you're
+            beginning your journey or aiming for advancement, count on us for
+            unwavering support at every stage.
+          </p>
         </div>
 
         <div className="body-btn">
@@ -50,7 +79,8 @@ function Home() {
         <div className="marqueeText runRight stokeText">
           <h2>Financial Freedom Consultant.</h2>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div className="container largeContainer">
           <div className="row">
             <div className="col-xl-6">
@@ -59,7 +89,9 @@ function Home() {
                   We Make Your Agency <span>Full Bright</span>
                 </h2>
                 <p>
-                  Unlock agency potential with comprehensive services, from strategy to execution. Maximize brand impact with comprehensive illumination.
+                  Unlock agency potential with comprehensive services, from
+                  strategy to execution. Maximize brand impact with
+                  comprehensive illumination.
                 </p>
               </div>
             </div>
@@ -75,7 +107,8 @@ function Home() {
                   <a href="single-service.html">Market Research</a>
                 </h3>
                 <p>
-                  Gain strategic insights and stay ahead in dynamic markets with our expert analysis.
+                  Gain strategic insights and stay ahead in dynamic markets with
+                  our expert analysis.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -92,7 +125,8 @@ function Home() {
                   <a href="single-service.html">Startup Business</a>
                 </h3>
                 <p>
-                  Empowering startups with tailored solutions for growth and success in competitive landscape.
+                  Empowering startups with tailored solutions for growth and
+                  success in competitive landscape.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -109,7 +143,8 @@ function Home() {
                   <a href="single-service.html">Business Growth</a>
                 </h3>
                 <p>
-                  Fostering business expansion through customized strategic solutions
+                  Fostering business expansion through customized strategic
+                  solutions
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -126,7 +161,8 @@ function Home() {
                   <a href="single-service.html">Insurance Task</a>
                 </h3>
                 <p>
-                  Efficiently manage insurance-related tasks with our specialized expertise and support.
+                  Efficiently manage insurance-related tasks with our
+                  specialized expertise and support.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -143,7 +179,8 @@ function Home() {
                   <a href="single-service.html">Consultancy</a>
                 </h3>
                 <p>
-                  Expert guidance tailored to your needs for informed decision-making and success.
+                  Expert guidance tailored to your needs for informed
+                  decision-making and success.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
@@ -160,16 +197,63 @@ function Home() {
                   <a href="single-service.html">Financial Advices</a>
                 </h3>
                 <p>
-                  Personalized guidance for secure financial futures tailored to your goals and circumstances.
+                  Personalized guidance for secure financial futures tailored to
+                  your goals and circumstances.
                 </p>
                 {/* <a className="sm" href="single-service.html">Read More<i className="twi-arrow-right1"></i></a> */}
               </div>
             </div>
           </div>
-        </div><br />
+        </div>
+        <br />
 
         <div className="marqueeText btMr runLeft">
           <h2>Financial Freedom Consultant.</h2>
+        </div>
+      </section>
+
+      {/* Numbers Section */}
+      <section className="numberSection">
+        <div className="funfactArea">
+          <div className="fact_01">
+            <h2>
+              <span className="counter" data-count="2500">
+                <CountUpAnimation>2500</CountUpAnimation>
+              </span>
+              <i>k</i>
+            </h2>
+            <p>
+              Power of choices when nothing what
+              <br />
+              we like best principle
+            </p>
+          </div>
+          <div className="fact_01">
+            <h2>
+              <span className="counter" data-count="138">
+                <CountUpAnimation>138</CountUpAnimation>
+              </span>
+              <i>+</i>
+            </h2>
+            <p>
+              Experiend Professuinal Team obtain
+              <br />
+              some of good advantages
+            </p>
+          </div>
+          <div className="fact_01">
+            <h2>
+              <span className="counter" data-count="9800">
+                <CountUpAnimation>9.8</CountUpAnimation>
+              </span>
+              <i>%</i>
+            </h2>
+            <p>
+              Revenue complete of the system and
+              <br />
+              expound actual teaching
+            </p>
+          </div>
         </div>
       </section>
 
@@ -196,7 +280,8 @@ function Home() {
                 </div>
                 <h3>Improvement</h3>
                 <p>
-                  Continuous enhancement through data-driven insights and client collaboration for optimal results.
+                  Continuous enhancement through data-driven insights and client
+                  collaboration for optimal results.
                 </p>
               </div>
             </div>
@@ -208,7 +293,8 @@ function Home() {
                 </div>
                 <h3>Idea Create</h3>
                 <p>
-                  Inspiring innovation through collaborative brainstorming and creative exploration.
+                  Inspiring innovation through collaborative brainstorming and
+                  creative exploration.
                 </p>
               </div>
             </div>
@@ -220,7 +306,8 @@ function Home() {
                 </div>
                 <h3>Consultancy</h3>
                 <p>
-                  Tailored guidance and expertise for navigating complex challenges and seizing opportunities.
+                  Tailored guidance and expertise for navigating complex
+                  challenges and seizing opportunities.
                 </p>
               </div>
             </div>
@@ -232,7 +319,8 @@ function Home() {
                 </div>
                 <h3>Success</h3>
                 <p>
-                  Partnering with you to define, pursue, and achieve your vision of success.
+                  Partnering with you to define, pursue, and achieve your vision
+                  of success.
                 </p>
               </div>
             </div>
@@ -266,7 +354,8 @@ function Home() {
                     </div>
                     <h3>Expertise</h3>
                     <p>
-                      Access to seasoned financial advisors with extensive industry knowledge and proven track records.
+                      Access to seasoned financial advisors with extensive
+                      industry knowledge and proven track records.
                     </p>
                   </div>
                 </div>
@@ -279,7 +368,8 @@ function Home() {
                     </div>
                     <h3>Transparency</h3>
                     <p>
-                      We prioritize clear communication and transparency, empowering confident financial decisions.
+                      We prioritize clear communication and transparency,
+                      empowering confident financial decisions.
                     </p>
                   </div>
                 </div>
@@ -292,7 +382,8 @@ function Home() {
                     </div>
                     <h3>Client-Centric</h3>
                     <p>
-                      Dedication to understanding your unique financial needs and providing personalized guidance.
+                      Dedication to understanding your unique financial needs
+                      and providing personalized guidance.
                     </p>
                   </div>
                 </div>
@@ -305,7 +396,8 @@ function Home() {
                     </div>
                     <h3>Proven Results</h3>
                     <p>
-                      Demonstrated success in helping clients achieve financial stability, growth, and prosperity.
+                      Demonstrated success in helping clients achieve financial
+                      stability, growth, and prosperity.
                     </p>
                   </div>
                 </div>
@@ -329,7 +421,8 @@ function Home() {
                       </div>
                       <h3>Small / Growing Business!</h3>
                       <p>
-                        Discover how we empower small and growing businesses to thrive in competitive markets.
+                        Discover how we empower small and growing businesses to
+                        thrive in competitive markets.
                       </p>
                     </div>
                   </div>
@@ -345,7 +438,8 @@ function Home() {
                       </div>
                       <h3>Enterprise Level Organization</h3>
                       <p>
-                        Learn how large enterprises use our services to streamline operations and achieve goals.
+                        Learn how large enterprises use our services to
+                        streamline operations and achieve goals.
                       </p>
                     </div>
                   </div>
@@ -452,19 +546,28 @@ function Home() {
         <div className="container py-5">
           <div className="row g-5">
             <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-              <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Testimonial</div>
+              <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">
+                Testimonial
+              </div>
               <h1 className="mb-4">What Our Clients Say!</h1>
-              <p className="mb-4">Discover firsthand experiences and testimonials from our valued clients.
-                Dive into their stories and learn how our services have made a difference in their lives or businesses.</p>
-              {/* <a class="btn btn-primary rounded-pill px-4" href="#">Read More</a> */}
+              <p className="mb-4">
+                Discover firsthand experiences and testimonials from our valued
+                clients. Dive into their stories and learn how our services have
+                made a difference in their lives or businesses.
+              </p>
+              {/* <a className="btn btn-primary rounded-pill px-4" href="#">Read More</a> */}
             </div>
             <div className="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
               <div className="owl-carousel testimonial-carousel border-start border-primary">
                 <div className="testimonial-item ps-5">
                   <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                  <p className="fs-4">
+                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
+                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
+                    duo justo et tempor eirmod magna dolore erat amet
+                  </p>
                   <div className="d-flex align-items-center">
-                    {/* <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
+                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
                                     style="width: 60px; height: 60px;"> */}
                     <div className="ps-3">
                       <h5 className="mb-1">Client Name</h5>
@@ -474,9 +577,13 @@ function Home() {
                 </div>
                 <div className="testimonial-item ps-5">
                   <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                  <p className="fs-4">
+                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
+                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
+                    duo justo et tempor eirmod magna dolore erat amet
+                  </p>
                   <div className="d-flex align-items-center">
-                    {/* <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
+                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
                                     style="width: 60px; height: 60px;"> */}
                     <div className="ps-3">
                       <h5 className="mb-1">Client Name</h5>
@@ -486,9 +593,13 @@ function Home() {
                 </div>
                 <div className="testimonial-item ps-5">
                   <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                  <p className="fs-4">
+                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
+                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
+                    duo justo et tempor eirmod magna dolore erat amet
+                  </p>
                   <div className="d-flex align-items-center">
-                    {/* <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
+                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
                                     style="width: 60px; height: 60px;"> */}
                     <div className="ps-3">
                       <h5 className="mb-1">Client Name</h5>
