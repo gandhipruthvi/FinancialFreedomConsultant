@@ -315,6 +315,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Why Choose Us Section Small Growing business part*/}
       <section className="whyChooseUsSection2">
         <div className="container largeContainer">
           <div className="row">
@@ -349,6 +350,97 @@ function Home() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Appointment Section */}
+      <section className="appoinmentSection02">
+        <div className="container largeContainer">
+          <div className="row">
+            <div className="col-xl-5">
+              <div className="reviewArea">
+                <h2 className="secTitle">Help Your Business Win!</h2>
+                <p className="secDesc">
+                  A typical business holds many different assets called capital,
+                  including office furniture services equipment, retail display
+                  cabinets...
+                </p>
+                <div className="cusRating">
+                  <i className="twi-star"></i>
+                  <i className="twi-star"></i>
+                  <i className="twi-star"></i>
+                  <i className="twi-star"></i>
+                  <i className="twi-star"></i>
+                </div>
+                <p className="customers">
+                  <span>99% Customer Satisfaction</span> based on 750+ reviews
+                  and 20,000 Objective Resource
+                </p>
+              </div>
+            </div>
+            <div className="col-xl-7">
+              <div className="appointment_form">
+                <p>Do it right now!</p>
+                <h3>Make an Appointment</h3>
+                <form
+                  action="#"
+                  method="post"
+                  className="row"
+                  id="contact_form"
+                >
+                  <div className="input-field col-md-6">
+                    <i className="twi-user2"></i>
+                    <input
+                      className="required"
+                      type="text"
+                      name="con_name"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div className="input-field col-md-6">
+                    <i className="twi-envelope2"></i>
+                    <input
+                      className="required"
+                      type="email"
+                      name="con_email"
+                      placeholder="Email Address"
+                    />
+                  </div>
+                  <div className="input-field col-md-6">
+                    <i className="twi-map-marker-alt2"></i>
+                    <input
+                      type="text"
+                      name="con_location"
+                      placeholder="Your Location"
+                    />
+                  </div>
+                  <div className="input-field col-md-6">
+                    <select className="required" name="con_subject">
+                      <option selected="selected">Subjects</option>
+                      <option>Finance Consultant</option>
+                      <option>Business Consultant</option>
+                      <option>Financial Advices</option>
+                      <option>Business Growth</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-md-12">
+                    <i className="twi-comment-lines2"></i>
+                    <textarea
+                      className="required"
+                      name="con_message"
+                      placeholder="Describe Your Plan"
+                    ></textarea>
+                  </div>
+                  <div className="input-field col-md-12">
+                    <button type="submit" className="qu_btn">
+                      Get A Quote
+                    </button>
+                    <div className="con_message"></div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

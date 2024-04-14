@@ -704,7 +704,7 @@ $theme-color: #009CFF;
 }
 
 /*------------------------------------------------------------------
-/ Why Choose Us
+/ Why Choose Us Section
 /-------------------------------------------------------------------*/
 .whyChooseUsSection {
     position: relative;
@@ -915,7 +915,7 @@ $theme-color: #009CFF;
         z-index: 2;
         background: #fff;
         padding: 45px 55px;
-        margin: -87px 0 119px;
+        margin: -87px 0 27px;
         -webkit-box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
         -moz-box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
         box-shadow: 0px 10px 90px 0px rgba(13, 30, 53, 0.05);
@@ -1062,4 +1062,197 @@ testimonial-carousel {
 .testimonial-carousel .owl-dot.active {
     width: 30px;
     background: var(--primary);
+}
+
+/*------------------------------------------------------------------
+/ Appointment Section
+/-------------------------------------------------------------------*/
+.appoinmentSection02 {
+    z-index: 2;
+    position: relative;
+    padding: 0;
+    margin-bottom: 80px;
+
+    .reviewArea {
+        position: relative;
+        min-height: 639px;
+        background: url(../assets/bg/7.png) no-repeat bottom left #f7f7f7;
+        padding: 73px 75px 0;
+
+        .secTitle {
+            font-size: 36px;
+            line-height: 44px;
+            margin-bottom: 15px;
+        }
+
+        .secDesc {
+            color: #7f8388;
+            line-height: 26px;
+            margin: 0 0 29px;
+        }
+
+        .cusRating {
+            color: $theme-color;
+            font-size: 18px;
+            letter-spacing: 3px;
+            display: flex;
+            margin: 0 0 14px;
+        }
+
+        .customers {
+            font-size: 16px;
+            line-height: 28px;
+            color: #1a1a1a;
+            font-weight: 500;
+
+            span {
+                color: $theme-color;
+                font-weight: 700;
+                border-bottom: 2px solid $theme-color;
+            }
+        }
+    }
+
+    .appointment_form {
+        position: relative;
+        background: url(../assets/bg/4.jpg) no-repeat center center / cover;
+        padding: 74px 75px 80px;
+    }
+
+    .appointment_form>p {
+        color: $theme-color;
+        font-size: 14px;
+        margin: 0 0 3px;
+    }
+
+    .appointment_form>h3 {
+        font-size: 30px;
+        line-height: 1;
+        margin: 0 0 36px;
+    }
+
+    .input-field {
+        position: relative;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .input-field i {
+        color: #74777c;
+        font-size: 14px;
+        line-height: 60px;
+        position: absolute;
+        left: 40px;
+        top: 0;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="number"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="password"],
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        padding: 0 15px 0 52px;
+        border: none;
+        border-radius: 50px;
+        font-size: 14px;
+        line-height: 60px;
+        margin: 0 0 15px;
+        color: #74777c;
+        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+    }
+
+    textarea {
+        height: 150px;
+        padding-top: 12px;
+        padding-left: 55px;
+        line-height: 34px;
+        border-radius: 30px;
+        resize: none;
+        margin-bottom: 30px;
+    }
+
+    input[type="email"]::-moz-placeholder,
+    input[type="text"]::-moz-placeholder,
+    input[type="number"]::-moz-placeholder,
+    textarea::-moz-placeholder,
+    select::-moz-placeholder {
+        color: #74777c;
+        opacity: 1;
+    }
+
+    input[type="email"]::-webkit-input-placeholder,
+    input[type="text"]::-webkit-input-placeholder,
+    input[type="number"]::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder,
+    select::-webkit-input-placeholder {
+        color: #74777c;
+        opacity: 1;
+    }
+
+    input[type="email"]::-ms-input-placeholder,
+    input[type="text"]::-ms-input-placeholder,
+    input[type="number"]::-ms-input-placeholder,
+    textarea::-ms-input-placeholder,
+    select::-ms-input-placeholder {
+        color: #74777c;
+        opacity: 1;
+    }
+
+    .input-field option {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        max-height: 361px;
+        overflow: auto;
+        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+    }
+
+    .input-field option {
+        font-size: 14px;
+        color: #74777c;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 2px 25px;
+    }
+
+    .input-field option:hover,
+    option.focus,
+    option.selected.focus {
+        background: transparent;
+        color: $theme-color;
+    }
+
+    textarea:focus {
+        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
+    }
+
+    .input-field input.reqError,
+    .input-field .reqError {
+        border: 1px solid #f00;
+    }
+
+    .con_message {
+        display: block;
+        width: 100%;
+        display: none;
+        padding: 15px;
+        border-radius: 0;
+        border-width: 2px;
+        margin: 15px 0 0;
+    }
 }
