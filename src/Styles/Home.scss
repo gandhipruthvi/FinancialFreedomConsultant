@@ -201,13 +201,13 @@ $theme-color: #009CFF;
         font-size: 45px;
         line-height: 60px;
         margin: 0 0 30px;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
     }
 
     .boxService p {
         line-height: 28px;
         margin: 0;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
     }
 
     .secTitle span {
@@ -324,7 +324,7 @@ $theme-color: #009CFF;
     .ibMeta span {
         font-size: 60px;
         line-height: 82px;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
         font-weight: 700;
         color: rgba(255, 255, 255, .1);
         position: absolute;
@@ -475,6 +475,7 @@ $theme-color: #009CFF;
         top: 27px;
         width: 100%;
         overflow: hidden;
+        white-space: nowrap;
     }
 
     .btMr {
@@ -576,41 +577,47 @@ $theme-color: #009CFF;
 }
 
 /*------------------------------------------------------------------
-/ Displaying Numbers Section
+/ Our Services
 /-------------------------------------------------------------------*/
-.funfactArea {
-    position: absolute;
-    left: 0;
-    top: -160px;
-    width: 66%;
-    background: #fff;
-    border: 10px solid var(--theme-color);
-    border-left: none;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    padding: 85px 120px;
-}
+.numberSection {
+    .funfactArea {
+        left: 0;
+        top: -160px;
+        width: 85%;
+        background: #fff;
+        border: 10px solid $theme-color;
+        border-left: none;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        padding: 85px 75px;
+        margin-bottom: 80px;
+    }
 
-//     .fact_01{
-//         position: relative;
-//     }
-//     .fact_01 h2{
-//         color: var(--theme-color);
-//         font-size: 80px;
-//         line-height: 80px;
-//         font-weight: 600;
-//         margin: 0 0 8px;
-//     }
-//     .fact_01 h2 i{
-//         font-style: normal;
-//     }
-//     .fact_01 p{
-//         font-weight: 700;
-//         color: #1a1a1a;
-//         margin: 0;
-//     }
-// }
+    .fact_01 {
+        position: relative;
+        width: 30%;
+        margin: auto;
+    }
+
+    .fact_01 h2 {
+        color: $theme-color;
+        font-size: 80px;
+        line-height: 80px;
+        font-weight: 600;
+        margin: 0 0 8px;
+    }
+
+    .fact_01 h2 i {
+        font-style: normal;
+    }
+
+    .fact_01 p {
+        font-weight: 700;
+        color: #1a1a1a;
+        margin: 0;
+    }
+}
 
 /*------------------------------------------------------------------
 / How We Work Section
