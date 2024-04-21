@@ -1,5 +1,5 @@
 import "../Styles/Footer.scss";
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 
 function Footer() {
   return (
@@ -11,14 +11,14 @@ function Footer() {
             <img src={logo} />
           </div>
           <p className="ft-description">
-            Ready to take control of your financial future and achieve true financial freedom?
-            At Financial Freedom Consultant, we're here to guide you every step of the way.
-            Our dedicated team is committed to helping you reach your financial goals and
-            secure a prosperous future for yourself and your loved ones.
+            Ready to take control of your financial future and achieve true
+            financial freedom? At Financial Freedom Consultant, we're here to
+            guide you every step of the way. Our dedicated team is committed to
+            helping you reach your financial goals and secure a prosperous
+            future for yourself and your loved ones.
           </p>
           {/* </div> */}
         </div>
-
 
         <div className="ft-list">
           <p className="ft-list-title">Quick Links</p>
@@ -32,7 +32,6 @@ function Footer() {
             <li>
               <a href="#services">Services</a>
             </li>
-
           </ul>
         </div>
 
@@ -48,7 +47,6 @@ function Footer() {
           </ul>
         </div>
 
-
         <div className="ft-list" id="contact">
           <p className="ft-list-title">Contact Us</p>
           <ul className="ft-list-items">
@@ -63,9 +61,10 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">3101 Prime Tower, 31st Floor. Business <br /> Bay, Dubai UAE</a>
+              <a href="#">
+                3101 Prime Tower, 31st Floor. Business <br /> Bay, Dubai UAE
+              </a>
             </li>
-
           </ul>
         </div>
       </div>

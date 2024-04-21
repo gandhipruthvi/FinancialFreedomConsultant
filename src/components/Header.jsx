@@ -1,15 +1,16 @@
 import { useLayoutEffect, useState, useRef } from "react";
 import logo from "../assets/logo.png";
-import "../Styles/Navbar.scss";
+import "../Styles/Header.scss";
+import { NavLink, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Header = () => {
   const ref = useRef();
   let check = true;
   const sticky = useStickyHeader(50);
   const headerClasses =
-    sticky && check
-      ? "header sticky fixedHeader animated slideInDown"
-      : "header";
+    sticky && check ? "sticky fixedHeader animated slideInDown" : "";
+
+  const location = useLocation().pathname == "/" ? "header" : "header relative";
 
   function useStickyHeader(offset = 0) {
     const [stick, setStick] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="header">
+    <div className={location}>
       <header ref={ref} className={headerClasses}>
         <div className="container-fluid">
           <div className="row">
@@ -49,30 +50,25 @@ const Navbar = () => {
                 </div>
                 <nav className="mainMenu">
                   <ul>
-                    <li className="menu-item-has-children current-menu-item">
-                      <a href="">Home</a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="index.html">Home One</a>
-                        </li>
-                        <li>
-                          <a href="index2.html">Home Two</a>
-                        </li>
-                        <li>
-                          <a href="index3.html">Home Three</a>
-                        </li>
-                      </ul>
+                    <li>
+                      <NavLink
+                        to="/"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        Home
+                      </NavLink>
                     </li>
-                    <li className="menu-item-has-children">
-                      <a href="">About</a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="about1.html">About 01</a>
-                        </li>
-                        <li>
-                          <a href="about2.html">About 02</a>
-                        </li>
-                      </ul>
+                    <li>
+                      <NavLink
+                        to="/about"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        About
+                      </NavLink>
                     </li>
                     <li className="menu-item-has-children">
                       <a href="">Blogs</a>
@@ -333,4 +329,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
