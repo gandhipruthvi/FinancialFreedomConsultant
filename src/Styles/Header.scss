@@ -20,17 +20,23 @@ $theme-color: #009CFF;
   }
 }
 
-
+.relative {
+  position: relative !important;
+  background-color: #1a1a1a;
+}
 
 .header {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  margin: auto;
   border-bottom: 2px solid rgba(255, 255, 255, .1);
   z-index: 3;
   // background: rgba(#f3f3f3, 0.5);
+
+  Header {
+    margin: auto;
+  }
 
   .sticky {
     position: fixed;
@@ -129,6 +135,7 @@ $theme-color: #009CFF;
     position: relative;
     padding: 0 0 0 32px;
 
+    .anchor,
     a {
       color: #fff;
       font-size: 15px;
@@ -153,7 +160,13 @@ $theme-color: #009CFF;
         position: relative;
         padding: 63px 0;
 
-        :before {
+        &:hover,
+        .anchor.active {
+          color: $theme-color;
+        }
+
+
+        &:before {
           background: #fff;
           position: absolute;
           left: auto;
@@ -293,7 +306,7 @@ $theme-color: #009CFF;
 
       a {
 
-        :hover,
+        &:hover,
         .active a {
           color: $theme-color;
         }
