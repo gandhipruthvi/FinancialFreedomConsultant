@@ -110,68 +110,6 @@ $theme-color: #009CFF;
       content: "";
       background: rgba(133, 157, 170, 0.5);
     }
-
-    .popup_video {
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      display: inline-block;
-      font-size: 16px;
-      background: linear-gradient(90deg, rgba(237, 28, 36, 1) 0%, rgba(237, 82, 28, 1) 100%);
-      color: #fff;
-      z-index: 2;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      margin: auto;
-
-      &:hover {
-        color: #fff;
-        background: linear-gradient(-90deg,
-            rgba(237, 28, 36, 1) 0%,
-            rgba(237, 82, 28, 1) 100%);
-      }
-    }
-
-    .popup_video::after {
-      content: "";
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      position: absolute;
-      z-index: 0;
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      display: block;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      animation: zoomBig 3s linear infinite;
-      animation-delay: 0s;
-      -webkit-animation-delay: 0s;
-      animation-delay: 0s;
-    }
-
-    .popup_video::before {
-      content: "";
-      border: 2px solid rgba(255, 255, 255, 0.25);
-      position: absolute;
-      z-index: 0;
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      display: block;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      animation: zoomBig 3.25s linear infinite;
-      animation-delay: 0s;
-      -webkit-animation-delay: 0.55s;
-      animation-delay: 0.55s;
-    }
   }
 
   .fact_02 {
