@@ -221,45 +221,70 @@ function Home() {
           <div className="fact_01">
             <h2>
               <span className="counter" data-count="2500">
-                <CountUpAnimation>2500</CountUpAnimation>
+                <CountUpAnimation>15</CountUpAnimation>
               </span>
               <i>k</i>
             </h2>
             <p>
-              Power of choices when nothing what
-              <br />
-              we like best principle
+              Happy Clients
+              {/* <br /> */}
+              {/* we like best principle */}
             </p>
           </div>
           <div className="fact_01">
             <h2>
               <span className="counter" data-count="138">
-                <CountUpAnimation>138</CountUpAnimation>
+                <CountUpAnimation>130</CountUpAnimation>
               </span>
               <i>+</i>
             </h2>
             <p>
-              Experiend Professuinal Team obtain
-              <br />
-              some of good advantages
+              Satisfied Customers
+              {/* <br />
+              some of good advantages */}
             </p>
           </div>
           <div className="fact_01">
             <h2>
               <span className="counter" data-count="9800">
-                <CountUpAnimation>9.8</CountUpAnimation>
+                <CountUpAnimation>90</CountUpAnimation>
               </span>
               <i>%</i>
             </h2>
             <p>
-              Revenue complete of the system and
-              <br />
-              expound actual teaching
+              Accurate Growth
+              {/* <br />
+              expound actual teaching */}
+            </p>
+          </div>
+          <div className="fact_01">
+            <h2>
+              <span className="counter" data-count="2500">
+                <CountUpAnimation>24</CountUpAnimation>
+              </span>
+              <i>/7</i>
+            </h2>
+            <p>
+              Customer Care
+              {/* <br /> */}
+              {/* we like best principle */}
+            </p>
+          </div>
+          <div className="fact_01">
+            <h2>
+              <span className="counter" data-count="2500">
+                <CountUpAnimation>3</CountUpAnimation>
+              </span>
+              <i>k</i>
+            </h2>
+            <p>
+              Certified Courses
+              {/* <br /> */}
+              {/* we like best principle */}
             </p>
           </div>
         </div>
       </section>
-
       {/* How We Work Section */}
       <section className="processSection">
         <div className="container largeContainer">
