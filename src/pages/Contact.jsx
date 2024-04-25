@@ -171,7 +171,7 @@ function Contact() {
                   <img className="author" src={AuthorImg} alt="author image" />
                   <img src={SignImg} alt="signature image" />
                   <div className="signAuthor">
-                    Sowat Ahsan – <span>Founder</span>
+                    Amjad Hussain – <span>Founder</span>
                   </div>
                 </div>
               </div>
