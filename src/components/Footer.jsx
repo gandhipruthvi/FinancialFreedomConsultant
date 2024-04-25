@@ -36,8 +36,9 @@ function Footer() {
           <div className="col-md-6 col-lg-3">
             <div className="aboutWidget">
               <h5>Do you have questions? Call or visit us.</h5>
-              <div className="phone"><i className="twi-phone"></i>+569 2316 2156</div>
-              <p>2659 Dancing Street, New York, NY 25630, USA</p>
+              <div className="phone"><i className="twi-phone"></i>+971-50-984-1318</div>
+              <p>3101 Prime Tower, 31st Floor.
+                Business Bay, Dubai UAE</p>
               <a
                 href="https://themewar.com/cdn-cgi/l/email-protection#e0838f8e94818394a08598818d908c85ce838f8d"><span
                   className="__cf_email__"
@@ -48,10 +49,10 @@ function Footer() {
             <div className="widget PL28">
               <h3 className="widget_title">Usefull Links</h3>
               <ul className="menu">
-                <li><a href="javascript:void(0);">Our Company</a></li>
+                <li><a href="javascript:void(0);">Home</a></li>
                 <li><a href="javascript:void(0);">About Us</a></li>
-                <li><a href="javascript:void(0);">Latest News</a></li>
-                <li><a href="javascript:void(0);">Contact Us</a></li>
+                <li><a href="javascript:void(0);">Services</a></li>
+                <li><a href="javascript:void(0);">Courses</a></li>
                 <li><a href="javascript:void(0);">Privacy Policy</a></li>
               </ul>
             </div>
