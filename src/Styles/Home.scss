@@ -216,6 +216,29 @@ $theme-color: #009CFF;
         color: $theme-color;
     }
 
+    .subTitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: .9;
+        color: $theme-color;
+        margin: 0 0 24px;
+    }
+
+    .subTitle span {
+        display: inline-block;
+        width: 50px;
+        height: 2px;
+        background: $theme-color;
+        margin-right: 20px;
+        position: relative;
+        top: -5px;
+    }
+
+    .subTitle .bright {
+        margin-right: 0;
+        margin-left: 20px;
+    }
+
     .icon_box_01 {
         position: relative;
         z-index: 2;
