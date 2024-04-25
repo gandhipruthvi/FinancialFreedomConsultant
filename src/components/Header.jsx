@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState, useRef } from "react";
 import logo from "../assets/logo.png";
 import "../Styles/Header.scss";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const ref = useRef();
@@ -44,9 +44,9 @@ const Header = () => {
             <div className="col-lg-12">
               <div className="navbar">
                 <div className="logo">
-                  <a href="index.html">
+                  <Link to="/">
                     <img src={logo} alt="Logo" />
-                  </a>
+                  </Link>
                 </div>
                 <nav className="mainMenu">
                   <ul>
@@ -70,86 +70,25 @@ const Header = () => {
                         About
                       </NavLink>
                     </li>
-                    <li className="menu-item-has-children">
-                      <a href="">Blogs</a>
-                      <ul className="sub-menu">
-                        <li className="menu-item-has-children">
-                          <a href="">Blog List Views</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="blog2.html">Left Sidebar</a>
-                            </li>
-                            <li>
-                              <a href="blog1.html">Right Sidebar</a>
-                            </li>
-                            <li>
-                              <a href="blog3.html">Without Sidebar</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <a href="">Blog Grid Views</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="blog5.html">Left Sidebar</a>
-                            </li>
-                            <li>
-                              <a href="blog4.html">Right Sidebar</a>
-                            </li>
-                            <li>
-                              <a href="blog6.html">Without Sidebar</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="single-blog.html">Blog Details</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <a href="">pages</a>
-                      <ul className="sub-menu">
-                        <li className="menu-item-has-children">
-                          <a href="">Services</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="service1.html">Service 01</a>
-                            </li>
-                            <li>
-                              <a href="service2.html">Service 02</a>
-                            </li>
-                            <li>
-                              <a href="single-service.html">Service Details</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <a href="">Portfolios</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="portfolio1.html">Portfolio 01</a>
-                            </li>
-                            <li>
-                              <a href="portfolio2.html">Portfolio 02</a>
-                            </li>
-                            <li>
-                              <a href="single-folio.html">Portfolio Details</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="team.html">Team Page</a>
-                        </li>
-                        <li>
-                          <a href="company.html">Company History</a>
-                        </li>
-                        <li>
-                          <a href="404.html">404 Page</a>
-                        </li>
-                      </ul>
+                    <li>
+                      <NavLink
+                        to="/services"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        Services
+                      </NavLink>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <NavLink
+                        to="/courses"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        Courses
+                      </NavLink>
                     </li>
                   </ul>
                 </nav>
@@ -161,9 +100,16 @@ const Header = () => {
                   >
                     <i className="twi-bars1"></i>
                   </a>
-                  <a href="contact.html" className="qu_btn">
+                  <NavLink
+                    to="/contact"
+                    className={
+                      isActive
+                        ? "current-menu-item anchor qu_btn"
+                        : "anchor qu_btn"
+                    }
+                  >
                     Contact Us
-                  </a>
+                  </NavLink>
                 </div>
                 <div className="navleft">
                   <div className="icon_box_04">
@@ -209,65 +155,65 @@ const Header = () => {
             <h3>
               <i className="twi-bars1"></i> Menu
             </h3>
-            <a href="" className="SMACloser">
+            <a className="SMACloser">
               <i className="twi-times2"></i>
             </a>
           </div>
           <div className="SMABody">
             <ul>
               <li className="menu-item-has-children current-menu-item">
-                <a href="">Home</a>
+                <a>Home</a>
                 <ul className="sub-menu">
                   <li>
-                    <a href="index.html">Home One</a>
+                    <a>Home One</a>
                   </li>
                   <li>
-                    <a href="index2.html">Home Two</a>
+                    <a>Home Two</a>
                   </li>
                   <li>
-                    <a href="index3.html">Home Three</a>
+                    <a>Home Three</a>
                   </li>
                 </ul>
               </li>
               <li className="menu-item-has-children">
-                <a href="">About</a>
+                <a>About</a>
                 <ul className="sub-menu">
                   <li>
-                    <a href="about1.html">About 01</a>
+                    <a>About 01</a>
                   </li>
                   <li>
-                    <a href="about2.html">About 02</a>
+                    <a>About 02</a>
                   </li>
                 </ul>
               </li>
               <li className="menu-item-has-children">
-                <a href="">blogs</a>
+                <a>blogs</a>
                 <ul className="sub-menu">
                   <li className="menu-item-has-children">
-                    <a href="">Blog List Views</a>
+                    <a>Blog List Views</a>
                     <ul className="sub-menu">
                       <li>
-                        <a href="blog2.html">Left Sidebar</a>
+                        <a>Left Sidebar</a>
                       </li>
                       <li>
-                        <a href="blog1.html">Right Sidebar</a>
+                        <a>Right Sidebar</a>
                       </li>
                       <li>
-                        <a href="blog3.html">Without Sidebar</a>
+                        <a>Without Sidebar</a>
                       </li>
                     </ul>
                   </li>
                   <li className="menu-item-has-children">
-                    <a href="">Blog Grid Views</a>
+                    <a>Blog Grid Views</a>
                     <ul className="sub-menu">
                       <li>
-                        <a href="blog5.html">Left Sidebar</a>
+                        <a>Left Sidebar</a>
                       </li>
                       <li>
-                        <a href="blog4.html">Right Sidebar</a>
+                        <a>Right Sidebar</a>
                       </li>
                       <li>
-                        <a href="blog6.html">Without Sidebar</a>
+                        <a>Without Sidebar</a>
                       </li>
                     </ul>
                   </li>
@@ -277,10 +223,10 @@ const Header = () => {
                 </ul>
               </li>
               <li className="menu-item-has-children">
-                <a href="">pages</a>
+                <a>pages</a>
                 <ul className="sub-menu">
                   <li className="menu-item-has-children">
-                    <a href="">Services</a>
+                    <a>Services</a>
                     <ul className="sub-menu">
                       <li>
                         <a href="service1.html">Service 01</a>
@@ -294,7 +240,7 @@ const Header = () => {
                     </ul>
                   </li>
                   <li className="menu-item-has-children">
-                    <a href="">Portfolios</a>
+                    <a>Portfolios</a>
                     <ul className="sub-menu">
                       <li>
                         <a href="portfolio1.html">Portfolio 01</a>
