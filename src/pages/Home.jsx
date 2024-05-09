@@ -570,76 +570,70 @@ function Home() {
       </section>
 
       {/* Testimonials */}
-      <div className="container-xxl py-5">
-        <div className="container py-5">
-          <div className="row g-5">
-            <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-              <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">
-                Testimonial
-              </div>
-              <h1 className="mb-4">What Our Clients Say!</h1>
-              <p className="mb-4">
-                Discover firsthand experiences and testimonials from our valued
-                clients. Dive into their stories and learn how our services have
-                made a difference in their lives or businesses.
-              </p>
-              {/* <a className="btn btn-primary rounded-pill px-4" href="#">Read More</a> */}
+      <section class="testimonialSection01">
+        <div class="container largeContainer">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="subTitle"><span class="bleft"></span>Testimonial<span class="bright"></span></div>
+              <h2 class="secTitle">Client’s <span>Feedback</span></h2>
             </div>
-            <div className="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
-              <div className="owl-carousel testimonial-carousel border-start border-primary">
-                <div className="testimonial-item ps-5">
-                  <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">
-                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
-                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
-                    duo justo et tempor eirmod magna dolore erat amet
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="testimonialslider01 owl-carousel">
+                <div class="testiItem01">
+                  <img src="assets/images/home1/quote.png" alt />
+                  <p class="quotation">
+                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
+                    sources. roductize tailers before
                   </p>
-                  <div className="d-flex align-items-center">
-                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
-                                    style="width: 60px; height: 60px;"> */}
-                    <div className="ps-3">
-                      <h5 className="mb-1">Client Name</h5>
-                      <span>Profession</span>
-                    </div>
+                  <div class="ts_author">
+                    <img src="assets/images/home1/t1.jpg" alt />
+                    <h5>David Smith</h5>
+                    <span>CEO & Founder</span>
                   </div>
                 </div>
-                <div className="testimonial-item ps-5">
-                  <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">
-                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
-                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
-                    duo justo et tempor eirmod magna dolore erat amet
+                <div class="testiItem01">
+                  <img src="assets/images/home1/quote.png" alt />
+                  <p class="quotation">
+                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
+                    sources. roductize tailers before
                   </p>
-                  <div className="d-flex align-items-center">
-                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
-                                    style="width: 60px; height: 60px;"> */}
-                    <div className="ps-3">
-                      <h5 className="mb-1">Client Name</h5>
-                      <span>Profession</span>
-                    </div>
+                  <div class="ts_author">
+                    <img src="assets/images/home1/t2.jpg" alt />
+                    <h5>Jasmine Dola</h5>
+                    <span>Founder</span>
                   </div>
                 </div>
-                <div className="testimonial-item ps-5">
-                  <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                  <p className="fs-4">
-                    Aliqu diam amet diam et eos labore. Clita erat ipsum et
-                    lorem et sit, sed stet no labore lorem sit. Sanctus clita
-                    duo justo et tempor eirmod magna dolore erat amet
+                <div class="testiItem01">
+                  <img src="assets/images/home1/quote.png" alt />
+                  <p class="quotation">
+                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
+                    sources. roductize tailers before
                   </p>
-                  <div className="d-flex align-items-center">
-                    {/* <img className="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
-                                    style="width: 60px; height: 60px;"> */}
-                    <div className="ps-3">
-                      <h5 className="mb-1">Client Name</h5>
-                      <span>Profession</span>
-                    </div>
+                  <div class="ts_author">
+                    <img src="assets/images/home1/t3.jpg" alt />
+                    <h5>Sowat Ahsan</h5>
+                    <span>Designer</span>
+                  </div>
+                </div>
+                <div class="testiItem01">
+                  <img src="assets/images/home1/quote.png" alt />
+                  <p class="quotation">
+                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
+                    sources. roductize tailers before
+                  </p>
+                  <div class="ts_author">
+                    <img src="assets/images/home1/t1.jpg" alt />
+                    <h5>Mark Smith</h5>
+                    <span>Co Founder</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
