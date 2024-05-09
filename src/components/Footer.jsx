@@ -1,71 +1,96 @@
 import "../Styles/Footer.scss";
-import logo from "../assets/logo.png";
+import t1 from "../assets/footer/t1.jpg";
+import t2 from "../assets/footer/t2.jpg";
+import g1 from "../assets/footer/g1.jpg";
+import g2 from "../assets/footer/g2.jpg";
+import g3 from "../assets/footer/g3.jpg";
+import g4 from "../assets/footer/g4.jpg";
+import g5 from "../assets/footer/g5.jpg";
+import g6 from "../assets/footer/g6.jpg";
+import g7 from "../assets/footer/g7.jpg";
+
 
 function Footer() {
   return (
-    <div className="footer-section">
-      <div className="footer-container">
-        <div className="ft-info">
-          {/* <div className="ft-info-p1"> */}
-          <div className="logo">
-            <img src={logo} />
+    <footer className="footer">
+      <div className="containnoer largeContainer topsection">
+        <div className="row">
+          <div className="col-lg-7 col-md-6">
+            <h2 className="secTitle">Feel free to reach out with any questions!<br /> You can give us a call, visit our office,<br /><span>or simply drop us an email.</span></h2>
           </div>
-          <p className="ft-description">
-            Ready to take control of your financial future and achieve true
-            financial freedom? At Financial Freedom Consultant, we're here to
-            guide you every step of the way. Our dedicated team is committed to
-            helping you reach your financial goals and secure a prosperous
-            future for yourself and your loved ones.
-          </p>
-          {/* </div> */}
+          <div className="col-lg-5 col-md-6">
+            <div className="SubsrcribeForm">
+              <form className="yikes-easy-mc-form" action="#" method="post">
+                <input type="email" name="EMAIL" placeholder="Email Address" />
+                <button className="yikes-easy-mc-submit-button" type="submit">Subsrcribe</button>
+              </form>
+            </div>
+          </div>
         </div>
-
-        <div className="ft-list">
-          <p className="ft-list-title">Quick Links</p>
-          <ul className="ft-list-items">
-            <li>
-              <a href="#services">Home</a>
-            </li>
-            <li>
-              <a href="#services">About</a>
-            </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
-          </ul>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="fdivider"></div>
+          </div>
         </div>
-
-        <div className="ft-list">
-          <p className="ft-list-title">Help & Support</p>
-          <ul className="ft-list-items">
-            <li>
-              <a href="#services">FAQ</a>
-            </li>
-            <li>
-              <a href="#services">Contact</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="ft-list" id="contact">
-          <p className="ft-list-title">Contact Us</p>
-          <ul className="ft-list-items">
-            <li>
-              {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height={20} width={15}>
-                <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" /></svg> */}
-              <a href="#">+971-50-984-1318</a>
-            </li>
-            <li>
-              <a href="mailto:appointment@healthplus.com">
-                appointment@healthplus.com
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                3101 Prime Tower, 31st Floor. Business <br /> Bay, Dubai UAE
-              </a>
-            </li>
-          </ul>
+        <div className="row">
+          <div className="col-md-6 col-lg-3">
+            <div className="aboutWidget">
+              <h5>Do you have questions? Call or visit us.</h5>
+              <div className="phone"><i className="twi-phone"></i>+971-50-984-1318</div>
+              <p>3101 Prime Tower, 31st Floor.
+                Business Bay, Dubai UAE</p>
+              <a
+                href="https://themewar.com/cdn-cgi/l/email-protection#e0838f8e94818394a08598818d908c85ce838f8d"><span
+                  className="__cf_email__"
+                  data-cfemail="f794989983969483b7928f969a879b92d994989a">info@financialfreedomconsultant.com</span></a>
+            </div>
+          </div>
+          <div className="col-md-6 col-lg-2">
+            <div className="widget PL28">
+              <h3 className="widget_title">Usefull Links</h3>
+              <ul className="menu">
+                <li><a href="javascript:void(0);">Home</a></li>
+                <li><a href="javascript:void(0);">About Us</a></li>
+                <li><a href="javascript:void(0);">Services</a></li>
+                <li><a href="javascript:void(0);">Courses</a></li>
+                <li><a href="javascript:void(0);">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-md-6 col-lg-4">
+            <div className="widget PL28">
+              <h3 className="widget_title mb28">Latest Posts</h3>
+              <div className="pp_post_item">
+                <img src={t1} alt="blog first image" />
+                <span><i className="twi-clock2"></i>10 June, 2021</span>
+                <a href="single-blog.html">Losing never felt so good energy everything</a>
+              </div>
+              <div className="pp_post_item">
+                <img src={t2} alt="blog second image" />
+                <span><i className="twi-clock2"></i>10 June, 2021</span>
+                <a href="single-blog.html">Losing never felt so good energy everything</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-lg-3">
+            <div className="widget gallery">
+              <h3 className="widget_title mb28">Post Gallery</h3>
+              <div className="galleryShots">
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g1}
+                  alt="gallery image" /></a>
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g2}
+                  alt="gallery image" /></a>
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g3}
+                  alt="gallery image" /></a>
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g4}
+                  alt="gallery image" /></a>
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g5}
+                  alt="gallery image" /></a>
+                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g6}
+                  alt="gallery image" /></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -125,7 +150,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 
