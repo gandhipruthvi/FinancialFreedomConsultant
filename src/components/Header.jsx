@@ -118,14 +118,19 @@ const Header = () => {
                     </div>
                     <p>Have any Questions?</p>
                     <h3>
-                      <a>Email Address</a>
+                      <a
+                        className="email"
+                        href="mailto:info@financialfreedomconsultant.com"
+                      >
+                        info@financialfreedomconsultant.com
+                      </a>
                     </h3>
                   </div>
                   <div
                     className={isActive ? "searchBtn active" : "searchBtn"}
-                    onClick={toggleClass}
+
                   >
-                    <a href onClick={(e) => e.preventDefault()}>
+                    <a onClick={toggleClass}>
                       <i className="twi-search2"></i>
                     </a>
                     <div className="searchBar">

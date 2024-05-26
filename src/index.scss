@@ -61,6 +61,33 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.scrollToTopButton {
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  background: #009CFF;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  padding: 0;
+  z-index: 999;
+  border-radius: 50%;
+
+  &:hover {
+    background: #009CFF;
+    color: #143a52;
+    text-decoration: none;
+  }
+
+  i {
+    line-height: inherit;
+
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
