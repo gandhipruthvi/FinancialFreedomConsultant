@@ -251,6 +251,7 @@ $theme-color: #009CFF;
         margin-bottom: 6px;
         margin: 0 0 3px;
         color: $theme-color;
+        font-weight: 500;
     }
 
     .appointment_form>h3 {
@@ -271,14 +272,13 @@ $theme-color: #009CFF;
     .reviewArea {
         background: linear-gradient(90deg, #006db3 0%, #4dbaff 100%);
         position: relative;
-        min-height: 639px;
+        min-height: 838px;
         padding: 73px 75px 75px;
 
         .secTitle {
             font-size: 36px;
             line-height: 44px;
             margin-bottom: 15px;
-            font-weight: revert-layer;
         }
 
         .secDesc {
@@ -353,8 +353,12 @@ $theme-color: #009CFF;
         .hpAuthor {
             margin-top: 57px;
             position: relative;
-            padding-left: 110px;
+            // padding-left: 110px;
+            font-weight: 600;
+            font-size: 20px;
+            text-align: center;
             padding-top: 16px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
             .author {
                 position: absolute;
@@ -365,9 +369,10 @@ $theme-color: #009CFF;
                 border-radius: 50%;
             }
 
-            .signAuthor {
-                margin-top: 7px;
+            .signature {
+                height: 45px;
             }
+
         }
     }
 }

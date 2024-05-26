@@ -121,12 +121,7 @@ $theme-color: #009CFF;
     }
   }
 
-  .searchBtn {
-    .searchBar {
-      right: 100px;
-      top: 140px;
-    }
-  }
+
 
 
   .mainMenu {
@@ -295,9 +290,19 @@ $theme-color: #009CFF;
       }
 
       h3 {
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1;
-        margin: 0;
+        margin-top: 5px;
+
+        a {
+          text-decoration: none;
+          color: white;
+
+          &:hover {
+            color: $theme-color;
+            border-color: $theme-color;
+          }
+        }
       }
     }
 
@@ -347,7 +352,7 @@ $theme-color: #009CFF;
   .searchBar {
     position: absolute;
     right: -22px;
-    top: 90px;
+    top: 106px;
     width: 300px;
     height: 60px;
     background: #FFF;
@@ -361,12 +366,17 @@ $theme-color: #009CFF;
     -webkit-transition: all ease 400ms;
     -ms-transition: all ease 400ms;
     -o-transition: all ease 400ms;
+    box-shadow: 1px 1px 1px 1px rgb(167, 167, 167);
   }
 
   .searchBtn.active .searchBar {
     visibility: visible;
     opacity: 1;
-    top: 140px;
+
+  }
+
+  .searchBtn.active a {
+    color: $theme-color;
   }
 
   .searchBar input[type="search"] {
@@ -406,7 +416,8 @@ $theme-color: #009CFF;
     top: 5px;
     width: 50px;
     height: 50px;
-    background: var(--theme-color);
+    background: $theme-color;
+    padding: inherit;
     color: #fff;
     line-height: 40px;
     outline: none;

@@ -41,17 +41,16 @@ const About = () => {
                 <div className="subTitle">
                   <span className="bleft"></span>Welcome To Our Company
                 </div>
-                <h2 className="secTitle">Build Your Business With Right Way</h2>
+                <h2 className="secTitle">Empowering Individuals & Businesses</h2>
                 <p className="secDesc">
-                  Accounting departments are usually responsible for keeping
-                  track of all purchase orders that have been placed for stock
-                  (products to be sold by the business) and all other assets and
-                  services.
+                  At <b>Financial Freedom Consultant</b>, we empower both individuals and businesses with expert financial guidance.
+                  Our tailored services help you take control of your financial future. Reach out today to unlock
+                  new opportunities for success.
                 </p>
                 <div className="hpAuthor">
                   <img className="author" src={SymbolImg} alt="symbol" />
                   <p>Need help? Contact Us</p>
-                  <h3>(625)-1251-6677</h3>
+                  <h3>+971-50-984-1318</h3>
                 </div>
               </div>
             </div>
@@ -76,7 +75,7 @@ const About = () => {
                   </span>
                   <i>k</i>
                 </h2>
-                <p>A typical business holds many different...</p>
+                <p>Tailored financial guidance for individuals and businesses, ensuring success and peace of mind.</p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6">
@@ -87,7 +86,7 @@ const About = () => {
                     145
                   </span>
                 </h2>
-                <p>A typical business holds many different...</p>
+                <p>Dedicated to your financial success, our team brings extensive experience and professionalism.</p>
               </div>
             </div>
           </div>
@@ -106,52 +105,46 @@ const About = () => {
                 <Accordion.Item eventKey="0" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Best Sources of Help and Advice for Your Business
+                    Empowerment Through Education
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    You’re not on your own when setting up or running a business
-                    in the UK offier a wealth of information and expertise if
-                    you need help from filling in your tax forms to recruiting
-                    people or setting up your business
+                    We believe in empowering our clients with financial knowledge and understanding.
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="1" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Small business service with offices in most big towns
+                    Holistic Approach
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    You’re not on your own when setting up or running a business
-                    in the UK offier a wealth of information and expertise if
-                    you need help from filling in your tax forms to recruiting
-                    people or setting up your business
+                    Our approach to financial planning goes beyond mere numbers. We take
+                    into account your values, aspirations, and lifestyle to create a
+                    comprehensive strategy that fosters long-term financial freedom and fulfillment.
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="2" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Offices are helpful on recruitment and employing people
+                    Proactive Risk Management
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    You’re not on your own when setting up or running a business
-                    in the UK offier a wealth of information and expertise if
-                    you need help from filling in your tax forms to recruiting
-                    people or setting up your business
+                    We help you identify and mitigate potential risks that could jeopardize your
+                    financial freedom, offering proactive strategies to protect your assets and
+                    ensure stability in any economic climate.
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="3" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Services including a legal helpline with disabilities
+                    Continuous Support and Guidance
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    You’re not on your own when setting up or running a business
-                    in the UK offier a wealth of information and expertise if
-                    you need help from filling in your tax forms to recruiting
-                    people or setting up your business
+                    Achieving financial freedom is an ongoing journey, and we're with you every
+                    step of the way. From initial planning to ongoing monitoring and adjustments,
+                    we provide continuous support and guidance to help you stay on track towards your goals.
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -164,8 +157,7 @@ const About = () => {
                 <div className="chsItem">
                   <img src={Symbol2Img} alt="symbol 2" />
                   <p>
-                    Where spotless cleaning comes to your door, No One Can Do
-                    This
+                    Securing Your Financial Future, Together.
                   </p>
                 </div>
               </div>

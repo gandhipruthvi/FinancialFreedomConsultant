@@ -2,6 +2,34 @@ import "../Styles/Contact.scss";
 import { NavLink } from "react-router-dom";
 import AuthorImg from "../assets/contact/author.png";
 import SignImg from "../assets/contact/sign.png";
+import { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+const SelectDate = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      dateFormat='dd/MM/yyyy'
+    />
+  );
+};
+
+const SelectTime = () => {
+  const [date, handleDateChange] = useState(new Date());
+  return (
+    <DatePicker
+      selected={date}
+      onChange={handleDateChange}
+      showTimeSelect
+      showTimeSelectOnly
+      dateFormat="h:mm aa"
+      timeCaption="Time"
+    />
+  );
+};
 
 function Contact() {
   return (
@@ -75,7 +103,8 @@ function Contact() {
                   className="row"
                   id="contact_form"
                 >
-                  <div className="input-field col-lg-6">
+                  <div className="input-field col-md-6">
+                    <i className="twi-user2"></i>
                     <input
                       className="required"
                       type="text"
@@ -83,7 +112,8 @@ function Contact() {
                       placeholder="Your Name"
                     />
                   </div>
-                  <div className="input-field col-lg-6">
+                  <div className="input-field col-md-6">
+                    <i className="twi-envelope2"></i>
                     <input
                       className="required"
                       type="email"
@@ -91,56 +121,82 @@ function Contact() {
                       placeholder="Email Address"
                     />
                   </div>
-                  <div className="input-field icRight col-lg-12">
+                  <div className="input-field col-md-12">
+                    <i className="twi-cog"></i>
                     <select className="required" name="con_subject">
-                      <option selected="selected">Choose Services</option>
-                      <option>Finance Consultant</option>
-                      <option>Business Consultant</option>
-                      <option>Financial Advices</option>
-                      <option>Business Growth</option>
+                      <option selected="selected">Choose services</option>
+                      <option>Wealth path advisory</option>
+                      <option>Portfolio Management </option>
+                      <option>Fin Market Academy </option>
+                      <option>Financial Advisory </option>
+                      <option>Career Counseling</option>
                     </select>
                   </div>
                   <div className="input-field col-lg-6">
                     <i className="twi-calendar2"></i>
-                    <input
+                    <SelectDate></SelectDate>
+                    {/* <input
                       className="required date-picker"
                       type="text"
                       name="con_date"
                       placeholder="Date of Visit"
-                    />
+                    /> */}
                   </div>
                   <div className="input-field col-lg-6">
                     <i className="twi-clock2"></i>
-                    <input
+                    <SelectTime></SelectTime>
+                    {/* <input
                       className="required time-picker"
                       type="text"
                       name="con_time"
                       placeholder="Time of Visit"
+                    /> */}
+                  </div>
+                  <div className="input-field col-md-6">
+                    <i className="icons-telephone"></i>
+                    <input
+                      className="required"
+                      type="text"
+                      name="con_name"
+                      placeholder="Contact Number"
                     />
                   </div>
-                  <div className="input-field col-lg-12">
+                  <div className="input-field col-md-6">
+                    <i className="icons-worldwide"></i>
+                    <select className="required" name="con_subject">
+                      <option selected="selected">Choose country</option>
+                      <option>Argentina</option>
+                      <option>Belgium</option>
+                      <option>Canada</option>
+                      <option>India</option>
+                      <option>Japan</option>
+                      <option>Morocco</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-md-12">
+                    <i className="twi-comment-lines2"></i>
                     <textarea
                       className="required"
                       name="con_message"
-                      placeholder="Describe Your Property Info...."
+                      placeholder="Describe Your Info"
                     ></textarea>
                   </div>
-                  <div className="input-field col-lg-12">
+                  <div className="input-field col-md-12">
                     <button type="submit" className="qu_btn">
-                      Submit Request
+                      Get A Quote
                     </button>
                     <div className="con_message"></div>
                   </div>
-                </form>
+                </form><br />
+                <p className="note-section">Note: The displayed time here corresponds to the UAE time zone.</p>
               </div>
             </div>
             <div className="col-xl-5">
               <div className="reviewArea">
-                <h2 className="secTitle">Help Your Business Win!</h2>
+                <h2 className="secTitle">Boost your financial wellness.</h2>
                 <p className="secDesc">
-                  A typical business holds many different assets called capital,
-                  including office furniture services equipment, retail display
-                  cabinets...
+                  Receive support at every step of your financial path, whether it involves time management,
+                  skill development, or investment exploration, under the guidance of a financial freedom consultant.
                 </p>
                 <div className="cusRating">
                   <i className="twi-star"></i>
@@ -157,23 +213,33 @@ function Contact() {
                   <p>Perfect Project Done</p>
                   <div className="ss_parent">
                     <div className="ss_child"></div>
-                    <span>70%</span>
+                    {/* <span>70%</span> */}
                   </div>
                 </div>
                 <div className="single_skill" data-parcent="80">
                   <p>Satisfied Customer</p>
                   <div className="ss_parent">
                     <div className="ss_child"></div>
-                    <span>80%</span>
+                    {/* <span>80%</span> */}
                   </div>
                 </div>
                 <div className="hpAuthor">
-                  <img className="author" src={AuthorImg} alt="author image" />
-                  <img src={SignImg} alt="signature image" />
                   <div className="signAuthor">
-                    Amjad Hussain – <span>Founder</span>
+                    FINANCIAL FREEDOM <br /> CONSULTANT
+                 
                   </div>
                 </div>
+                {/* <div className="hpAuthor">
+                  <img className="author" src={AuthorImg} alt="author image" />
+                  <img
+                    className="signature"
+                    src={SignImg}
+                    alt="signature image"
+                  />
+                  <div className="signAuthor">
+                    Amjad Hussain - <span>Founder</span>
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -1,5 +1,16 @@
 import { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "../Styles/Home.scss";
+import Quote from "../assets/bg/blockquote.svg";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
+import { reviews } from '../components/reviewsData';
+
+
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
 // import ServicesImg3 from "../assets/our services/s3.jpg";
@@ -28,20 +39,45 @@ const CountUpAnimation = ({ children, duration = 3000 }) => {
   return Math.floor(count);
 };
 
+const SelectDate = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      dateFormat='dd/MM/yyyy'
+    />
+  );
+};
+
+const SelectTime = () => {
+  const [date, handleDateChange] = useState(new Date());
+  return (
+    <DatePicker
+      selected={date}
+      onChange={handleDateChange}
+      showTimeSelect
+      showTimeSelectOnly
+      dateFormat="h:mm aa"
+      timeCaption="Time"
+    />
+  );
+};
+
 function Home() {
   return (
     <div className="Home">
       {/* Banner Carousel */}
       <section className="banner">
-        {/* <div className="banner-content">
-          <h1>Bright Solutions, Profitable Results.</h1>
+        <div className="banner-content">
+          <h1 className="headLine">Bright Solutions,<br /> Profitable Results.</h1>
           <p>
-            Keeping track of the finances is fundamental to the success of every
-            business, small or large, but tackling task yourself can be
-            intimidating.
+            Unlock your path to financial freedom with our expert consulting services. We tailor strategies that
+            drive profitable results, empowering you to achieve and sustain financial independence. Let us guide
+            you toward a brighter financial future.
           </p>
-          <button className="services-button">Our Services</button>
-        </div> */}
+          <a href="services" className="qu_btn">Our Services</a>
+        </div>
       </section>
 
       {/* Book Now Section */}
@@ -68,11 +104,22 @@ function Home() {
         </div>
 
         <div className="body-btn">
-          <a href="contact.html" className=" priceItem qu_btn">
+          <a href="contact" className=" priceItem qu_btn">
             Book Now
           </a>
         </div>
       </section>
+
+      {/* Free Consultation Call */}
+      <div class="row bottomspace">
+        <div class="col-md-12 text-center">
+          <p class="secDesc">Book a free consultation call for your financial freedom! Let’s evaluate your financial health.
+          </p>
+          <h4>30 Minutes Free Consultation</h4>
+          <div class="clearfix"></div>
+          <a class="qu_btn" href="contact">Send Request</a>
+        </div>
+      </div>
 
       {/* Our Services Section */}
       <section className="serviceSection">
@@ -107,7 +154,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Market Research</a>
+                  <a>Market Research</a>
                 </h3>
                 <p>
                   Gain strategic insights and stay ahead in dynamic markets with
@@ -125,7 +172,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Startup Business</a>
+                  <a>Startup Business</a>
                 </h3>
                 <p>
                   Empowering startups with tailored solutions for growth and
@@ -143,7 +190,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Business Growth</a>
+                  <a>Business Growth</a>
                 </h3>
                 <p>
                   Fostering business expansion through customized strategic
@@ -161,7 +208,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Insurance Task</a>
+                  <a>Insurance Task</a>
                 </h3>
                 <p>
                   Efficiently manage insurance-related tasks with our
@@ -179,7 +226,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Consultancy</a>
+                  <a>Consultancy</a>
                 </h3>
                 <p>
                   Expert guidance tailored to your needs for informed
@@ -197,7 +244,7 @@ function Home() {
                   <div className="brright"></div>
                 </div>
                 <h3>
-                  <a href="single-service.html">Financial Advices</a>
+                  <a>Financial Advices</a>
                 </h3>
                 <p>
                   Personalized guidance for secure financial futures tailored to
@@ -364,11 +411,11 @@ function Home() {
               <div className="subTitle">
                 <span className="bleft"></span>Why Choose Us
               </div>
-              <h2 className="secTitle white">Find Out More Our Features</h2>
+              <h2 className="secTitle white">Your Financial Future, Our Commitment</h2>
               <p className="secDesc">
-                In addition to payroll cheques, a business writes many other
-                cheques during the course of a year to pay for a wide variety of
-                items including local business taxes,
+                We're committed to empowering you towards financial independence, securing your wealth, and partnering
+                with you every step of the way. With us, you'll build a stronger financial foundation,
+                ensuring a brighter tomorrow.
               </p>
             </div>
             <div className="col-xl-7 mt8">
@@ -447,9 +494,9 @@ function Home() {
                       <div className="ib_box">
                         <i className="icon-local_7"></i>
                       </div>
-                      <h3>Small / Growing Business!</h3>
+                      <h3>Individual / Growing Business!</h3>
                       <p>
-                        Discover how we empower small and growing businesses to
+                        Discover how we empower individuals & small businesses to
                         thrive in competitive markets.
                       </p>
                     </div>
@@ -484,11 +531,10 @@ function Home() {
           <div className="row">
             <div className="col-xl-5">
               <div className="reviewArea">
-                <h2 className="secTitle">Help Your Business Win!</h2>
+                <h2 className="secTitle">Boost your financial wellness.</h2>
                 <p className="secDesc">
-                  A typical business holds many different assets called capital,
-                  including office furniture services equipment, retail display
-                  cabinets...
+                  Receive support at every step of your financial path, whether it involves time management,
+                  skill development, or investment exploration, under the guidance of a financial freedom consultant.
                 </p>
                 <div className="cusRating">
                   <i className="twi-star"></i>
@@ -531,21 +577,56 @@ function Home() {
                       placeholder="Email Address"
                     />
                   </div>
-                  <div className="input-field col-md-6">
-                    <i className="twi-map-marker-alt2"></i>
-                    <input
+                  <div className="input-field col-md-12">
+                    <i className="twi-cog"></i>
+                    <select className="required" name="con_subject">
+                      <option selected="selected">Choose services</option>
+                      <option>Wealth path advisory</option>
+                      <option>Portfolio Management </option>
+                      <option>Fin Market Academy </option>
+                      <option>Financial Advisory </option>
+                      <option>Career Counseling</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-lg-6">
+                    <i className="twi-calendar2"></i>
+                    <SelectDate></SelectDate>
+                    {/* <input
+                      className="required date-picker"
                       type="text"
-                      name="con_location"
-                      placeholder="Your Location"
+                      name="con_date"
+                      placeholder="Date of Visit"
+                    /> */}
+                  </div>
+                  <div className="input-field col-lg-6">
+                    <i className="twi-clock2"></i>
+                    <SelectTime></SelectTime>
+                    {/* <input
+                      className="required time-picker"
+                      type="text"
+                      name="con_time"
+                      placeholder="Time of Visit"
+                    /> */}
+                  </div>
+                  <div className="input-field col-md-6">
+                    <i className="icons-telephone"></i>
+                    <input
+                      className="required"
+                      type="text"
+                      name="con_name"
+                      placeholder="Contact Number"
                     />
                   </div>
                   <div className="input-field col-md-6">
+                    <i className="icons-worldwide"></i>
                     <select className="required" name="con_subject">
-                      <option selected="selected">Subjects</option>
-                      <option>Finance Consultant</option>
-                      <option>Business Consultant</option>
-                      <option>Financial Advices</option>
-                      <option>Business Growth</option>
+                      <option selected="selected">Choose country</option>
+                      <option>Argentina</option>
+                      <option>Belgium</option>
+                      <option>Canada</option>
+                      <option>India</option>
+                      <option>Japan</option>
+                      <option>Morocco</option>
                     </select>
                   </div>
                   <div className="input-field col-md-12">
@@ -553,7 +634,7 @@ function Home() {
                     <textarea
                       className="required"
                       name="con_message"
-                      placeholder="Describe Your Plan"
+                      placeholder="Describe Your Info"
                     ></textarea>
                   </div>
                   <div className="input-field col-md-12">
@@ -562,7 +643,8 @@ function Home() {
                     </button>
                     <div className="con_message"></div>
                   </div>
-                </form>
+                </form><br />
+                <p className="note-section">Note: The displayed time here corresponds to the UAE time zone.</p>
               </div>
             </div>
           </div>
@@ -580,9 +662,45 @@ function Home() {
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <div class="testimonialslider01 owl-carousel">
+              <section className="testimonial-container">
+                <div className="slider-container">
+                  <blockquote>
+                    <img src={Quote} className="top-quote" />
+                    <img src={Quote} className="bottom-quote" />
+                  </blockquote>
+                  <Splide
+                    options={{
+                      perPage: 1,
+                      autoplay: true,
+                      speed: 1000,
+                      rewind: true,
+                      rewindByDrag: true,
+                    }}
+                  >
+                    {reviews.map((review) => (
+                      <SplideSlide key={review.id}>
+                        <img className="review-img" src={review.image} alt="" />
+                        <div className="content">
+                          <p className="text">{review.text}</p>
+                          <div className="info">
+                            <div className="rating">
+                              <span className="star">&#9733;</span>
+                              <span className="star">&#9733;</span>
+                              <span className="star">&#9733;</span>
+                              <span className="star">&#9733;</span>
+                              <span className="star">&#9734;</span>
+                            </div>
+                            <p className="user">{review.name}</p>
+                          </div>
+                        </div>
+                      </SplideSlide>
+                    ))}
+                  </Splide>
+                </div>
+              </section>
+              {/* <div class="testimonialslider01">
                 <div class="testiItem01">
-                  <img src="assets/images/home1/quote.png" alt />
+                  <img src={Quote} alt />
                   <p class="quotation">
                     Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
                     sources. roductize tailers before
@@ -594,7 +712,7 @@ function Home() {
                   </div>
                 </div>
                 <div class="testiItem01">
-                  <img src="assets/images/home1/quote.png" alt />
+                  <img src={Quote} alt />
                   <p class="quotation">
                     Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
                     sources. roductize tailers before
@@ -606,7 +724,7 @@ function Home() {
                   </div>
                 </div>
                 <div class="testiItem01">
-                  <img src="assets/images/home1/quote.png" alt />
+                  <img src={Quote} alt />
                   <p class="quotation">
                     Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
                     sources. roductize tailers before
@@ -618,7 +736,7 @@ function Home() {
                   </div>
                 </div>
                 <div class="testiItem01">
-                  <img src="assets/images/home1/quote.png" alt />
+                  <img src={Quote} alt />
                   <p class="quotation">
                     Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
                     sources. roductize tailers before
@@ -629,7 +747,7 @@ function Home() {
                     <span>Co Founder</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

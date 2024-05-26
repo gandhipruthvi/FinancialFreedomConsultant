@@ -1,5 +1,6 @@
 {
   "name": "FinancialFreedomConsultant",
+  "homepage": "http://financialfreedomconsultant.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +11,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "bootstrap": "^5.3.3",
+    "mdb-react-ui-kit": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
+    "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
+    "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.22.3",
+    "react-time-picker": "^7.0.0",
     "sass": "^1.74.1"
   },
   "devDependencies": {

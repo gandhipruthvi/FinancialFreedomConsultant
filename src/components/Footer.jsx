@@ -22,7 +22,7 @@ function Footer() {
             <div className="SubsrcribeForm">
               <form className="yikes-easy-mc-form" action="#" method="post">
                 <input type="email" name="EMAIL" placeholder="Email Address" />
-                <button className="yikes-easy-mc-submit-button" type="submit">Subsrcribe</button>
+                <button className="yikes-easy-mc-submit-button" type="submit">Send</button>
               </form>
             </div>
           </div>
@@ -39,15 +39,14 @@ function Footer() {
               <div className="phone"><i className="twi-phone"></i>+971-50-984-1318</div>
               <p>3101 Prime Tower, 31st Floor.
                 Business Bay, Dubai UAE</p>
-              <a
-                href="https://themewar.com/cdn-cgi/l/email-protection#e0838f8e94818394a08598818d908c85ce838f8d"><span
-                  className="__cf_email__"
-                  data-cfemail="f794989983969483b7928f969a879b92d994989a">info@financialfreedomconsultant.com</span></a>
+              <a href="mailto:info@financialfreedomconsultant.com">
+                <span>info@financialfreedomconsultant.com</span>
+              </a>
             </div>
           </div>
           <div className="col-md-6 col-lg-2">
             <div className="widget PL28">
-              <h3 className="widget_title">Usefull Links</h3>
+              <h3 className="widget_title">Useful Links</h3>
               <ul className="menu">
                 <li><a href="javascript:void(0);">Home</a></li>
                 <li><a href="javascript:void(0);">About Us</a></li>
@@ -59,16 +58,20 @@ function Footer() {
           </div>
           <div className="col-md-6 col-lg-4">
             <div className="widget PL28">
-              <h3 className="widget_title mb28">Latest Posts</h3>
+              <h3 className="widget_title mb28">Services</h3>
               <div className="pp_post_item">
                 <img src={t1} alt="blog first image" />
-                <span><i className="twi-clock2"></i>10 June, 2021</span>
-                <a href="single-blog.html">Losing never felt so good energy everything</a>
+                <span>
+                  <i className="twi-hand-point-right2"></i>Career Counselling
+                </span>
+                <a>Personalized career guidance for you.</a>
               </div>
               <div className="pp_post_item">
                 <img src={t2} alt="blog second image" />
-                <span><i className="twi-clock2"></i>10 June, 2021</span>
-                <a href="single-blog.html">Losing never felt so good energy everything</a>
+                <span>
+                  <i className="twi-hand-point-right2"></i>Portfolio Management
+                </span>
+                <a>Maximize returns, manage risk effectively.</a>
               </div>
             </div>
           </div>
@@ -76,17 +79,17 @@ function Footer() {
             <div className="widget gallery">
               <h3 className="widget_title mb28">Post Gallery</h3>
               <div className="galleryShots">
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g1}
+                <a className="popup_img" ><img src={g1}
                   alt="gallery image" /></a>
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g2}
+                <a className="popup_img" ><img src={g2}
                   alt="gallery image" /></a>
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g3}
+                <a className="popup_img" ><img src={g3}
                   alt="gallery image" /></a>
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g4}
+                <a className="popup_img" ><img src={g4}
                   alt="gallery image" /></a>
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g5}
+                <a className="popup_img" ><img src={g5}
                   alt="gallery image" /></a>
-                <a className="popup_img" href="assets/images/blog/s1.jpg"><img src={g6}
+                <a className="popup_img" ><img src={g6}
                   alt="gallery image" /></a>
               </div>
             </div>
