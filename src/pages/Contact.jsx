@@ -226,6 +226,7 @@ function Contact() {
                 <div className="hpAuthor">
                   <div className="signAuthor">
                     FINANCIAL FREEDOM <br /> CONSULTANT
+                 
                   </div>
                 </div>
                 {/* <div className="hpAuthor">
