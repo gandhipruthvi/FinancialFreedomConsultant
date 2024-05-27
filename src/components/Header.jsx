@@ -31,9 +31,14 @@ const Header = () => {
   }
 
   const [isActive, setActive] = useState(false);
+  const [sideMenuActive, setSideMenuActive] = useState(false);
 
-  const toggleClass = () => {
+  const toggleSearchBtnClass = () => {
     setActive(!isActive);
+  };
+
+  const toggleSideMenuBar = () => {
+    setSideMenuActive(!sideMenuActive);
   };
 
   return (
@@ -93,11 +98,7 @@ const Header = () => {
                   </ul>
                 </nav>
                 <div className="accessNav">
-                  <a
-                    href
-                    onClick={(e) => e.preventDefault()}
-                    className="menuToggler"
-                  >
+                  <a className="menuToggler" onClick={toggleSideMenuBar}>
                     <i className="twi-bars1"></i>
                   </a>
                   <NavLink
@@ -126,11 +127,8 @@ const Header = () => {
                       </a>
                     </h3>
                   </div>
-                  <div
-                    className={isActive ? "searchBtn active" : "searchBtn"}
-
-                  >
-                    <a onClick={toggleClass}>
+                  <div className={isActive ? "searchBtn active" : "searchBtn"}>
+                    <a onClick={toggleSearchBtnClass}>
                       <i className="twi-search2"></i>
                     </a>
                     <div className="searchBar">
@@ -152,130 +150,70 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-      {/* <section className="sidebarMenu">
+      <section
+        className={sideMenuActive ? "sidebarMenu active" : "sidebarMenu"}
+      >
         <div className="sidebarMenuOverlay"></div>
         <div className="SMArea">
           <div className="SMAHeader">
             <h3>
               <i className="twi-bars1"></i> Menu
             </h3>
-            <a className="SMACloser">
+            <a className="SMACloser" onClick={toggleSideMenuBar}>
               <i className="twi-times2"></i>
             </a>
           </div>
           <div className="SMABody">
             <ul>
-              <li className="menu-item-has-children current-menu-item">
-                <a>Home</a>
-                <ul className="sub-menu">
-                  <li>
-                    <a>Home One</a>
-                  </li>
-                  <li>
-                    <a>Home Two</a>
-                  </li>
-                  <li>
-                    <a>Home Three</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="menu-item-has-children">
-                <a>About</a>
-                <ul className="sub-menu">
-                  <li>
-                    <a>About 01</a>
-                  </li>
-                  <li>
-                    <a>About 02</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="menu-item-has-children">
-                <a>blogs</a>
-                <ul className="sub-menu">
-                  <li className="menu-item-has-children">
-                    <a>Blog List Views</a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a>Left Sidebar</a>
-                      </li>
-                      <li>
-                        <a>Right Sidebar</a>
-                      </li>
-                      <li>
-                        <a>Without Sidebar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menu-item-has-children">
-                    <a>Blog Grid Views</a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a>Left Sidebar</a>
-                      </li>
-                      <li>
-                        <a>Right Sidebar</a>
-                      </li>
-                      <li>
-                        <a>Without Sidebar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="single-blog.html">Blog Details</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="menu-item-has-children">
-                <a>pages</a>
-                <ul className="sub-menu">
-                  <li className="menu-item-has-children">
-                    <a>Services</a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="service1.html">Service 01</a>
-                      </li>
-                      <li>
-                        <a href="service2.html">Service 02</a>
-                      </li>
-                      <li>
-                        <a href="single-service.html">Service Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menu-item-has-children">
-                    <a>Portfolios</a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="portfolio1.html">Portfolio 01</a>
-                      </li>
-                      <li>
-                        <a href="portfolio2.html">Portfolio 02</a>
-                      </li>
-                      <li>
-                        <a href="single-folio.html">Portfolio Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="team.html">Team Page</a>
-                  </li>
-                  <li>
-                    <a href="company.html">Company History</a>
-                  </li>
-                  <li>
-                    <a href="404.html">404 Page</a>
-                  </li>
-                </ul>
+              <li>
+                <NavLink
+                  to="/"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <a href="contact.html">Contact</a>
+                <NavLink
+                  to="/about"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/services"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Services
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/courses"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Courses
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/contact"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Contact
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };
