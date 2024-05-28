@@ -60,7 +60,7 @@ const Contact = () => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.con_name) {
-      errors.con_name = "Username is required!";
+      errors.con_name = "Name is required!";
     }
     if (!values.con_email) {
       errors.con_email = "Email is required!";
@@ -163,9 +163,8 @@ const Contact = () => {
                       value={formValues.con_name}
                       onChange={handleChange}
                     />
-                    <p>{formErrors.con_name}</p>
+                    <p className="error-field">{formErrors.con_name}</p>
                   </div>
-
                   <div className="input-field col-md-6">
                     <i className="twi-envelope2"></i>
                     <input
@@ -178,11 +177,14 @@ const Contact = () => {
                     />
                     <p className="error-field">{formErrors.con_email}</p>
                   </div>
-
                   <div className="input-field col-md-12">
                     <i className="twi-cog"></i>
-                    <select className="required" name="con_subject">
-                      <option selected="selected">Choose services</option>
+                    <select
+                      className="required"
+                      name="con_services"
+                      defaultValue="default"
+                    >
+                      <option value="default">Choose services</option>
                       <option>Wealth path advisory</option>
                       <option>Portfolio Management </option>
                       <option>Fin Market Academy </option>
@@ -200,7 +202,11 @@ const Contact = () => {
                   </div>
                   <div className="input-field col-md-6">
                     <i className="icons-worldwide"></i>
-                    <select className="required" defaultValue="default">
+                    <select
+                      className="required"
+                      defaultValue="default"
+                      name="con_country"
+                    >
                       <option value="default">Choose country</option>
                       {countriesOption}
                     </select>
@@ -210,7 +216,7 @@ const Contact = () => {
                     <input
                       className="required"
                       type="text"
-                      name="con_name"
+                      name="con_number"
                       placeholder="Contact Number"
                     />
                   </div>
