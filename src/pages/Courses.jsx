@@ -1,7 +1,7 @@
 import "../Styles/Courses.scss";
 import { NavLink } from "react-router-dom";
 
-function Courses() {
+const Courses = () => {
   return (
     <div className="courses">
       <section className="page_banner">
@@ -25,7 +25,9 @@ function Courses() {
       <section class="blogPage">
         <div class="container largeContainer">
           <div class="row">
-            <p style={{ fontWeight: "bold", fontSize: '50px', margin: 'auto' }}>Coming Soon</p>
+            <p style={{ fontWeight: "bold", fontSize: "50px", margin: "auto" }}>
+              Coming Soon
+            </p>
             {/* <div class="col-lg-4">
               <div class="sidebar lsb">
                 <aside class="widget widget_search">
@@ -183,6 +185,6 @@ function Courses() {
       </section>
     </div>
   );
-}
+};
 
 export default Courses;

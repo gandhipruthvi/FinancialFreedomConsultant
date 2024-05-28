@@ -3,80 +3,95 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
-import { reviews } from '../components/reviewsData';
-
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
+import { reviews } from "../components/reviewsData";
+import countries from "../assets/countries.json";
 
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
 // import ServicesImg3 from "../assets/our services/s3.jpg";
 
-const easeOutQuad = (t) => t * (2 - t);
-const frameDuration = 1000 / 60;
+const Home = () => {
+  const easeOutQuad = (t) => t * (2 - t);
+  const frameDuration = 1000 / 60;
 
-const CountUpAnimation = ({ children, duration = 3000 }) => {
-  const countTo = parseInt(children, 10);
-  const [count, setCount] = useState(0);
+  const CountUpAnimation = ({ children, duration = 3000 }) => {
+    const countTo = parseInt(children, 10);
+    const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    let frame = 0;
-    const totalFrames = Math.round(duration / frameDuration);
-    const counter = setInterval(() => {
-      frame++;
-      const progress = easeOutQuad(frame / totalFrames);
-      setCount(countTo * progress);
+    useEffect(() => {
+      let frame = 0;
+      const totalFrames = Math.round(duration / frameDuration);
+      const counter = setInterval(() => {
+        frame++;
+        const progress = easeOutQuad(frame / totalFrames);
+        setCount(countTo * progress);
 
-      if (frame === totalFrames) {
-        clearInterval(counter);
-      }
-    }, frameDuration);
-  }, []);
+        if (frame === totalFrames) {
+          clearInterval(counter);
+        }
+      }, frameDuration);
+    }, []);
 
-  return Math.floor(count);
-};
+    return Math.floor(count);
+  };
 
-const SelectDate = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <DatePicker
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      dateFormat='dd/MM/yyyy'
-    />
-  );
-};
+  const SelectDate = () => {
+    const [startDate, setStartDate] = useState(new Date());
+    return (
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="dd/MM/yyyy"
+      />
+    );
+  };
 
-const SelectTime = () => {
-  const [date, handleDateChange] = useState(new Date());
-  return (
-    <DatePicker
-      selected={date}
-      onChange={handleDateChange}
-      showTimeSelect
-      showTimeSelectOnly
-      dateFormat="h:mm aa"
-      timeCaption="Time"
-    />
-  );
-};
+  const SelectTime = () => {
+    const [date, handleDateChange] = useState(new Date());
+    return (
+      <DatePicker
+        selected={date}
+        onChange={handleDateChange}
+        showTimeSelect
+        showTimeSelectOnly
+        dateFormat="h:mm aa"
+        timeCaption="Time"
+      />
+    );
+  };
 
-function Home() {
+  let countriesOption =
+    countries.length > 0 &&
+    countries.map((country) => {
+      return (
+        <option value={country.name} key={country.name}>
+          {country.name}
+        </option>
+      );
+    });
+
   return (
     <div className="Home">
       {/* Banner Carousel */}
       <section className="banner">
         <div className="banner-content">
-          <h1 className="headLine">Bright Solutions,<br /> Profitable Results.</h1>
+          <h1 className="headLine">
+            Bright Solutions,
+            <br /> Profitable Results.
+          </h1>
           <p>
-            Unlock your path to financial freedom with our expert consulting services. We tailor strategies that
-            drive profitable results, empowering you to achieve and sustain financial independence. Let us guide
-            you toward a brighter financial future.
+            Unlock your path to financial freedom with our expert consulting
+            services. We tailor strategies that drive profitable results,
+            empowering you to achieve and sustain financial independence. Let us
+            guide you toward a brighter financial future.
           </p>
-          <a href="services" className="qu_btn">Our Services</a>
+          <a href="services" className="qu_btn">
+            Our Services
+          </a>
         </div>
       </section>
 
@@ -111,13 +126,17 @@ function Home() {
       </section>
 
       {/* Free Consultation Call */}
-      <div class="row bottomspace">
-        <div class="col-md-12 text-center">
-          <p class="secDesc">Book a free consultation call for your financial freedom! Let’s evaluate your financial health.
+      <div className="row bottomspace">
+        <div className="col-md-12 text-center">
+          <p className="secDesc">
+            Book a free consultation call for your financial freedom! Let’s
+            evaluate your financial health.
           </p>
           <h4>30 Minutes Free Consultation</h4>
-          <div class="clearfix"></div>
-          <a class="qu_btn" href="contact">Send Request</a>
+          <div className="clearfix"></div>
+          <a className="qu_btn" href="contact">
+            Send Request
+          </a>
         </div>
       </div>
 
@@ -140,8 +159,10 @@ function Home() {
                   Customer <span>Services</span>
                 </h2>
                 <p>
-                  Explore a diverse array of meticulously crafted solutions, each tailored to address your unique
-                  financial needs and aspirations with expertise and care. Trust us to be your partner in financial success.
+                  Explore a diverse array of meticulously crafted solutions,
+                  each tailored to address your unique financial needs and
+                  aspirations with expertise and care. Trust us to be your
+                  partner in financial success.
                 </p>
               </div>
             </div>
@@ -411,11 +432,14 @@ function Home() {
               <div className="subTitle">
                 <span className="bleft"></span>Why Choose Us
               </div>
-              <h2 className="secTitle white">Your Financial Future, Our Commitment</h2>
+              <h2 className="secTitle white">
+                Your Financial Future, Our Commitment
+              </h2>
               <p className="secDesc">
-                We're committed to empowering you towards financial independence, securing your wealth, and partnering
-                with you every step of the way. With us, you'll build a stronger financial foundation,
-                ensuring a brighter tomorrow.
+                We're committed to empowering you towards financial
+                independence, securing your wealth, and partnering with you
+                every step of the way. With us, you'll build a stronger
+                financial foundation, ensuring a brighter tomorrow.
               </p>
             </div>
             <div className="col-xl-7 mt8">
@@ -496,8 +520,8 @@ function Home() {
                       </div>
                       <h3>Individual / Growing Business!</h3>
                       <p>
-                        Discover how we empower individuals & small businesses to
-                        thrive in competitive markets.
+                        Discover how we empower individuals & small businesses
+                        to thrive in competitive markets.
                       </p>
                     </div>
                   </div>
@@ -533,8 +557,10 @@ function Home() {
               <div className="reviewArea">
                 <h2 className="secTitle">Boost your financial wellness.</h2>
                 <p className="secDesc">
-                  Receive support at every step of your financial path, whether it involves time management,
-                  skill development, or investment exploration, under the guidance of a financial freedom consultant.
+                  Receive support at every step of your financial path, whether
+                  it involves time management, skill development, or investment
+                  exploration, under the guidance of a financial freedom
+                  consultant.
                 </p>
                 <div className="cusRating">
                   <i className="twi-star"></i>
@@ -609,6 +635,13 @@ function Home() {
                     /> */}
                   </div>
                   <div className="input-field col-md-6">
+                    <i className="icons-worldwide"></i>
+                    <select className="required" defaultValue="default">
+                      <option value="default">Choose country</option>
+                      {countriesOption}
+                    </select>
+                  </div>
+                  <div className="input-field col-md-6">
                     <i className="icons-telephone"></i>
                     <input
                       className="required"
@@ -616,18 +649,6 @@ function Home() {
                       name="con_name"
                       placeholder="Contact Number"
                     />
-                  </div>
-                  <div className="input-field col-md-6">
-                    <i className="icons-worldwide"></i>
-                    <select className="required" name="con_subject">
-                      <option selected="selected">Choose country</option>
-                      <option>Argentina</option>
-                      <option>Belgium</option>
-                      <option>Canada</option>
-                      <option>India</option>
-                      <option>Japan</option>
-                      <option>Morocco</option>
-                    </select>
                   </div>
                   <div className="input-field col-md-12">
                     <i className="twi-comment-lines2"></i>
@@ -643,8 +664,12 @@ function Home() {
                     </button>
                     <div className="con_message"></div>
                   </div>
-                </form><br />
-                <p className="note-section">Note: The displayed time here corresponds to the UAE time zone.</p>
+                </form>
+                <br />
+                <p className="note-section">
+                  Note: The displayed time here corresponds to the UAE time
+                  zone.
+                </p>
               </div>
             </div>
           </div>
@@ -656,8 +681,13 @@ function Home() {
         <div class="container largeContainer">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <div class="subTitle"><span class="bleft"></span>Testimonial<span class="bright"></span></div>
-              <h2 class="secTitle">Client’s <span>Feedback</span></h2>
+              <div class="subTitle">
+                <span class="bleft"></span>Testimonial
+                <span class="bright"></span>
+              </div>
+              <h2 class="secTitle">
+                Client’s <span>Feedback</span>
+              </h2>
             </div>
           </div>
           <div class="row">
@@ -754,6 +784,6 @@ function Home() {
       </section>
     </div>
   );
-}
+};
 
 export default Home;

@@ -3,34 +3,44 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { countries } from "countries-list";
+import countries from "../assets/countries.json";
 
-const SelectDate = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <DatePicker
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      dateFormat="dd/MM/yyyy"
-    />
-  );
-};
+const Contact = () => {
+  const SelectDate = () => {
+    const [startDate, setStartDate] = useState(new Date());
+    return (
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="dd/MM/yyyy"
+      />
+    );
+  };
 
-const SelectTime = () => {
-  const [date, handleDateChange] = useState(new Date());
-  return (
-    <DatePicker
-      selected={date}
-      onChange={handleDateChange}
-      showTimeSelect
-      showTimeSelectOnly
-      dateFormat="h:mm aa"
-      timeCaption="Time"
-    />
-  );
-};
+  const SelectTime = () => {
+    const [date, handleDateChange] = useState(new Date());
+    return (
+      <DatePicker
+        selected={date}
+        onChange={handleDateChange}
+        showTimeSelect
+        showTimeSelectOnly
+        dateFormat="h:mm aa"
+        timeCaption="Time"
+      />
+    );
+  };
 
-function Contact() {
+  let countriesOption =
+    countries.length > 0 &&
+    countries.map((country) => {
+      return (
+        <option value={country.name} key={country.name}>
+          {country.name}
+        </option>
+      );
+    });
+
   return (
     <div className="contact">
       <section className="page_banner">
@@ -140,6 +150,13 @@ function Contact() {
                     <SelectTime></SelectTime>
                   </div>
                   <div className="input-field col-md-6">
+                    <i className="icons-worldwide"></i>
+                    <select className="required" defaultValue="default">
+                      <option value="default">Choose country</option>
+                      {countriesOption}
+                    </select>
+                  </div>
+                  <div className="input-field col-md-6">
                     <i className="icons-telephone"></i>
                     <input
                       className="required"
@@ -148,17 +165,7 @@ function Contact() {
                       placeholder="Contact Number"
                     />
                   </div>
-                  <div className="input-field col-md-6">
-                    <i className="icons-worldwide"></i>
-                    <select className="required" name="con_subject">
-                      {/* <option selected="selected">Choose country</option> */}
-                      {Object.keys(countries).map((code) => (
-                        <option key={code} value={code}>
-                          {countries[code].name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+
                   <div className="input-field col-md-12">
                     <i className="twi-comment-lines2"></i>
                     <textarea
@@ -233,6 +240,6 @@ function Contact() {
       </section>
     </div>
   );
-}
+};
 
 export default Contact;
