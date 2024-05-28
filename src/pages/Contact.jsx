@@ -1,6 +1,6 @@
 import "../Styles/Contact.scss";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import countries from "../assets/countries.json";
@@ -17,25 +17,22 @@ const Contact = () => {
     );
   };
 
-const SelectTime = () => {
-  const [date, handleDateChange] = useState(new Date());
-  return (
-    <DatePicker
-      selected={date}
-      onChange={handleDateChange}
-      showTimeSelect
-      showTimeSelectOnly
-      dateFormat="h:mm aa"
-      timeCaption="Time"
-    />
-  );
-};
+  const SelectTime = () => {
+    const [date, handleDateChange] = useState(new Date());
+    return (
+      <DatePicker
+        selected={date}
+        onChange={handleDateChange}
+        showTimeSelect
+        showTimeSelectOnly
+        dateFormat="h:mm aa"
+        timeCaption="Time"
+      />
+    );
+  };
 
+  //Required Form Validation
 
-//Required Form Validation
-
-
-function Contact() {
   const initialValues = { con_name: "", con_email: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -73,6 +70,17 @@ function Contact() {
 
     return errors;
   };
+
+  let countriesOption =
+    countries.length > 0 &&
+    countries.map((country) => {
+      return (
+        <option value={country.name} key={country.name}>
+          {country.name}
+        </option>
+      );
+    });
+
   return (
     <div className="contact">
       <section className="page_banner">

@@ -677,21 +677,21 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section class="testimonialSection01">
-        <div class="container largeContainer">
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <div class="subTitle">
-                <span class="bleft"></span>Testimonial
-                <span class="bright"></span>
+      <section className="testimonialSection01">
+        <div className="container largeContainer">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <div className="subTitle">
+                <span className="bleft"></span>Testimonial
+                <span className="bright"></span>
               </div>
-              <h2 class="secTitle">
+              <h2 className="secTitle">
                 Client’s <span>Feedback</span>
               </h2>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
+          <div className="row">
+            <div className="col-lg-12">
               <section className="testimonial-container">
                 <div className="slider-container">
                   <blockquote>
