@@ -129,6 +129,12 @@ $theme-color: #009CFF;
                 top: 0;
             }
 
+            .error-field {
+                position: relative;
+                padding-left: 8px;
+                padding-right: 8px;
+                outline: none;
+            }
 
             input[type="email"],
             input[type="text"],
@@ -231,6 +237,7 @@ $theme-color: #009CFF;
             border: 1px solid #f00;
         }
 
+
         textarea {
             margin-bottom: 40px;
 
@@ -239,11 +246,10 @@ $theme-color: #009CFF;
             }
         }
 
-
-
         .input-field i {
             font-size: 16px;
         }
+
     }
 
     .appointment_form>p {

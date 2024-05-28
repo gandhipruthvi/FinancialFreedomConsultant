@@ -31,7 +31,48 @@ const SelectTime = () => {
   );
 };
 
+
+//Required Form Validation
+
+
 function Contact() {
+  const initialValues = { con_name: "", con_email: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.con_name) {
+      errors.con_name = "Username is required!";
+    }
+    if (!values.con_email) {
+      errors.con_email = "Email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.con_email = "This is not a valid email format!";
+    }
+
+    return errors;
+  };
   return (
     <div className="contact">
       <section className="page_banner">
@@ -102,6 +143,7 @@ function Contact() {
                   method="post"
                   className="row"
                   id="contact_form"
+                  onSubmit={handleSubmit}
                 >
                   <div className="input-field col-md-6">
                     <i className="twi-user2"></i>
@@ -110,8 +152,12 @@ function Contact() {
                       type="text"
                       name="con_name"
                       placeholder="Your Name"
+                      value={formValues.con_name}
+                      onChange={handleChange}
                     />
+                    <p>{formErrors.con_name}</p>
                   </div>
+
                   <div className="input-field col-md-6">
                     <i className="twi-envelope2"></i>
                     <input
@@ -119,8 +165,12 @@ function Contact() {
                       type="email"
                       name="con_email"
                       placeholder="Email Address"
+                      value={formValues.con_email}
+                      onChange={handleChange}
                     />
+                    <p className="error-field">{formErrors.con_email}</p>
                   </div>
+
                   <div className="input-field col-md-12">
                     <i className="twi-cog"></i>
                     <select className="required" name="con_subject">
@@ -185,7 +235,7 @@ function Contact() {
                     <button type="submit" className="qu_btn">
                       Get A Quote
                     </button>
-                    <div className="con_message"></div>
+                    {/* <div className="con_message"></div> */}
                   </div>
                 </form><br />
                 <p className="note-section">Note: The displayed time here corresponds to the UAE time zone.</p>
