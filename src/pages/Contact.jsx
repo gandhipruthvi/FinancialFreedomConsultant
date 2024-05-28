@@ -1,10 +1,9 @@
 import "../Styles/Contact.scss";
 import { NavLink } from "react-router-dom";
-import AuthorImg from "../assets/contact/author.png";
-import SignImg from "../assets/contact/sign.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { countries } from "countries-list";
 
 const SelectDate = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -12,7 +11,7 @@ const SelectDate = () => {
     <DatePicker
       selected={startDate}
       onChange={(date) => setStartDate(date)}
-      dateFormat='dd/MM/yyyy'
+      dateFormat="dd/MM/yyyy"
     />
   );
 };
@@ -185,22 +184,10 @@ function Contact() {
                   <div className="input-field col-lg-6">
                     <i className="twi-calendar2"></i>
                     <SelectDate></SelectDate>
-                    {/* <input
-                      className="required date-picker"
-                      type="text"
-                      name="con_date"
-                      placeholder="Date of Visit"
-                    /> */}
                   </div>
                   <div className="input-field col-lg-6">
                     <i className="twi-clock2"></i>
                     <SelectTime></SelectTime>
-                    {/* <input
-                      className="required time-picker"
-                      type="text"
-                      name="con_time"
-                      placeholder="Time of Visit"
-                    /> */}
                   </div>
                   <div className="input-field col-md-6">
                     <i className="icons-telephone"></i>
@@ -214,13 +201,12 @@ function Contact() {
                   <div className="input-field col-md-6">
                     <i className="icons-worldwide"></i>
                     <select className="required" name="con_subject">
-                      <option selected="selected">Choose country</option>
-                      <option>Argentina</option>
-                      <option>Belgium</option>
-                      <option>Canada</option>
-                      <option>India</option>
-                      <option>Japan</option>
-                      <option>Morocco</option>
+                      {/* <option selected="selected">Choose country</option> */}
+                      {Object.keys(countries).map((code) => (
+                        <option key={code} value={code}>
+                          {countries[code].name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className="input-field col-md-12">
@@ -237,16 +223,22 @@ function Contact() {
                     </button>
                     {/* <div className="con_message"></div> */}
                   </div>
-                </form><br />
-                <p className="note-section">Note: The displayed time here corresponds to the UAE time zone.</p>
+                </form>
+                <br />
+                <p className="note-section">
+                  Note: The displayed time here corresponds to the UAE time
+                  zone.
+                </p>
               </div>
             </div>
             <div className="col-xl-5">
               <div className="reviewArea">
                 <h2 className="secTitle">Boost your financial wellness.</h2>
                 <p className="secDesc">
-                  Receive support at every step of your financial path, whether it involves time management,
-                  skill development, or investment exploration, under the guidance of a financial freedom consultant.
+                  Receive support at every step of your financial path, whether
+                  it involves time management, skill development, or investment
+                  exploration, under the guidance of a financial freedom
+                  consultant.
                 </p>
                 <div className="cusRating">
                   <i className="twi-star"></i>
@@ -278,17 +270,6 @@ function Contact() {
                     FINANCIAL FREEDOM <br /> CONSULTANT
                   </div>
                 </div>
-                {/* <div className="hpAuthor">
-                  <img className="author" src={AuthorImg} alt="author image" />
-                  <img
-                    className="signature"
-                    src={SignImg}
-                    alt="signature image"
-                  />
-                  <div className="signAuthor">
-                    Amjad Hussain - <span>Founder</span>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
