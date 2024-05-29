@@ -1,74 +1,94 @@
 import "../Styles/Contact.scss";
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Form from "react-bootstrap/Form";
 import countries from "../assets/countries.json";
+import setHours from "date-fns/setHours";
+import setMinutes from "date-fns/setMinutes";
+import getDay from "date-fns/getDay";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [checkDate, setCheckDate] = useState(null);
   const SelectDate = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const isWeekday = (date) => {
+      const day = getDay(date);
+      return day !== 0 && day !== 6;
+    };
     return (
       <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        dateFormat="dd/MM/yyyy"
-      />
-    );
-  };
-
-  const SelectTime = () => {
-    const [date, handleDateChange] = useState(new Date());
-    return (
-      <DatePicker
-        selected={date}
-        onChange={handleDateChange}
+        selected={selectedDate}
+        className={checkDate ? "dateTimeInvalid" : ""}
+        onChange={(date) => {
+          setSelectedDate(date);
+          date == null ? setCheckDate(true) : setCheckDate(false);
+        }}
         showTimeSelect
-        showTimeSelectOnly
-        dateFormat="h:mm aa"
+        filterDate={isWeekday}
+        minDate={new Date()}
+        timeFormat="HH:mm"
+        timeIntervals={15}
         timeCaption="Time"
+        minTime={setHours(setMinutes(new Date(), 59), 8)}
+        maxTime={setHours(setMinutes(new Date(), 0), 17)}
+        dateFormat="MMMM d, yyyy h:mm aa"
+        placeholderText="Select Date & Time"
+        name="date_time"
       />
     );
   };
 
-  //Required Form Validation
+  const [validated, setValidated] = useState(false);
 
-  const initialValues = { con_name: "", con_email: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false || selectedDate == null) {
+      event.preventDefault();
+      event.stopPropagation();
+      setValidated(true);
+    } else {
+      event.preventDefault();
+      emailjs
+        .sendForm("service_aphuyl9", "template_nkiyiiy", form, {
+          publicKey: "fpCqaLGlOJgGZkKkq",
+        })
+        .then(
+          () => {
+            console.log("SUCCESS!");
+            form.reset();
+            setValidated(false);
+            toast.success("Form successfully submitted", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+            toast.error("Unable to submit the form", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
+        );
     }
-  }, [formErrors]);
-
-  const validate = (values) => {
-    const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.con_name) {
-      errors.con_name = "Name is required!";
-    }
-    if (!values.con_email) {
-      errors.con_email = "Email is required!";
-    } else if (!regex.test(values.email)) {
-      errors.con_email = "This is not a valid email format!";
-    }
-
-    return errors;
   };
 
   let countriesOption =
@@ -146,96 +166,116 @@ const Contact = () => {
               <div className="appointment_form">
                 <p>Get an Quick Information</p>
                 <h3>Request An Appointment</h3>
-                <form
-                  action="#"
-                  method="post"
+                <Form
                   className="row"
-                  id="contact_form"
                   onSubmit={handleSubmit}
+                  noValidate
+                  validated={validated}
                 >
-                  <div className="input-field col-md-6">
+                  <Form.Group className="input-field col-md-6">
                     <i className="twi-user2"></i>
-                    <input
-                      className="required"
+                    <Form.Control
+                      required
                       type="text"
-                      name="con_name"
-                      placeholder="Your Name"
-                      value={formValues.con_name}
-                      onChange={handleChange}
+                      placeholder="Enter Your Name"
+                      name="client_name"
                     />
-                    <p className="error-field">{formErrors.con_name}</p>
-                  </div>
-                  <div className="input-field col-md-6">
-                    <i className="twi-envelope2"></i>
-                    <input
-                      className="required"
-                      type="email"
-                      name="con_email"
-                      placeholder="Email Address"
-                      value={formValues.con_email}
-                      onChange={handleChange}
-                    />
-                    <p className="error-field">{formErrors.con_email}</p>
-                  </div>
-                  <div className="input-field col-md-12">
-                    <i className="twi-cog"></i>
-                    <select
-                      className="required"
-                      name="con_services"
-                      defaultValue="default"
-                    >
-                      <option value="default">Choose services</option>
-                      <option>Wealth path advisory</option>
-                      <option>Portfolio Management </option>
-                      <option>Fin Market Academy </option>
-                      <option>Financial Advisory </option>
-                      <option>Career Counseling</option>
-                    </select>
-                  </div>
-                  <div className="input-field col-lg-6">
-                    <i className="twi-calendar2"></i>
-                    <SelectDate></SelectDate>
-                  </div>
-                  <div className="input-field col-lg-6">
-                    <i className="twi-clock2"></i>
-                    <SelectTime></SelectTime>
-                  </div>
-                  <div className="input-field col-md-6">
-                    <i className="icons-worldwide"></i>
-                    <select
-                      className="required"
-                      defaultValue="default"
-                      name="con_country"
-                    >
-                      <option value="default">Choose country</option>
-                      {countriesOption}
-                    </select>
-                  </div>
-                  <div className="input-field col-md-6">
-                    <i className="icons-telephone"></i>
-                    <input
-                      className="required"
-                      type="text"
-                      name="con_number"
-                      placeholder="Contact Number"
-                    />
-                  </div>
+                    <Form.Control.Feedback type="invalid">
+                      Please enter a valid Name
+                    </Form.Control.Feedback>
+                  </Form.Group>
 
-                  <div className="input-field col-md-12">
+                  <Form.Group className="input-field col-md-6">
+                    <i className="twi-envelope2"></i>
+                    <Form.Control
+                      required
+                      type="email"
+                      placeholder="Enter Email"
+                      name="client_email"
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please enter a valid Email
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="input-field col-md-12">
+                    <i className="twi-cog"></i>
+                    <Form.Select required name="service">
+                      <option value="">Choose services</option>
+                      <option value="Wealth path advisory">
+                        Wealth path advisory
+                      </option>
+                      <option value="Portfolio Management">
+                        Portfolio Management
+                      </option>
+                      <option value="Fin Market Academy">
+                        Fin Market Academy
+                      </option>
+                      <option value="Financial Advisory">
+                        Financial Advisory
+                      </option>
+                      <option value="Career Counseling">
+                        Career Counseling
+                      </option>
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      Please select a Service
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="input-field  col-md-12">
+                    <i className="twi-calendar2 dateTime"></i>
+                    <SelectDate></SelectDate>
+                    <Form.Control.Feedback
+                      type="invalid"
+                      className={checkDate ? "active" : ""}
+                    >
+                      Please select a Date and Time
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="input-field col-md-6">
+                    <i className="icons-worldwide"></i>
+                    <Form.Select required name="country">
+                      <option value="">Choose country</option>
+                      {countriesOption}
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      Please select a Country
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="input-field col-md-6">
+                    <i className="icons-telephone"></i>
+                    <Form.Control
+                      required
+                      type="number"
+                      placeholder="Contact Number"
+                      min="100000000"
+                      max="9999999999"
+                      name="contact_number"
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please enter a Contact Number
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="input-field col-md-12">
                     <i className="twi-comment-lines2"></i>
-                    <textarea
-                      className="required"
-                      name="con_message"
+                    <Form.Control
+                      as="textarea"
+                      rows={5}
                       placeholder="Describe Your Info"
-                    ></textarea>
-                  </div>
+                      name="info"
+                    />
+                  </Form.Group>
+
                   <div className="input-field col-md-12">
                     <button type="submit" className="qu_btn">
                       Get A Quote
                     </button>
-                    {/* <div className="con_message"></div> */}
                   </div>
-                </form>
+                </Form>
                 <br />
                 <p className="note-section">
                   Note: The displayed time here corresponds to the UAE time

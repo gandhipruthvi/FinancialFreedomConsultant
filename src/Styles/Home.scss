@@ -280,13 +280,13 @@ $theme-color: #009CFF;
         font-size: 45px;
         line-height: 60px;
         margin: 0 0 30px;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
     }
 
     .boxService p {
         line-height: 28px;
         margin: 0;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
     }
 
     .secTitle span {
@@ -403,7 +403,7 @@ $theme-color: #009CFF;
     .ibMeta span {
         font-size: 60px;
         line-height: 82px;
-        font-family: 'General Sans' 'sans-serif';
+        font-family: 'General Sans''sans-serif';
         font-weight: 700;
         color: rgba(255, 255, 255, .1);
         position: absolute;
@@ -1358,6 +1358,106 @@ $theme-color: #009CFF;
         position: relative;
         background: url(../assets/bg/4.jpg) no-repeat center center / cover;
         padding: 74px 75px 80px;
+        position: relative;
+        padding-right: 60px;
+        padding-left: 60px;
+        padding: 74px 75px 80px;
+        background: #fff;
+        -webkit-box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
+        -moz-box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
+        box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
+
+        .was-validated .form-control:invalid,
+        .was-validated .form-select:invalid {
+            border: 1px solid red;
+            margin-bottom: 0px;
+        }
+
+        // .was-validated .form-control:invalid~i,
+// .was-validated .form-select:invalid~i {
+//     color: red !important;
+// }
+
+        .dateTimeInvalid {
+            border: 1px solid red !important;
+            margin-bottom: 0px !important;
+        }
+
+        .invalid-feedback.active {
+            display: block;
+        }
+
+        .input-field {
+            position: relative;
+            padding-left: 8px;
+            padding-right: 8px;
+            outline: none;
+
+            .react-datepicker-wrapper {
+                display: inline;
+            }
+
+            .invalid-feedback {
+                margin-bottom: 15px;
+                margin-left: 25px;
+            }
+
+            .dateTime {
+                z-index: 2;
+            }
+
+            i {
+                color: #74777c;
+                font-size: 16px;
+                line-height: 60px;
+                position: absolute;
+                left: 40px;
+                top: 0;
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+            input[type="email"],
+            input[type="text"],
+            input[type="number"],
+            input[type="tel"],
+            textarea,
+            select {
+                background: #f6f6f6;
+                box-shadow: none;
+                font-size: 16px;
+                margin-bottom: 20px;
+                color: #74777c;
+                display: block;
+                width: 100%;
+                height: 60px;
+                padding: 0 15px 0 52px;
+                border: none;
+                border-radius: 50px;
+                line-height: 60px;
+                margin: 0 0 15px;
+            }
+
+            textarea {
+                height: 150px;
+                padding-top: 12px;
+                padding-left: 55px;
+                line-height: 34px;
+                border-radius: 30px;
+                resize: none;
+                margin-bottom: 30px;
+            }
+        }
     }
 
     .appointment_form>p {
@@ -1370,121 +1470,6 @@ $theme-color: #009CFF;
         font-size: 30px;
         line-height: 1;
         margin: 0 0 36px;
-    }
-
-    .input-field {
-        position: relative;
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-    .input-field i {
-        color: #74777c;
-        font-size: 14px;
-        line-height: 60px;
-        position: absolute;
-        left: 40px;
-        top: 0;
-    }
-
-    input[type="email"],
-    input[type="text"],
-    input[type="number"],
-    input[type="url"],
-    input[type="tel"],
-    input[type="password"],
-    textarea,
-    select {
-        display: block;
-        width: 100%;
-        height: 60px;
-        background: #fff;
-        padding: 0 15px 0 52px;
-        border: none;
-        border-radius: 50px;
-        font-size: 14px;
-        line-height: 60px;
-        margin: 0 0 15px;
-        color: #74777c;
-        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-    }
-
-    textarea {
-        height: 150px;
-        padding-top: 12px;
-        padding-left: 55px;
-        line-height: 34px;
-        border-radius: 30px;
-        resize: none;
-        margin-bottom: 30px;
-    }
-
-    input[type="email"]::-moz-placeholder,
-    input[type="text"]::-moz-placeholder,
-    input[type="number"]::-moz-placeholder,
-    textarea::-moz-placeholder,
-    select::-moz-placeholder {
-        color: #74777c;
-        opacity: 1;
-    }
-
-    input[type="email"]::-webkit-input-placeholder,
-    input[type="text"]::-webkit-input-placeholder,
-    input[type="number"]::-webkit-input-placeholder,
-    textarea::-webkit-input-placeholder,
-    select::-webkit-input-placeholder {
-        color: #74777c;
-        opacity: 1;
-    }
-
-    input[type="email"]::-ms-input-placeholder,
-    input[type="text"]::-ms-input-placeholder,
-    input[type="number"]::-ms-input-placeholder,
-    textarea::-ms-input-placeholder,
-    select::-ms-input-placeholder {
-        color: #74777c;
-        opacity: 1;
-    }
-
-    .input-field option {
-        margin: 0;
-        padding: 0;
-        border: none;
-        width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        max-height: 361px;
-        overflow: auto;
-        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-    }
-
-    .input-field option {
-        font-size: 14px;
-        color: #74777c;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 2px 25px;
-    }
-
-    .input-field option:hover,
-    option.focus,
-    option.selected.focus {
-        background: transparent;
-        color: $theme-color;
-    }
-
-    textarea:focus {
-        -webkit-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        -moz-box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-        box-shadow: 0px 15px 55px 0px rgba(42, 46, 52, 0.06);
-    }
-
-    .input-field input.reqError,
-    .input-field .reqError {
-        border: 1px solid #f00;
     }
 
     .con_message {

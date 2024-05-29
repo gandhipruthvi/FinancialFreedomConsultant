@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@splidejs/react-splide": "^0.7.12",
     "bootstrap": "^5.3.3",
     "mdb-react-ui-kit": "^8.0.0",
@@ -21,6 +22,7 @@
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.22.3",
     "react-time-picker": "^7.0.0",
+    "react-toastify": "^10.0.5",
     "sass": "^1.74.1"
   },
   "devDependencies": {
