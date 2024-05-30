@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import EmailService from "../components/EmailService";
+import AppointmentForm from "../components/AppointmentForm";
 
 const Contact = () => {
-
   return (
     <div className="contact">
       <ToastContainer />
@@ -73,7 +72,7 @@ const Contact = () => {
               <div className="appointment_form">
                 <p>Get an Quick Information</p>
                 <h3>Request An Appointment</h3>
-                <EmailService />
+                <AppointmentForm />
                 <br />
                 <p className="note-section">
                   Note: The displayed time here corresponds to the UAE time

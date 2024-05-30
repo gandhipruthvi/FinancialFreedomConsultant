@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 import "../Styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -7,9 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { reviews } from "../components/reviewsData";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import EmailService from "../components/EmailService";
+import AppointmentForm from "../components/AppointmentForm";
 
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
@@ -42,7 +39,6 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <ToastContainer />
       {/* Banner Carousel */}
       <section className="banner">
         <div className="banner-content">
@@ -546,7 +542,7 @@ const Home = () => {
               <div className="appointment_form">
                 <p>Do it right now!</p>
                 <h3>Make an Appointment</h3>
-                <EmailService />
+                <AppointmentForm />
                 <br />
                 <p className="note-section">
                   Note: The displayed time here corresponds to the UAE time
