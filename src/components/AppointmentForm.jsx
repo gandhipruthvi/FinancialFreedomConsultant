@@ -9,7 +9,6 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-toastify/dist/ReactToastify.css";
-import Spinner from "react-bootstrap/Spinner";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -53,16 +52,12 @@ const AppointmentForm = () => {
       setValidated(true);
     } else {
       event.preventDefault();
-      setTimeout(() => {
-        setIsDataLoading(false);
-      }, 2000);
       // emailjs
       //   .sendForm("service_rvhrg7l", "template_owud8ht", form, {
       //     publicKey: "VGj51Rzpbj7-sbbxg",
       //   })
       //   .then(
       //     () => {
-      //       <ToastContainer />;
       //       console.log("SUCCESS!");
       //       form.reset();
       //       setValidated(false);
@@ -91,6 +86,16 @@ const AppointmentForm = () => {
       //       });
       //     }
       //   );
+      toast.success("Form successfully submitted", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -106,7 +111,10 @@ const AppointmentForm = () => {
 
   return (
     <div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
+      {/* <div className="loader-container">
+        <span className="loader"></span>
+      </div> */}
       <Form
         className="row"
         onSubmit={handleSubmit}
