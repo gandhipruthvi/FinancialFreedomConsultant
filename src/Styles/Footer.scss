@@ -14,6 +14,21 @@ $theme-color: #009CFF;
     padding-left: 150px;
     margin-right: auto;
     margin-left: auto;
+
+    @media screen and (max-width: 1200px) {
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+
+    @media screen and (max-width: 992px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
   }
 
   .secTitle {
@@ -21,6 +36,11 @@ $theme-color: #009CFF;
     font-size: 30px;
     line-height: 40px;
     margin: -7px 0 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .SubsrcribeForm {
@@ -36,6 +56,10 @@ $theme-color: #009CFF;
         font-size: 16px;
         color: #74777c;
         line-height: 70px;
+
+        @media screen and (max-width: 768px) {
+          left: 20px;
+        }
       }
 
       input[type="email"] {
@@ -50,6 +74,11 @@ $theme-color: #009CFF;
         border-radius: 50px;
         padding: 0 75px;
         margin: 0 !important;
+
+        @media screen and (max-width: 768px) {
+          height: 50px;
+          padding: 0 50px;
+        }
 
         &:focus {
           box-shadow: none !important;
@@ -85,6 +114,11 @@ $theme-color: #009CFF;
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
 
+        @media screen and (max-width: 768px) {
+          height: 50px;
+          padding: 0 30px;
+        }
+
         &:hover {
           background: linear-gradient(-90deg, #4dbaff 0%, #006db3 100%);
         }
@@ -101,6 +135,10 @@ $theme-color: #009CFF;
   .fdivider {
     border-top: 1px solid #232323;
     margin: 97px 0 97px;
+
+    @media screen and (max-width: 768px) {
+      margin: 50px 0 50px;
+    }
   }
 
   .aboutWidget {
@@ -112,6 +150,12 @@ $theme-color: #009CFF;
       color: #fff;
       font-weight: 600;
       margin: 0 0 29px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 18px;
+        line-height: 26px;
+        margin: 0 0 20px;
+      }
     }
 
     .phone {
@@ -121,10 +165,20 @@ $theme-color: #009CFF;
       color: $theme-color;
       margin: 0 0 22px;
 
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+        margin: 0 0 15px;
+      }
+
       i {
         display: inline-block;
         font-size: 24px;
         margin-right: 15px;
+
+        @media screen and (max-width: 768px) {
+          font-size: 20px;
+          margin-right: 10px;
+        }
       }
     }
 
@@ -134,6 +188,12 @@ $theme-color: #009CFF;
       line-height: 24px;
       font-weight: 700;
       margin: 0 0 18px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0 0 12px;
+      }
     }
 
     a {
@@ -143,6 +203,11 @@ $theme-color: #009CFF;
       color: #fff;
       border-bottom: 1px solid #fff;
       text-decoration: none;
+
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+        line-height: 22px;
+      }
 
       &:hover {
         color: $theme-color;
@@ -154,6 +219,10 @@ $theme-color: #009CFF;
   .widget {
     padding-left: 28px;
 
+    @media screen and (max-width: 768px) {
+      padding-left: 0;
+    }
+
     .widget_title {
       font-size: 22px;
       line-height: 30px;
@@ -161,10 +230,19 @@ $theme-color: #009CFF;
       font-weight: 600;
       text-transform: capitalize;
       margin: 0 0 18px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 18px;
+        line-height: 26px;
+      }
     }
 
     .widget_title.mb28 {
       margin-bottom: 28px;
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+      }
     }
 
     .menu {
@@ -178,17 +256,30 @@ $theme-color: #009CFF;
       color: #6c6c6c;
       line-height: 34px;
       margin: 0;
+
+      @media screen and (max-width: 768px) {
+        font-size: 14px;
+        line-height: 28px;
+      }
     }
 
     .menu li a {
       color: inherit;
       position: relative;
       padding-left: 28px;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 20px;
+      }
     }
 
     .menu li a:hover {
       color: $theme-color;
       padding-left: 23px;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 15px;
+      }
     }
 
     .menu li a:after {
@@ -221,6 +312,12 @@ $theme-color: #009CFF;
     width: 80px;
     height: 80px;
     margin: 0 14px 14px 0;
+
+    @media screen and (max-width: 768px) {
+      width: 60px;
+      height: 60px;
+      margin: 0 10px 10px 0;
+    }
   }
 
   .galleryShots a:after {
@@ -298,6 +395,11 @@ $theme-color: #009CFF;
     padding: 31px 0 32px;
     font-size: 16px;
     color: #fff;
+
+    @media screen and (max-width: 768px) {
+      padding: 20px 0;
+      font-size: 14px;
+    }
   }
 
   .fcopyright p {
@@ -309,6 +411,10 @@ $theme-color: #009CFF;
     min-height: 80px;
     margin: 0 0 15px;
     padding: 0 30px 0 114px;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 20px 0 90px;
+    }
   }
 
   .pp_post_item img {
@@ -317,6 +423,11 @@ $theme-color: #009CFF;
     position: absolute;
     left: 0;
     top: 0;
+
+    @media screen and (max-width: 768px) {
+      width: 70px;
+      height: 60px;
+    }
   }
 
   .pp_post_item span {
@@ -340,85 +451,16 @@ $theme-color: #009CFF;
     color: #cacaca;
     line-height: 24px;
     font-weight: 700;
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   .pp_post_item a:hover {
     color: $theme-color;
   }
-
-  // .footer-section {
-  //   background: #343434;
-  // }
-
-  // .footer-container {
-  //   padding: 40px;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: space-around;
-  //   align-items: flex-start;
-  //   // gap: 12px;
-  //   color: white;
-  //   border-bottom: 2px solid #293241;
-  //   border-radius: 2px;
-  // }
-
-  // .logo img {
-  //   height: 8em;
-  //   width: auto;
-  // }
-
-  // .ft-description {
-  //   width: 420px;
-  //   margin: 16px 0 40px;
-  //   color: #D0D3DA;
-  //   font-family: 'General Sans', sans-serif;
-  //   font-size: 20px;
-  //   text-align: justify;
-
-  //   letter-spacing: .8px;
-  //   line-height: 1.7rem;
-  // }
-
-  // /* Lists */
-  // .ft-list {
-  //   margin-top: 100px;
-  // }
-
-  // .ft-list-title {
-  //   margin-top: 30px 0;
-  //   font-family: 'General Sans', sans-serif;
-  //   font-size: 20px;
-  //   font-weight: bold;
-  //   text-align: left;
-  // }
-
-  // .ft-list-items {
-  //   list-style-type: none;
-  //   text-align: left;
-  //   padding: 0;
-
-  // }
-
-  // .ft-list-items li a {
-  //   text-decoration: none;
-  //   color: #a5a7ac;
-  //   padding: 0 0 2px 0;
-  //   border-bottom: 2px dotted transparent;
-  //   transition: border .2s ease;
-  //   font-family: 'General Sans', sans-serif;
-  // }
-
-  // .ft-list-items li {
-  //   margin: 24px 0;
-  //   font-family: 'Rubik', sans-serif;
-  //   font-size: 16px;
-  //   font-weight: bold;
-  //   letter-spacing: .8px;
-  // }
-
-  // .ft-list-items li a:hover {
-  //   border-bottom: 2px dotted #a5a7ac;
-  // }
 
   /* CopyRight */
   .ft-copyright {
@@ -432,6 +474,12 @@ $theme-color: #009CFF;
     font-size: 18px;
     font-weight: bold;
     letter-spacing: .8px;
+
+    @media screen and (max-width: 768px) {
+      padding: 18px;
+      display: block;
+      text-align: center;
+    }
   }
 
   .ft-social-links {
@@ -440,6 +488,11 @@ $theme-color: #009CFF;
     justify-content: center;
     align-items: center;
     gap: 12px;
+
+    @media screen and (max-width: 768px) {
+      margin: 16px 0 0;
+      gap: 8px;
+    }
   }
 
   .ft-social-links li a {
@@ -451,12 +504,22 @@ $theme-color: #009CFF;
     border: 2px solid #ffffff;
     border-radius: 50%;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      width: 35px;
+      height: 35px;
+    }
   }
 
   .ft-social-links li a svg {
     width: 24px;
     height: 24px;
     padding: 1px;
+
+    @media screen and (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .ft-social-links li a svg path {
@@ -471,34 +534,34 @@ $theme-color: #009CFF;
   }
 
   /* Responsive */
-  @media screen and (max-width: 700px) {
-    .footer-container {
-      padding: 24px;
-    }
+  // @media screen and (max-width: 700px) {
+  //   .footer-container {
+  //     padding: 24px;
+  //   }
 
-    .ft-description {
-      width: 100%;
-      margin: 16px 0 24px;
-    }
+  //   .ft-description {
+  //     width: 100%;
+  //     margin: 16px 0 24px;
+  //   }
 
-    .ft-input {
-      width: 100%;
-      margin: 16px 0;
-    }
+  //   .ft-input {
+  //     width: 100%;
+  //     margin: 16px 0;
+  //   }
 
-    .ft-btn {
-      width: 100%;
-      margin: 0 0 16px;
-    }
+  //   .ft-btn {
+  //     width: 100%;
+  //     margin: 0 0 16px;
+  //   }
 
-    .ft-copyright {
-      padding: 18px;
-      display: block;
-      text-align: center;
-    }
+  //   .ft-copyright {
+  //     padding: 18px;
+  //     display: block;
+  //     text-align: center;
+  //   }
 
-    .ft-social-links {
-      margin: 16px 0 0;
-    }
-  }
+  //   .ft-social-links {
+  //     margin: 16px 0 0;
+  //   }
+  // }
 }

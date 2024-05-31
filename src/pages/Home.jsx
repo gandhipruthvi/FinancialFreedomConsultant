@@ -7,6 +7,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { reviews } from "../components/reviewsData";
 import AppointmentForm from "../components/AppointmentForm";
+import { ToastContainer } from "react-toastify";
 
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
@@ -39,6 +40,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+      <ToastContainer />
       {/* Banner Carousel */}
       <section className="banner">
         <div className="banner-content">

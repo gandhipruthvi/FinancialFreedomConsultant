@@ -53,12 +53,12 @@ const AppointmentForm = () => {
       setValidated(true);
     } else {
       event.preventDefault();
-      // setTimeout(() => {
-      //   setIsDataLoading(false);
-      // }, 2000);
+      setTimeout(() => {
+        setIsDataLoading(false);
+      }, 2000);
       // emailjs
-      //   .sendForm("service_aphuyl9", "template_nkiyiiy", form, {
-      //     publicKey: "fpCqaLGlOJgGZkKkq",
+      //   .sendForm("service_rvhrg7l", "template_owud8ht", form, {
+      //     publicKey: "VGj51Rzpbj7-sbbxg",
       //   })
       //   .then(
       //     () => {
@@ -91,20 +91,6 @@ const AppointmentForm = () => {
       //       });
       //     }
       //   );
-      <ToastContainer />;
-      console.log("SUCCESS!");
-      form.reset();
-      setValidated(false);
-      toast.success("Form successfully submitted", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
     }
   };
 
@@ -120,6 +106,7 @@ const AppointmentForm = () => {
 
   return (
     <div>
+      {/* <ToastContainer /> */}
       <Form
         className="row"
         onSubmit={handleSubmit}
