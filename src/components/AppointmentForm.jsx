@@ -1,6 +1,7 @@
 import Form from "react-bootstrap/Form";
 import "../Styles/AppointmentForm.scss";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import countries from "../assets/countries.json";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
@@ -8,7 +9,6 @@ import getDay from "date-fns/getDay";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-toastify/dist/ReactToastify.css";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());

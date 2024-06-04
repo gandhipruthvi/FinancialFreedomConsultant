@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.scss";
 import {
   Route,
@@ -14,6 +13,7 @@ import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Courses from "./pages/Courses.jsx";
 import Contact from "./pages/Contact.jsx";
+import Payments from "./pages/Payments.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="services" element={<Services />} />
       <Route path="courses" element={<Courses />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="payment" element={<Payments />} />
     </Route>
   )
 );
