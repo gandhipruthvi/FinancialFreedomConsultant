@@ -21,7 +21,7 @@ const Payments = () => {
   };
 
   const initialOptions = {
-    "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
+    "client-id": import.meta.env.VITE_PAYPAL_LIVE_ID,
     currency: "USD",
     intent: "capture",
   };
@@ -33,8 +33,6 @@ const Payments = () => {
 
   return (
     <div className="payments">
-      {/* <p>{import.meta.env.REACT_APP_PAYPAL_CLIENT_ID}</p> */}
-
       <div className="amountForm">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Amount</Form.Label>
