@@ -1,13 +1,13 @@
-import Form from "react-bootstrap/Form";
 import "../Styles/AppointmentForm.scss";
+import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import countries from "../assets/countries.json";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import getDay from "date-fns/getDay";
-import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import DatePicker from "react-datepicker";
 
 const AppointmentForm = () => {
@@ -41,64 +41,6 @@ const AppointmentForm = () => {
     );
   };
 
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false || selectedDate == null) {
-      event.preventDefault();
-      event.stopPropagation();
-      setValidated(true);
-    } else {
-      event.preventDefault();
-      // emailjs
-      //   .sendForm("service_rvhrg7l", "template_owud8ht", form, {
-      //     publicKey: "VGj51Rzpbj7-sbbxg",
-      //   })
-      //   .then(
-      //     () => {
-      //       console.log("SUCCESS!");
-      //       form.reset();
-      //       setValidated(false);
-      //       toast.success("Form successfully submitted", {
-      //         position: "bottom-right",
-      //         autoClose: 5000,
-      //         hideProgressBar: false,
-      //         closeOnClick: true,
-      //         pauseOnHover: true,
-      //         draggable: true,
-      //         progress: undefined,
-      //         theme: "light",
-      //       });
-      //     },
-      //     (error) => {
-      //       console.log("FAILED...", error.text);
-      //       toast.error("Unable to submit the form", {
-      //         position: "bottom-right",
-      //         autoClose: 5000,
-      //         hideProgressBar: false,
-      //         closeOnClick: true,
-      //         pauseOnHover: true,
-      //         draggable: true,
-      //         progress: undefined,
-      //         theme: "light",
-      //       });
-      //     }
-      //   );
-      toast.success("Form successfully submitted", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  };
-
   let countriesOption =
     countries.length > 0 &&
     countries.map((country) => {
@@ -108,6 +50,79 @@ const AppointmentForm = () => {
         </option>
       );
     });
+
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    console.log(form);
+    if (form.checkValidity() === false || selectedDate == null) {
+      event.preventDefault();
+      event.stopPropagation();
+      setValidated(true);
+    } else {
+      event.preventDefault();
+
+      // sending appointment information to the server
+      emailjs
+        .sendForm("service_rvhrg7l", "template_owud8ht", form, {
+          publicKey: "VGj51Rzpbj7-sbbxg",
+        })
+        .then(
+          () => {
+            // sending appointment email to the client
+            emailjs
+              .sendForm("service_rvhrg7l", "template_hzijf0s", form, {
+                publicKey: "VGj51Rzpbj7-sbbxg",
+              })
+              .then(
+                () => {
+                  console.log("SUCCESS!");
+                  form.reset();
+                  setValidated(false);
+                  toast.success("Form successfully submitted", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                },
+                (error) => {
+                  console.log("FAILED...", error.text);
+                  toast.error("Unable to send the confirmation email!", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                }
+              );
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+            toast.error("Unable to submit the form", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
+        );
+    }
+  };
 
   return (
     <div>
