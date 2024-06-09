@@ -1,4 +1,4 @@
-$theme-color: #009CFF;
+$theme-color: #009cff;
 
 .fixedHeader {
   position: fixed;
@@ -9,9 +9,9 @@ $theme-color: #009CFF;
   left: 0;
   background: #1a1a1a;
   z-index: 99;
-  box-shadow: 0px 0px 25px rgba(255, 255, 255, .15);
+  box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.15);
 
-  .mainMenu>ul>li {
+  .mainMenu > ul > li {
     padding: 39px 0 !important;
   }
 
@@ -30,7 +30,7 @@ $theme-color: #009CFF;
   left: 0;
   right: 0;
   top: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, .1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   z-index: 3;
   // background: rgba(#f3f3f3, 0.5);
 
@@ -146,7 +146,7 @@ $theme-color: #009CFF;
       padding: 0;
 
       li {
-        line-height: .8;
+        line-height: 0.8;
         margin: 0 32px 0 0;
         display: inline-block;
         position: relative;
@@ -157,7 +157,6 @@ $theme-color: #009CFF;
           color: $theme-color;
         }
 
-
         &:before {
           background: #fff;
           position: absolute;
@@ -165,12 +164,12 @@ $theme-color: #009CFF;
           right: 0;
           bottom: 0;
           height: 2px;
-          content: '';
+          content: "";
           margin: 0 auto;
           width: 0;
-          transition: width .5s cubic-bezier(.25, .8, .25, 1) 0s;
-          -moz-transition: width .5s cubic-bezier(.25, .8, .25, 1) 0s;
-          -webkit-transition: width .5s cubic-bezier(.25, .8, .25, 1) 0s;
+          transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+          -moz-transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+          -webkit-transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
         }
       }
     }
@@ -181,9 +180,9 @@ $theme-color: #009CFF;
       right: auto;
     }
 
-    ul li.menu-item-has-children>a:after {
+    ul li.menu-item-has-children > a:after {
       content: "\f043";
-      font-family: 'themewar' !important;
+      font-family: "themewar" !important;
       display: inline-block;
       letter-spacing: 0;
       font-size: 14px;
@@ -194,8 +193,8 @@ $theme-color: #009CFF;
     }
   }
 
-  .mainMenu>ul>li>ul,
-  .mainMenu>ul>li>ul>li>ul {
+  .mainMenu > ul > li > ul,
+  .mainMenu > ul > li > ul > li > ul {
     padding: 15px 0;
     position: absolute;
     top: 100%;
@@ -207,7 +206,7 @@ $theme-color: #009CFF;
     border-color: #fff;
     visibility: hidden;
     opacity: 0;
-    box-shadow: 0 9px 52px -24px rgba(0, 0, 0, .17);
+    box-shadow: 0 9px 52px -24px rgba(0, 0, 0, 0.17);
     z-index: 10;
     -webkit-transform: rotateX(-75deg);
     -moz-transform: rotateX(-75deg);
@@ -222,11 +221,11 @@ $theme-color: #009CFF;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
 
-  .mainMenu>ul ul li {
+  .mainMenu > ul ul li {
     padding: 0;
     display: block;
     width: 100%;
@@ -234,7 +233,7 @@ $theme-color: #009CFF;
     margin: 0;
   }
 
-  .mainMenu>ul li:hover>ul {
+  .mainMenu > ul li:hover > ul {
     pointer-events: inherit;
     visibility: visible;
     opacity: 1;
@@ -250,7 +249,11 @@ $theme-color: #009CFF;
     }
 
     .qu_btn:before {
-      background: linear-gradient(90deg, $theme-color 0%, $theme-color 100%) !important;
+      background: linear-gradient(
+        90deg,
+        $theme-color 0%,
+        $theme-color 100%
+      ) !important;
     }
 
     .qu_btn:hover {
@@ -307,10 +310,10 @@ $theme-color: #009CFF;
       margin-left: 26px;
 
       a {
-
         &:hover,
         .active a {
           color: $theme-color;
+          cursor: pointer;
         }
       }
     }
@@ -327,7 +330,7 @@ $theme-color: #009CFF;
     top: 106px;
     width: 300px;
     height: 60px;
-    background: #FFF;
+    background: #fff;
     padding: 0;
     border-radius: 50px;
     z-index: 9;
@@ -344,7 +347,6 @@ $theme-color: #009CFF;
   .searchBtn.active .searchBar {
     visibility: visible;
     opacity: 1;
-
   }
 
   .searchBtn.active a {
@@ -546,22 +548,22 @@ $theme-color: #009CFF;
   }
 
   .SMABody ul li a.active,
-  .SMABody ul li a.current-menu-item>a {
+  .SMABody ul li a.current-menu-item > a {
     color: $theme-color;
   }
 
-  .SMABody>ul>li>ul li a {
+  .SMABody > ul > li > ul li a {
     padding-left: 45px;
     text-transform: capitalize;
     font-size: 15px;
     letter-spacing: 0;
   }
 
-  .SMABody>ul>li>ul>li>ul>li a {
+  .SMABody > ul > li > ul > li > ul > li a {
     padding-left: 60px;
   }
 
-  .SMABody ul li.menu-item-has-children>a:after {
+  .SMABody ul li.menu-item-has-children > a:after {
     font-family: "themewar" !important;
     content: "\f043";
     font-size: 15px;
