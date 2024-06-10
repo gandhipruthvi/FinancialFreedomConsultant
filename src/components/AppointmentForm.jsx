@@ -6,18 +6,46 @@ import countries from "../assets/countries.json";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import getDay from "date-fns/getDay";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import DatePicker from "react-datepicker";
+import { db } from "../../firebase";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [checkDate, setCheckDate] = useState(null);
-  const SelectDate = () => {
-    const isWeekday = (date) => {
-      const day = getDay(date);
-      return day !== 0 && day !== 6;
+  const [bookedSlots, setBookedSlots] = useState([]);
+  const [validated, setValidated] = useState(false);
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      const appointmentsSnapshot = await getDocs(
+        collection(db, "appointments")
+      );
+      const appointments = appointmentsSnapshot.docs.map((doc) => doc.data());
+      setBookedSlots(appointments.map((app) => new Date(app.date)));
     };
+    fetchAppointments();
+  }, []);
+
+  const isWeekday = (date) => {
+    const day = getDay(date);
+    return day !== 0 && day !== 6;
+  };
+
+  const getBookedTimesForDate = (date) => {
+    let timesToExclude = [];
+    bookedSlots.forEach((slot) => {
+      if (slot.toDateString() === date.toDateString()) {
+        timesToExclude.push(slot);
+        timesToExclude.push(new Date(slot.getTime() + 15 * 60 * 1000));
+      }
+    });
+    return timesToExclude;
+  };
+
+  const SelectDate = () => {
     return (
       <DatePicker
         selected={selectedDate}
@@ -37,6 +65,9 @@ const AppointmentForm = () => {
         dateFormat="MMMM d, yyyy h:mm aa"
         placeholderText="Select Date & Time"
         name="date_time"
+        excludeTimes={getBookedTimesForDate(
+          selectedDate ? selectedDate : new Date()
+        )}
       />
     );
   };
@@ -51,8 +82,6 @@ const AppointmentForm = () => {
       );
     });
 
-  const [validated, setValidated] = useState(false);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -63,6 +92,20 @@ const AppointmentForm = () => {
       setValidated(true);
     } else {
       event.preventDefault();
+
+      const appointment = {
+        clientName: form.client_name.value,
+        clientEmail: form.client_email.value,
+        service: form.service.value,
+        date: selectedDate.toString(),
+        country: form.country.value,
+        contactNumber: form.contact_number.value,
+        info: form.info.value,
+      };
+
+      await addDoc(collection(db, "appointments"), appointment);
+      console.log(appointment);
+      setBookedSlots([...bookedSlots, new Date(appointment.date)]);
 
       // sending appointment information to the server
       emailjs
