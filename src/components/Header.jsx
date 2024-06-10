@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useRef } from "react";
+import { useLayoutEffect, useState, useRef, useEffect } from "react";
 import logo from "../assets/logo.png";
 import "../Styles/Header.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -31,11 +31,25 @@ const Header = () => {
   }
 
   const [isActive, setActive] = useState(false);
+  const searchBarRef = useRef(null);
   const [sideMenuActive, setSideMenuActive] = useState(false);
 
   const toggleSearchBtnClass = () => {
     setActive(!isActive);
   };
+
+  const handleClickOutside = (event) => {
+    if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+      setActive(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleSideMenuBar = () => {
     setSideMenuActive(!sideMenuActive);
@@ -95,6 +109,16 @@ const Header = () => {
                         Courses
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink
+                        to="/appointment"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        Appointment
+                      </NavLink>
+                    </li>
                   </ul>
                 </nav>
                 <div className="accessNav">
@@ -127,7 +151,10 @@ const Header = () => {
                       </a>
                     </h3>
                   </div>
-                  <div className={isActive ? "searchBtn active" : "searchBtn"}>
+                  <div
+                    ref={searchBarRef}
+                    className={isActive ? "searchBtn active" : "searchBtn"}
+                  >
                     <a onClick={toggleSearchBtnClass}>
                       <i className="twi-search2"></i>
                     </a>
@@ -199,6 +226,15 @@ const Header = () => {
                   onClick={toggleSideMenuBar}
                 >
                   Courses
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/appointment"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Book an Appointment
                 </NavLink>
               </li>
               <li>

@@ -15,6 +15,7 @@ import Courses from "./pages/Courses.jsx";
 import Contact from "./pages/Contact.jsx";
 import Payments from "./pages/Payments.jsx";
 import PaymentLinkGenerator from "./pages/PaymentLinkGenerator.jsx";
+import Appointment from "./pages/Appointment.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="payment" element={<Payments />} />
       <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
+      <Route path="appointment" element={<Appointment />} />
     </Route>
   )
 );
