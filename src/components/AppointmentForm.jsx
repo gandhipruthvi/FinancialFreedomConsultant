@@ -65,62 +65,73 @@ const AppointmentForm = () => {
       event.preventDefault();
 
       // sending appointment information to the server
-      emailjs
-        .sendForm("service_rvhrg7l", "template_owud8ht", form, {
-          publicKey: "VGj51Rzpbj7-sbbxg",
-        })
-        .then(
-          () => {
-            // sending appointment email to the client
-            emailjs
-              .sendForm("service_rvhrg7l", "template_hzijf0s", form, {
-                publicKey: "VGj51Rzpbj7-sbbxg",
-              })
-              .then(
-                () => {
-                  console.log("SUCCESS!");
-                  form.reset();
-                  setValidated(false);
-                  toast.success("Form successfully submitted", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
-                },
-                (error) => {
-                  console.log("FAILED...", error.text);
-                  toast.error("Unable to send the confirmation email!", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
-                }
-              );
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-            toast.error("Unable to submit the form", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          }
-        );
+      // emailjs
+      //   .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_KEY, import.meta.env.VITE_EMAILJS_SERVER_TEMPLATE, form, {
+      //     publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      //   })
+      //   .then(
+      //     () => {
+      //       // sending appointment email to the client
+      //       emailjs
+      //         .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_KEY, import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE, form, {
+      //           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      //         })
+      //         .then(
+      //           () => {
+      //             console.log("SUCCESS!");
+      //             form.reset();
+      //             setValidated(false);
+      //             toast.success("Form successfully submitted", {
+      //               position: "bottom-right",
+      //               autoClose: 5000,
+      //               hideProgressBar: false,
+      //               closeOnClick: true,
+      //               pauseOnHover: true,
+      //               draggable: true,
+      //               progress: undefined,
+      //               theme: "light",
+      //             });
+      //           },
+      //           (error) => {
+      //             console.log("FAILED...", error.text);
+      //             toast.error("Unable to send the confirmation email!", {
+      //               position: "bottom-right",
+      //               autoClose: 5000,
+      //               hideProgressBar: false,
+      //               closeOnClick: true,
+      //               pauseOnHover: true,
+      //               draggable: true,
+      //               progress: undefined,
+      //               theme: "light",
+      //             });
+      //           }
+      //         );
+      //     },
+      //     (error) => {
+      //       console.log("FAILED...", error.text);
+      //       toast.error("Unable to submit the form", {
+      //         position: "bottom-right",
+      //         autoClose: 5000,
+      //         hideProgressBar: false,
+      //         closeOnClick: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //         theme: "light",
+      //       });
+      //     }
+      //   );
+
+      toast.success("Form successfully submitted", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -226,7 +237,7 @@ const AppointmentForm = () => {
 
         <div className="input-field col-md-12">
           <button type="submit" className="qu_btn">
-            Get A Quote
+            Book Appointment
           </button>
         </div>
       </Form>

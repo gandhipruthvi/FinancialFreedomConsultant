@@ -1,0 +1,14 @@
+.paymentLinkGenerator {
+    width: 40%;
+    margin: 20px auto 20px;
+
+    .amountForm {
+        margin-bottom: 20px;
+    }
+
+    .paymentButton {
+        .hideButton {
+            display: none;
+        }
+    }
+}

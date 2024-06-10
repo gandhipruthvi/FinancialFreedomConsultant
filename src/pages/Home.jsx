@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "../Styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { reviews } from "../components/reviewsData";
