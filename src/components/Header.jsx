@@ -109,6 +109,16 @@ const Header = () => {
                         Courses
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink
+                        to="/appointment"
+                        className={
+                          isActive ? "current-menu-item anchor" : "anchor"
+                        }
+                      >
+                        Appointment
+                      </NavLink>
+                    </li>
                   </ul>
                 </nav>
                 <div className="accessNav">
@@ -216,6 +226,15 @@ const Header = () => {
                   onClick={toggleSideMenuBar}
                 >
                   Courses
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/appointment"
+                  className={isActive ? "current-menu-item anchor" : "anchor"}
+                  onClick={toggleSideMenuBar}
+                >
+                  Book an Appointment
                 </NavLink>
               </li>
               <li>
