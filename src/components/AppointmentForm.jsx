@@ -108,62 +108,62 @@ const AppointmentForm = () => {
       setBookedSlots([...bookedSlots, new Date(appointment.date)]);
 
       // sending appointment information to the server
-      // emailjs
-      //   .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_KEY, import.meta.env.VITE_EMAILJS_SERVER_TEMPLATE, form, {
-      //     publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      //   })
-      //   .then(
-      //     () => {
-      //       // sending appointment email to the client
-      //       emailjs
-      //         .sendForm(import.meta.env.VITE_EMAILJS_SERVICE_KEY, import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE, form, {
-      //           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      //         })
-      //         .then(
-      //           () => {
-      //             console.log("SUCCESS!");
-      //             form.reset();
-      //             setValidated(false);
-      //             toast.success("Form successfully submitted", {
-      //               position: "bottom-right",
-      //               autoClose: 5000,
-      //               hideProgressBar: false,
-      //               closeOnClick: true,
-      //               pauseOnHover: true,
-      //               draggable: true,
-      //               progress: undefined,
-      //               theme: "light",
-      //             });
-      //           },
-      //           (error) => {
-      //             console.log("FAILED...", error.text);
-      //             toast.error("Unable to send the confirmation email!", {
-      //               position: "bottom-right",
-      //               autoClose: 5000,
-      //               hideProgressBar: false,
-      //               closeOnClick: true,
-      //               pauseOnHover: true,
-      //               draggable: true,
-      //               progress: undefined,
-      //               theme: "light",
-      //             });
-      //           }
-      //         );
-      //     },
-      //     (error) => {
-      //       console.log("FAILED...", error.text);
-      //       toast.error("Unable to submit the form", {
-      //         position: "bottom-right",
-      //         autoClose: 5000,
-      //         hideProgressBar: false,
-      //         closeOnClick: true,
-      //         pauseOnHover: true,
-      //         draggable: true,
-      //         progress: undefined,
-      //         theme: "light",
-      //       });
-      //     }
-      //   );
+      emailjs
+        .sendForm(import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY, import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVER_TEMPLATE, form, {
+          publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+        })
+        .then(
+          () => {
+            // sending appointment email to the client
+            emailjs
+              .sendForm(import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY, import.meta.env.VITE_EMAILJS_APPOINTMENT_CLIENT_TEMPLATE, form, {
+                publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+              })
+              .then(
+                () => {
+                  console.log("SUCCESS!");
+                  form.reset();
+                  setValidated(false);
+                  toast.success("Form successfully submitted", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                },
+                (error) => {
+                  console.log("FAILED...", error.text);
+                  toast.error("Unable to send the confirmation email!", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                }
+              );
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+            toast.error("Unable to submit the form", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
+        );
 
       toast.success("Form successfully submitted", {
         position: "bottom-right",

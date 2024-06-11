@@ -24,17 +24,23 @@ const PaymentLinkGenerator = () => {
         form.payment_amount.value,
         import.meta.env.VITE_PAYMENT_SECRET_KEY
       ).toString();
-      setPaymentLink(
+      const link =
         window.location.origin +
-          "/payment?amount=" +
-          encodeURIComponent(encryptedAmount)
-      );
+        "/payment?amount=" +
+        encodeURIComponent(encryptedAmount);
+      setPaymentLink(link);
+      form.generated_link.value = link;
 
       console.log(form);
       emailjs
-        .sendForm("service_aphuyl9", "template_1bgmuil", form, {
-          publicKey: "fpCqaLGlOJgGZkKkq",
-        })
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_INFO_SERVICE_KEY,
+          import.meta.env.VITE_EMAILJS_INFO_CLIENT_TEMPLATE,
+          form,
+          {
+            publicKey: import.meta.env.VITE_EMAILJS_INFO_PUBLIC_KEY,
+          }
+        )
         .then(
           () => {
             console.log("SUCCESS!");
@@ -112,13 +118,9 @@ const PaymentLinkGenerator = () => {
 
         <Form.Group className="mb-3" controlId="formGeneratedLink">
           <Form.Label>Generated Link</Form.Label>
-          <Form.Control
-            disabled
-            type="input"
-            name="generated_link"
-            value={paymentLink}
-          />
+          <Form.Control disabled type="input" value={paymentLink} />
         </Form.Group>
+        <Form.Control type="hidden" name="generated_link" />
       </Form>
 
       <ToastContainer />
