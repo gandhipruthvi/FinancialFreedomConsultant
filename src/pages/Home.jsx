@@ -6,6 +6,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import { reviews } from "../components/reviewsData";
 import AppointmentForm from "../components/AppointmentForm";
 import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
@@ -52,9 +53,9 @@ const Home = () => {
             empowering you to achieve and sustain financial independence. Let us
             guide you toward a brighter financial future.
           </p>
-          <a href="services" className="qu_btn">
+          <Link to="/services" className="qu_btn">
             Our Services
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -82,9 +83,9 @@ const Home = () => {
         </div>
 
         <div className="body-btn">
-          <a href="contact" className=" priceItem qu_btn">
+          <Link to="/appointment" className="priceItem qu_btn">
             Book Now
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -97,9 +98,9 @@ const Home = () => {
           </p>
           <h4>30 Minutes Free Consultation</h4>
           <div className="clearfix"></div>
-          <a className="qu_btn" href="contact">
+          <Link className="qu_btn" to="/contact">
             Send Request
-          </a>
+          </Link>
         </div>
       </div>
 
