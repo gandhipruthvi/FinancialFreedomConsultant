@@ -31,7 +31,7 @@ const AppointmentForm = () => {
 
   const isWeekday = (date) => {
     const day = getDay(date);
-    return day !== 0 && day !== 6;
+    return day !== 0 && day !== 7;
   };
 
   const getBookedTimesForDate = (date) => {
@@ -39,7 +39,6 @@ const AppointmentForm = () => {
     bookedSlots.forEach((slot) => {
       if (slot.toDateString() === date.toDateString()) {
         timesToExclude.push(slot);
-        timesToExclude.push(new Date(slot.getTime() + 15 * 60 * 1000));
       }
     });
     return timesToExclude;
@@ -58,7 +57,7 @@ const AppointmentForm = () => {
         filterDate={isWeekday}
         minDate={new Date()}
         timeFormat="HH:mm"
-        timeIntervals={15}
+        timeIntervals={60}
         timeCaption="Time"
         minTime={setHours(setMinutes(new Date(), 59), 8)}
         maxTime={setHours(setMinutes(new Date(), 0), 17)}
@@ -109,16 +108,27 @@ const AppointmentForm = () => {
 
       // sending appointment information to the server
       emailjs
-        .sendForm(import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY, import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVER_TEMPLATE, form, {
-          publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
-        })
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
+          import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVER_TEMPLATE,
+          form,
+          {
+            publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+          }
+        )
         .then(
           () => {
             // sending appointment email to the client
             emailjs
-              .sendForm(import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY, import.meta.env.VITE_EMAILJS_APPOINTMENT_CLIENT_TEMPLATE, form, {
-                publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
-              })
+              .sendForm(
+                import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
+                import.meta.env.VITE_EMAILJS_APPOINTMENT_CLIENT_TEMPLATE,
+                form,
+                {
+                  publicKey: import.meta.env
+                    .VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+                }
+              )
               .then(
                 () => {
                   console.log("SUCCESS!");
