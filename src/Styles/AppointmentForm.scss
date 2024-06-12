@@ -20,12 +20,12 @@
 //     color: red !important;
 // }
 
-.dateTimeInvalid {
+.was-validated .dateTimeInvalid {
     border: 1px solid red !important;
     margin-bottom: 0px !important;
 }
 
-.invalid-feedback.active {
+.was-validated .invalid-feedback.active {
     display: block;
 }
 

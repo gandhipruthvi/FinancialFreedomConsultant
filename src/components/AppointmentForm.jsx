@@ -14,7 +14,6 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [checkDate, setCheckDate] = useState(null);
   const [bookedSlots, setBookedSlots] = useState([]);
   const [validated, setValidated] = useState(false);
 
@@ -44,17 +43,28 @@ const AppointmentForm = () => {
     return timesToExclude;
   };
 
+  const filterPassedTime = (time) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+
+    return currentDate.getTime() < selectedDate.getTime();
+  };
+
   const SelectDate = () => {
     return (
       <DatePicker
         selected={selectedDate}
-        className={checkDate ? "dateTimeInvalid" : ""}
+        className={
+          selectedDate == null
+            ? "dateTimeInvalid dateTimeSelector"
+            : "dateTimeSelector"
+        }
         onChange={(date) => {
           setSelectedDate(date);
-          date == null ? setCheckDate(true) : setCheckDate(false);
         }}
         showTimeSelect
         filterDate={isWeekday}
+        filterTime={filterPassedTime}
         minDate={new Date()}
         timeFormat="HH:mm"
         timeIntervals={60}
@@ -84,7 +94,6 @@ const AppointmentForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    console.log(form);
     if (form.checkValidity() === false || selectedDate == null) {
       event.preventDefault();
       event.stopPropagation();
@@ -103,7 +112,6 @@ const AppointmentForm = () => {
       };
 
       await addDoc(collection(db, "appointments"), appointment);
-      console.log(appointment);
       setBookedSlots([...bookedSlots, new Date(appointment.date)]);
 
       // sending appointment information to the server
@@ -246,7 +254,7 @@ const AppointmentForm = () => {
           <SelectDate></SelectDate>
           <Form.Control.Feedback
             type="invalid"
-            className={checkDate ? "active" : ""}
+            className={selectedDate == null ? "active" : ""}
           >
             Please select a Date and Time
           </Form.Control.Feedback>
