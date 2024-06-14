@@ -151,7 +151,7 @@ const Header = () => {
                       </a>
                     </h3>
                   </div>
-                  <div
+                  {/* <div
                     ref={searchBarRef}
                     className={isActive ? "searchBtn active" : "searchBtn"}
                   >
@@ -170,7 +170,7 @@ const Header = () => {
                         </button>
                       </form>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

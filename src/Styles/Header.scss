@@ -267,10 +267,11 @@ $theme-color: #009cff;
 
     .icon_box_04 {
       padding-right: 20px;
-      border-left: none;
-      border-right: 1px solid #e6e6e6;
+      border-right: none;
+      border-left: 1px solid #e6e6e6;
       position: relative;
       padding-left: 92px;
+      margin-left: 30px;
 
       .ib_box {
         position: absolute;
@@ -424,14 +425,13 @@ $theme-color: #009cff;
     background: rgba(0, 0, 0, 0.7);
     z-index: 99;
     cursor: url(../images/close.png), auto;
-    transition: all 0.4s ease-in 0.8s;
+    transition: all 0.4s ease-in 0.4s;
   }
 
   .sidebarMenu.active .sidebarMenuOverlay {
     visibility: visible;
     left: 0;
     opacity: 1;
-    transition: all 0.8s ease-out 0s;
   }
 
   .sidebarMenuOverlay:before {
@@ -465,7 +465,7 @@ $theme-color: #009cff;
     opacity: 1;
     visibility: visible;
     top: 0;
-    transition: all 0.2s ease-out 1.2s;
+    transition: all 0.2s ease-out 0.9s;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
@@ -624,7 +624,7 @@ $theme-color: #009cff;
 
   .navbar {
     padding-right: 30px !important;
-    height: 120px;
+    height: 80px;
     flex-wrap: nowrap;
 
     .logo img {
@@ -641,7 +641,7 @@ $theme-color: #009cff;
   }
 
   .banner {
-    margin-top: 120px;
+    margin-top: 80px;
 
     .banner-content {
       padding-top: 0 !important;
