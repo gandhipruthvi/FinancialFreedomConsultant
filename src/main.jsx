@@ -16,6 +16,7 @@ import Contact from "./pages/Contact.jsx";
 import Payments from "./pages/Payments.jsx";
 import PaymentLinkGenerator from "./pages/PaymentLinkGenerator.jsx";
 import Appointment from "./pages/Appointment.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="payment" element={<Payments />} />
       <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
       <Route path="appointment" element={<Appointment />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
