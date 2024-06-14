@@ -41,11 +41,15 @@ const About = () => {
                 <div className="subTitle">
                   <span className="bleft"></span>Welcome To Our Company
                 </div>
-                <h2 className="secTitle">Empowering Individuals & Businesses</h2>
+                <h2 className="secTitle">
+                  Empowering Individuals & Businesses
+                </h2>
                 <p className="secDesc">
-                  At <b>Financial Freedom Consultant</b>, we empower both individuals and businesses with expert financial guidance.
-                  Our tailored services help you take control of your financial future. Reach out today to unlock
-                  new opportunities for success.
+                  At <b>Financial Freedom Consultant</b>, we empower both
+                  individuals and businesses with expert financial guidance. Our
+                  tailored services help you take control of your financial
+                  future. Reach out today to unlock new opportunities for
+                  success.
                 </p>
                 <div className="hpAuthor">
                   <img className="author" src={SymbolImg} alt="symbol" />
@@ -75,7 +79,10 @@ const About = () => {
                   </span>
                   <i>k</i>
                 </h2>
-                <p>Tailored financial guidance for individuals and businesses, ensuring success and peace of mind.</p>
+                <p>
+                  Tailored financial guidance for individuals and businesses,
+                  ensuring success and peace of mind.
+                </p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6">
@@ -86,7 +93,10 @@ const About = () => {
                     145
                   </span>
                 </h2>
-                <p>Dedicated to your financial success, our team brings extensive experience and professionalism.</p>
+                <p>
+                  Dedicated to your financial success, our team brings extensive
+                  experience and professionalism.
+                </p>
               </div>
             </div>
           </div>
@@ -108,7 +118,8 @@ const About = () => {
                     Empowerment Through Education
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    We believe in empowering our clients with financial knowledge and understanding.
+                    We believe in empowering our clients with financial
+                    knowledge and understanding.
                   </Accordion.Body>
                 </Accordion.Item>
 
@@ -118,9 +129,10 @@ const About = () => {
                     Holistic Approach
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    Our approach to financial planning goes beyond mere numbers. We take
-                    into account your values, aspirations, and lifestyle to create a
-                    comprehensive strategy that fosters long-term financial freedom and fulfillment.
+                    Our approach to financial planning goes beyond mere numbers.
+                    We take into account your values, aspirations, and lifestyle
+                    to create a comprehensive strategy that fosters long-term
+                    financial freedom and fulfillment.
                   </Accordion.Body>
                 </Accordion.Item>
 
@@ -130,9 +142,10 @@ const About = () => {
                     Proactive Risk Management
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    We help you identify and mitigate potential risks that could jeopardize your
-                    financial freedom, offering proactive strategies to protect your assets and
-                    ensure stability in any economic climate.
+                    We help you identify and mitigate potential risks that could
+                    jeopardize your financial freedom, offering proactive
+                    strategies to protect your assets and ensure stability in
+                    any economic climate.
                   </Accordion.Body>
                 </Accordion.Item>
 
@@ -142,9 +155,11 @@ const About = () => {
                     Continuous Support and Guidance
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
-                    Achieving financial freedom is an ongoing journey, and we're with you every
-                    step of the way. From initial planning to ongoing monitoring and adjustments,
-                    we provide continuous support and guidance to help you stay on track towards your goals.
+                    Achieving financial freedom is an ongoing journey, and we're
+                    with you every step of the way. From initial planning to
+                    ongoing monitoring and adjustments, we provide continuous
+                    support and guidance to help you stay on track towards your
+                    goals.
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -156,9 +171,7 @@ const About = () => {
               <div className="chooseSlider">
                 <div className="chsItem">
                   <img src={Symbol2Img} alt="symbol 2" />
-                  <p>
-                    Securing Your Financial Future, Together.
-                  </p>
+                  <p>Securing Your Financial Future, Together.</p>
                 </div>
               </div>
             </div>

@@ -1110,8 +1110,8 @@ $theme-color: #009CFF;
             margin-top: 8px;
 
             &:after {
-                width: 174px;
-                height: 10px;
+                width: 10px;
+                height: 174px;
                 background: $theme-color;
                 left: 0;
                 right: 0;
@@ -1394,7 +1394,31 @@ $theme-color: #009CFF;
     }
 }
 
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+    .whyChooseUsSection2 {
+        .cta {
+            .orcta {
+                &:after {
+                    width: 174px;
+                    height: 10px;
+                    top: 30px;
+                    right: -50px;
+                    left: -50px;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 768px) {
+    .banner .headLine {
+        font-size: 70px;
+    }
+
     .bookNowSection {
         flex-direction: column;
         align-items: center;
@@ -1414,21 +1438,15 @@ $theme-color: #009CFF;
         }
 
         .fact_01 {
-            width: 50% !important;
+            width: 100% !important;
         }
     }
 
-    .whyChooseUsSection2 {
-        .cta {
-            .orcta {
-                &:after {
-                    width: 174px;
-                    height: 10px;
-                    top: 30px;
-                    right: -50px;
-                    left: -50px;
-                }
-            }
-        }
+    .react-datepicker-popper {
+        z-index: 3 !important;
+    }
+
+    .testimonialSection01 .splide__slide {
+        display: block;
     }
 }
