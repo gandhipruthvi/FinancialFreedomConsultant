@@ -1069,36 +1069,32 @@ $theme-color: #009CFF;
         .icon_box_06 {
             position: relative;
             padding: 0 0 0 104px;
-        }
 
-        .icon_box_06 .ib_box {
-            position: absolute;
-            z-index: 2;
-            left: 0;
-            top: 5px;
-            font-size: 70px;
-            line-height: 70px;
-            color: $theme-color;
-            -webkit-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-        }
+            .ib_box {
+                position: absolute;
+                z-index: 2;
+                left: 0;
+                top: 5px;
+                font-size: 70px;
+                line-height: 70px;
+                color: $theme-color;
+                -webkit-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
 
-        .icon_box_06 h3 {
-            font-size: 20px;
-            line-height: 28px;
-            font-weight: 600;
-            margin: 0 0 8px;
-        }
+            h3 {
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 600;
+                margin: 0 0 8px;
+            }
 
-        .icon_box_06 h3 a {
-            color: inherit;
-        }
-
-        .icon_box_06 p {
-            font-size: 14px;
-            line-height: 24px;
-            margin: 0;
+            p {
+                font-size: 14px;
+                line-height: 24px;
+                margin: 0;
+            }
         }
 
         .orcta {
@@ -1112,40 +1108,40 @@ $theme-color: #009CFF;
             background: $theme-color;
             padding: 10px;
             margin-top: 8px;
-        }
 
-        .orcta:after {
-            width: 10px;
-            height: 174px;
-            background: $theme-color;
-            left: 0;
-            right: 0;
-            top: -53px;
-            margin: auto;
-            content: "";
-            z-index: -1;
-            position: absolute;
-        }
+            &:after {
+                width: 174px;
+                height: 10px;
+                background: $theme-color;
+                left: 0;
+                right: 0;
+                top: -53px;
+                margin: auto;
+                content: "";
+                z-index: -1;
+                position: absolute;
+            }
 
-        .orcta p {
-            color: $theme-color;
-            background: #fff;
-            border-radius: 50%;
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0;
-            width: 100%;
-            height: 100%;
+            p {
+                color: $theme-color;
+                background: #fff;
+                border-radius: 50%;
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .text-right .icon_box_06 {
             padding-left: 0;
             padding-right: 104px;
-        }
 
-        .text-right .icon_box_06 .ib_box {
-            left: auto;
-            right: 0;
+            .ib_box {
+                left: auto;
+                right: 0;
+            }
         }
     }
 }
@@ -1395,5 +1391,44 @@ $theme-color: #009CFF;
         font-size: 16px !important;
         font-weight: 500;
         margin: 0 0 3px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bookNowSection {
+        flex-direction: column;
+        align-items: center;
+
+        .body-text-content {
+            width: 90% !important;
+
+            .body-description {
+                margin: 15px 0;
+            }
+        }
+    }
+
+    .numberSection {
+        .funfactArea {
+            flex-direction: column;
+        }
+
+        .fact_01 {
+            width: 50% !important;
+        }
+    }
+
+    .whyChooseUsSection2 {
+        .cta {
+            .orcta {
+                &:after {
+                    width: 174px;
+                    height: 10px;
+                    top: 30px;
+                    right: -50px;
+                    left: -50px;
+                }
+            }
+        }
     }
 }
