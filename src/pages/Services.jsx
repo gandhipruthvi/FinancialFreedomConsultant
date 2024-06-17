@@ -8,11 +8,7 @@ import image5 from "../assets/bg/7.png";
 import image6 from "../assets/bg/academy.jpg";
 import logo from "../assets/logo.png";
 
-const rowStyle = {
-  marginLeft: "16%",
-};
-
-function Services() {
+const Services = () => {
   return (
     <div className="services">
       <section className="page_banner">
@@ -33,7 +29,7 @@ function Services() {
         </div>
       </section>
 
-      <section className="aboutSection01">
+      <section className="aboutSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-lg-11">
@@ -126,7 +122,7 @@ function Services() {
         </div>
       </section>
 
-      <section className="serviceSection03">
+      <section className="serviceSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -210,7 +206,7 @@ function Services() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-4 col-md-6" style={rowStyle}>
+            <div className="col-lg-4 col-md-6">
               <div className="icon_box_09 text-center">
                 <h2>04</h2>
                 <div className="ib_box">
@@ -273,12 +269,12 @@ function Services() {
         </div>
       </section>
 
-      <section className="processSection02">
+      <section className="processSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-xl-6">
-              <div className="wpProcess">
-                <img src={image4} alt />
+              <div className="processBanner">
+                <img className="bannerImage" src={image4} alt />
                 <div className="IconImage">
                   <img src={logo} width={78} height={75} alt />
                 </div>
@@ -336,6 +332,6 @@ function Services() {
       </section>
     </div>
   );
-}
+};
 
 export default Services;

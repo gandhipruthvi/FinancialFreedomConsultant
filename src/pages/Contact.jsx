@@ -27,10 +27,10 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="coniconboxPage">
+      <section className="infoSection">
         <div className="container largeContainer">
           <div className="row">
-            <div className="col-lg-4 col-md-6">
+            <div className="col-lg-4 col-md-6 info">
               <div className="icon_box_10">
                 <div className="ib_box">
                   <i className="icons-location-pin"></i>
@@ -43,7 +43,7 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
+            <div className="col-lg-4 col-md-6 info">
               <div className="icon_box_10">
                 <div className="ib_box">
                   <i className="icons-telephone"></i>
@@ -52,7 +52,7 @@ const Contact = () => {
                 <p>+971-50-984-1318</p>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
+            <div className="col-lg-4 col-md-6 info">
               <div className="icon_box_10">
                 <div className="ib_box">
                   <i className="icons-envelope-1"></i>

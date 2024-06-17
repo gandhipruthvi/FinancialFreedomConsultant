@@ -99,7 +99,7 @@ const Home = () => {
             </p>
             <h4>30 Minutes Free Consultation</h4>
             <div className="clearfix"></div>
-            <Link className="qu_btn" to="/contact">
+            <Link className="qu_btn" to="/appointment">
               Send Request
             </Link>
           </div>

@@ -59,6 +59,7 @@ $theme-color: #009CFF;
 .banner {
     background-image: url('/src/assets/slider/1.jpg');
     background-size: cover;
+    background-position: center;
     color: white;
     height: 100vh;
     width: 100vw;
@@ -1415,8 +1416,12 @@ $theme-color: #009CFF;
 }
 
 @media only screen and (max-width: 768px) {
-    .banner .headLine {
-        font-size: 70px;
+    .banner {
+        background-position: center;
+
+        .headLine {
+            font-size: 70px;
+        }
     }
 
     .bookNowSection {

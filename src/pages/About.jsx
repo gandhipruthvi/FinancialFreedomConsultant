@@ -28,7 +28,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="aboutSection">
+      <section className="welcomeSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-lg-6">

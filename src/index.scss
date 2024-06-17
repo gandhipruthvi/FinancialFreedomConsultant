@@ -168,3 +168,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+  .page_banner {
+    height: auto;
+    padding: 30px 0 30px;
+  }
+}

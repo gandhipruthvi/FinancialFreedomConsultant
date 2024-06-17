@@ -1,6 +1,6 @@
 $theme-color: #009CFF;
 
-.aboutSection {
+.welcomeSection {
   position: relative;
   padding: 120px 0 275px;
 
@@ -188,8 +188,6 @@ $theme-color: #009CFF;
       opacity: 1;
     }
   }
-
-
 }
 
 .abcs01 {
@@ -361,6 +359,12 @@ $theme-color: #009CFF;
     margin: 24px 0 0;
   }
 }
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {}
 
 @media only screen and (max-width: 768px) {
   .chooseSection .chooseSlider {
