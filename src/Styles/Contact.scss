@@ -11,6 +11,10 @@ $theme-color: #009CFF;
         padding-top: 8px;
         margin: 0;
 
+        p {
+            word-wrap: break-word;
+        }
+
         .ib_box {
             position: absolute;
             z-index: 2;
