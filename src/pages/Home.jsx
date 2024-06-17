@@ -90,19 +90,21 @@ const Home = () => {
       </section>
 
       {/* Free Consultation Call */}
-      <div className="row bottomspace">
-        <div className="col-md-12 text-center">
-          <p className="secDesc">
-            Book a free consultation call for your financial freedom! Let’s
-            evaluate your financial health.
-          </p>
-          <h4>30 Minutes Free Consultation</h4>
-          <div className="clearfix"></div>
-          <Link className="qu_btn" to="/contact">
-            Send Request
-          </Link>
+      <section className="consultaionCallSection">
+        <div className="bottomspace">
+          <div className="col-md-12 text-center">
+            <p className="secDesc">
+              Book a free consultation call for your financial freedom! Let’s
+              evaluate your financial health.
+            </p>
+            <h4>30 Minutes Free Consultation</h4>
+            <div className="clearfix"></div>
+            <Link className="qu_btn" to="/contact">
+              Send Request
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Our Services Section */}
       <section className="serviceSection">
