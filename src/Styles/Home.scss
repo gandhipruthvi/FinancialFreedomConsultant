@@ -209,7 +209,7 @@ $theme-color: #009CFF;
 
     /* Responsive */
     @media screen and (max-width: 1000px) {
-        .about-section {
+        .about {
             display: block;
         }
 
@@ -1305,7 +1305,7 @@ $theme-color: #009CFF;
 /*------------------------------------------------------------------
 / Appointment Section
 /-------------------------------------------------------------------*/
-.appoinmentSection02 {
+.appoinmentSectionHome {
     z-index: 2;
     position: relative;
     padding: 0;
@@ -1354,27 +1354,24 @@ $theme-color: #009CFF;
     .appointment_form {
         position: relative;
         background: url(../assets/bg/4.jpg) no-repeat center center / cover;
-        padding: 74px 75px 80px;
         position: relative;
-        padding-right: 60px;
-        padding-left: 60px;
         padding: 74px 75px 80px;
         background: #fff;
         -webkit-box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
         -moz-box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
         box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
-    }
 
-    .appointment_form>p {
-        color: $theme-color;
-        font-size: 14px;
-        margin: 0 0 3px;
-    }
+        >p {
+            color: $theme-color;
+            font-size: 14px;
+            margin: 0 0 3px;
+        }
 
-    .appointment_form>h3 {
-        font-size: 30px;
-        line-height: 1;
-        margin: 0 0 36px;
+        >h3 {
+            font-size: 30px;
+            line-height: 1;
+            margin: 0 0 36px;
+        }
     }
 
     .con_message {
@@ -1411,6 +1408,22 @@ $theme-color: #009CFF;
                     left: -50px;
                 }
             }
+        }
+    }
+
+    .serviceSection {
+        .boxService {
+            padding: 72px 20px;
+
+            .subTitle {
+                text-align: center;
+            }
+        }
+    }
+
+    .appoinmentSectionHome {
+        .appointment_form {
+            padding: 74px 20px;
         }
     }
 }

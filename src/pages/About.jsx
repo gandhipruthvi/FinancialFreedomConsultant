@@ -9,7 +9,7 @@ import Symbol2Img from "../assets/about/symbol2.png";
 
 const About = () => {
   return (
-    <div className="about-section">
+    <div className="about">
       <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">
@@ -103,7 +103,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="chooseSection abcs01">
+      <section className="chooseSection">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-xl-6 pdAcc">
@@ -115,7 +115,9 @@ const About = () => {
                 <Accordion.Item eventKey="0" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Empowerment Through Education
+                    <p className="accordianTitle">
+                      Empowerment Through Education
+                    </p>
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
                     We believe in empowering our clients with financial
@@ -126,7 +128,7 @@ const About = () => {
                 <Accordion.Item eventKey="1" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Holistic Approach
+                    <p className="accordianTitle">Holistic Approach</p>
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
                     Our approach to financial planning goes beyond mere numbers.
@@ -139,7 +141,7 @@ const About = () => {
                 <Accordion.Item eventKey="2" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Proactive Risk Management
+                    <p className="accordianTitle">Proactive Risk Management</p>
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
                     We help you identify and mitigate potential risks that could
@@ -152,7 +154,9 @@ const About = () => {
                 <Accordion.Item eventKey="3" className="card">
                   <Accordion.Header className="card-header">
                     <span></span>
-                    Continuous Support and Guidance
+                    <p className="accordianTitle">
+                      Continuous Support and Guidance
+                    </p>
                   </Accordion.Header>
                   <Accordion.Body className="collapse show card-body">
                     Achieving financial freedom is an ongoing journey, and we're

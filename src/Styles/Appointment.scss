@@ -1,16 +1,13 @@
 $theme-color: #009CFF;
 
-.main-container {
+.appointment-page {
     padding-top: 100px;
     background-image: url('../assets/bg/appointmentBg.jpg');
     background-size: cover;
-    height: 950px;
+    padding-bottom: 100px;
 
     .container {
         display: flex;
-        max-width: 675px;
-        min-height: 400px;
-        margin-bottom: 125px;
         background: #ffffff;
         border-radius: 20px;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
@@ -40,5 +37,19 @@ $theme-color: #009CFF;
         font-size: 16px !important;
         font-weight: 500;
         margin: 0 0 3px;
+    }
+}
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+    .appointment-page {
+        padding: 100px 20px;
+
+        .container {
+            padding: 10%;
+        }
     }
 }

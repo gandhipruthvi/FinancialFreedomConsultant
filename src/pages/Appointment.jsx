@@ -4,7 +4,7 @@ import "../Styles/Appointment.scss";
 
 export default function Appointment() {
   return (
-    <div className="main-container">
+    <div className="appointment-page">
       <div className="container">
         <div className="d-flex-col justify-content-center">
           <h3>Make an Appointment</h3>

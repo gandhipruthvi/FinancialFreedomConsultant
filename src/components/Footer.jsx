@@ -12,9 +12,9 @@ import { NavLink } from "react-router-dom";
 function Footer() {
   return (
     <footer className="footer">
-      <div className="containnoer largeContainer topsection">
-        <div className="row">
-          <div className="col-lg-7 col-md-6">
+      <div className="container largeContainer topsection">
+        <div className="row emailSection">
+          <div className="col-lg-7 col-md-6 ">
             <h2 className="secTitle">
               Feel free to reach out with any questions!
               <br /> You can give us a call, visit our office,
@@ -33,12 +33,14 @@ function Footer() {
             </div>
           </div>
         </div>
+
         <div className="row">
           <div className="col-lg-12">
             <div className="fdivider"></div>
           </div>
         </div>
-        <div className="row">
+
+        <div className="row footerSection">
           <div className="col-md-6 col-lg-3">
             <div className="aboutWidget">
               <h5>Do you have questions? Call or visit us.</h5>
@@ -75,7 +77,7 @@ function Footer() {
           </div>
           <div className="col-md-6 col-lg-4">
             <div className="widget PL28">
-              <h3 className="widget_title mb28">Services</h3>
+              <h3 className="widget_title">Services</h3>
               <div className="pp_post_item">
                 <img src={t1} alt="blog first image" />
                 <span>
@@ -94,7 +96,7 @@ function Footer() {
           </div>
           <div className="col-md-6 col-lg-3">
             <div className="widget gallery">
-              <h3 className="widget_title mb28">Post Gallery</h3>
+              <h3 className="widget_title">Post Gallery</h3>
               <div className="galleryShots">
                 <a className="popup_img">
                   <img src={g1} alt="gallery image" />
@@ -121,7 +123,7 @@ function Footer() {
       </div>
 
       <div className="ft-copyright">
-        <p>© 2013-2023 Financial Freedom Consultant. All rights reserved.</p>
+        <p>© 2013-2024 Financial Freedom Consultant. All rights reserved.</p>
 
         <ul className="ft-social-links">
           <li>
@@ -182,7 +184,17 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="instagram"><path d="M5.41421,1.17157c1.17157,1.17157 1.17157,3.07107 0,4.24264c-1.17157,1.17157 -3.07107,1.17157 -4.24264,0c-1.17157,-1.17157 -1.17157,-3.07107 -8.88178e-16,-4.24264c1.17157,-1.17157 3.07107,-1.17157 4.24264,-8.88178e-16" transform="translate(4.707 4.707)"></path><path d="M11.5,0h-7c-2.48145,0 -4.5,2.01855 -4.5,4.5v7c0,2.48145 2.01855,4.5 4.5,4.5h7c2.48145,0 4.5,-2.01855 4.5,-4.5v-7c0,-2.48145 -2.01855,-4.5 -4.5,-4.5Zm-3.5,12c-2.20557,0 -4,-1.79395 -4,-4c0,-2.20605 1.79443,-4 4,-4c2.20557,0 4,1.79395 4,4c0,2.20605 -1.79443,4 -4,4Zm4.5,-8c-0.276123,0 -0.5,-0.223877 -0.5,-0.5c0,-0.276184 0.223877,-0.5 0.5,-0.5c0.276123,0 0.5,0.223816 0.5,0.5c0,0.276123 -0.223877,0.5 -0.5,0.5Z"></path></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                id="instagram"
+              >
+                <path
+                  d="M5.41421,1.17157c1.17157,1.17157 1.17157,3.07107 0,4.24264c-1.17157,1.17157 -3.07107,1.17157 -4.24264,0c-1.17157,-1.17157 -1.17157,-3.07107 -8.88178e-16,-4.24264c1.17157,-1.17157 3.07107,-1.17157 4.24264,-8.88178e-16"
+                  transform="translate(4.707 4.707)"
+                ></path>
+                <path d="M11.5,0h-7c-2.48145,0 -4.5,2.01855 -4.5,4.5v7c0,2.48145 2.01855,4.5 4.5,4.5h7c2.48145,0 4.5,-2.01855 4.5,-4.5v-7c0,-2.48145 -2.01855,-4.5 -4.5,-4.5Zm-3.5,12c-2.20557,0 -4,-1.79395 -4,-4c0,-2.20605 1.79443,-4 4,-4c2.20557,0 4,1.79395 4,4c0,2.20605 -1.79443,4 -4,4Zm4.5,-8c-0.276123,0 -0.5,-0.223877 -0.5,-0.5c0,-0.276184 0.223877,-0.5 0.5,-0.5c0.276123,0 0.5,0.223816 0.5,0.5c0,0.276123 -0.223877,0.5 -0.5,0.5Z"></path>
+              </svg>
             </a>
           </li>
 

@@ -516,7 +516,7 @@ const Home = () => {
       </section>
 
       {/* Appointment Section */}
-      <section className="appoinmentSection02">
+      <section className="appoinmentSectionHome">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-xl-5">

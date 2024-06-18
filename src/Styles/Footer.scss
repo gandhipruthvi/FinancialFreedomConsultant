@@ -6,10 +6,11 @@ $theme-color: #009CFF;
   .topsection {
     background: url("../assets/bg/6.jpg") no-repeat center center / cover;
     padding: 100px 0 85px;
+    width: 100%;
   }
 
   .largeContainer {
-    width: 100%;
+    max-width: 100%;
     padding-right: 150px;
     padding-left: 150px;
     margin-right: auto;
@@ -40,6 +41,7 @@ $theme-color: #009CFF;
     @media screen and (max-width: 768px) {
       font-size: 24px;
       line-height: 32px;
+      margin-bottom: 20px;
     }
   }
 
@@ -59,6 +61,7 @@ $theme-color: #009CFF;
 
         @media screen and (max-width: 768px) {
           left: 20px;
+          line-height: 50px;
         }
       }
 
@@ -138,6 +141,14 @@ $theme-color: #009CFF;
 
     @media screen and (max-width: 768px) {
       margin: 50px 0 50px;
+    }
+  }
+
+  .footerSection>div {
+    margin-bottom: 20px;
+
+    .widget_title {
+      margin-bottom: 5px;
     }
   }
 
@@ -389,23 +400,6 @@ $theme-color: #009CFF;
     height: 100%;
   }
 
-  .fcopyright {
-    position: relative;
-    background: #100f0f;
-    padding: 31px 0 32px;
-    font-size: 16px;
-    color: #fff;
-
-    @media screen and (max-width: 768px) {
-      padding: 20px 0;
-      font-size: 14px;
-    }
-  }
-
-  .fcopyright p {
-    margin: 0;
-  }
-
   .pp_post_item {
     position: relative;
     min-height: 80px;
@@ -464,7 +458,7 @@ $theme-color: #009CFF;
 
   /* CopyRight */
   .ft-copyright {
-    padding: 24px 40px;
+    padding: 24px 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -534,34 +528,5 @@ $theme-color: #009CFF;
   }
 
   /* Responsive */
-  // @media screen and (max-width: 700px) {
-  //   .footer-container {
-  //     padding: 24px;
-  //   }
-
-  //   .ft-description {
-  //     width: 100%;
-  //     margin: 16px 0 24px;
-  //   }
-
-  //   .ft-input {
-  //     width: 100%;
-  //     margin: 16px 0;
-  //   }
-
-  //   .ft-btn {
-  //     width: 100%;
-  //     margin: 0 0 16px;
-  //   }
-
-  //   .ft-copyright {
-  //     padding: 18px;
-  //     display: block;
-  //     text-align: center;
-  //   }
-
-  //   .ft-social-links {
-  //     margin: 16px 0 0;
-  //   }
-  // }
+  @media only screen and (max-width: 992px) {}
 }
