@@ -275,6 +275,7 @@ $theme-color: #009CFF;
         background: url('/src/assets/our services/3.png') no-repeat center center / cover #f6f6f6;
         padding: 72px 75px;
         margin: 0 0 30px;
+        height: 376px;
     }
 
     .boxService .secTitle {
@@ -702,7 +703,7 @@ $theme-color: #009CFF;
 /*------------------------------------------------------------------
 / How We Work Section
 /-------------------------------------------------------------------*/
-.processSection {
+.processSectionHome {
     background: url(/src/assets/bg/work.png) no-repeat center center / cover;
     position: relative;
 

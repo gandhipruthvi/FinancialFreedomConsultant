@@ -320,7 +320,7 @@ const Home = () => {
         </div>
       </section>
       {/* How We Work Section */}
-      <section className="processSection">
+      <section className="processSectionHome">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-lg-12 text-center">
