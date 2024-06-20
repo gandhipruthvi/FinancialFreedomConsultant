@@ -1,16 +1,10 @@
 import "../Styles/Courses.scss";
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import courseDetails from '../coursedetails.json';
+import { getImageURL } from "../utils/image-util";
+
 
 const Courses = () => {
-  const [courses, setCourses] = useState([]);
-
-  useEffect(() => {
-    fetch("/src/coursedetails.json")
-      .then((response) => response.json())
-      .then((data) => setCourses(data));
-  }, []);
-
   return (
     <div className="courses">
       <section className="page_banner">
@@ -41,11 +35,11 @@ const Courses = () => {
         </div>
         <div className="container">
           <div className="row">
-            {courses.map((course) => (
+            {courseDetails.map((course) => (
               <div key={course.id} className="col-lg-5 col-md-8">
                 <div className="blogItem03 bbrm">
                   <div className="blogThumb">
-                    <img src={course.thumbnail} alt />
+                    <img src={getImageURL(course.thumbnail)} alt />
                   </div>
                   <div className="blogContent02">
                     <div className="bmeta">

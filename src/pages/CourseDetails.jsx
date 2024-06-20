@@ -18,7 +18,7 @@ const CourseDetails = () => {
 
   return (
     <div>
-      <h1 className="d-flex justify-content-center my-5">Comming Soon</h1>
+      <h1 className="d-flex justify-content-center my-5">Coming Soon</h1>
       {/* <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">

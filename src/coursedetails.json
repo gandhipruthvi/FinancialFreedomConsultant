@@ -4,7 +4,7 @@
     "description": "This 5-week Basic Course offers a comprehensive introduction to the world of trading. Students will gain a solid understanding of different market types and learn the essential techniques for technical and fundamental analysis. The course also covers various trading platforms and provides hands-on experience through demo trading on live markets. With three hours of instruction per week, participants will acquire the foundational knowledge and practical skills needed to embark on their trading journey confidently.",
     "title": "Foundations of Financial markets",
     "outline": "Introduction to Financial Markets",
-    "thumbnail": "/src/assets/bg/basicCourse.png",
+    "thumbnail": "basicCourse.png",
     "type": "Basic",
     "perks": [
       "Introduction",
@@ -24,11 +24,17 @@
     "module01": [
       [
         "Overview of the Stock Market",
-        ["What is the stock market?", "Key players and their roles"]
+        [
+          "What is the stock market?",
+          "Key players and their roles"
+        ]
       ],
       [
         "Types of Stocks and Exchanges",
-        ["Common vs. preferred stocks", "Major stock exchanges (NYSE, NASDAQ)"]
+        [
+          "Common vs. preferred stocks",
+          "Major stock exchanges (NYSE, NASDAQ)"
+        ]
       ],
       [
         "Basic Analysis Techniques",
@@ -46,17 +52,26 @@
       ],
       [
         "Practical Insights",
-        ["Simple case studies", "Basic stock trading simulations"]
+        [
+          "Simple case studies",
+          "Basic stock trading simulations"
+        ]
       ]
     ],
     "module02": [
       [
         "Overview of the Forex Market",
-        ["What is the forex market?", "Key currency pairs"]
+        [
+          "What is the forex market?",
+          "Key currency pairs"
+        ]
       ],
       [
         "How Forex Trading Works",
-        ["Bid/ask prices and spreads", "Role of brokers and trading platforms"]
+        [
+          "Bid/ask prices and spreads",
+          "Role of brokers and trading platforms"
+        ]
       ],
       [
         "Fundamental Factors in Forex",
@@ -67,17 +82,26 @@
       ],
       [
         "Basic Technical Analysis in Forex",
-        ["Key chart patterns and indicators", "Simple forex trading strategies"]
+        [
+          "Key chart patterns and indicators",
+          "Simple forex trading strategies"
+        ]
       ],
       [
         "Practical Insights",
-        ["Forex market case studies", "Basic forex trading exercises"]
+        [
+          "Forex market case studies",
+          "Basic forex trading exercises"
+        ]
       ]
     ],
     "module03": [
       [
         "Overview of Commodity Markets",
-        ["What are commodities?", "Categories of commodities (hard and soft)"]
+        [
+          "What are commodities?",
+          "Categories of commodities (hard and soft)"
+        ]
       ],
       [
         "Trading in Commodity Markets",
@@ -88,7 +112,10 @@
       ],
       [
         "Fundamental Factors in Commodities",
-        ["Supply and demand basics", "Geopolitical and seasonal influences"]
+        [
+          "Supply and demand basics",
+          "Geopolitical and seasonal influences"
+        ]
       ],
       [
         "Basic Technical Analysis in Commodities",
@@ -99,7 +126,10 @@
       ],
       [
         "Practical Insights",
-        ["Commodity market case studies", "Basic commodity trading exercises"]
+        [
+          "Commodity market case studies",
+          "Basic commodity trading exercises"
+        ]
       ]
     ],
     "module04": [
@@ -112,7 +142,10 @@
       ],
       [
         "How Cryptocurrency Trading Works",
-        ["Cryptocurrency exchanges and wallets", "Basic market mechanics"]
+        [
+          "Cryptocurrency exchanges and wallets",
+          "Basic market mechanics"
+        ]
       ],
       [
         "Fundamental Factors in Cryptocurrencies",
@@ -137,13 +170,12 @@
       ]
     ]
   },
-
   {
     "id": 1,
     "description": "Introducing our comprehensive 10-week trading course designed to take you from novice to confident trader. In this program, we’ll dive into the world of financial markets, covering various market types and their functions. You’ll gain a deep understanding of advanced technical and fundamental analysis techniques, crucial for informed decision-making. We’ll also explore risk and money management, ensuring your capital is protected and maximized. Learn about popular trading platforms and strategies that suit your style. Our hands-on approach includes demo trading on live markets, enabling you to apply your knowledge in real-time. Join us for three hours per week and embark on your journey to trading success.",
     "title": "Financial Markets Deep Dive",
     "outline": "Mastering Financial Markets",
-    "thumbnail": "/src/assets/bg/advanceCourse.png",
+    "thumbnail": "advanceCourse.png",
     "type": "Advanced",
     "perks": [
       "Introduction of markets",
