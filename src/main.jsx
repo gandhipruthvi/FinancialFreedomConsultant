@@ -26,12 +26,12 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="services" element={<Services />} />
       <Route path="courses" element={<Courses />} />
+      <Route path="/course/:id" element={<CourseDetails />} />
       <Route path="contact" element={<Contact />} />
       <Route path="payment" element={<Payments />} />
       <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
       <Route path="appointment" element={<Appointment />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/coursedetails" element={<CourseDetails />} />
     </Route>
   )
 );
