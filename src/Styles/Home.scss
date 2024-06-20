@@ -273,22 +273,22 @@ $theme-color: #009CFF;
     .boxService {
         position: relative;
         background: url('/src/assets/our services/3.png') no-repeat center center / cover #f6f6f6;
-        padding: 72px 75px;
+        padding: 30px 75px;
         margin: 0 0 30px;
         height: 376px;
-    }
 
-    .boxService .secTitle {
-        font-size: 45px;
-        line-height: 60px;
-        margin: 0 0 30px;
-        font-family: 'General Sans' 'sans-serif';
-    }
+        .secTitle {
+            font-size: 45px;
+            line-height: 60px;
+            margin: 0 0 30px;
+            font-family: 'General Sans' 'sans-serif';
+        }
 
-    .boxService p {
-        line-height: 28px;
-        margin: 0;
-        font-family: 'General Sans' 'sans-serif';
+        p {
+            line-height: 28px;
+            margin: 0;
+            font-family: 'General Sans' 'sans-serif';
+        }
     }
 
     .secTitle span {
