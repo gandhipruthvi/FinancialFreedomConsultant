@@ -653,3 +653,9 @@ $theme-color: #009cff;
     }
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .header {
+    background-color: #242424;
+  }
+}

@@ -18,7 +18,8 @@ const CourseDetails = () => {
 
   return (
     <div>
-      <section className="page_banner">
+      <h1 className="d-flex justify-content-center my-5">Comming Soon</h1>
+      {/* <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-md-6">
@@ -66,7 +67,7 @@ const CourseDetails = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

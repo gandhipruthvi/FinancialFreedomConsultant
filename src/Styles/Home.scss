@@ -282,13 +282,13 @@ $theme-color: #009CFF;
         font-size: 45px;
         line-height: 60px;
         margin: 0 0 30px;
-        font-family: 'General Sans''sans-serif';
+        font-family: 'General Sans' 'sans-serif';
     }
 
     .boxService p {
         line-height: 28px;
         margin: 0;
-        font-family: 'General Sans''sans-serif';
+        font-family: 'General Sans' 'sans-serif';
     }
 
     .secTitle span {
@@ -405,7 +405,7 @@ $theme-color: #009CFF;
     .ibMeta span {
         font-size: 60px;
         line-height: 82px;
-        font-family: 'General Sans''sans-serif';
+        font-family: 'General Sans' 'sans-serif';
         font-weight: 700;
         color: rgba(255, 255, 255, .1);
         position: absolute;
@@ -1414,6 +1414,7 @@ $theme-color: #009CFF;
     .serviceSection {
         .boxService {
             padding: 72px 20px;
+            height: auto;
 
             .subTitle {
                 text-align: center;

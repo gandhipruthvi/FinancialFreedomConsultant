@@ -90,6 +90,8 @@
         margin: 0 0 15px;
     }
 
+
+
     textarea {
         height: 150px;
         padding-top: 12px;
@@ -148,5 +150,16 @@
             transform: scale(1);
             opacity: 0;
         }
+    }
+}
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 768px) {
+    .input-field select {
+        padding: 0 15px 0 52px;
+        -webkit-appearance: none;
     }
 }

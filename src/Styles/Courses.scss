@@ -46,6 +46,7 @@ $theme-color: #009cff;
       color: #1a1a1a;
       line-height: 1.5;
       margin: 10px 50px;
+
       .secTitle {
         font-size: 60px;
         line-height: 65px;
@@ -522,5 +523,15 @@ $theme-color: #009cff;
       background: var(--theme-color);
       color: #fff;
     }
+  }
+}
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+  .blogContent02 {
+    margin-bottom: 20px;
   }
 }
