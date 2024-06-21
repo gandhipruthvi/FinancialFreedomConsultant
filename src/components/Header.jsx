@@ -101,12 +101,12 @@ const Header = () => {
                     </li>
                     <li>
                       <NavLink
-                        to="/courses"
+                        to="/academy"
                         className={
                           isActive ? "current-menu-item anchor" : "anchor"
                         }
                       >
-                        Courses
+                        Academy
                       </NavLink>
                     </li>
                     <li>
@@ -221,11 +221,11 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/courses"
+                  to="/academy"
                   className={isActive ? "current-menu-item anchor" : "anchor"}
                   onClick={toggleSideMenuBar}
                 >
-                  Courses
+                  Academy
                 </NavLink>
               </li>
               <li>

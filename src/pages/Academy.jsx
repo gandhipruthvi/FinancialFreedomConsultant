@@ -1,24 +1,23 @@
-import "../Styles/Courses.scss";
+import "../Styles/Academy.scss";
 import { Link, NavLink } from "react-router-dom";
-import courseDetails from '../coursedetails.json';
+import courseDetails from "../coursedetails.json";
 import { getImageURL } from "../utils/image-util";
 
-
-const Courses = () => {
+const Academy = () => {
   return (
     <div className="courses">
       <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">
             <div className="col-md-6">
-              <h2 className="banner-title">Courses</h2>
+              <h2 className="banner-title">Fin Market Academy</h2>
             </div>
             <div className="col-md-6 text-right">
               <p className="breadcrumbs">
                 <NavLink to="/" className="anchor">
                   <i className="twi-home-alt1"></i>Home
                 </NavLink>
-                <span>/</span>Courses
+                <span>/</span>Fin Market Academy
               </p>
             </div>
           </div>
@@ -28,7 +27,7 @@ const Courses = () => {
       <section className="blogPage">
         <div className="col-lg-12 text-center">
           <div className="subTitle">
-            <span className="bleft"></span>Our Services
+            <span className="bleft"></span>Our Courses
             <span className="bright"></span>
             <h2 className="secTitle">Financial Empowerment Solutions</h2>
           </div>
@@ -72,4 +71,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Academy;

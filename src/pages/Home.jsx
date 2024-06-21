@@ -73,12 +73,12 @@ const Home = () => {
         </div>
 
         <div className="body-text-content">
-          <h2>Career Counseling</h2>
+          <h2>Wealth Path Advisory</h2>
           <p className="heading-body-description">
-            At Financial Freedom Consultant, our career counseling service paves
-            the way for a prosperous financial profession. Whether you're
-            beginning your journey or aiming for advancement, count on us for
-            unwavering support at every stage.
+            At Financial Freedom Consultant, our wealth path advisory service
+            guides you toward a prosperous financial future. Whether you're just
+            starting out or looking to enhance your financial strategy, rely on
+            us for steadfast support at every step.
           </p>
         </div>
 
