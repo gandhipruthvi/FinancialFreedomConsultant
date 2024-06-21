@@ -1,165 +1,168 @@
-.was-validated .form-control:invalid,
-.was-validated .form-select:invalid {
-    border: 1px solid red;
-    margin-bottom: 0px;
-}
+.appointmentFormComponent {
 
-.was-validated .form-control:valid,
-.was-validated .form-select:valid {
-    border: none;
-    background-image: none;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    background-color: #f6f6f6;
-}
-
-// .was-validated .form-control:invalid~i,
-// .was-validated .form-select:invalid~i {
-//     color: red !important;
-// }
-
-.was-validated .dateTimeInvalid {
-    border: 1px solid red !important;
-    margin-bottom: 0px !important;
-}
-
-.was-validated .invalid-feedback.active {
-    display: block;
-}
-
-.input-field {
-    position: relative;
-    padding-left: 8px;
-    padding-right: 8px;
-    outline: none;
-
-    .react-datepicker-wrapper {
-        display: inline;
+    .was-validated .form-control:invalid,
+    .was-validated .form-select:invalid {
+        border: 1px solid red;
+        margin-bottom: 0px;
     }
 
-    .invalid-feedback {
-        margin-bottom: 15px;
-        margin-left: 25px;
-    }
-
-    .dateTime {
-        z-index: 2;
-    }
-
-    i {
-        color: #74777c;
-        font-size: 16px;
-        line-height: 60px;
-        position: absolute;
-        left: 40px;
-        top: 0;
-    }
-
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-
-    input[type="email"],
-    input[type="text"],
-    input[type="number"],
-    input[type="tel"],
-    textarea,
-    select {
-        background: #f6f6f6;
-        box-shadow: none;
-        font-size: 16px;
-        margin-bottom: 20px;
-        color: #74777c;
-        display: block;
-        width: 100%;
-        height: 60px;
-        padding: 0 15px 0 52px;
+    .was-validated .form-control:valid,
+    .was-validated .form-select:valid {
         border: none;
-        border-radius: 50px;
-        line-height: 60px;
-        margin: 0 0 15px;
+        background-image: none;
     }
 
-
-
-    textarea {
-        height: 150px;
-        padding-top: 12px;
-        padding-left: 55px;
-        line-height: 34px;
-        border-radius: 30px;
-        resize: none;
-        margin-bottom: 30px;
+    .form-control:focus {
+        box-shadow: none;
+        background-color: #f6f6f6;
     }
-}
 
-//loader
+    // .was-validated .form-control:invalid~i,
+    // .was-validated .form-select:invalid~i {
+    //     color: red !important;
+    // }
 
-.loader-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 20px;
-    background-color: #2a1f1f;
-    z-index: 5;
-    opacity: 0.2;
+    .was-validated .dateTimeInvalid {
+        border: 1px solid red !important;
+        margin-bottom: 0px !important;
+    }
 
-    .loader {
-        width: 48px;
-        height: 48px;
-        display: inline-block;
+    .was-validated .invalid-feedback.active {
+        display: block;
+    }
+
+    .input-field {
         position: relative;
-        z-index: 10;
+        padding-left: 8px;
+        padding-right: 8px;
+        outline: none;
 
-        &::after,
-        &::before {
-            content: '';
-            box-sizing: border-box;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid #000000;
+        .react-datepicker-wrapper {
+            display: inline;
+        }
+
+        .invalid-feedback {
+            margin-bottom: 15px;
+            margin-left: 25px;
+        }
+
+        .dateTime {
+            z-index: 2;
+        }
+
+        i {
+            color: #74777c;
+            font-size: 16px;
+            line-height: 60px;
             position: absolute;
-            left: 0;
+            left: 40px;
             top: 0;
-            animation: animloader 2s linear infinite;
         }
 
-        &::after {
-            animation-delay: 1s;
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        select {
+            background: #f6f6f6;
+            box-shadow: none;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #74777c;
+            display: block;
+            width: 100%;
+            height: 60px;
+            padding: 0 15px 0 52px;
+            border: none;
+            border-radius: 50px;
+            line-height: 60px;
+            margin: 0 0 15px;
+        }
+
+
+
+        textarea {
+            height: 150px;
+            padding-top: 12px;
+            padding-left: 55px;
+            line-height: 34px;
+            border-radius: 30px;
+            resize: none;
+            margin-bottom: 30px;
         }
     }
 
-    @keyframes animloader {
-        0% {
-            transform: scale(0);
-            opacity: 1;
+    //loader
+
+    .loader-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 20px;
+        background-color: #2a1f1f;
+        z-index: 5;
+        opacity: 0.2;
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            display: inline-block;
+            position: relative;
+            z-index: 10;
+
+            &::after,
+            &::before {
+                content: '';
+                box-sizing: border-box;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 2px solid #000000;
+                position: absolute;
+                left: 0;
+                top: 0;
+                animation: animloader 2s linear infinite;
+            }
+
+            &::after {
+                animation-delay: 1s;
+            }
         }
 
-        100% {
-            transform: scale(1);
-            opacity: 0;
+        @keyframes animloader {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
         }
     }
-}
 
-/*=============================================*/
-/*=========Responsive CSS======================*/
-/*=============================================*/
+    /*=============================================*/
+    /*=========Responsive CSS======================*/
+    /*=============================================*/
 
-@media only screen and (max-width: 768px) {
-    .input-field select {
-        padding: 0 15px 0 52px;
-        -webkit-appearance: none;
+    @media only screen and (max-width: 768px) {
+        .input-field select {
+            padding: 0 15px 0 52px;
+            -webkit-appearance: none;
+        }
     }
 }

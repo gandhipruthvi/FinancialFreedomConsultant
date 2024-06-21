@@ -10,7 +10,7 @@ import logo from "../assets/logo.png";
 
 const Services = () => {
   return (
-    <div className="services">
+    <div className="servicesPage">
       <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">

@@ -7,7 +7,7 @@ import AppointmentForm from "../components/AppointmentForm";
 
 const Contact = () => {
   return (
-    <div className="contact">
+    <div className="contactPage">
       <ToastContainer />
       <section className="page_banner">
         <div className="container largeContainer">

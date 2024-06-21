@@ -9,7 +9,7 @@ import Symbol2Img from "../assets/about/symbol2.png";
 
 const About = () => {
   return (
-    <div className="about">
+    <div className="aboutPage">
       <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">

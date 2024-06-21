@@ -27,7 +27,7 @@ const Payments = () => {
   };
 
   return (
-    <div className="payments">
+    <div className="paymentsPage">
       <ToastContainer />
 
       <Form.Group className="mb-3">

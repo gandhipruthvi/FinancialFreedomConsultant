@@ -197,7 +197,7 @@ const AppointmentForm = () => {
   };
 
   return (
-    <div>
+    <div className="appointmentFormComponent">
       <ToastContainer />
       {/* <div className="loader-container">
         <span className="loader"></span>

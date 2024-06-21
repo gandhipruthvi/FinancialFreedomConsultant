@@ -5,7 +5,7 @@ import { getImageURL } from "../utils/image-util";
 
 const Academy = () => {
   return (
-    <div className="courses">
+    <div className="academyPage">
       <section className="page_banner">
         <div className="container largeContainer">
           <div className="row">
@@ -46,11 +46,6 @@ const Academy = () => {
                         <i className="twi-folder2"></i>
                         <Link to={`/course/${course.id}`}>{course.type}</Link>
                       </span>
-                      {/* {/* |
-                    <span>
-                      <i className="twi-user2"></i>
-                      <a href="#">David Smith</a>
-                    </span>  */}
                     </div>
                     <h3>
                       <Link to={`/course/${course.id}`}>{course.title}</Link>

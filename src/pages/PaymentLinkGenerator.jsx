@@ -74,7 +74,7 @@ const PaymentLinkGenerator = () => {
   };
 
   return (
-    <div className="paymentLinkGenerator">
+    <div className="paymentLinkGeneratorPage">
       <Form
         className="linkGeneratorForm"
         onSubmit={handleSubmit}

@@ -38,7 +38,7 @@ const Home = () => {
   };
 
   return (
-    <div className="Home">
+    <div className="homePage">
       <ToastContainer />
       {/* Banner Carousel */}
       <section className="banner">
