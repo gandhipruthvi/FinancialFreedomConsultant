@@ -1,4 +1,4 @@
-import "../Styles/Contact.scss";
+import "../styles/Contact.scss";
 import { NavLink } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer } from "react-toastify";

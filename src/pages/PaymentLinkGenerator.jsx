@@ -1,4 +1,4 @@
-import "../Styles/PaymentLinkGenerator.scss";
+import "../styles/PaymentLinkGenerator.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";

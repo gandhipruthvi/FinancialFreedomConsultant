@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState, useRef, useEffect } from "react";
 import logo from "../assets/logo.png";
-import "../Styles/Header.scss";
+import "../styles/Header.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {

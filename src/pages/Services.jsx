@@ -1,4 +1,4 @@
-import "../Styles/Services.scss";
+import "../styles/Services.scss";
 import { Link } from "react-router-dom";
 import image1 from "../assets/bg/t1.jpg";
 import image2 from "../assets/bg/s2.jpg";

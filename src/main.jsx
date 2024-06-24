@@ -18,6 +18,11 @@ import PaymentLinkGenerator from "./pages/PaymentLinkGenerator.jsx";
 import Appointment from "./pages/Appointment.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx";
+import Login from "./pages/Login.jsx";
+import Dashboard from "./pages/admin/Dashboard.jsx";
+import AppoinmentManagement from "./pages/admin/AppoinmentManagement.jsx";
+
+import PrivateRoutesLayout from "./utils/PrivateRoutesLayout.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,12 +31,22 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="services" element={<Services />} />
       <Route path="academy" element={<Academy />} />
-      <Route path="/course/:id" element={<CourseDetails />} />
+      <Route path="course/:id" element={<CourseDetails />} />
       <Route path="contact" element={<Contact />} />
       <Route path="payment" element={<Payments />} />
       <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
       <Route path="appointment" element={<Appointment />} />
+      <Route path="login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
+
+      {/* private routes */}
+      <Route element={<PrivateRoutesLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/appoinmentManagement"
+          element={<AppoinmentManagement />}
+        />
+      </Route>
     </Route>
   )
 );

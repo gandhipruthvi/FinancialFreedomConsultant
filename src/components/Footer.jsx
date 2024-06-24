@@ -1,4 +1,4 @@
-import "../Styles/Footer.scss";
+import "../styles/Footer.scss";
 import t1 from "../assets/footer/t1.jpg";
 import t2 from "../assets/footer/t2.jpg";
 import g1 from "../assets/footer/g1.jpg";

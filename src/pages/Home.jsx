@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../Styles/Home.scss";
+import "../styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";

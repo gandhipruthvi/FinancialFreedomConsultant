@@ -6,7 +6,7 @@ const CourseDetails = () => {
   const [course, setCourse] = useState([]);
 
   useEffect(() => {
-    fetch("/src/coursedetails.json")
+    fetch("/src/utils/coursedetails.json")
       .then((response) => response.json())
       .then((data) => {
         const courseData = data.find((course) => course.id == id);

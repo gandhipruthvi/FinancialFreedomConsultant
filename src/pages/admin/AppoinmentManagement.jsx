@@ -1,4 +1,4 @@
-import "../Styles/AppoinmentManagement.scss";
+import "../../styles/AppoinmentManagement.scss";
 
 const AppoinmentManagement = () => {
   return <div className="appoinmentManagementPage"></div>;

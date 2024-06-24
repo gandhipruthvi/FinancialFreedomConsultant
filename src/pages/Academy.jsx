@@ -1,6 +1,6 @@
-import "../Styles/Academy.scss";
+import "../styles/Academy.scss";
 import { Link, NavLink } from "react-router-dom";
-import courseDetails from "../coursedetails.json";
+import courseDetails from "../utils/coursedetails.json";
 import { getImageURL } from "../utils/image-util";
 
 const Academy = () => {

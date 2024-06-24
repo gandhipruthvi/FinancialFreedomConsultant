@@ -1,4 +1,4 @@
-import "../Styles/Payments.scss";
+import "../styles/Payments.scss";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

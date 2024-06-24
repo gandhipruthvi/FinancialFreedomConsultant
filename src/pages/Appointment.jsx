@@ -1,6 +1,6 @@
 import React from "react";
 import AppointmentForm from "../components/AppointmentForm";
-import "../Styles/Appointment.scss";
+import "../styles/Appointment.scss";
 
 export default function Appointment() {
   return (

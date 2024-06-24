@@ -1,4 +1,4 @@
-import "../Styles/About.scss";
+import "../styles/About.scss";
 import { NavLink } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import SymbolImg from "../assets/about/symbol.png";
