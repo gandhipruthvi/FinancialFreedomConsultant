@@ -105,7 +105,7 @@ const AppointmentForm = () => {
         clientName: form.client_name.value,
         clientEmail: form.client_email.value,
         service: form.service.value,
-        date: selectedDate.toString(),
+        date: selectedDate,
         country: form.country.value,
         contactNumber: form.contact_number.value,
         info: form.info.value,
