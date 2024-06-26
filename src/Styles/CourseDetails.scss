@@ -5,140 +5,148 @@ $theme-color: var(--theme-color);
 $primary-padding: 50px;
 $block-padding: 60px;
 
-.singleBlog {
-  position: relative;
-  padding: 120px 0;
-
-  .sic_details {
-    position: relative;
-    padding: $primary-padding;
-    border: 2px solid $border-color;
-    margin-right: -15px;
-
-    .bmeta {
-      color: $text-color;
-      font-size: 14px;
-      margin-bottom: 3px;
-
-      p {
-        position: relative;
-        margin-right: 27px;
-      }
-
-      i {
-        font-size: 16px;
-        position: relative;
-        top: 2px;
-        margin-right: 10px;
-      }
+.courseDetails {
+  .page_banner {
+    .banner-title {
+      white-space: normal;
     }
   }
 
-  .postThumb {
+  .singleBlog {
     position: relative;
-    margin: 0 0 34px;
+    padding: 120px 0;
 
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-    }
-  }
-
-  .sic_the_content {
-    position: relative;
-
-    > p {
-      margin: 0 0 27px;
-    }
-
-    .wp-block-image {
-      margin: 35px 0 24px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    blockquote,
-    blockquote.wp-block-quote {
-      padding: $block-padding 55px;
+    .sic_details {
       position: relative;
-      text-align: center;
-      border-radius: 50px;
-      background: #fff;
-      margin: 49px 0 45px;
-      box-shadow: 0px 15px 60px 0px rgba(14, 14, 10, 0.07);
+      padding: $primary-padding;
+      border: 2px solid $border-color;
+      margin-right: -15px;
 
-      &:before {
-        content: "\f95e";
-        font-family: "themewar" !important;
-        left: 0;
-        top: 0;
-        width: 81px;
-        height: 81px;
-        background: $theme-color;
-        border-radius: 50%;
-        text-align: center;
-        position: relative;
-        display: inline-block;
-        color: #ffffff;
-        font-size: 30px;
-        line-height: 84px;
-        margin: 0 0 23px;
-      }
+      .bmeta {
+        color: $text-color;
+        font-size: 14px;
+        margin-bottom: 3px;
 
-      p {
-        font-size: 24px;
-        line-height: 34px;
-        color: #1a1a1a;
-        font-style: normal;
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        margin: 0 0 21px;
-      }
+        p {
+          position: relative;
+          margin-right: 27px;
+        }
 
-      cite {
-        font-style: normal;
-        font-size: 18px;
-        line-height: 22px;
-        font-weight: 500;
-        color: $theme-color;
-        position: relative;
-
-        strong {
-          display: block;
-          font-weight: 400;
-          font-size: 14px;
-          color: $text-color;
+        i {
+          font-size: 16px;
+          position: relative;
+          top: 2px;
+          margin-right: 10px;
         }
       }
     }
-  }
 
-  .bshead {
-    font-size: 30px;
-    line-height: 40px;
-    font-weight: 600;
-    margin: 38px 0 35px;
-    padding-top: 34px;
-    border-top: 1px solid $border-color;
-  }
+    .postThumb {
+      position: relative;
+      margin: 0 0 34px;
 
-  .spMeta {
-    position: relative;
-    border-bottom: 2px solid $border-color;
-    padding: 15px 0 33px;
-    margin-bottom: 50px;
+      img {
+        object-fit: cover;
+        height: 250px;
+        width: 450px;
+      }
+    }
 
-    h5 {
-      font-size: 18px;
-      line-height: 26px;
+    .sic_the_content {
+      position: relative;
+
+      >p {
+        margin: 0 0 27px;
+      }
+
+      .wp-block-image {
+        margin: 35px 0 24px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      blockquote,
+      blockquote.wp-block-quote {
+        padding: $block-padding 55px;
+        position: relative;
+        text-align: center;
+        border-radius: 50px;
+        background: #fff;
+        margin: 49px 0 45px;
+        box-shadow: 0px 15px 60px 0px rgba(14, 14, 10, 0.07);
+
+        &:before {
+          content: "\f95e";
+          font-family: "themewar" !important;
+          left: 0;
+          top: 0;
+          width: 81px;
+          height: 81px;
+          background: $theme-color;
+          border-radius: 50%;
+          text-align: center;
+          position: relative;
+          display: inline-block;
+          color: #ffffff;
+          font-size: 30px;
+          line-height: 84px;
+          margin: 0 0 23px;
+        }
+
+        p {
+          font-size: 24px;
+          line-height: 34px;
+          color: #1a1a1a;
+          font-style: normal;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          margin: 0 0 21px;
+        }
+
+        cite {
+          font-style: normal;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 500;
+          color: $theme-color;
+          position: relative;
+
+          strong {
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+            color: $text-color;
+          }
+        }
+      }
+    }
+
+    .bshead {
+      font-size: 30px;
+      line-height: 40px;
       font-weight: 600;
-      margin: 0 0 14px;
-      display: block;
+      margin: 38px 0 35px;
+      padding-top: 34px;
+      border-top: 1px solid $border-color;
+    }
+
+    .spMeta {
+      position: relative;
+      border-bottom: 2px solid $border-color;
+      padding: 15px 0 33px;
+      margin-bottom: 50px;
+
+      h5 {
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 600;
+        margin: 0 0 14px;
+        display: block;
+      }
     }
   }
 }
