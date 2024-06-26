@@ -27,11 +27,20 @@ const Dashboard = () => {
       const appointmentList = appointmentSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
+        date: new Date(doc.data().date),
       }));
-      setAppointments(appointmentList);
+      setAppointments(sortByDate(appointmentList));
     };
     fetchData();
   }, []);
+
+  const sortByDate = (data) => {
+    return data.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    });
+  };
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this appointment?")) {
@@ -54,13 +63,19 @@ const Dashboard = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
   };
 
   return (
     <div className="dashboardPage">
       <div className="container justify-content-center my-5">
-        <h1>Dashboard</h1>
-        <Table responsive>
+        <div className="d-flex flex-row">
+          <h1 className="flex-grow-1">Dashboard</h1>
+          <button className="px-4 my-2" onClick={handleLogout}>
+            Log Out
+          </button>
+        </div>
+        <Table responsive striped bordered hover>
           <thead>
             <tr>
               <th>Sr.No.</th>
@@ -79,11 +94,7 @@ const Dashboard = () => {
               <tr key={appointment.id}>
                 <td>{index + 1}</td>
                 <td>
-                  {appointment.date
-                    .toLocaleString("en-US", {
-                      timeZone: "Asia/Dubai",
-                    })
-                    .replace(/GMT.*/i, "")}
+                  {appointment.date.toLocaleString().replace(/GMT.*/i, "")}
                 </td>
                 <td>{appointment.clientName}</td>
                 <td>{appointment.clientEmail}</td>
@@ -103,7 +114,7 @@ const Dashboard = () => {
             ))}
           </tbody>
         </Table>
-        <Pagination>
+        <Pagination className="justify-content-center">
           <Pagination.First
             onClick={() => handlePageChange(1)}
             disabled={currentPage === 1}
@@ -117,6 +128,7 @@ const Dashboard = () => {
               key={pageNumber + 1}
               active={pageNumber + 1 === currentPage}
               onClick={() => handlePageChange(pageNumber + 1)}
+              activeLabel=""
             >
               {pageNumber + 1}
             </Pagination.Item>
@@ -130,8 +142,6 @@ const Dashboard = () => {
             disabled={currentPage === totalPages}
           />
         </Pagination>
-
-        <button onClick={handleLogout}>Log Out</button>
       </div>
     </div>
   );
