@@ -14,6 +14,7 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [bookedSlots, setBookedSlots] = useState([]);
   const [validated, setValidated] = useState(false);
 
@@ -50,6 +51,15 @@ const AppointmentForm = () => {
     return currentDate.getTime() < selectedDate.getTime();
   };
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    if (date && date instanceof Date && date.getHours() !== 0) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  };
+
   const SelectDate = () => {
     return (
       <DatePicker
@@ -59,9 +69,10 @@ const AppointmentForm = () => {
             ? "dateTimeInvalid dateTimeSelector"
             : "dateTimeSelector"
         }
-        onChange={(date) => {
-          setSelectedDate(date);
-        }}
+        onChange={handleDateChange}
+        onClickOutside={() => setIsOpen(false)}
+        onSelect={() => setIsOpen(true)}
+        open={isOpen}
         showTimeSelect
         filterDate={isWeekday}
         filterTime={filterPassedTime}
@@ -77,6 +88,7 @@ const AppointmentForm = () => {
         excludeTimes={getBookedTimesForDate(
           selectedDate ? selectedDate : new Date()
         )}
+        onFocus={() => setIsOpen(true)}
       />
     );
   };
