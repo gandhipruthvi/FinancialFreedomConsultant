@@ -6,6 +6,8 @@
     "outline": "Introduction to Financial Markets",
     "thumbnail": "basicCourse.png",
     "type": "Basic",
+    "duration": "5 Weeks",
+    "rating": "4.8",
     "perks": [
       "Introduction",
       "Type of markets",
@@ -177,6 +179,8 @@
     "outline": "Mastering Financial Markets",
     "thumbnail": "advanceCourse.png",
     "type": "Advanced",
+    "rating": "5",
+    "duration": "10 Weeks",
     "perks": [
       "Introduction of markets",
       "Type of markets and how markets works",
