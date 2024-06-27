@@ -35,7 +35,7 @@ const router = createBrowserRouter(
       <Route path="course/:id" element={<CourseDetails />} />
       <Route path="contact" element={<Contact />} />
       <Route path="payment" element={<Payments />} />
-      <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
+
       <Route path="appointment" element={<Appointment />} />
       <Route path="login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
@@ -47,6 +47,7 @@ const router = createBrowserRouter(
           path="/appoinmentManagement"
           element={<AppoinmentManagement />}
         />
+        <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
       </Route>
     </Route>
   )
