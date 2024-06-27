@@ -17,159 +17,165 @@
       "Duration of 5 weeks",
       "Three hours per week"
     ],
-    "moduleTitle": [
-      "Introduction to the Stock Market",
-      "Introduction to the Forex Market",
-      "Introduction to Commodity Markets",
-      "Introduction to Cryptocurrency Markets"
-    ],
-    "module01": [
-      [
-        "Overview of the Stock Market",
+    "modules": [
+      {
+        "title": "Introduction to the Stock Market",
+        "content": [[
+          "Overview of the Stock Market",
+          [
+            "What is the stock market?",
+            "Key players and their roles"
+          ]
+        ],
         [
-          "What is the stock market?",
-          "Key players and their roles"
-        ]
-      ],
-      [
-        "Types of Stocks and Exchanges",
+          "Types of Stocks and Exchanges",
+          [
+            "Common vs. preferred stocks",
+            "Major stock exchanges (NYSE, NASDAQ)"
+          ]
+        ],
         [
-          "Common vs. preferred stocks",
-          "Major stock exchanges (NYSE, NASDAQ)"
-        ]
-      ],
-      [
-        "Basic Analysis Techniques",
+          "Basic Analysis Techniques",
+          [
+            "Introduction to fundamental analysis",
+            "Introduction to technical analysis"
+          ]
+        ],
         [
-          "Introduction to fundamental analysis",
-          "Introduction to technical analysis"
-        ]
-      ],
-      [
-        "Basic Investment Strategies",
+          "Basic Investment Strategies",
+          [
+            "Long-term investing vs. short-term trading",
+            "Introduction to portfolio diversification"
+          ]
+        ],
         [
-          "Long-term investing vs. short-term trading",
-          "Introduction to portfolio diversification"
+          "Practical Insights",
+          [
+            "Simple case studies",
+            "Basic stock trading simulations"
+          ]
+        ]]
+      },
+      {
+        "title": "Introduction to the Stock Market",
+        "content": [
+          [
+            "Overview of the Forex Market",
+            [
+              "What is the forex market?",
+              "Key currency pairs"
+            ]
+          ],
+          [
+            "How Forex Trading Works",
+            [
+              "Bid/ask prices and spreads",
+              "Role of brokers and trading platforms"
+            ]
+          ],
+          [
+            "Fundamental Factors in Forex",
+            [
+              "Economic indicators and their impact",
+              "Introduction to central bank policies"
+            ]
+          ],
+          [
+            "Basic Technical Analysis in Forex",
+            [
+              "Key chart patterns and indicators",
+              "Simple forex trading strategies"
+            ]
+          ],
+          [
+            "Practical Insights",
+            [
+              "Forex market case studies",
+              "Basic forex trading exercises"
+            ]
+          ]
         ]
-      ],
-      [
-        "Practical Insights",
-        [
-          "Simple case studies",
-          "Basic stock trading simulations"
+      },
+      {
+        "title": "Introduction to Commodity Markets",
+        "content":[
+          [
+            "Overview of Commodity Markets",
+            [
+              "What are commodities?",
+              "Categories of commodities (hard and soft)"
+            ]
+          ],
+          [
+            "Trading in Commodity Markets",
+            [
+              "Spot markets vs. futures markets",
+              "Introduction to futures contracts"
+            ]
+          ],
+          [
+            "Fundamental Factors in Commodities",
+            [
+              "Supply and demand basics",
+              "Geopolitical and seasonal influences"
+            ]
+          ],
+          [
+            "Basic Technical Analysis in Commodities",
+            [
+              "Simple chart patterns and indicators",
+              "Basic trading strategies for commodities"
+            ]
+          ],
+          [
+            "Practical Insights",
+            [
+              "Commodity market case studies",
+              "Basic commodity trading exercises"
+            ]
+          ]
         ]
-      ]
-    ],
-    "module02": [
-      [
-        "Overview of the Forex Market",
-        [
-          "What is the forex market?",
-          "Key currency pairs"
+      },
+      {
+        "title": "Introduction to Cryptocurrency Markets",
+        "content": [
+          [
+            "Overview of Cryptocurrency Markets",
+            [
+              "What are cryptocurrencies?",
+              "Key cryptocurrencies (Bitcoin, Ethereum)"
+            ]
+          ],
+          [
+            "How Cryptocurrency Trading Works",
+            [
+              "Cryptocurrency exchanges and wallets",
+              "Basic market mechanics"
+            ]
+          ],
+          [
+            "Fundamental Factors in Cryptocurrencies",
+            [
+              "Key factors affecting cryptocurrency prices",
+              "Introduction to blockchain technology"
+            ]
+          ],
+          [
+            "Basic Technical Analysis in Cryptocurrencies",
+            [
+              "Simple chart patterns and indicators",
+              "Basic cryptocurrency trading strategies"
+            ]
+          ],
+          [
+            "Practical Insights",
+            [
+              "Cryptocurrency market case studies",
+              "Basic cryptocurrency trading exercises"
+            ]
+          ]
         ]
-      ],
-      [
-        "How Forex Trading Works",
-        [
-          "Bid/ask prices and spreads",
-          "Role of brokers and trading platforms"
-        ]
-      ],
-      [
-        "Fundamental Factors in Forex",
-        [
-          "Economic indicators and their impact",
-          "Introduction to central bank policies"
-        ]
-      ],
-      [
-        "Basic Technical Analysis in Forex",
-        [
-          "Key chart patterns and indicators",
-          "Simple forex trading strategies"
-        ]
-      ],
-      [
-        "Practical Insights",
-        [
-          "Forex market case studies",
-          "Basic forex trading exercises"
-        ]
-      ]
-    ],
-    "module03": [
-      [
-        "Overview of Commodity Markets",
-        [
-          "What are commodities?",
-          "Categories of commodities (hard and soft)"
-        ]
-      ],
-      [
-        "Trading in Commodity Markets",
-        [
-          "Spot markets vs. futures markets",
-          "Introduction to futures contracts"
-        ]
-      ],
-      [
-        "Fundamental Factors in Commodities",
-        [
-          "Supply and demand basics",
-          "Geopolitical and seasonal influences"
-        ]
-      ],
-      [
-        "Basic Technical Analysis in Commodities",
-        [
-          "Simple chart patterns and indicators",
-          "Basic trading strategies for commodities"
-        ]
-      ],
-      [
-        "Practical Insights",
-        [
-          "Commodity market case studies",
-          "Basic commodity trading exercises"
-        ]
-      ]
-    ],
-    "module04": [
-      [
-        "Overview of Cryptocurrency Markets",
-        [
-          "What are cryptocurrencies?",
-          "Key cryptocurrencies (Bitcoin, Ethereum)"
-        ]
-      ],
-      [
-        "How Cryptocurrency Trading Works",
-        [
-          "Cryptocurrency exchanges and wallets",
-          "Basic market mechanics"
-        ]
-      ],
-      [
-        "Fundamental Factors in Cryptocurrencies",
-        [
-          "Key factors affecting cryptocurrency prices",
-          "Introduction to blockchain technology"
-        ]
-      ],
-      [
-        "Basic Technical Analysis in Cryptocurrencies",
-        [
-          "Simple chart patterns and indicators",
-          "Basic cryptocurrency trading strategies"
-        ]
-      ],
-      [
-        "Practical Insights",
-        [
-          "Cryptocurrency market case studies",
-          "Basic cryptocurrency trading exercises"
-        ]
-      ]
+      }
     ]
   },
   {
@@ -194,210 +200,218 @@
       "Duration of 10 weeks or till you got your desired results",
       "Three hours per week"
     ],
-    "moduleTitle": [
-      "Understanding the Stock Market",
-      "Navigating the Forex Market",
-      "Mastering Commodity Markets",
-      "Exploring Cryptocurrency Markets"
-    ],
-    "module01": [
-      [
-        "Introduction to the Stock Market",
-        [
-          "Overview of the stock market",
-          "Key participants and their roles",
-          "Types of stocks and stock exchanges"
+    "modules": [
+      {
+        "title": "Understanding the Stock Market",
+        "content":[
+          [
+            "Introduction to the Stock Market",
+            [
+              "Overview of the stock market",
+              "Key participants and their roles",
+              "Types of stocks and stock exchanges"
+            ]
+          ],
+          [
+            "Stock Market Instruments and Indices",
+            [
+              "Common stocks vs. preferred stocks",
+              "Stock market indices (e.g., S&P 500, Dow Jones)"
+            ]
+          ],
+          [
+            "Fundamental Analysis",
+            [
+              "Analyzing financial statements (income statement, balance sheet, cash flow statement)",
+              "Key financial ratios (P/E ratio, ROI, etc.)",
+              "Economic indicators affecting the stock market"
+            ]
+          ],
+          [
+            "Technical Analysis",
+            [
+              "Chart types and patterns",
+              "Technical indicators (moving averages, RSI, MACD)",
+              "Trading strategies based on technical analysis"
+            ]
+          ],
+          [
+            "Investment Strategies",
+            [
+              "Long-term vs. short-term investing",
+              "Growth investing, value investing, dividend investing",
+              "Risk management and portfolio diversification"
+            ]
+          ],
+          [
+            "Practical Application",
+            [
+              "Case studies and real-world examples",
+              "Simulated trading exercises",
+              "Stock market simulations and tools"
+            ]
+          ]
         ]
-      ],
-      [
-        "Stock Market Instruments and Indices",
-        [
-          "Common stocks vs. preferred stocks",
-          "Stock market indices (e.g., S&P 500, Dow Jones)"
+      },
+      {
+        "title": "Navigating the Forex Market",
+        "content": [
+          [
+            "Introduction to the Forex Market",
+            [
+              "Overview of the forex market",
+              "Currency pairs and how they are traded",
+              "Major forex trading centers and their importance"
+            ]
+          ],
+          [
+            "Forex Market Mechanics",
+            [
+              "Understanding bid/ask prices and spreads",
+              "Leverage and margin trading",
+              "Role of brokers and trading platforms"
+            ]
+          ],
+          [
+            "Fundamental Analysis in Forex",
+            [
+              "Economic indicators affecting currency values",
+              "Interest rates, inflation, and geopolitical events",
+              "Central bank policies and their impact"
+            ]
+          ],
+          [
+            "Technical Analysis in Forex",
+            [
+              "Chart patterns specific to forex trading",
+              "Technical indicators (Fibonacci retracements, Bollinger Bands)",
+              "Forex trading strategies (scalping, swing trading, day trading)"
+            ]
+          ],
+          [
+            "Risk Management in Forex",
+            [
+              "Importance of risk management in forex trading",
+              "Setting stop-loss and take-profit levels",
+              "Diversification and position sizing"
+            ]
+          ],
+          [
+            "Practical Application",
+            [
+              "Forex market case studies",
+              "Simulated trading scenarios",
+              "Hands-on exercises using demo accounts"
+            ]
+          ]
         ]
-      ],
-      [
-        "Fundamental Analysis",
-        [
-          "Analyzing financial statements (income statement, balance sheet, cash flow statement)",
-          "Key financial ratios (P/E ratio, ROI, etc.)",
-          "Economic indicators affecting the stock market"
+      },
+      {
+        "title": "Mastering Commodity Markets",
+        "content":[
+          [
+            " Introduction to Commodity Markets",
+            [
+              "Overview of commodities and their categories",
+              "Key participants in commodity markets",
+              "Major commodity exchanges and their roles"
+            ]
+          ],
+          [
+            "Commodity Market Instruments",
+            [
+              "Spot markets vs. futures markets",
+              "Understanding futures contracts and options",
+              "Hedging and speculative trading"
+            ]
+          ],
+          [
+            "Fundamental Analysis in Commodities",
+            [
+              "Supply and demand factors affecting commodity prices",
+              "Geopolitical influences and weather conditions",
+              "Seasonal trends and production cycles"
+            ]
+          ],
+          [
+            "Technical Analysis in Commodities",
+            [
+              "Commodity-specific chart patterns and indicators",
+              "Analyzing price trends and volume",
+              "Trading strategies for commodities"
+            ]
+          ],
+          [
+            "Risk Management in Commodities",
+            [
+              "Managing risk in commodity trading",
+              "Use of derivatives for hedging",
+              "Diversification and position management"
+            ]
+          ],
+          [
+            "Practical Application",
+            [
+              "Commodity market case studies",
+              "Simulated trading exercises",
+              "Real-world examples and market simulations"
+            ]
+          ]
         ]
-      ],
-      [
-        "Technical Analysis",
-        [
-          "Chart types and patterns",
-          "Technical indicators (moving averages, RSI, MACD)",
-          "Trading strategies based on technical analysis"
+      },
+      {
+        "title": "Exploring Cryptocurrency Markets",
+        "content": [
+          [
+            "Introduction to the Cryptocurrency Markets",
+            [
+              "Overview of cryptocurrencies and blockchain technology",
+              "Key players in the cryptocurrency ecosystem",
+              "Major cryptocurrency exchanges"
+            ]
+          ],
+          [
+            "Cryptocurrency Market Mechanics",
+            [
+              "How cryptocurrencies are traded",
+              "Wallets and securing digital assets",
+              "Understanding cryptocurrency market data"
+            ]
+          ],
+          [
+            "Fundamental Analysis in Cryptocurrencies",
+            [
+              "Evaluating cryptocurrency projects",
+              "Impact of regulatory news and developments",
+              "Market sentiment and adoption rates"
+            ]
+          ],
+          [
+            "Technical Analysis in Cryptocurrencies",
+            [
+              "Cryptocurrency-specific chart patterns and indicators",
+              "Trading strategies (HODLing, day trading, swing trading)",
+              "Analyzing market cycles and trends"
+            ]
+          ],
+          [
+            "Risk Management in Cryptocurrencies",
+            [
+              "Identifying and managing risks in cryptocurrency trading",
+              "Setting stop-loss and take-profit orders",
+              "Diversification strategies"
+            ]
+          ],
+          [
+            "Practical Application",
+            [
+              "Cryptocurrency market case studies",
+              "Simulated trading exercises",
+              "Hands-on activities with demo accounts and trading platforms"
+            ]
+          ]
         ]
-      ],
-      [
-        "Investment Strategies",
-        [
-          "Long-term vs. short-term investing",
-          "Growth investing, value investing, dividend investing",
-          "Risk management and portfolio diversification"
-        ]
-      ],
-      [
-        "Practical Application",
-        [
-          "Case studies and real-world examples",
-          "Simulated trading exercises",
-          "Stock market simulations and tools"
-        ]
-      ]
-    ],
-    "module02": [
-      [
-        "Introduction to the Forex Market",
-        [
-          "Overview of the forex market",
-          "Currency pairs and how they are traded",
-          "Major forex trading centers and their importance"
-        ]
-      ],
-      [
-        "Forex Market Mechanics",
-        [
-          "Understanding bid/ask prices and spreads",
-          "Leverage and margin trading",
-          "Role of brokers and trading platforms"
-        ]
-      ],
-      [
-        "Fundamental Analysis in Forex",
-        [
-          "Economic indicators affecting currency values",
-          "Interest rates, inflation, and geopolitical events",
-          "Central bank policies and their impact"
-        ]
-      ],
-      [
-        "Technical Analysis in Forex",
-        [
-          "Chart patterns specific to forex trading",
-          "Technical indicators (Fibonacci retracements, Bollinger Bands)",
-          "Forex trading strategies (scalping, swing trading, day trading)"
-        ]
-      ],
-      [
-        "Risk Management in Forex",
-        [
-          "Importance of risk management in forex trading",
-          "Setting stop-loss and take-profit levels",
-          "Diversification and position sizing"
-        ]
-      ],
-      [
-        "Practical Application",
-        [
-          "Forex market case studies",
-          "Simulated trading scenarios",
-          "Hands-on exercises using demo accounts"
-        ]
-      ]
-    ],
-    "module03": [
-      [
-        " Introduction to Commodity Markets",
-        [
-          "Overview of commodities and their categories",
-          "Key participants in commodity markets",
-          "Major commodity exchanges and their roles"
-        ]
-      ],
-      [
-        "Commodity Market Instruments",
-        [
-          "Spot markets vs. futures markets",
-          "Understanding futures contracts and options",
-          "Hedging and speculative trading"
-        ]
-      ],
-      [
-        "Fundamental Analysis in Commodities",
-        [
-          "Supply and demand factors affecting commodity prices",
-          "Geopolitical influences and weather conditions",
-          "Seasonal trends and production cycles"
-        ]
-      ],
-      [
-        "Technical Analysis in Commodities",
-        [
-          "Commodity-specific chart patterns and indicators",
-          "Analyzing price trends and volume",
-          "Trading strategies for commodities"
-        ]
-      ],
-      [
-        "Risk Management in Commodities",
-        [
-          "Managing risk in commodity trading",
-          "Use of derivatives for hedging",
-          "Diversification and position management"
-        ]
-      ],
-      [
-        "Practical Application",
-        [
-          "Commodity market case studies",
-          "Simulated trading exercises",
-          "Real-world examples and market simulations"
-        ]
-      ]
-    ],
-    "module04": [
-      [
-        "Introduction to the Cryptocurrency Markets",
-        [
-          "Overview of cryptocurrencies and blockchain technology",
-          "Key players in the cryptocurrency ecosystem",
-          "Major cryptocurrency exchanges"
-        ]
-      ],
-      [
-        "Cryptocurrency Market Mechanics",
-        [
-          "How cryptocurrencies are traded",
-          "Wallets and securing digital assets",
-          "Understanding cryptocurrency market data"
-        ]
-      ],
-      [
-        "Fundamental Analysis in Cryptocurrencies",
-        [
-          "Evaluating cryptocurrency projects",
-          "Impact of regulatory news and developments",
-          "Market sentiment and adoption rates"
-        ]
-      ],
-      [
-        "Technical Analysis in Cryptocurrencies",
-        [
-          "Cryptocurrency-specific chart patterns and indicators",
-          "Trading strategies (HODLing, day trading, swing trading)",
-          "Analyzing market cycles and trends"
-        ]
-      ],
-      [
-        "Risk Management in Cryptocurrencies",
-        [
-          "Identifying and managing risks in cryptocurrency trading",
-          "Setting stop-loss and take-profit orders",
-          "Diversification strategies"
-        ]
-      ],
-      [
-        "Practical Application",
-        [
-          "Cryptocurrency market case studies",
-          "Simulated trading exercises",
-          "Hands-on activities with demo accounts and trading platforms"
-        ]
-      ]
+      }
     ]
   }
 ]

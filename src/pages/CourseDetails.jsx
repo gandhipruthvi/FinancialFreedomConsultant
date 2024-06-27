@@ -86,6 +86,13 @@ const CourseDetails = () => {
             <div className="col-lg">
               <div className="courseContent">
                 <h1>Course Content</h1>
+                {course.modules && Array.isArray(course.modules) && (
+                  <section>
+                    {course.modules.map((module, index) => (
+                      <div key={index}>{module.title}</div>
+                    ))}
+                  </section>
+                )}
               </div>
             </div>
           </div>
