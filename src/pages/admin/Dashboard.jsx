@@ -94,7 +94,7 @@ const Dashboard = () => {
               <tr key={appointment.id}>
                 <td>{index + 1}</td>
                 <td>
-                  {appointment.date.toLocaleString().replace(/GMT.*/i, "")}
+                  {appointment.date.toLocaleString()} {appointment.time}
                 </td>
                 <td>{appointment.clientName}</td>
                 <td>{appointment.clientEmail}</td>

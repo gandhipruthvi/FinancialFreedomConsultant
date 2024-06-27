@@ -11,6 +11,7 @@ import emailjs from "@emailjs/browser";
 import DatePicker from "react-datepicker";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import moment from "moment-timezone";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -50,6 +51,7 @@ const AppointmentForm = () => {
 
     return currentDate.getTime() < selectedDate.getTime();
   };
+  console.log(selectedDate);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -82,7 +84,7 @@ const AppointmentForm = () => {
         timeCaption="Time"
         minTime={setHours(setMinutes(new Date(), 59), 8)}
         maxTime={setHours(setMinutes(new Date(), 0), 17)}
-        dateFormat="MMMM d, yyyy h:mm aa"
+        dateFormat="d/MM/yyyy h:mm aa"
         placeholderText="Select Date & Time"
         name="date_time"
         excludeTimes={getBookedTimesForDate(
@@ -113,87 +115,93 @@ const AppointmentForm = () => {
     } else {
       event.preventDefault();
 
+      const formattedTime = moment(selectedDate).utc().format("HH:mm:ss'Z'");
+      const formattedDate = moment(selectedDate).format("DD/MM/YYYY");
+
       const appointment = {
         clientName: form.client_name.value,
         clientEmail: form.client_email.value,
         service: form.service.value,
-        date: selectedDate,
+        date: formattedDate,
+        time: formattedTime,
         country: form.country.value,
         contactNumber: form.contact_number.value,
         info: form.info.value,
       };
 
+      console.log(appointment);
+
       await addDoc(collection(db, "appointments"), appointment);
       setBookedSlots([...bookedSlots, new Date(appointment.date)]);
 
       // sending appointment information to the server
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
-          import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVER_TEMPLATE,
-          form,
-          {
-            publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
-          }
-        )
-        .then(
-          () => {
-            // sending appointment email to the client
-            emailjs
-              .sendForm(
-                import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
-                import.meta.env.VITE_EMAILJS_APPOINTMENT_CLIENT_TEMPLATE,
-                form,
-                {
-                  publicKey: import.meta.env
-                    .VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
-                }
-              )
-              .then(
-                () => {
-                  console.log("SUCCESS!");
-                  form.reset();
-                  setValidated(false);
-                  toast.success("Form successfully submitted", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
-                },
-                (error) => {
-                  console.log("FAILED...", error.text);
-                  toast.error("Unable to send the confirmation email!", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
-                }
-              );
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-            toast.error("Unable to submit the form", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          }
-        );
+      // emailjs
+      //   .sendForm(
+      //     import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
+      //     import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVER_TEMPLATE,
+      //     form,
+      //     {
+      //       publicKey: import.meta.env.VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+      //     }
+      //   )
+      //   .then(
+      //     () => {
+      //       // sending appointment email to the client
+      //       emailjs
+      //         .sendForm(
+      //           import.meta.env.VITE_EMAILJS_APPOINTMENT_SERVICE_KEY,
+      //           import.meta.env.VITE_EMAILJS_APPOINTMENT_CLIENT_TEMPLATE,
+      //           form,
+      //           {
+      //             publicKey: import.meta.env
+      //               .VITE_EMAILJS_APPOINTMENT_PUBLIC_KEY,
+      //           }
+      //         )
+      //         .then(
+      //           () => {
+      //             console.log("SUCCESS!");
+      //             form.reset();
+      //             setValidated(false);
+      //             toast.success("Form successfully submitted", {
+      //               position: "bottom-right",
+      //               autoClose: 5000,
+      //               hideProgressBar: false,
+      //               closeOnClick: true,
+      //               pauseOnHover: true,
+      //               draggable: true,
+      //               progress: undefined,
+      //               theme: "light",
+      //             });
+      //           },
+      //           (error) => {
+      //             console.log("FAILED...", error.text);
+      //             toast.error("Unable to send the confirmation email!", {
+      //               position: "bottom-right",
+      //               autoClose: 5000,
+      //               hideProgressBar: false,
+      //               closeOnClick: true,
+      //               pauseOnHover: true,
+      //               draggable: true,
+      //               progress: undefined,
+      //               theme: "light",
+      //             });
+      //           }
+      //         );
+      //     },
+      //     (error) => {
+      //       console.log("FAILED...", error.text);
+      //       toast.error("Unable to submit the form", {
+      //         position: "bottom-right",
+      //         autoClose: 5000,
+      //         hideProgressBar: false,
+      //         closeOnClick: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //         theme: "light",
+      //       });
+      //     }
+      //   );
     }
   };
 
