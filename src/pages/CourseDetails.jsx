@@ -1,5 +1,5 @@
 import "../styles/CourseDetails.scss";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import courseDetails from "../utils/coursedetails.json";
 import { getImageURL } from "../utils/image-util";
 
@@ -11,36 +11,65 @@ const CourseDetails = () => {
   console.log(course);
 
   return (
-    <div className="courseDetails">
-      <section className="page_banner">
-        <div className="container largeContainer">
+    <div className="courseDetailsPage">
+      <section className="courseDetails">
+        <div className="container">
           <div className="row">
-            <div className="col-md-6">
-              <h2 className="banner-title">{course.title}</h2>
-            </div>
-            <div className="col-md-6 text-right">
-              <p className="breadcrumbs">
-                <NavLink to="/" className="anchor">
-                  <i className="twi-home-alt1"></i>Home
-                </NavLink>
-                <span>/</span>
-                Course Deatils
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="singleBlog">
-        <div className="container largeContainer">
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="sic_details clearfix">
+            <div className="col-lg">
+              <div className="courseHeader">
+                <div className="overview">
+                  <div className="breadcrumbs">
+                    <NavLink to="/" className="anchor">
+                      <i className="twi-home-alt1"></i> Home
+                    </NavLink>
+                    <span> / </span>
+                    <NavLink to="/academy" className="anchor">
+                      Fin Market Academy
+                    </NavLink>
+                    <span> / </span>
+                    <p className="currentPage">Course Detail</p>
+                  </div>
+                  <div className="courseInfo">
+                    <div className="firstLine">
+                      <div>
+                        <i className="twi-analytics"></i>
+                        {course.type}
+                      </div>
+                      <div>
+                        <i className="twi-clock"></i>
+                        {course.duration}
+                      </div>
+                      <div>
+                        <i className="twi-star"></i>
+                        {course.rating}
+                      </div>
+                    </div>
+                  </div>
+                  <h1>{course.title}</h1>
+                  <Link to={`/course/${course.id}`} className="qu_btn">
+                    Enroll Now
+                  </Link>
+                </div>
                 <div className="postThumb">
                   <img src={getImageURL(course.thumbnail)} alt="basic" />
                 </div>
-                <div className="bmeta"></div>
-                <div className="sic_the_content clearfix">
-                  <h2>{course.title}</h2>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg">
+              <div className="courseBody">
+                <div className="desc">
+                  <h2>{course.outline}</h2>
+                  <h4>Description:</h4>
+                  <span>{course.description}</span>
+                </div>
+                <div className="perks">
+                  <div className="d-flex">
+                    <i className="twi-badge-check"></i>
+                    <h3>Perks</h3>
+                  </div>
                   {course.perks && Array.isArray(course.perks) && (
                     <ul>
                       {course.perks.map((perk, index) => (
@@ -49,6 +78,14 @@ const CourseDetails = () => {
                     </ul>
                   )}
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-lg">
+              <div className="courseContent">
+                <h1>Course Content</h1>
               </div>
             </div>
           </div>
