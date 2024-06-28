@@ -44,7 +44,7 @@ const CourseDetails = () => {
                     </div>
                   </div>
                   <h1>{course.title}</h1>
-                  <Link to={`/course/${course.id}`} className="qu_btn">
+                  <Link to="/appointment" className="qu_btn">
                     Enroll Now
                   </Link>
                 </div>

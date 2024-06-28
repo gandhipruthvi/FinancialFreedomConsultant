@@ -154,12 +154,22 @@
             }
         }
     }
+}
 
-    /*=============================================*/
-    /*=========Responsive CSS======================*/
-    /*=============================================*/
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+@media only screen and (max-width: 992px) {
+    .appointmentFormComponent {
+        .input-field select {
+            padding: 0 15px 0 52px;
+            -webkit-appearance: none;
+        }
+    }
+}
 
-    @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+    .appointmentFormComponent {
         .input-field select {
             padding: 0 15px 0 52px;
             -webkit-appearance: none;

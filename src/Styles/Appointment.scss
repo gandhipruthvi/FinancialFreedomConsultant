@@ -6,12 +6,22 @@ $theme-color: #009CFF;
     background-size: cover;
     padding-bottom: 100px;
 
+    @media (max-width: 992px) {
+        padding: 20px 0px;
+    }
+
     .container {
         display: flex;
         background: #ffffff;
         border-radius: 20px;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
         padding: 3%;
+
+        @media (max-width: 992px) {
+            padding: 8%;
+            margin: 10px;
+            width: auto;
+        }
     }
 
     .container_circle {
@@ -37,20 +47,5 @@ $theme-color: #009CFF;
         font-size: 16px !important;
         font-weight: 500;
         margin: 0 0 3px;
-    }
-
-
-    /*=============================================*/
-    /*=========Responsive CSS======================*/
-    /*=============================================*/
-
-    @media only screen and (max-width: 992px) {
-        .appointment-page {
-            padding: 100px 20px;
-
-            .container {
-                padding: 10%;
-            }
-        }
     }
 }

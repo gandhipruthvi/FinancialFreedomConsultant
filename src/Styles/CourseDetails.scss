@@ -257,3 +257,71 @@ $primary-padding: 50px;
     }
   }
 }
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+  .courseDetailsPage {
+    .courseDetails {
+      .courseHeader {
+        flex-direction: column;
+        margin: 10px;
+        padding: 20px 0px 40px;
+        text-align: center;
+
+        .overview {
+          margin: auto;
+          width: 100%;
+          padding: 10px;
+
+          .breadcrumbs {
+            display: block;
+          }
+
+          .courseInfo {
+            .firstLine {
+              flex-wrap: wrap;
+              justify-content: center;
+
+              div {
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        .postThumb {
+          margin-top: 20px;
+
+          img {
+            width: 85%;
+            height: auto;
+          }
+        }
+      }
+
+      .courseBody {
+        flex-direction: column;
+        margin: 10px;
+        padding: 0px;
+
+        .desc {
+          width: 100%;
+          padding: 20px 0px;
+          margin-right: 0px;
+        }
+      }
+
+      .courseContent {
+        padding: 10px;
+
+        .accordion-wrapper .accordion .accordion-content section div ul {
+          display: block;
+          list-style-type: none;
+        }
+      }
+    }
+  }
+}
