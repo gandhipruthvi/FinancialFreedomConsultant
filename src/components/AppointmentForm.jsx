@@ -51,7 +51,6 @@ const AppointmentForm = () => {
 
     return currentDate.getTime() < selectedDate.getTime();
   };
-  console.log(selectedDate);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -79,12 +78,12 @@ const AppointmentForm = () => {
         filterDate={isWeekday}
         filterTime={filterPassedTime}
         minDate={new Date()}
-        timeFormat="HH:mm"
+        timeFormat="hh:mm a"
         timeIntervals={60}
         timeCaption="Time"
         minTime={setHours(setMinutes(new Date(), 59), 8)}
         maxTime={setHours(setMinutes(new Date(), 0), 17)}
-        dateFormat="d/MM/yyyy h:mm aa"
+        dateFormat="dd/MM/yyyy h:mm aa"
         placeholderText="Select Date & Time"
         name="date_time"
         excludeTimes={getBookedTimesForDate(
@@ -119,13 +118,11 @@ const AppointmentForm = () => {
         clientName: form.client_name.value,
         clientEmail: form.client_email.value,
         service: form.service.value,
-        date: moment(selectedDate).format("DD/MM/yyyy hh:mm A"),
+        date: moment(selectedDate).format("MMMM DD YYYY hh:mm A"),
         country: form.country.value,
         contactNumber: form.contact_number.value,
         info: form.info.value,
       };
-
-      console.log(appointment);
 
       await addDoc(collection(db, "appointments"), appointment);
       setBookedSlots([...bookedSlots, new Date(appointment.date)]);
