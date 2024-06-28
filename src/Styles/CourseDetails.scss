@@ -218,9 +218,19 @@ $primary-padding: 50px;
 
                 ul {
                   display: flex;
+                  list-style-type: none;
 
                   li {
                     margin-right: 40px;
+                    flex: 1;
+
+                    &:before {
+                      content: "\e93f";
+                      /* FontAwesome Unicode */
+                      font-family: themewar;
+                      padding-right: 10px;
+                      color: #009CFF;
+                    }
                   }
                 }
               }

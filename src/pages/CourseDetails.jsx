@@ -88,7 +88,7 @@ const CourseDetails = () => {
                   <div className="accordion-wrapper">
                     {course.modules.map((module, index) => (
                       <div className="accordion" key={index}>
-                        <input type="radio" name="radio-a" id={index} />
+                        <input type="checkbox" name="radio-a" id={index} />
                         <label className="accordion-label" htmlFor={index}>
                           {index + 1}. {module.title}
                         </label>
