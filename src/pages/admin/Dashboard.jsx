@@ -96,7 +96,8 @@ const Dashboard = () => {
               <tr key={appointment.id}>
                 <td>{index + 1}</td>
                 <td>
-                  {moment(appointment.date).utc().format("DD/MM/YYYY hh:mm a")}
+                  {moment(appointment.date).format("DD/MM/YYYY hh:mm a")}
+                  {/* {moment(appointment.date).utc().format("DD/MM/YYYY hh:mm a")} */}
                 </td>
                 {/* <td>{appointment.date}</td> */}
                 <td>{appointment.clientName}</td>

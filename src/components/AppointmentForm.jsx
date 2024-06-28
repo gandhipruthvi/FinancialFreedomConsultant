@@ -115,15 +115,11 @@ const AppointmentForm = () => {
     } else {
       event.preventDefault();
 
-      const formattedTime = moment(selectedDate).utc().format("HH:mm:ss'Z'");
-      const formattedDate = moment(selectedDate).format("DD/MM/YYYY");
-
       const appointment = {
         clientName: form.client_name.value,
         clientEmail: form.client_email.value,
         service: form.service.value,
-        date: formattedDate,
-        time: formattedTime,
+        date: moment(selectedDate).format("DD/MM/yyyy hh:mm A"),
         country: form.country.value,
         contactNumber: form.contact_number.value,
         info: form.info.value,
