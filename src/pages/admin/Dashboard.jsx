@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { Button, Pagination, Table } from "react-bootstrap";
+import moment from "moment-timezone";
 
 const Dashboard = () => {
   const [appointments, setAppointments] = useState([]);
@@ -32,6 +33,7 @@ const Dashboard = () => {
       setAppointments(sortByDate(appointmentList));
     };
     fetchData();
+    console.log(appointments);
   }, []);
 
   const sortByDate = (data) => {
@@ -94,8 +96,9 @@ const Dashboard = () => {
               <tr key={appointment.id}>
                 <td>{index + 1}</td>
                 <td>
-                  {appointment.date.toLocaleString()} {appointment.time}
+                  {moment(appointment.date).utc().format("DD/MM/YYYY hh:mm a")}
                 </td>
+                {/* <td>{appointment.date}</td> */}
                 <td>{appointment.clientName}</td>
                 <td>{appointment.clientEmail}</td>
                 <td>{appointment.contactNumber}</td>

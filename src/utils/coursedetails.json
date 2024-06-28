@@ -20,160 +20,161 @@
     "modules": [
       {
         "title": "Introduction to the Stock Market",
-        "content": [[
-          "Overview of the Stock Market",
-          [
-            "What is the stock market?",
-            "Key players and their roles"
-          ]
-        ],
-        [
-          "Types of Stocks and Exchanges",
-          [
+        "content": [
+          {
+            "title": "Overview of the Stock Market.",
+            "points": [
+              "What is the stock market?",
+              "Key players and their roles"
+            ]
+          },
+        {
+          "title":"Types of Stocks and Exchanges",
+          "points":[
             "Common vs. preferred stocks",
             "Major stock exchanges (NYSE, NASDAQ)"
           ]
-        ],
-        [
-          "Basic Analysis Techniques",
-          [
+        },
+        {
+          "title":"Basic Analysis Techniques",
+          "points":[
             "Introduction to fundamental analysis",
             "Introduction to technical analysis"
           ]
-        ],
-        [
-          "Basic Investment Strategies",
-          [
+        },
+        {
+          "title":"Basic Investment Strategies",
+          "points":[
             "Long-term investing vs. short-term trading",
             "Introduction to portfolio diversification"
           ]
-        ],
-        [
-          "Practical Insights",
-          [
+        },
+        {
+          "title":"Practical Insights",
+          "points":[
             "Simple case studies",
             "Basic stock trading simulations"
           ]
-        ]]
+      }]
       },
       {
-        "title": "Introduction to the Stock Market",
+        "title": "Introduction to the Forex Market",
         "content": [
-          [
-            "Overview of the Forex Market",
-            [
+          {
+            "title": "Overview of the Forex Market",
+            "points": [
               "What is the forex market?",
               "Key currency pairs"
             ]
-          ],
-          [
-            "How Forex Trading Works",
-            [
+          },
+          {
+            "title": "How Forex Trading Works",
+            "points": [
               "Bid/ask prices and spreads",
               "Role of brokers and trading platforms"
             ]
-          ],
-          [
-            "Fundamental Factors in Forex",
-            [
+          },
+          {
+            "title": "Fundamental Factors in Forex",
+            "points": [
               "Economic indicators and their impact",
               "Introduction to central bank policies"
             ]
-          ],
-          [
-            "Basic Technical Analysis in Forex",
-            [
+          },
+          {
+            "title": "Basic Technical Analysis in Forex",
+            "points": [
               "Key chart patterns and indicators",
               "Simple forex trading strategies"
             ]
-          ],
-          [
-            "Practical Insights",
-            [
+          },
+          {
+            "title": "Practical Insights",
+            "points": [
               "Forex market case studies",
               "Basic forex trading exercises"
             ]
-          ]
+          }
         ]
       },
       {
         "title": "Introduction to Commodity Markets",
         "content":[
-          [
-            "Overview of Commodity Markets",
-            [
+          {
+            "title": "Overview of Commodity Markets",
+            "points": [
               "What are commodities?",
               "Categories of commodities (hard and soft)"
             ]
-          ],
-          [
-            "Trading in Commodity Markets",
-            [
+          },
+          {
+            "title": "Trading in Commodity Markets",
+            "points": [
               "Spot markets vs. futures markets",
               "Introduction to futures contracts"
             ]
-          ],
-          [
-            "Fundamental Factors in Commodities",
-            [
+          },
+          {
+            "title": "Fundamental Factors in Commodities",
+            "points": [
               "Supply and demand basics",
               "Geopolitical and seasonal influences"
             ]
-          ],
-          [
-            "Basic Technical Analysis in Commodities",
-            [
+          },
+          {
+            "title": "Basic Technical Analysis in Commodities",
+            "points": [
               "Simple chart patterns and indicators",
               "Basic trading strategies for commodities"
             ]
-          ],
-          [
-            "Practical Insights",
-            [
+          },
+          {
+            "title": "Practical Insights",
+            "points": [
               "Commodity market case studies",
               "Basic commodity trading exercises"
             ]
-          ]
+          }
         ]
       },
       {
         "title": "Introduction to Cryptocurrency Markets",
         "content": [
-          [
-            "Overview of Cryptocurrency Markets",
-            [
+          {
+            "title":"Overview of Cryptocurrency Markets",
+            "points": [
               "What are cryptocurrencies?",
               "Key cryptocurrencies (Bitcoin, Ethereum)"
             ]
-          ],
-          [
-            "How Cryptocurrency Trading Works",
-            [
+          },
+          {
+            "title":"How Cryptocurrency Trading Works",
+            "points": [
               "Cryptocurrency exchanges and wallets",
               "Basic market mechanics"
             ]
-          ],
-          [
-            "Fundamental Factors in Cryptocurrencies",
-            [
+          },
+          {
+            "title":"Fundamental Factors in Cryptocurrencies",
+            "points": [
               "Key factors affecting cryptocurrency prices",
               "Introduction to blockchain technology"
             ]
-          ],
-          [
-            "Basic Technical Analysis in Cryptocurrencies",
-            [
+          },
+          {
+            "title":"Basic Technical Analysis in Cryptocurrencies",
+            "points": [
               "Simple chart patterns and indicators",
               "Basic cryptocurrency trading strategies"
             ]
-          ],
-          [
-            "Practical Insights",
-            [
+          },
+          {
+            "title":"Practical Insights",
+            "points": [
               "Cryptocurrency market case studies",
               "Basic cryptocurrency trading exercises"
             ]
-          ]
+          }
         ]
       }
     ]
@@ -204,212 +205,212 @@
       {
         "title": "Understanding the Stock Market",
         "content":[
-          [
-            "Introduction to the Stock Market",
-            [
+          {
+            "title": "Introduction to the Stock Market",
+            "points": [
               "Overview of the stock market",
               "Key participants and their roles",
               "Types of stocks and stock exchanges"
             ]
-          ],
-          [
-            "Stock Market Instruments and Indices",
-            [
+          },
+          {
+            "title":"Stock Market Instruments and Indices",
+            "points": [
               "Common stocks vs. preferred stocks",
               "Stock market indices (e.g., S&P 500, Dow Jones)"
             ]
-          ],
-          [
-            "Fundamental Analysis",
-            [
+          },
+          {
+            "title":"Fundamental Analysis",
+            "points": [
               "Analyzing financial statements (income statement, balance sheet, cash flow statement)",
               "Key financial ratios (P/E ratio, ROI, etc.)",
               "Economic indicators affecting the stock market"
             ]
-          ],
-          [
-            "Technical Analysis",
-            [
+          },
+          {
+            "title":"Technical Analysis",
+            "points": [
               "Chart types and patterns",
               "Technical indicators (moving averages, RSI, MACD)",
               "Trading strategies based on technical analysis"
             ]
-          ],
-          [
-            "Investment Strategies",
-            [
+          },
+          {
+            "title":"Investment Strategies",
+            "points": [
               "Long-term vs. short-term investing",
               "Growth investing, value investing, dividend investing",
               "Risk management and portfolio diversification"
             ]
-          ],
-          [
-            "Practical Application",
-            [
+          },
+          {
+            "title":"Practical Application",
+            "points": [
               "Case studies and real-world examples",
               "Simulated trading exercises",
               "Stock market simulations and tools"
             ]
-          ]
+          }
         ]
       },
       {
         "title": "Navigating the Forex Market",
         "content": [
-          [
-            "Introduction to the Forex Market",
-            [
+          {
+            "title":"Introduction to the Forex Market",
+            "points": [
               "Overview of the forex market",
               "Currency pairs and how they are traded",
               "Major forex trading centers and their importance"
             ]
-          ],
-          [
-            "Forex Market Mechanics",
-            [
+          },
+          {
+            "title":"Forex Market Mechanics",
+            "points": [
               "Understanding bid/ask prices and spreads",
               "Leverage and margin trading",
               "Role of brokers and trading platforms"
             ]
-          ],
-          [
-            "Fundamental Analysis in Forex",
-            [
+          },
+          {
+            "title":"Fundamental Analysis in Forex",
+            "points": [
               "Economic indicators affecting currency values",
               "Interest rates, inflation, and geopolitical events",
               "Central bank policies and their impact"
             ]
-          ],
-          [
-            "Technical Analysis in Forex",
-            [
+          },
+          {
+            "title":"Technical Analysis in Forex",
+            "points": [
               "Chart patterns specific to forex trading",
               "Technical indicators (Fibonacci retracements, Bollinger Bands)",
               "Forex trading strategies (scalping, swing trading, day trading)"
             ]
-          ],
-          [
-            "Risk Management in Forex",
-            [
+          },
+          {
+            "title":"Risk Management in Forex",
+            "points": [
               "Importance of risk management in forex trading",
               "Setting stop-loss and take-profit levels",
               "Diversification and position sizing"
             ]
-          ],
-          [
-            "Practical Application",
-            [
+          },
+          {
+            "title":"Practical Application",
+            "points": [
               "Forex market case studies",
               "Simulated trading scenarios",
               "Hands-on exercises using demo accounts"
             ]
-          ]
+          }
         ]
       },
       {
         "title": "Mastering Commodity Markets",
         "content":[
-          [
-            " Introduction to Commodity Markets",
-            [
+          {
+            "title":" Introduction to Commodity Markets",
+            "points": [
               "Overview of commodities and their categories",
               "Key participants in commodity markets",
               "Major commodity exchanges and their roles"
             ]
-          ],
-          [
-            "Commodity Market Instruments",
-            [
+          },
+          {
+            "title":"Commodity Market Instruments",
+            "points": [
               "Spot markets vs. futures markets",
               "Understanding futures contracts and options",
               "Hedging and speculative trading"
             ]
-          ],
-          [
-            "Fundamental Analysis in Commodities",
-            [
+          },
+          {
+            "title":"Fundamental Analysis in Commodities",
+            "points": [
               "Supply and demand factors affecting commodity prices",
               "Geopolitical influences and weather conditions",
               "Seasonal trends and production cycles"
             ]
-          ],
-          [
-            "Technical Analysis in Commodities",
-            [
+          },
+         {
+            "title":"Technical Analysis in Commodities",
+            "points": [
               "Commodity-specific chart patterns and indicators",
               "Analyzing price trends and volume",
               "Trading strategies for commodities"
             ]
-          ],
-          [
-            "Risk Management in Commodities",
-            [
+         },
+          {
+            "title":"Risk Management in Commodities",
+            "points": [
               "Managing risk in commodity trading",
               "Use of derivatives for hedging",
               "Diversification and position management"
             ]
-          ],
-          [
-            "Practical Application",
-            [
+          },
+          {
+            "title":"Practical Application",
+            "points": [
               "Commodity market case studies",
               "Simulated trading exercises",
               "Real-world examples and market simulations"
             ]
-          ]
+          }
         ]
       },
       {
         "title": "Exploring Cryptocurrency Markets",
         "content": [
-          [
-            "Introduction to the Cryptocurrency Markets",
-            [
+          {
+            "title":"Introduction to the Cryptocurrency Markets",
+            "points": [
               "Overview of cryptocurrencies and blockchain technology",
               "Key players in the cryptocurrency ecosystem",
               "Major cryptocurrency exchanges"
             ]
-          ],
-          [
-            "Cryptocurrency Market Mechanics",
-            [
+          },
+          {
+            "title":"Cryptocurrency Market Mechanics",
+            "points": [
               "How cryptocurrencies are traded",
               "Wallets and securing digital assets",
               "Understanding cryptocurrency market data"
             ]
-          ],
-          [
-            "Fundamental Analysis in Cryptocurrencies",
-            [
+          },
+         {
+            "title":"Fundamental Analysis in Cryptocurrencies",
+            "points": [
               "Evaluating cryptocurrency projects",
               "Impact of regulatory news and developments",
               "Market sentiment and adoption rates"
             ]
-          ],
-          [
-            "Technical Analysis in Cryptocurrencies",
-            [
+         },
+          {
+            "title":"Technical Analysis in Cryptocurrencies",
+            "points": [
               "Cryptocurrency-specific chart patterns and indicators",
               "Trading strategies (HODLing, day trading, swing trading)",
               "Analyzing market cycles and trends"
             ]
-          ],
-          [
-            "Risk Management in Cryptocurrencies",
-            [
+          },
+          {
+            "title":"Risk Management in Cryptocurrencies",
+            "points": [
               "Identifying and managing risks in cryptocurrency trading",
               "Setting stop-loss and take-profit orders",
               "Diversification strategies"
             ]
-          ],
-          [
-            "Practical Application",
-            [
+          },
+          {
+            "title":"Practical Application",
+            "points": [
               "Cryptocurrency market case studies",
               "Simulated trading exercises",
               "Hands-on activities with demo accounts and trading platforms"
             ]
-          ]
+          }
         ]
       }
     ]

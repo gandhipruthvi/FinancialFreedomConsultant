@@ -8,8 +8,6 @@ const CourseDetails = () => {
 
   const course = courseDetails.find((course) => course.id == id);
 
-  console.log(course);
-
   return (
     <div className="courseDetailsPage">
       <section className="courseDetails">
@@ -87,11 +85,30 @@ const CourseDetails = () => {
               <div className="courseContent">
                 <h1>Course Content</h1>
                 {course.modules && Array.isArray(course.modules) && (
-                  <section>
+                  <div className="accordion-wrapper">
                     {course.modules.map((module, index) => (
-                      <div key={index}>{module.title}</div>
+                      <div className="accordion" key={index}>
+                        <input type="radio" name="radio-a" id={index} />
+                        <label className="accordion-label" htmlFor={index}>
+                          {index + 1}. {module.title}
+                        </label>
+                        <div className="accordion-content">
+                          <section>
+                            {module.content.map((content, index) => (
+                              <div key={"content" + index}>
+                                <h4>{content.title}</h4>
+                                <ul>
+                                  {content.points.map((point, index1) => (
+                                    <li key={index1}>{point}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </section>
+                        </div>
+                      </div>
                     ))}
-                  </section>
+                  </div>
                 )}
               </div>
             </div>
