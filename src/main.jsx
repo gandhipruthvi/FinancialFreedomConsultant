@@ -14,13 +14,11 @@ import Services from "./pages/Services.jsx";
 import Academy from "./pages/Academy.jsx";
 import Contact from "./pages/Contact.jsx";
 import Payments from "./pages/Payments.jsx";
-import PaymentLinkGenerator from "./pages/PaymentLinkGenerator.jsx";
 import Appointment from "./pages/Appointment.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/admin/Dashboard.jsx";
-import AppoinmentManagement from "./pages/admin/AppoinmentManagement.jsx";
 
 import PrivateRoutesLayout from "./utils/PrivateRoutesLayout.jsx";
 
@@ -43,11 +41,6 @@ const router = createBrowserRouter(
       {/* private routes */}
       <Route element={<PrivateRoutesLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route
-          path="/appoinmentManagement"
-          element={<AppoinmentManagement />}
-        />
-        <Route path="paymentLinkGenerator" element={<PaymentLinkGenerator />} />
       </Route>
     </Route>
   )

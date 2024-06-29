@@ -1,1 +1,50 @@
-.dashboardPage {}
+.dashboardPage {
+    .container {
+        .logoutBtn {
+            float: right;
+        }
+
+        .nav {
+            margin: 10px 0px 20px;
+            border-bottom: 0px;
+
+            .nav-item {
+                margin-right: 10px;
+
+                .nav-link {
+                    border-radius: 8px;
+                    color: black;
+                    background-color: white;
+                    border: 1px solid black;
+
+                    &.active {
+                        background-color: #009dff8f;
+                        ;
+                    }
+
+                    &:focus {
+                        border: 1px solid black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*=============================================*/
+/*=========Responsive CSS======================*/
+/*=============================================*/
+
+@media only screen and (max-width: 992px) {
+    .dashboardPage {
+        .container {
+            .nav {
+                margin: 10px 0px 20px;
+
+                .nav-item {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

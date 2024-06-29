@@ -3,18 +3,10 @@ import { auth, db } from "../../../firebaseConfig.js";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-import {
-  Button,
-  Pagination,
-  Table,
-  Tabs,
-  Tab,
-  Row,
-  Col,
-  Container,
-} from "react-bootstrap";
+import { Button, Pagination, Table, Tabs, Tab } from "react-bootstrap";
 import moment from "moment-timezone";
-import PaymentLinkGenerator from "../PaymentLinkGenerator.jsx";
+import PaymentLinkGenerator from "./PaymentLinkGenerator.jsx";
+import ScheduleManagement from "./ScheduleManagement.jsx";
 
 const Dashboard = () => {
   const [appointments, setAppointments] = useState([]);
@@ -79,90 +71,93 @@ const Dashboard = () => {
   };
 
   return (
-    <Container>
-      <Row className="mt-4">
-        <button className="px-4 my-2 ml-auto" onClick={handleLogout}>
+    <div className="dashboardPage">
+      <div className="container">
+        <button className="logoutBtn" onClick={handleLogout}>
           Log Out
         </button>
-        <Col md={12}>
-          <Tabs defaultActiveKey="dashboard" id="uncontrolled-tab-example">
-            <Tab eventKey="dashboard" title="Dashboard">
-              <div className="d-flex justify-content-between align-items-center"></div>
-              <Table responsive striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Sr.No.</th>
-                    <th>Date</th>
-                    <th>Client Name</th>
-                    <th>Client Email</th>
-                    <th>Contact No.</th>
-                    <th>Country</th>
-                    <th>Info</th>
-                    <th>Service</th>
-                    <th>Actions</th>
+        <Tabs defaultActiveKey="dashboard" id="uncontrolled-tab-example">
+          <Tab eventKey="dashboard" title="Dashboard">
+            <div className="d-flex justify-content-between align-items-center"></div>
+            <Table responsive striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Sr.No.</th>
+                  <th>Date</th>
+                  <th>Client Name</th>
+                  <th>Client Email</th>
+                  <th>Contact No.</th>
+                  <th>Country</th>
+                  <th>Info</th>
+                  <th>Service</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((appointment, index) => (
+                  <tr key={appointment.id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      {moment(appointment.date).format("DD/MM/yyyy hh:mm A")}
+                    </td>
+                    <td>{appointment.clientName}</td>
+                    <td>{appointment.clientEmail}</td>
+                    <td>{appointment.contactNumber}</td>
+                    <td>{appointment.country}</td>
+                    <td>{appointment.info}</td>
+                    <td>{appointment.service}</td>
+                    <td>
+                      <Button
+                        variant="danger"
+                        onClick={() => handleDelete(appointment.id)}
+                      >
+                        Delete
+                      </Button>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {currentItems.map((appointment, index) => (
-                    <tr key={appointment.id}>
-                      <td>{index + 1}</td>
-                      <td>
-                        {moment(appointment.date).format("DD/MM/yyyy hh:mm A")}
-                      </td>
-                      <td>{appointment.clientName}</td>
-                      <td>{appointment.clientEmail}</td>
-                      <td>{appointment.contactNumber}</td>
-                      <td>{appointment.country}</td>
-                      <td>{appointment.info}</td>
-                      <td>{appointment.service}</td>
-                      <td>
-                        <Button
-                          variant="danger"
-                          onClick={() => handleDelete(appointment.id)}
-                        >
-                          Delete
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-              <Pagination className="justify-content-center">
-                <Pagination.First
-                  onClick={() => handlePageChange(1)}
-                  disabled={currentPage === 1}
-                />
-                <Pagination.Prev
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                />
-                {[...Array(totalPages).keys()].map((pageNumber) => (
-                  <Pagination.Item
-                    key={pageNumber + 1}
-                    active={pageNumber + 1 === currentPage}
-                    onClick={() => handlePageChange(pageNumber + 1)}
-                    activeLabel=""
-                  >
-                    {pageNumber + 1}
-                  </Pagination.Item>
                 ))}
-                <Pagination.Next
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                />
-                <Pagination.Last
-                  onClick={() => handlePageChange(totalPages)}
-                  disabled={currentPage === totalPages}
-                />
-              </Pagination>
-            </Tab>
-            <Tab eventKey="paymentLink" title="Payment Link Generator">
-              <PaymentLinkGenerator />
-            </Tab>
-          </Tabs>
-        </Col>
-      </Row>
-    </Container>
+              </tbody>
+            </Table>
+            <Pagination className="justify-content-center">
+              <Pagination.First
+                onClick={() => handlePageChange(1)}
+                disabled={currentPage === 1}
+              />
+              <Pagination.Prev
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              />
+              {[...Array(totalPages).keys()].map((pageNumber) => (
+                <Pagination.Item
+                  key={pageNumber + 1}
+                  active={pageNumber + 1 === currentPage}
+                  onClick={() => handlePageChange(pageNumber + 1)}
+                  activeLabel=""
+                >
+                  {pageNumber + 1}
+                </Pagination.Item>
+              ))}
+              <Pagination.Next
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              />
+              <Pagination.Last
+                onClick={() => handlePageChange(totalPages)}
+                disabled={currentPage === totalPages}
+              />
+            </Pagination>
+          </Tab>
+
+          <Tab eventKey="paymentLink" title="Payment Link Generator">
+            <PaymentLinkGenerator />
+          </Tab>
+
+          <Tab eventKey="scheduleManagement" title="Schedule Management">
+            <ScheduleManagement />
+          </Tab>
+        </Tabs>
+      </div>
+    </div>
   );
 };
 
