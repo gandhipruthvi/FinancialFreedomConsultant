@@ -11,7 +11,17 @@
             display: none;
         }
     }
+
+    .css-lzr3bi-LoadingOverlayWrapperBase {
+        border-radius: 8px;
+        height: 109% !important;
+        width: 107% !important;
+        top: -13px !important;
+        left: -14px !important;
+    }
 }
+
+
 
 /*=============================================*/
 /*=========Responsive CSS======================*/
@@ -20,5 +30,12 @@
 @media only screen and (max-width: 992px) {
     .paymentLinkGeneratorPage {
         width: 90%;
+
+        .css-lzr3bi-LoadingOverlayWrapperBase {
+            height: 109% !important;
+            width: 104% !important;
+            top: -13px !important;
+            left: -8px !important;
+        }
     }
 }

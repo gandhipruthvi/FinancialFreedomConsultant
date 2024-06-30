@@ -6,18 +6,20 @@ import countries from "../assets/countries.json";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import getDay from "date-fns/getDay";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import DatePicker from "react-datepicker";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import moment from "moment-timezone";
+import LoadingOverlay from "react-loading-overlay-ts";
 
 const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [bookedSlots, setBookedSlots] = useState([]);
   const [validated, setValidated] = useState(false);
+  const [isLoadingActive, setLoadingActive] = useState(false);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -105,6 +107,7 @@ const AppointmentForm = () => {
     });
 
   const handleSubmit = async (event) => {
+    setLoadingActive(true);
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false || selectedDate == null) {
@@ -152,6 +155,7 @@ const AppointmentForm = () => {
               )
               .then(
                 () => {
+                  setLoadingActive(false);
                   console.log("SUCCESS!");
                   form.reset();
                   setValidated(false);
@@ -167,6 +171,7 @@ const AppointmentForm = () => {
                   });
                 },
                 (error) => {
+                  setLoadingActive(false);
                   console.log("FAILED...", error.text);
                   toast.error("Unable to send the confirmation email!", {
                     position: "bottom-right",
@@ -182,6 +187,7 @@ const AppointmentForm = () => {
               );
           },
           (error) => {
+            setLoadingActive(false);
             console.log("FAILED...", error.text);
             toast.error("Unable to submit the form", {
               position: "bottom-right",
@@ -201,109 +207,108 @@ const AppointmentForm = () => {
   return (
     <div className="appointmentFormComponent">
       <ToastContainer />
-      {/* <div className="loader-container">
-        <span className="loader"></span>
-      </div> */}
-      <Form
-        className="row"
-        onSubmit={handleSubmit}
-        noValidate
-        validated={validated}
-      >
-        <Form.Group className="input-field col-md-6">
-          <i className="twi-user2"></i>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Enter Your Name"
-            name="client_name"
-          />
-          <Form.Control.Feedback type="invalid">
-            Please enter a valid Name
-          </Form.Control.Feedback>
-        </Form.Group>
+      <LoadingOverlay active={isLoadingActive} spinner text="Submitting Form!">
+        <Form
+          className="row"
+          onSubmit={handleSubmit}
+          noValidate
+          validated={validated}
+        >
+          <Form.Group className="input-field col-md-6">
+            <i className="twi-user2"></i>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Enter Your Name"
+              name="client_name"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a valid Name
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field col-md-6">
-          <i className="twi-envelope2"></i>
-          <Form.Control
-            required
-            type="email"
-            placeholder="Enter Email"
-            name="client_email"
-          />
-          <Form.Control.Feedback type="invalid">
-            Please enter a valid Email
-          </Form.Control.Feedback>
-        </Form.Group>
+          <Form.Group className="input-field col-md-6">
+            <i className="twi-envelope2"></i>
+            <Form.Control
+              required
+              type="email"
+              placeholder="Enter Email"
+              name="client_email"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a valid Email
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field col-md-12">
-          <i className="twi-cog"></i>
-          <Form.Select required name="service">
-            <option value="">Choose services</option>
-            <option value="Wealth path advisory">Wealth path advisory</option>
-            <option value="Portfolio Management">Portfolio Management</option>
-            <option value="Fin Market Academy">Fin Market Academy</option>
-            <option value="Financial Advisory">Financial Advisory</option>
-            <option value="Career Counseling">Career Counseling</option>
-          </Form.Select>
-          <Form.Control.Feedback type="invalid">
-            Please select a Service
-          </Form.Control.Feedback>
-        </Form.Group>
+          <Form.Group className="input-field col-md-12">
+            <i className="twi-cog"></i>
+            <Form.Select required name="service">
+              <option value="">Choose services</option>
+              <option value="Wealth path advisory">Wealth path advisory</option>
+              <option value="Portfolio Management">Portfolio Management</option>
+              <option value="Fin Market Academy">Fin Market Academy</option>
+              <option value="Financial Advisory">Financial Advisory</option>
+              <option value="Career Counseling">Career Counseling</option>
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">
+              Please select a Service
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field  col-md-12">
-          <i className="twi-calendar2 dateTime"></i>
-          <SelectDate></SelectDate>
-          <Form.Control.Feedback
-            type="invalid"
-            className={selectedDate == null ? "active" : ""}
-          >
-            Please select a Date and Time
-          </Form.Control.Feedback>
-        </Form.Group>
+          <Form.Group className="input-field  col-md-12">
+            <i className="twi-calendar2 dateTime"></i>
+            <SelectDate></SelectDate>
+            <Form.Control.Feedback
+              type="invalid"
+              className={selectedDate == null ? "active" : ""}
+            >
+              Please select a Date and Time
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field col-md-6">
-          <i className="icons-worldwide"></i>
-          <Form.Select required name="country">
-            <option value="">Choose country</option>
-            {countriesOption}
-          </Form.Select>
-          <Form.Control.Feedback type="invalid">
-            Please select a Country
-          </Form.Control.Feedback>
-        </Form.Group>
+          <Form.Group className="input-field col-md-6">
+            <i className="icons-worldwide"></i>
+            <Form.Select required name="country">
+              <option value="">Choose country</option>
+              {countriesOption}
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">
+              Please select a Country
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field col-md-6">
-          <i className="icons-telephone"></i>
-          <Form.Control
-            required
-            type="number"
-            placeholder="Contact Number"
-            min="100000000"
-            max="9999999999"
-            name="contact_number"
-          />
-          <Form.Control.Feedback type="invalid">
-            Please enter a Contact Number
-          </Form.Control.Feedback>
-        </Form.Group>
+          <Form.Group className="input-field col-md-6">
+            <i className="icons-telephone"></i>
+            <Form.Control
+              required
+              type="number"
+              placeholder="Contact Number"
+              min="100000000"
+              max="9999999999"
+              name="contact_number"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a Contact Number
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="input-field col-md-12">
-          <i className="twi-comment-lines2"></i>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            placeholder="Describe Your Info"
-            name="info"
-          />
-        </Form.Group>
+          <Form.Group className="input-field col-md-12">
+            <i className="twi-comment-lines2"></i>
+            <Form.Control
+              as="textarea"
+              rows={5}
+              placeholder="Describe Your Info"
+              name="info"
+            />
+          </Form.Group>
 
-        <div className="input-field col-md-12">
-          <button type="submit" className="qu_btn">
-            Book Appointment
-          </button>
-        </div>
-      </Form>
+          <div className="input-field col-md-12">
+            <button type="submit" className="qu_btn">
+              Book Appointment
+            </button>
+          </div>
+        </Form>
+      </LoadingOverlay>
     </div>
   );
 };
