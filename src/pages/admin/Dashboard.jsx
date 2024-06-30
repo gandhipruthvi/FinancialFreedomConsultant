@@ -152,9 +152,9 @@ const Dashboard = () => {
             <PaymentLinkGenerator />
           </Tab>
 
-          {/* <Tab eventKey="scheduleManagement" title="Schedule Management">
+          <Tab eventKey="scheduleManagement" title="Schedule Management">
             <ScheduleManagement />
-          </Tab> */}
+          </Tab>
         </Tabs>
       </div>
     </div>
