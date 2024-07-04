@@ -11,7 +11,7 @@ import LoadingOverlay from "react-loading-overlay-ts";
 const PaymentLinkGenerator = () => {
   const [validated, setValidated] = useState(false);
   const [paymentLink, setPaymentLink] = useState("");
-  const [isLoadingActive, setLoadingActive] = useState(true);
+  const [isLoadingActive, setLoadingActive] = useState(false);
 
   const handleSubmit = async (event) => {
     setLoadingActive(true);

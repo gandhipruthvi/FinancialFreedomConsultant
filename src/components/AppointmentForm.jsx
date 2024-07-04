@@ -55,6 +55,25 @@ const AppointmentForm = () => {
   };
 
   const handleDateChange = (date) => {
+    if (
+      date &&
+      date instanceof Date &&
+      date.getHours() == 8 &&
+      date.getMinutes() == 59
+    ) {
+      if (!filterPassedTime(date.getTime())) {
+        date.setHours(
+          new Date().getHours() + Math.round(date.getMinutes() / 60),
+          0,
+          0
+        );
+      } else {
+        date.setHours(9, 0, 0);
+      }
+    }
+
+    console.log(date);
+
     setSelectedDate(date);
     if (date && date instanceof Date && date.getHours() !== 0) {
       setIsOpen(false);

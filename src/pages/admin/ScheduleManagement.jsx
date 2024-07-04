@@ -1,16 +1,28 @@
 import DatePicker from "react-datepicker";
 import "../../styles/ScheduleManagement.scss";
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import getDay from "date-fns/getDay";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import Button from "react-bootstrap/Button";
 
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(null);
   const [bookedSlots, setBookedSlots] = useState([]);
+  const [disabledTime, setDisabledTime] = useState([]);
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      const appointmentsSnapshot = await getDocs(
+        collection(db, "appointments")
+      );
+      const appointments = appointmentsSnapshot.docs.map((doc) => doc.data());
+      setBookedSlots(appointments.map((app) => new Date(app.date)));
+    };
+    fetchAppointments();
+  }, []);
 
   const isWeekday = (date) => {
     const day = getDay(date);
@@ -18,6 +30,14 @@ const ScheduleManagement = () => {
   };
 
   const handleDateChange = (date) => {
+    if (date && date instanceof Date && date.getHours() != 8) {
+      var index = disabledTime.indexOf(date.toString());
+      if (index == -1) {
+        setDisabledTime([...disabledTime, date.toString()]);
+      } else {
+        disabledTime.splice(index, 1);
+      }
+    }
     setSelectedDate(date);
   };
 
@@ -36,6 +56,12 @@ const ScheduleManagement = () => {
       }
     });
     return timesToExclude;
+  };
+
+  let handleColor = (time) => {
+    return disabledTime.some((date1) => date1 === time.toString())
+      ? "disabledTime"
+      : "";
   };
 
   return (
@@ -63,7 +89,15 @@ const ScheduleManagement = () => {
           excludeTimes={getBookedTimesForDate(
             selectedDate ? selectedDate : new Date()
           )}
+          timeClassName={handleColor}
         />
+
+        <Button type="submit" variant="primary">
+          Save
+        </Button>
+        <Button type="reset" variant="danger">
+          Reset
+        </Button>
       </div>
     </div>
   );
