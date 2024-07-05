@@ -5,12 +5,9 @@ import getDay from "date-fns/getDay";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
-import {
-  addDoc,
-  collection,
-  getDocs,
-} from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
+import moment from "moment-timezone";
 
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,7 +23,30 @@ const ScheduleManagement = () => {
       setBookedSlots(appointments.map((app) => new Date(app.date)));
     };
     fetchAppointments();
+
+    const fetchScheduleManagement = async () => {
+      const scheduleManagementSnapshot = await getDocs(
+        collection(db, "scheduleManagement")
+      );
+      const disabledTime = scheduleManagementSnapshot.docs.map((doc) =>
+        doc.data()
+      );
+      setDisabledTime(disabledTime);
+    };
+    fetchScheduleManagement();
   }, []);
+
+  useEffect(() => {
+    console.log(disabledTime);
+  }, [disabledTime]);
+
+  const formatDate = (date) => {
+    return moment(date).format("MMMM DD YYYY");
+  };
+
+  const formatDateTime = (date) => {
+    return moment(date).format("MMMM DD YYYY hh:mm A");
+  };
 
   const isWeekday = (date) => {
     const day = getDay(date);
@@ -35,11 +55,24 @@ const ScheduleManagement = () => {
 
   const handleDateChange = (date) => {
     if (date && date instanceof Date && date.getHours() != 8) {
-      var index = disabledTime.indexOf(date.toString());
-      if (index == -1) {
-        setDisabledTime([...disabledTime, date.toString()]);
+      const formattedDate = formatDate(date);
+      const formattedDateTime = formatDateTime(date);
+      let dateTime = disabledTime.find(
+        (dateTime) => dateTime.date === formattedDate
+      );
+      if (dateTime) {
+        let index = dateTime.time.indexOf(formattedDateTime);
+        if (index == -1) {
+          dateTime.time.push(formattedDateTime);
+        } else {
+          dateTime.time.splice(index, 1);
+        }
       } else {
-        disabledTime.splice(index, 1);
+        console.log("else");
+        setDisabledTime([
+          ...disabledTime,
+          { date: formattedDate, time: [formattedDateTime] },
+        ]);
       }
     }
     setSelectedDate(date);
@@ -63,10 +96,14 @@ const ScheduleManagement = () => {
   };
 
   let handleColor = (time) => {
-    console.log(disabledTime);
-    return disabledTime.some((date1) => date1 === time.toString())
-      ? "disabledTime"
-      : "";
+    let dateTime = disabledTime.find(
+      (dateObj) => dateObj.date === formatDate(time)
+    );
+
+    if (dateTime)
+      return dateTime.time.some((time1) => time1 === formatDateTime(time))
+        ? "disabledTime"
+        : "";
   };
 
   const handleSave = async () => {
@@ -110,9 +147,11 @@ const ScheduleManagement = () => {
           timeClassName={handleColor}
         />
 
-        <Button onClick={handleSave} type="submit" variant="primary">
-          Save
-        </Button>
+        <div className="buttons">
+          <Button onClick={handleSave} type="submit" variant="primary">
+            Save
+          </Button>
+        </div>
       </div>
     </div>
   );
