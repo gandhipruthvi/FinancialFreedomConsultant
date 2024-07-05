@@ -5,7 +5,7 @@ import getDay from "date-fns/getDay";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import moment from "moment-timezone";
 
@@ -109,11 +109,25 @@ const ScheduleManagement = () => {
   const handleSave = async () => {
     try {
       const scheduleDocRef = collection(db, "scheduleManagement");
-      await addDoc(scheduleDocRef, {
-        times: disabledTime.map((time) => new Date(time)),
-      });
 
+      const addTimes = async (disabledTime) => {
+        console.log(disabledTime.date);
+        const q = query(scheduleDocRef, where("date", "==", disabledTime.date));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+          await addDoc(scheduleDocRef, {
+            date: disabledTime.date,
+            times: disabledTime.map((time) => new Date(time)),
+          });
+        } else {
+          await addDoc(scheduleDocRef, {
+            times: disabledTime.map((time) => new Date(time)),
+          });
+        }
+      };
       alert("Disabled times saved successfully!");
+      addTimes(disabledTime);
     } catch (error) {
       console.log(error);
     }
