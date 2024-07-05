@@ -5,7 +5,11 @@ import getDay from "date-fns/getDay";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 
 const ScheduleManagement = () => {
@@ -59,9 +63,23 @@ const ScheduleManagement = () => {
   };
 
   let handleColor = (time) => {
+    console.log(disabledTime);
     return disabledTime.some((date1) => date1 === time.toString())
       ? "disabledTime"
       : "";
+  };
+
+  const handleSave = async () => {
+    try {
+      const scheduleDocRef = collection(db, "scheduleManagement");
+      await addDoc(scheduleDocRef, {
+        times: disabledTime.map((time) => new Date(time)),
+      });
+
+      alert("Disabled times saved successfully!");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -92,11 +110,8 @@ const ScheduleManagement = () => {
           timeClassName={handleColor}
         />
 
-        <Button type="submit" variant="primary">
+        <Button onClick={handleSave} type="submit" variant="primary">
           Save
-        </Button>
-        <Button type="reset" variant="danger">
-          Reset
         </Button>
       </div>
     </div>
