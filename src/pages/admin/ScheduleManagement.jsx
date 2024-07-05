@@ -5,7 +5,15 @@ import getDay from "date-fns/getDay";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import moment from "moment-timezone";
 
@@ -37,7 +45,7 @@ const ScheduleManagement = () => {
   }, []);
 
   useEffect(() => {
-    console.log(disabledTime);
+    // console.log(disabledTime);
   }, [disabledTime]);
 
   const formatDate = (date) => {
@@ -111,20 +119,23 @@ const ScheduleManagement = () => {
       const scheduleDocRef = collection(db, "scheduleManagement");
 
       const addTimes = async (disabledTime) => {
-        console.log(disabledTime.date);
-        const q = query(scheduleDocRef, where("date", "==", disabledTime.date));
-        const querySnapshot = await getDocs(q);
+        disabledTime.map(async (dateTime) => {
+          const q = query(scheduleDocRef, where("date", "==", dateTime.date));
+          const querySnapshot = await getDocs(q);
+          const dateDoc = querySnapshot.docs.map((doc) => doc.id);
 
-        if (querySnapshot.empty) {
-          await addDoc(scheduleDocRef, {
-            date: disabledTime.date,
-            times: disabledTime.map((time) => new Date(time)),
-          });
-        } else {
-          await addDoc(scheduleDocRef, {
-            times: disabledTime.map((time) => new Date(time)),
-          });
-        }
+          if (dateDoc.length === 0) {
+            await addDoc(scheduleDocRef, {
+              date: dateTime.date,
+              time: dateTime.time,
+            });
+          } else {
+            const docRef = doc(db, "scheduleManagement", dateDoc[0]);
+            await updateDoc(docRef, {
+              time: dateTime.time,
+            });
+          }
+        });
       };
       alert("Disabled times saved successfully!");
       addTimes(disabledTime);
