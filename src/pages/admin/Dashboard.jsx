@@ -35,7 +35,6 @@ const Dashboard = () => {
       setAppointments(sortByDate(appointmentList));
     };
     fetchData();
-    console.log(appointments);
   }, []);
 
   const sortByDate = (data) => {

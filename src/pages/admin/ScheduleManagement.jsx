@@ -95,7 +95,6 @@ const ScheduleManagement = () => {
           dateTime.time.splice(index, 1);
         }
       } else {
-        console.log("else");
         setDisabledTime([
           ...disabledTime,
           { date: formattedDate, time: [formattedDateTime], disabled: false },

@@ -17,7 +17,6 @@ const PaymentLinkGenerator = () => {
     setLoadingActive(true);
     event.preventDefault();
     const form = event.currentTarget;
-    console.log(form.payment_amount.value);
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -34,7 +33,6 @@ const PaymentLinkGenerator = () => {
       setPaymentLink(link);
       form.generated_link.value = link;
 
-      console.log(form);
       emailjs
         .sendForm(
           import.meta.env.VITE_EMAILJS_INFO_SERVICE_KEY,
@@ -47,7 +45,6 @@ const PaymentLinkGenerator = () => {
         .then(
           () => {
             setLoadingActive(false);
-            console.log("SUCCESS!");
             setValidated(false);
             toast.success("Email successfully sent!", {
               position: "bottom-right",
