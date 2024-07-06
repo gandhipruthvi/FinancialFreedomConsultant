@@ -183,7 +183,7 @@ const ScheduleManagement = () => {
                 : "dateTimeSelector"
             }
             onChange={handleDateChange}
-            filterDate={isWeekday}
+            // filterDate={isWeekday}
             filterTime={filterPassedTime}
             minDate={new Date()}
             dateFormat="dd/MM/yyyy"
@@ -192,8 +192,8 @@ const ScheduleManagement = () => {
             showTimeSelect
             timeIntervals={60}
             timeCaption="Time"
-            minTime={setHours(setMinutes(new Date(), 59), 8)}
-            maxTime={setHours(setMinutes(new Date(), 0), 17)}
+            // minTime={setHours(setMinutes(new Date(), 59), 8)}
+            // maxTime={setHours(setMinutes(new Date(), 0), 17)}
             excludeTimes={getBookedTimesForDate(
               selectedDate ? selectedDate : new Date()
             )}
