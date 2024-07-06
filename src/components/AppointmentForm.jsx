@@ -199,7 +199,6 @@ const AppointmentForm = () => {
               .then(
                 () => {
                   setLoadingActive(false);
-                  console.log("SUCCESS!");
                   form.reset();
                   setValidated(false);
                   toast.success("Form successfully submitted", {

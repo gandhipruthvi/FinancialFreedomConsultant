@@ -11,7 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(auth.currentUser);
   if (auth.currentUser) {
     navigate(location.state?.from?.pathname || "/dashboard", {
       replace: true,
@@ -33,13 +32,12 @@ const Login = () => {
           form.admin_email.value,
           form.admin_password.value
         );
-        console.log(res.user);
         navigate(location.state?.from?.pathname || "/dashboard", {
           replace: true,
         });
         return res;
       } catch (err) {
-        console.log(err);
+        alert(err.message);
       }
     }
   };
