@@ -1,45 +1,61 @@
 .scheduleManagementPage {
-    .container {
-        text-align: center;
+  .container {
+    text-align: center;
 
-        .react-datepicker {
+    .react-datepicker {
+      .react-datepicker__time-container
+        .react-datepicker__time
+        .react-datepicker__time-box
+        ul.react-datepicker__time-list
+        li.react-datepicker__time-list-item--selected.disabledTime {
+        background-color: #b3b3b3;
+        color: black;
+        font-weight: normal;
+      }
 
-            .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected.disabledTime {
-                background-color: #b3b3b3;
-                color: black;
-                font-weight: normal;
-            }
+      .react-datepicker__time-list-item.disabledTime {
+        background-color: #b3b3b3;
+        color: black;
+        font-weight: normal;
+      }
 
-            .react-datepicker__time-list-item.disabledTime {
-                background-color: #b3b3b3;
-                color: black;
-                font-weight: normal;
-            }
+      .react-datepicker__time-container
+        .react-datepicker__time
+        .react-datepicker__time-box
+        ul.react-datepicker__time-list
+        li.react-datepicker__time-list-item--selected {
+        background-color: white;
+        color: black;
+        font-weight: normal;
+        cursor: default;
 
-            .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
-                background-color: white;
-                color: black;
-                font-weight: normal;
-                cursor: default;
-
-                &:hover {
-                    background-color: #b3b3b38f;
-                    color: black;
-                    font-weight: normal;
-                }
-            }
+        &:hover {
+          background-color: #b3b3b38f;
+          color: black;
+          font-weight: normal;
         }
-
-        .buttons {
-            margin: 10px;
-        }
-
-        .css-lzr3bi-LoadingOverlayWrapperBase {
-            border-radius: 8px;
-            height: 105% !important;
-            width: 100% !important;
-            top: -9px !important;
-            left: 0px !important;
-        }
+      }
     }
+
+    .disabledDay {
+      .react-datepicker__time-list-item {
+        background-color: #e0e0e0; 
+        color: #888; 
+        cursor: not-allowed;
+        pointer-events: none; 
+      }
+    }
+
+    .buttons {
+      margin: 10px;
+    }
+
+    .css-lzr3bi-LoadingOverlayWrapperBase {
+      border-radius: 8px;
+      height: 105% !important;
+      width: 100% !important;
+      top: -9px !important;
+      left: 0px !important;
+    }
+  }
 }

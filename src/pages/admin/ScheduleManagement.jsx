@@ -65,6 +65,25 @@ const ScheduleManagement = () => {
     if (date && date instanceof Date) {
       const formattedDate = formatDate(date);
       const formattedDateTime = formatDateTime(date);
+      const disabledDay = disabledTime.find(
+        (dateTime) => dateTime.date === formattedDate && dateTime.disabled
+      );
+
+      if (!disabledDay) {
+        setSelectedDate(date);
+      } else {
+        toast.warning("This day is disabled!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+
       let dateTime = disabledTime.find(
         (dateTime) => dateTime.date === formattedDate
       );
@@ -79,7 +98,7 @@ const ScheduleManagement = () => {
         console.log("else");
         setDisabledTime([
           ...disabledTime,
-          { date: formattedDate, time: [formattedDateTime] },
+          { date: formattedDate, time: [formattedDateTime], disabled: false },
         ]);
       }
     }
@@ -104,14 +123,71 @@ const ScheduleManagement = () => {
   };
 
   let handleColor = (time) => {
+    const disabledDay = disabledTime.find(
+      (dateObj) => dateObj.date === formatDate(time) && dateObj.disabled
+    );
+
+    if (disabledDay) {
+      return "disabledTime";
+    }
+
     let dateTime = disabledTime.find(
       (dateObj) => dateObj.date === formatDate(time)
     );
-
     if (dateTime)
       return dateTime.time.some((time1) => time1 === formatDateTime(time))
         ? "disabledTime"
         : "";
+  };
+
+  const handleDayToggle = async () => {
+    setLoadingActive(true);
+    try {
+      const formattedDate = formatDate(selectedDate);
+      const scheduleDocRef = collection(db, "scheduleManagement");
+
+      const querySnapshot = await getDocs(
+        query(scheduleDocRef, where("date", "==", formattedDate))
+      );
+      const dateDoc = querySnapshot.docs.map((doc) => doc.id);
+
+      if (dateDoc.length === 0) {
+        await addDoc(scheduleDocRef, {
+          date: formattedDate,
+          disabled: true,
+          time: [],
+        });
+      } else {
+        const docRef = doc(db, "scheduleManagement", dateDoc[0]);
+        await updateDoc(docRef, {
+          disabled: true,
+          time: [],
+        });
+      }
+
+      toast.success("Day disabled successfully", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } catch (error) {
+      toast.error("Unable to disable day!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    setLoadingActive(false);
   };
 
   const handleSave = async () => {
@@ -201,9 +277,15 @@ const ScheduleManagement = () => {
           />
 
           <div className="buttons">
-            <Button onClick={handleSave} type="submit" variant="primary">
+            <Button
+              onClick={handleSave}
+              type="submit"
+              variant="primary"
+              className="m-3"
+            >
               Save
             </Button>
+            <Button onClick={handleDayToggle}>Disable</Button>
           </div>
         </LoadingOverlay>
       </div>
