@@ -145,37 +145,70 @@ const ScheduleManagement = () => {
       const formattedDate = formatDate(selectedDate);
       const scheduleDocRef = collection(db, "scheduleManagement");
 
+      // Check if the document for the date exists
       const querySnapshot = await getDocs(
         query(scheduleDocRef, where("date", "==", formattedDate))
       );
-      const dateDoc = querySnapshot.docs.map((doc) => doc.id);
+      const dateDocs = querySnapshot.docs;
 
-      if (dateDoc.length === 0) {
+      if (dateDocs.length === 0) {
         await addDoc(scheduleDocRef, {
           date: formattedDate,
           disabled: true,
-          time: [],
+        });
+        toast.success("Day disabled successfully", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
         });
       } else {
-        const docRef = doc(db, "scheduleManagement", dateDoc[0]);
+        // Update the existing document to toggle the disabled flag
+        const docRef = doc(db, "scheduleManagement", dateDocs[0].id);
+        const currentData = dateDocs[0].data();
+        const newDisabledStatus = !currentData.disabled;
+
         await updateDoc(docRef, {
-          disabled: true,
-          time: [],
+          disabled: newDisabledStatus,
         });
+
+        if (newDisabledStatus) {
+          toast.success("Day disabled successfully", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.success("Day enabled successfully", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       }
 
-      toast.success("Day disabled successfully", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      // Refresh disabled times
+      const updatedSnapshot = await getDocs(
+        collection(db, "scheduleManagement")
+      );
+      const updatedDisabledTime = updatedSnapshot.docs.map((doc) => doc.data());
+      setDisabledTime(updatedDisabledTime);
     } catch (error) {
-      toast.error("Unable to disable day!", {
+      toast.error("Unable to update day!", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -282,9 +315,15 @@ const ScheduleManagement = () => {
               variant="primary"
               className="m-3"
             >
-              Save
+              Disable Time
             </Button>
-            <Button onClick={handleDayToggle}>Disable</Button>
+            <Button onClick={handleDayToggle}>
+              {disabledTime.some(
+                (day) => day.date === formatDate(selectedDate) && day.disabled
+              )
+                ? "Enable Day"
+                : "Disable Day"}
+            </Button>{" "}
           </div>
         </LoadingOverlay>
       </div>
