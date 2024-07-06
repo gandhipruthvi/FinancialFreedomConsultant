@@ -16,11 +16,15 @@ import {
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import moment from "moment-timezone";
+import LoadingOverlay from "react-loading-overlay-ts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [bookedSlots, setBookedSlots] = useState([]);
   const [disabledTime, setDisabledTime] = useState([]);
+  const [isLoadingActive, setLoadingActive] = useState(false);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -43,10 +47,6 @@ const ScheduleManagement = () => {
     };
     fetchScheduleManagement();
   }, []);
-
-  useEffect(() => {
-    // console.log(disabledTime);
-  }, [disabledTime]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
@@ -115,13 +115,15 @@ const ScheduleManagement = () => {
   };
 
   const handleSave = async () => {
+    setLoadingActive(true);
     try {
       const scheduleDocRef = collection(db, "scheduleManagement");
 
       const addTimes = async (disabledTime) => {
         disabledTime.map(async (dateTime) => {
-          const q = query(scheduleDocRef, where("date", "==", dateTime.date));
-          const querySnapshot = await getDocs(q);
+          const querySnapshot = await getDocs(
+            query(scheduleDocRef, where("date", "==", dateTime.date))
+          );
           const dateDoc = querySnapshot.docs.map((doc) => doc.id);
 
           if (dateDoc.length === 0) {
@@ -137,46 +139,73 @@ const ScheduleManagement = () => {
           }
         });
       };
-      alert("Disabled times saved successfully!");
       addTimes(disabledTime);
     } catch (error) {
-      console.log(error);
+      toast.error("Unable to update!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
+
+    setLoadingActive(false);
+    toast.success("Time updated successfully", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
     <div className="scheduleManagementPage">
       <div className="container">
-        <DatePicker
-          selected={selectedDate}
-          className={
-            selectedDate == null
-              ? "dateTimeInvalid dateTimeSelector"
-              : "dateTimeSelector"
-          }
-          onChange={handleDateChange}
-          filterDate={isWeekday}
-          filterTime={filterPassedTime}
-          minDate={new Date()}
-          dateFormat="dd/MM/yyyy"
-          placeholderText="Select Date"
-          inline
-          showTimeSelect
-          timeIntervals={60}
-          timeCaption="Time"
-          minTime={setHours(setMinutes(new Date(), 59), 8)}
-          maxTime={setHours(setMinutes(new Date(), 0), 17)}
-          excludeTimes={getBookedTimesForDate(
-            selectedDate ? selectedDate : new Date()
-          )}
-          timeClassName={handleColor}
-        />
+        <ToastContainer />
+        <LoadingOverlay
+          active={isLoadingActive}
+          spinner
+          text="Updating Available Time"
+        >
+          <DatePicker
+            selected={selectedDate}
+            className={
+              selectedDate == null
+                ? "dateTimeInvalid dateTimeSelector"
+                : "dateTimeSelector"
+            }
+            onChange={handleDateChange}
+            filterDate={isWeekday}
+            filterTime={filterPassedTime}
+            minDate={new Date()}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select Date"
+            inline
+            showTimeSelect
+            timeIntervals={60}
+            timeCaption="Time"
+            minTime={setHours(setMinutes(new Date(), 59), 8)}
+            maxTime={setHours(setMinutes(new Date(), 0), 17)}
+            excludeTimes={getBookedTimesForDate(
+              selectedDate ? selectedDate : new Date()
+            )}
+            timeClassName={handleColor}
+          />
 
-        <div className="buttons">
-          <Button onClick={handleSave} type="submit" variant="primary">
-            Save
-          </Button>
-        </div>
+          <div className="buttons">
+            <Button onClick={handleSave} type="submit" variant="primary">
+              Save
+            </Button>
+          </div>
+        </LoadingOverlay>
       </div>
     </div>
   );

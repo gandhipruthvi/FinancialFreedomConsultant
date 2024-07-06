@@ -10,7 +10,7 @@ import { useEffect, useState, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import DatePicker from "react-datepicker";
 import { db } from "../../firebaseConfig";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import moment from "moment-timezone";
 import LoadingOverlay from "react-loading-overlay-ts";
 
@@ -24,13 +24,39 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       const appointmentsSnapshot = await getDocs(
-        collection(db, "appointments")
+        query(
+          collection(db, "appointments"),
+          where("date", ">=", moment(new Date()).format("MMMM DD YYYY hh:mm A"))
+        )
       );
       const appointments = appointmentsSnapshot.docs.map((doc) => doc.data());
-      setBookedSlots(appointments.map((app) => new Date(app.date)));
+      setBookedSlots(
+        appointments
+          .filter((appDoc) => new Date(appDoc.date) >= new Date())
+          .map((app) => new Date(app.date))
+      );
     };
     fetchAppointments();
   }, []);
+
+  useEffect(() => {
+    const fetchScheduleManagement = async () => {
+      const scheduleManagementSnapshot = await getDocs(
+        collection(db, "scheduleManagement")
+      );
+      const disabledTime = scheduleManagementSnapshot.docs.map((doc) =>
+        doc.data()
+      );
+      disabledTime
+        .filter((dateTime) => new Date(dateTime.date) >= new Date())
+        .map((dateTime) =>
+          dateTime.time.map((time) => {
+            bookedSlots.push(new Date(time));
+          })
+        );
+    };
+    fetchScheduleManagement();
+  }, [bookedSlots]);
 
   const isWeekday = (date) => {
     const day = getDay(date);
@@ -71,8 +97,6 @@ const AppointmentForm = () => {
         date.setHours(9, 0, 0);
       }
     }
-
-    console.log(date);
 
     setSelectedDate(date);
     if (date && date instanceof Date && date.getHours() !== 0) {
