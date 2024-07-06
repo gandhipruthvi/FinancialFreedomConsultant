@@ -128,7 +128,7 @@ const ScheduleManagement = () => {
     );
 
     if (disabledDay) {
-      return "disabledTime";
+      return "disabledTime" && "disabledDay";
     }
 
     let dateTime = disabledTime.find(
@@ -307,6 +307,7 @@ const ScheduleManagement = () => {
               selectedDate ? selectedDate : new Date()
             )}
             timeClassName={handleColor}
+            dayClassName={handleColor}
           />
 
           <div className="buttons">

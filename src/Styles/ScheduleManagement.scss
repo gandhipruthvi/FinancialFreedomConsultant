@@ -38,12 +38,12 @@
     }
 
     .disabledDay {
-      .react-datepicker__time-list-item {
-        background-color: #e0e0e0; 
-        color: #888; 
-        cursor: not-allowed;
-        pointer-events: none; 
-      }
+      background-color: #b3b3b3;
+      color: black;
+      font-weight: normal;
+    }
+    .disabledDay:hover {
+      background-color: #1d5d90;
     }
 
     .buttons {
