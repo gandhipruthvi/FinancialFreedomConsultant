@@ -62,7 +62,7 @@ const ScheduleManagement = () => {
   };
 
   const handleDateChange = (date) => {
-    if (date && date instanceof Date && date.getHours() != 8) {
+    if (date && date instanceof Date) {
       const formattedDate = formatDate(date);
       const formattedDateTime = formatDateTime(date);
       let dateTime = disabledTime.find(
