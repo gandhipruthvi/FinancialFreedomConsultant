@@ -25,6 +25,7 @@ const ScheduleManagement = () => {
   const [bookedSlots, setBookedSlots] = useState([]);
   const [disabledTime, setDisabledTime] = useState([]);
   const [isLoadingActive, setLoadingActive] = useState(false);
+  const [previousDate, setpreviousDate] = useState();
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -40,13 +41,20 @@ const ScheduleManagement = () => {
       const scheduleManagementSnapshot = await getDocs(
         collection(db, "scheduleManagement")
       );
-      const disabledTime = scheduleManagementSnapshot.docs.map((doc) =>
-        doc.data()
-      );
+
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() - 1);
+      const disabledTime = scheduleManagementSnapshot.docs
+        .map((doc) => doc.data())
+        .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate);
       setDisabledTime(disabledTime);
     };
     fetchScheduleManagement();
   }, []);
+
+  useEffect(() => {
+    console.log(disabledTime);
+  }, [disabledTime]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
@@ -56,16 +64,21 @@ const ScheduleManagement = () => {
     return moment(date).format("MMMM DD YYYY hh:mm A");
   };
 
-  const isWeekday = (date) => {
-    const day = getDay(date);
-    return day !== 0 && day !== 7;
-  };
+  // const isWeekday = (date) => {
+  //   const day = getDay(date);
+  //   return day !== 0 && day !== 7;
+  // };
 
   const handleDateChange = (date) => {
     if (date && date instanceof Date) {
+      if (previousDate && formatDate(date) != previousDate) {
+        date.setHours(new Date().getHours());
+        date.setMinutes(new Date().getMinutes());
+      }
       const formattedDate = formatDate(date);
       const formattedDateTime = formatDateTime(date);
-      const disabledDay = disabledTime.find(
+
+      const disabledDay = disabledTime.some(
         (dateTime) => dateTime.date === formattedDate && dateTime.disabled
       );
 
@@ -97,11 +110,12 @@ const ScheduleManagement = () => {
       } else {
         setDisabledTime([
           ...disabledTime,
-          { date: formattedDate, time: [formattedDateTime], disabled: false },
+          { date: formattedDate, time: [formattedDateTime] },
         ]);
       }
+      setSelectedDate(date);
+      setpreviousDate(formattedDate);
     }
-    setSelectedDate(date);
   };
 
   const filterPassedTime = (time) => {
@@ -127,16 +141,17 @@ const ScheduleManagement = () => {
     );
 
     if (disabledDay) {
-      return "disabledTime" && "disabledDay";
+      return "disabledDay";
     }
 
     let dateTime = disabledTime.find(
       (dateObj) => dateObj.date === formatDate(time)
     );
-    if (dateTime)
+    if (dateTime) {
       return dateTime.time.some((time1) => time1 === formatDateTime(time))
         ? "disabledTime"
         : "";
+    }
   };
 
   const handleDayToggle = async () => {
@@ -313,18 +328,22 @@ const ScheduleManagement = () => {
             <Button
               onClick={handleSave}
               type="submit"
-              variant="primary"
+              variant="info"
               className="m-3"
             >
-              Disable Time
+              Save Time Changes
             </Button>
-            <Button onClick={handleDayToggle}>
-              {disabledTime.some(
-                (day) => day.date === formatDate(selectedDate) && day.disabled
-              )
-                ? "Enable Day"
-                : "Disable Day"}
-            </Button>{" "}
+            {disabledTime.some(
+              (day) => day.date === formatDate(selectedDate) && day.disabled
+            ) ? (
+              <Button variant="primary" onClick={handleDayToggle}>
+                Enable Day
+              </Button>
+            ) : (
+              <Button variant="danger" onClick={handleDayToggle}>
+                Disable Day
+              </Button>
+            )}
           </div>
         </LoadingOverlay>
       </div>

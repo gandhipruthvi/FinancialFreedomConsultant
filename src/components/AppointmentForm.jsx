@@ -18,16 +18,14 @@ const AppointmentForm = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [bookedSlots, setBookedSlots] = useState([]);
+  const [excludeDates, setExcludeDates] = useState([]);
   const [validated, setValidated] = useState(false);
   const [isLoadingActive, setLoadingActive] = useState(false);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       const appointmentsSnapshot = await getDocs(
-        query(
-          collection(db, "appointments"),
-          where("date", ">=", moment(new Date()).format("MMMM DD YYYY hh:mm A"))
-        )
+        collection(db, "appointments")
       );
       const appointments = appointmentsSnapshot.docs.map((doc) => doc.data());
       setBookedSlots(
@@ -44,16 +42,25 @@ const AppointmentForm = () => {
       const scheduleManagementSnapshot = await getDocs(
         collection(db, "scheduleManagement")
       );
-      const disabledTime = scheduleManagementSnapshot.docs.map((doc) =>
-        doc.data()
+
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() - 1);
+      const disabledTime = scheduleManagementSnapshot.docs
+        .map((doc) => doc.data())
+        .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate);
+
+      const filteredExludedDates = disabledTime.filter(
+        (dateTime) => dateTime.disabled == true
       );
-      disabledTime
-        .filter((dateTime) => new Date(dateTime.date) >= new Date())
-        .map((dateTime) =>
-          dateTime.time.map((time) => {
-            bookedSlots.push(new Date(time));
-          })
-        );
+      setExcludeDates(
+        filteredExludedDates.map((dateTime) => new Date(dateTime.date))
+      );
+
+      disabledTime.map((dateTime) => {
+        dateTime.time.map((time) => {
+          bookedSlots.push(new Date(time));
+        });
+      });
     };
     fetchScheduleManagement();
   }, [bookedSlots]);
@@ -70,6 +77,10 @@ const AppointmentForm = () => {
         timesToExclude.push(slot);
       }
     });
+
+    excludeDates.forEach((date) => {
+      console.log(date);
+    });
     return timesToExclude;
   };
 
@@ -81,12 +92,7 @@ const AppointmentForm = () => {
   };
 
   const handleDateChange = (date) => {
-    if (
-      date &&
-      date instanceof Date &&
-      date.getHours() == 8 &&
-      date.getMinutes() == 59
-    ) {
+    if (date && date instanceof Date) {
       if (!filterPassedTime(date.getTime())) {
         date.setHours(
           new Date().getHours() + Math.round(date.getMinutes() / 60),
@@ -94,11 +100,12 @@ const AppointmentForm = () => {
           0
         );
       } else {
-        date.setHours(9, 0, 0);
+        date.setHours(0, 0, 0);
       }
     }
 
     setSelectedDate(date);
+    console.log(date);
     if (date && date instanceof Date && date.getHours() !== 0) {
       setIsOpen(false);
     } else {
@@ -131,6 +138,7 @@ const AppointmentForm = () => {
         dateFormat="dd/MM/yyyy h:mm aa"
         placeholderText="Select Date & Time"
         name="date_time"
+        excludeDates={excludeDates}
         excludeTimes={getBookedTimesForDate(
           selectedDate ? selectedDate : new Date()
         )}
