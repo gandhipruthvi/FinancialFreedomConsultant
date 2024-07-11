@@ -77,18 +77,22 @@ const AppointmentForm = () => {
         timesToExclude.push(slot);
       }
     });
-
-    excludeDates.forEach((date) => {
-      console.log(date);
-    });
     return timesToExclude;
   };
 
   const filterPassedTime = (time) => {
-    const currentDate = new Date();
-    const selectedDate = new Date(time);
+    const currentDate = new Date(time);
 
-    return currentDate.getTime() < selectedDate.getTime();
+    if (
+      currentDate.toDateString() == new Date().toDateString() &&
+      excludeDates.some(
+        (item) => item.toDateString() == currentDate.toDateString()
+      )
+    ) {
+      return false;
+    }
+
+    return new Date().getTime() < new Date(time).getTime();
   };
 
   const handleDateChange = (date) => {
@@ -105,7 +109,6 @@ const AppointmentForm = () => {
     }
 
     setSelectedDate(date);
-    console.log(date);
     if (date && date instanceof Date && date.getHours() !== 0) {
       setIsOpen(false);
     } else {
