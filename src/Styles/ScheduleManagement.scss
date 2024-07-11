@@ -3,47 +3,65 @@
     text-align: center;
 
     .react-datepicker {
-      .react-datepicker__time-container
-        .react-datepicker__time
-        .react-datepicker__time-box
-        ul.react-datepicker__time-list
-        li.react-datepicker__time-list-item--selected.disabledTime {
-        background-color: #b3b3b3;
-        color: black;
-        font-weight: normal;
-      }
+      .react-datepicker__time-container {
+        .react-datepicker__time {
+          .react-datepicker__time-list-item--selected {
+            background-color: white;
+            color: black;
+            font-weight: normal;
+            cursor: default;
 
-      .react-datepicker__time-list-item.disabledTime {
-        background-color: #b3b3b3;
-        color: black;
-        font-weight: normal;
-      }
+            &:hover {
+              background-color: #b3b3b38f;
+              color: black;
+              font-weight: normal;
+            }
 
-      .react-datepicker__time-container
-        .react-datepicker__time
-        .react-datepicker__time-box
-        ul.react-datepicker__time-list
-        li.react-datepicker__time-list-item--selected {
-        background-color: white;
-        color: black;
-        font-weight: normal;
-        cursor: default;
+            &.disabledTime {
+              background-color: #b3b3b3;
+              color: black;
+              font-weight: normal;
+            }
+          }
 
-        &:hover {
-          background-color: #b3b3b38f;
-          color: black;
-          font-weight: normal;
+          .react-datepicker__time-list-item {
+            &.disabledTime {
+              background-color: #b3b3b3;
+              color: black;
+              font-weight: normal;
+            }
+
+            &:hover {
+              cursor: pointer;
+              background-color: #919191;
+            }
+          }
         }
       }
-    }
 
-    .disabledDay {
-      background-color: #b3b3b3;
-      color: black;
-      font-weight: normal;
-    }
-    .disabledDay:hover {
-      background-color: #1d5d90;
+      .react-datepicker__day {
+        &:hover {
+          background-color: #216ba5;
+        }
+
+        &.react-datepicker__day--disabled:hover {
+          background-color: none;
+        }
+
+        &.disabledDay {
+          background-color: #fd9292;
+          color: black;
+          font-weight: normal;
+
+          &.react-datepicker__day--selected {
+            background-color: #e43b3b;
+          }
+
+          &:hover {
+            background-color: #e43b3b;
+          }
+        }
+      }
     }
 
     .buttons {

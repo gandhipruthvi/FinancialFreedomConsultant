@@ -1,9 +1,6 @@
 import DatePicker from "react-datepicker";
 import "../../styles/ScheduleManagement.scss";
 import { useEffect, useState, useCallback } from "react";
-import getDay from "date-fns/getDay";
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
 import { db } from "../../../firebaseConfig";
 import {
   addDoc,
@@ -44,17 +41,18 @@ const ScheduleManagement = () => {
 
       const currentDate = new Date();
       currentDate.setDate(currentDate.getDate() - 1);
-      const disabledTime = scheduleManagementSnapshot.docs
-        .map((doc) => doc.data())
-        .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate);
-      setDisabledTime(disabledTime);
+      setDisabledTime(
+        scheduleManagementSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate)
+      );
     };
     fetchScheduleManagement();
   }, []);
 
-  useEffect(() => {
-    console.log(disabledTime);
-  }, [disabledTime]);
+  // useEffect(() => {
+  //   console.log(disabledTime);
+  // }, [disabledTime]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
@@ -78,25 +76,6 @@ const ScheduleManagement = () => {
       const formattedDate = formatDate(date);
       const formattedDateTime = formatDateTime(date);
 
-      const disabledDay = disabledTime.some(
-        (dateTime) => dateTime.date === formattedDate && dateTime.disabled
-      );
-
-      if (!disabledDay) {
-        setSelectedDate(date);
-      } else {
-        toast.warning("This day is disabled!", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-
       let dateTime = disabledTime.find(
         (dateTime) => dateTime.date === formattedDate
       );
@@ -119,10 +98,18 @@ const ScheduleManagement = () => {
   };
 
   const filterPassedTime = (time) => {
-    const currentDate = new Date();
-    const selectedDate = new Date(time);
+    const currentDate = new Date(time);
 
-    return currentDate.getTime() < selectedDate.getTime();
+    if (
+      disabledTime.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.date).toDateString() === currentDate.toDateString()
+      )
+    )
+      return false;
+
+    return new Date().getTime() < currentDate.getTime();
   };
 
   const getBookedTimesForDate = (date) => {
@@ -135,15 +122,26 @@ const ScheduleManagement = () => {
     return timesToExclude;
   };
 
-  let handleColor = (time) => {
-    const disabledDay = disabledTime.find(
-      (dateObj) => dateObj.date === formatDate(time) && dateObj.disabled
-    );
-
-    if (disabledDay) {
+  let handleDayColor = (time) => {
+    if (
+      disabledTime.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.date).toDateString() === new Date(time).toDateString()
+      )
+    )
       return "disabledDay";
-    }
+  };
 
+  let handleTimeColor = (time) => {
+    if (
+      disabledTime.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.date).toDateString() === new Date(time).toDateString()
+      )
+    )
+      return "";
     let dateTime = disabledTime.find(
       (dateObj) => dateObj.date === formatDate(time)
     );
@@ -220,8 +218,13 @@ const ScheduleManagement = () => {
       const updatedSnapshot = await getDocs(
         collection(db, "scheduleManagement")
       );
-      const updatedDisabledTime = updatedSnapshot.docs.map((doc) => doc.data());
-      setDisabledTime(updatedDisabledTime);
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() - 1);
+      setDisabledTime(
+        updatedSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate)
+      );
     } catch (error) {
       toast.error("Unable to update day!", {
         position: "bottom-right",
@@ -320,8 +323,8 @@ const ScheduleManagement = () => {
             excludeTimes={getBookedTimesForDate(
               selectedDate ? selectedDate : new Date()
             )}
-            timeClassName={handleColor}
-            dayClassName={handleColor}
+            timeClassName={handleTimeColor}
+            dayClassName={handleDayColor}
           />
 
           <div className="buttons">
