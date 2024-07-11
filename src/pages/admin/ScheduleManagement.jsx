@@ -50,10 +50,6 @@ const ScheduleManagement = () => {
     fetchScheduleManagement();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(disabledTime);
-  // }, [disabledTime]);
-
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
   };
@@ -61,11 +57,6 @@ const ScheduleManagement = () => {
   const formatDateTime = (date) => {
     return moment(date).format("MMMM DD YYYY hh:mm A");
   };
-
-  // const isWeekday = (date) => {
-  //   const day = getDay(date);
-  //   return day !== 0 && day !== 7;
-  // };
 
   const handleDateChange = (date) => {
     if (date && date instanceof Date) {
@@ -263,6 +254,20 @@ const ScheduleManagement = () => {
               time: dateTime.time,
             });
           }
+
+          // Refresh disabled times
+          const updatedSnapshot = await getDocs(
+            collection(db, "scheduleManagement")
+          );
+          const currentDate = new Date();
+          currentDate.setDate(currentDate.getDate() - 1);
+          setDisabledTime(
+            updatedSnapshot.docs
+              .map((doc) => doc.data())
+              .filter(
+                (appDoc) => new Date(appDoc.date).getTime() >= currentDate
+              )
+          );
         });
       };
       addTimes(disabledTime);
