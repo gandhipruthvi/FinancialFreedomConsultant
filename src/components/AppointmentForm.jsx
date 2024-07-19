@@ -134,7 +134,7 @@ const AppointmentForm = () => {
         filterTime={filterPassedTime}
         minDate={new Date()}
         timeFormat="hh:mm a"
-        timeIntervals={60}
+        timeIntervals={30}
         timeCaption="Time"
         // minTime={setHours(setMinutes(new Date(), 59), 8)}
         // maxTime={setHours(setMinutes(new Date(), 0), 17)}

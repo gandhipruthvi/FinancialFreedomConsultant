@@ -200,8 +200,7 @@ const ScheduleManagement = () => {
   const handleMonthToggle = async () => {
     setLoadingActive(true);
     try {
-      const formattedMonth = formatDate(selectedDate);
-      console.log(formattedMonth);
+      const formattedMonth = moment(selectedDate).format("MMMM YYYY");
       const scheduleDocRef = collection(db, "scheduleManagementMonth");
 
       // Check if the document for the date exists
@@ -212,7 +211,7 @@ const ScheduleManagement = () => {
 
       if (monthDocs.length === 0) {
         await addDoc(scheduleDocRef, {
-          date: formattedMonth,
+          month: formattedMonth,
           disabled: true,
         });
         toast.success("Month disabled successfully", {
