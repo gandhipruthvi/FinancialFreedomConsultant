@@ -17,15 +17,15 @@
               font-weight: normal;
             }
 
-            &.disabledTime {
-              background-color: #b3b3b3;
+            &.disabledDateTime {
+              background-color: #b3b3b3 !important;
               color: black;
               font-weight: normal;
             }
           }
 
           .react-datepicker__time-list-item {
-            &.disabledTime {
+            &.disabledDateTime {
               background-color: #b3b3b3;
               color: black;
               font-weight: normal;
@@ -46,6 +46,20 @@
 
         &.react-datepicker__day--disabled:hover {
           background-color: none;
+        }
+
+        &.disabledMonth {
+          background-color: #fd9292;
+          color: black;
+          font-weight: normal;
+
+          &.react-datepicker__day--selected {
+            background-color: #e43b3b;
+          }
+
+          &:hover {
+            background-color: #e43b3b;
+          }
         }
 
         &.disabledDay {

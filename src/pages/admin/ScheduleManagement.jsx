@@ -20,35 +20,65 @@ import "react-toastify/dist/ReactToastify.css";
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [bookedSlots, setBookedSlots] = useState([]);
-  const [disabledTime, setDisabledTime] = useState([]);
+  const [disabledDateTime, setDisabledDateTime] = useState([]);
+  const [disabledMonth, setDisabledMonth] = useState([]);
   const [isLoadingActive, setLoadingActive] = useState(false);
   const [previousDate, setpreviousDate] = useState();
 
+  const yesterdayDate = new Date();
+  yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+
   useEffect(() => {
-    const fetchAppointments = async () => {
+    const fetchBookedSlots = async () => {
       const appointmentsSnapshot = await getDocs(
         collection(db, "appointments")
       );
-      const appointments = appointmentsSnapshot.docs.map((doc) => doc.data());
-      setBookedSlots(appointments.map((app) => new Date(app.date)));
+      setBookedSlots(
+        appointmentsSnapshot.docs
+          .map((doc) => doc.data())
+          .map((app) => new Date(app.date))
+      );
     };
-    fetchAppointments();
+    fetchBookedSlots();
 
-    const fetchScheduleManagement = async () => {
+    const fetchScheuldeManagement = async () => {
       const scheduleManagementSnapshot = await getDocs(
         collection(db, "scheduleManagement")
       );
-
-      const currentDate = new Date();
-      currentDate.setDate(currentDate.getDate() - 1);
-      setDisabledTime(
+      setDisabledDateTime(
         scheduleManagementSnapshot.docs
           .map((doc) => doc.data())
-          .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate)
+          .filter(
+            (appDoc) =>
+              new Date(appDoc.date).getTime() >= yesterdayDate.getTime()
+          )
       );
     };
-    fetchScheduleManagement();
+    fetchScheuldeManagement();
+
+    const fetchScheuldeManagementMonth = async () => {
+      const scheduleManagementMonthSnapshot = await getDocs(
+        collection(db, "scheduleManagementMonth")
+      );
+      setDisabledMonth(
+        scheduleManagementMonthSnapshot.docs
+          .map((doc) => doc.data())
+          .filter(
+            (appDoc) =>
+              new Date(appDoc.month).getMonth() >= new Date().getMonth()
+          )
+      );
+    };
+    fetchScheuldeManagementMonth();
   }, []);
+
+  useEffect(() => {
+    console.log(disabledMonth);
+  }, [disabledMonth]);
+
+  useEffect(() => {
+    // console.log(disabledDateTime);
+  }, [disabledDateTime]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
@@ -56,6 +86,10 @@ const ScheduleManagement = () => {
 
   const formatDateTime = (date) => {
     return moment(date).format("MMMM DD YYYY hh:mm A");
+  };
+
+  const getMonthNumber = (date) => {
+    return new Date(date).getMonth();
   };
 
   const handleDateChange = (date) => {
@@ -67,10 +101,10 @@ const ScheduleManagement = () => {
       const formattedDate = formatDate(date);
       const formattedDateTime = formatDateTime(date);
 
-      let dateTime = disabledTime.find(
+      let dateTime = disabledDateTime.find(
         (dateTime) => dateTime.date === formattedDate
       );
-      if (dateTime) {
+      if (dateTime && dateTime.time) {
         let index = dateTime.time.indexOf(formattedDateTime);
         if (index == -1) {
           dateTime.time.push(formattedDateTime);
@@ -78,8 +112,8 @@ const ScheduleManagement = () => {
           dateTime.time.splice(index, 1);
         }
       } else {
-        setDisabledTime([
-          ...disabledTime,
+        setDisabledDateTime([
+          ...disabledDateTime,
           { date: formattedDate, time: [formattedDateTime] },
         ]);
       }
@@ -92,7 +126,16 @@ const ScheduleManagement = () => {
     const currentDate = new Date(time);
 
     if (
-      disabledTime.some(
+      disabledMonth.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.month).getMonth() == new Date(time).getMonth()
+      )
+    )
+      return false;
+
+    if (
+      disabledDateTime.some(
         (item) =>
           item.disabled &&
           new Date(item.date).toDateString() === currentDate.toDateString()
@@ -115,7 +158,16 @@ const ScheduleManagement = () => {
 
   let handleDayColor = (time) => {
     if (
-      disabledTime.some(
+      disabledMonth.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.month).getMonth() == new Date(time).getMonth()
+      )
+    )
+      return "disabledMonth";
+
+    if (
+      disabledDateTime.some(
         (item) =>
           item.disabled &&
           new Date(item.date).toDateString() === new Date(time).toDateString()
@@ -126,21 +178,114 @@ const ScheduleManagement = () => {
 
   let handleTimeColor = (time) => {
     if (
-      disabledTime.some(
+      disabledDateTime.some(
         (item) =>
           item.disabled &&
           new Date(item.date).toDateString() === new Date(time).toDateString()
       )
     )
       return "";
-    let dateTime = disabledTime.find(
+    let dateTime = disabledDateTime.find(
       (dateObj) => dateObj.date === formatDate(time)
     );
-    if (dateTime) {
+    if (dateTime && dateTime.time) {
       return dateTime.time.some((time1) => time1 === formatDateTime(time))
-        ? "disabledTime"
+        ? "disabledDateTime"
         : "";
+    } else {
+      return "";
     }
+  };
+
+  const handleMonthToggle = async () => {
+    setLoadingActive(true);
+    try {
+      const formattedMonth = formatDate(selectedDate);
+      console.log(formattedMonth);
+      const scheduleDocRef = collection(db, "scheduleManagementMonth");
+
+      // Check if the document for the date exists
+      const querySnapshot = await getDocs(
+        query(scheduleDocRef, where("month", "==", formattedMonth))
+      );
+      const monthDocs = querySnapshot.docs;
+
+      if (monthDocs.length === 0) {
+        await addDoc(scheduleDocRef, {
+          date: formattedMonth,
+          disabled: true,
+        });
+        toast.success("Month disabled successfully", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        // Update the existing document to toggle the disabled flag
+        const docRef = doc(db, "scheduleManagementMonth", monthDocs[0].id);
+        const newDisabledStatus = !monthDocs[0].data().disabled;
+        console.log(newDisabledStatus);
+
+        await updateDoc(docRef, {
+          disabled: newDisabledStatus,
+        });
+
+        if (newDisabledStatus) {
+          toast.success("Month disabled successfully", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.success("Month enabled successfully", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      }
+
+      // Refresh disabled times
+      const scheduleManagementMonthSnapshot = await getDocs(
+        collection(db, "scheduleManagementMonth")
+      );
+      setDisabledMonth(
+        scheduleManagementMonthSnapshot.docs
+          .map((doc) => doc.data())
+          .filter(
+            (appDoc) =>
+              new Date(appDoc.month).getMonth() >= new Date().getMonth()
+          )
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error("Unable to update the month!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    setLoadingActive(false);
   };
 
   const handleDayToggle = async () => {
@@ -209,12 +354,10 @@ const ScheduleManagement = () => {
       const updatedSnapshot = await getDocs(
         collection(db, "scheduleManagement")
       );
-      const currentDate = new Date();
-      currentDate.setDate(currentDate.getDate() - 1);
-      setDisabledTime(
+      setDisabledDateTime(
         updatedSnapshot.docs
           .map((doc) => doc.data())
-          .filter((appDoc) => new Date(appDoc.date).getTime() >= currentDate)
+          .filter((appDoc) => new Date(appDoc.date).getTime() >= yesterdayDate)
       );
     } catch (error) {
       toast.error("Unable to update day!", {
@@ -236,8 +379,8 @@ const ScheduleManagement = () => {
     try {
       const scheduleDocRef = collection(db, "scheduleManagement");
 
-      const addTimes = async (disabledTime) => {
-        disabledTime.map(async (dateTime) => {
+      const addTimes = async (disabledDateTime) => {
+        disabledDateTime.map(async (dateTime) => {
           const querySnapshot = await getDocs(
             query(scheduleDocRef, where("date", "==", dateTime.date))
           );
@@ -259,18 +402,16 @@ const ScheduleManagement = () => {
           const updatedSnapshot = await getDocs(
             collection(db, "scheduleManagement")
           );
-          const currentDate = new Date();
-          currentDate.setDate(currentDate.getDate() - 1);
-          setDisabledTime(
+          setDisabledDateTime(
             updatedSnapshot.docs
               .map((doc) => doc.data())
               .filter(
-                (appDoc) => new Date(appDoc.date).getTime() >= currentDate
+                (appDoc) => new Date(appDoc.date).getTime() >= yesterdayDate
               )
           );
         });
       };
-      addTimes(disabledTime);
+      addTimes(disabledDateTime);
     } catch (error) {
       toast.error("Unable to update!", {
         position: "bottom-right",
@@ -321,7 +462,7 @@ const ScheduleManagement = () => {
             placeholderText="Select Date"
             inline
             showTimeSelect
-            timeIntervals={60}
+            timeIntervals={30}
             timeCaption="Time"
             // minTime={setHours(setMinutes(new Date(), 59), 8)}
             // maxTime={setHours(setMinutes(new Date(), 0), 17)}
@@ -341,7 +482,8 @@ const ScheduleManagement = () => {
             >
               Save Time Changes
             </Button>
-            {disabledTime.some(
+
+            {disabledDateTime.some(
               (day) => day.date === formatDate(selectedDate) && day.disabled
             ) ? (
               <Button variant="primary" onClick={handleDayToggle}>
@@ -352,6 +494,20 @@ const ScheduleManagement = () => {
                 Disable Day
               </Button>
             )}
+
+            {/* {disabledMonth.some(
+              (item) =>
+                getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
+                item.disabled
+            ) ? (
+              <Button variant="primary" onClick={handleMonthToggle}>
+                Enable Month
+              </Button>
+            ) : (
+              <Button variant="danger" onClick={handleMonthToggle}>
+                Disable Month
+              </Button>
+            )} */}
           </div>
         </LoadingOverlay>
       </div>
