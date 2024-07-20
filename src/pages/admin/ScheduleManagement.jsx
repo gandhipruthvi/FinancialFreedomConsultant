@@ -73,7 +73,7 @@ const ScheduleManagement = () => {
   }, []);
 
   useEffect(() => {
-    console.log(disabledMonth);
+    // console.log(disabledMonth);
   }, [disabledMonth]);
 
   useEffect(() => {
@@ -144,6 +144,20 @@ const ScheduleManagement = () => {
       return false;
 
     return new Date().getTime() < currentDate.getTime();
+  };
+
+  const minimumDate = () => {
+    if (
+      disabledMonth.some(
+        (item) =>
+          item.disabled &&
+          new Date(item.month).getMonth() == new Date().getMonth()
+      )
+    ) {
+      return new Date().setDate(1);
+    } else {
+      return new Date();
+    }
   };
 
   const getBookedTimesForDate = (date) => {
@@ -456,7 +470,7 @@ const ScheduleManagement = () => {
             onChange={handleDateChange}
             // filterDate={isWeekday}
             filterTime={filterPassedTime}
-            minDate={new Date()}
+            minDate={minimumDate()}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select Date"
             inline
@@ -494,7 +508,7 @@ const ScheduleManagement = () => {
               </Button>
             )}
 
-            {/* {disabledMonth.some(
+            {disabledMonth.some(
               (item) =>
                 getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
                 item.disabled
@@ -506,7 +520,7 @@ const ScheduleManagement = () => {
               <Button variant="danger" onClick={handleMonthToggle}>
                 Disable Month
               </Button>
-            )} */}
+            )}
           </div>
         </LoadingOverlay>
       </div>

@@ -21,6 +21,8 @@ const AppointmentForm = () => {
   const [excludeDates, setExcludeDates] = useState([]);
   const [validated, setValidated] = useState(false);
   const [isLoadingActive, setLoadingActive] = useState(false);
+  const [previousDate, setpreviousDate] = useState();
+  const [disabledMonth, setDisabledMonth] = useState([]);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -57,17 +59,43 @@ const AppointmentForm = () => {
       );
 
       disabledTime.map((dateTime) => {
-        dateTime.time.map((time) => {
-          bookedSlots.push(new Date(time));
-        });
+        if (dateTime.time) {
+          dateTime.time.map((time) => {
+            bookedSlots.push(new Date(time));
+          });
+        }
       });
     };
     fetchScheduleManagement();
+
+    const fetchScheuldeManagementMonth = async () => {
+      const scheduleManagementMonthSnapshot = await getDocs(
+        collection(db, "scheduleManagementMonth")
+      );
+      setDisabledMonth(
+        scheduleManagementMonthSnapshot.docs
+          .map((doc) => doc.data())
+          .filter(
+            (appDoc) =>
+              appDoc.disabled == true &&
+              new Date(appDoc.month).getMonth() >= new Date().getMonth()
+          )
+      );
+      console.log(disabledMonth);
+    };
+    fetchScheuldeManagementMonth();
   }, [bookedSlots]);
 
-  const isWeekday = (date) => {
-    const day = getDay(date);
-    return day !== 0 && day !== 7;
+  const formatDate = (date) => {
+    return moment(date).format("MMMM DD YYYY");
+  };
+
+  const formatDateTime = (date) => {
+    return moment(date).format("MMMM DD YYYY hh:mm A");
+  };
+
+  const getMonthNumber = (date) => {
+    return new Date(date).getMonth();
   };
 
   const getBookedTimesForDate = (date) => {
@@ -80,7 +108,20 @@ const AppointmentForm = () => {
     return timesToExclude;
   };
 
+  const filterDate = (date) => {
+    return !disabledMonth.some(
+      (item) => new Date(item.month).getMonth() == new Date(date).getMonth()
+    );
+  };
+
   const filterPassedTime = (time) => {
+    if (
+      disabledMonth.some(
+        (item) => new Date(item.month).getMonth() == new Date(time).getMonth()
+      )
+    )
+      return false;
+
     const currentDate = new Date(time);
 
     if (
@@ -97,18 +138,14 @@ const AppointmentForm = () => {
 
   const handleDateChange = (date) => {
     if (date && date instanceof Date) {
-      if (!filterPassedTime(date.getTime())) {
-        date.setHours(
-          new Date().getHours() + Math.round(date.getMinutes() / 60),
-          0,
-          0
-        );
-      } else {
-        date.setHours(0, 0, 0);
+      if (previousDate && formatDate(date) != previousDate) {
+        date.setHours(new Date().getHours());
+        date.setMinutes(new Date().getMinutes());
       }
+      setSelectedDate(date);
+      setpreviousDate(formatDate(date));
     }
 
-    setSelectedDate(date);
     if (date && date instanceof Date && date.getHours() !== 0) {
       setIsOpen(false);
     } else {
@@ -130,7 +167,7 @@ const AppointmentForm = () => {
         onSelect={() => setIsOpen(true)}
         open={isOpen}
         showTimeSelect
-        // filterDate={isWeekday}
+        filterDate={filterDate}
         filterTime={filterPassedTime}
         minDate={new Date()}
         timeFormat="hh:mm a"
