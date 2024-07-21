@@ -16,6 +16,7 @@ import moment from "moment-timezone";
 import LoadingOverlay from "react-loading-overlay-ts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -212,6 +213,7 @@ const ScheduleManagement = () => {
   };
 
   const handleMonthToggle = async () => {
+    console.log("month");
     setLoadingActive(true);
     try {
       const formattedMonth = moment(selectedDate).format("MMMM YYYY");
@@ -249,7 +251,7 @@ const ScheduleManagement = () => {
         });
 
         if (newDisabledStatus) {
-          toast.success("Month disabled successfully", {
+          toast.warn("Month disabled successfully", {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -273,7 +275,7 @@ const ScheduleManagement = () => {
         }
       }
 
-      // Refresh disabled times
+      // Refresh disabled month
       const scheduleManagementMonthSnapshot = await getDocs(
         collection(db, "scheduleManagementMonth")
       );
@@ -460,6 +462,19 @@ const ScheduleManagement = () => {
           spinner
           text="Updating Available Time"
         >
+          <div className="colorDisplay">
+            <div>
+              <div class="box red"> Disabled Date</div>
+            </div>
+
+            <div>
+              <div class="box grey"> Disabled Time</div>
+            </div>
+
+            <div>
+              <div class="box yellow"> Disabled Month</div>
+            </div>
+          </div>
           <DatePicker
             selected={selectedDate}
             className={
@@ -487,40 +502,41 @@ const ScheduleManagement = () => {
           />
 
           <div className="buttons">
-            <Button
-              onClick={handleSave}
-              type="submit"
-              variant="info"
-              className="m-3"
-            >
+            <Button onClick={handleSave} variant="secondary" type="submit">
               Save Time Changes
             </Button>
 
             {disabledDateTime.some(
               (day) => day.date === formatDate(selectedDate) && day.disabled
             ) ? (
-              <Button variant="primary" onClick={handleDayToggle}>
+              <Button variant="danger" onClick={handleDayToggle}>
                 Enable Day
               </Button>
             ) : (
-              <Button variant="danger" onClick={handleDayToggle}>
+              <Button variant="primary" onClick={handleDayToggle}>
                 Disable Day
               </Button>
             )}
+          </div>
 
-            {disabledMonth.some(
-              (item) =>
-                getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
-                item.disabled
-            ) ? (
-              <Button variant="primary" onClick={handleMonthToggle}>
-                Enable Month
-              </Button>
-            ) : (
-              <Button variant="danger" onClick={handleMonthToggle}>
-                Disable Month
-              </Button>
-            )}
+          <div className="switchButton">
+            <p>
+              Selected Date:{" "}
+              <b>{moment(selectedDate).format("DD MMMM YYYY")}</b>
+            </p>
+            <BootstrapSwitchButton
+              checked={disabledMonth.some(
+                (item) =>
+                  getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
+                  item.disabled
+              )}
+              onlabel="Enable Month"
+              offlabel="Disable Month"
+              width={150}
+              onstyle="warning"
+              offstyle="outline-info"
+              onChange={handleMonthToggle}
+            />
           </div>
         </LoadingOverlay>
       </div>
