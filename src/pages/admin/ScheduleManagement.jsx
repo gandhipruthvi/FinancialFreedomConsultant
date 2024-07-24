@@ -463,16 +463,19 @@ const ScheduleManagement = () => {
           text="Updating Available Time"
         >
           <div className="colorDisplay">
-            <div>
-              <div class="box red"> Disabled Date</div>
+            <div className="d-flex">
+              <div className="box red"></div>
+              <div>Disabled Date</div>
             </div>
 
-            <div>
-              <div class="box grey"> Disabled Time</div>
+            <div className="d-flex">
+              <div className="box grey"></div>
+              <div>Disabled Time</div>
             </div>
 
-            <div>
-              <div class="box yellow"> Disabled Month</div>
+            <div className="d-flex">
+              <div className="box yellow"></div>
+              <div>Disabled Month</div>
             </div>
           </div>
           <DatePicker
