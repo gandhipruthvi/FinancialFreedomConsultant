@@ -23,6 +23,7 @@ const AppointmentForm = () => {
   const [isLoadingActive, setLoadingActive] = useState(false);
   const [previousDate, setpreviousDate] = useState();
   const [disabledMonth, setDisabledMonth] = useState([]);
+  const [disabledWeek, setDisabledWeek] = useState([]);
 
   useEffect(() => {
     const fetchAppointments = async () => {

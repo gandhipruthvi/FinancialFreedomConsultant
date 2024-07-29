@@ -58,7 +58,21 @@
           }
 
           &:hover {
-            background-color: #ffbf00;
+            background-color: #FFC107;
+          }
+        }
+
+        &.disabledWeek {
+          background-color: #74C4FF;
+          color: black;
+          font-weight: normal;
+
+          &.react-datepicker__day--selected {
+            background-color: #0089ea;
+          }
+
+          &:hover {
+            background-color: #0089ea;
           }
         }
 
@@ -110,6 +124,10 @@
       .yellow::before {
         background-color: #ffdc74;
       }
+
+      .blue::before {
+        background-color: #74c4ff;
+      }
     }
 
     .switchButton {
@@ -118,6 +136,10 @@
 
       p {
         margin-bottom: 4px;
+      }
+
+      .switch {
+        margin-right: 10px;
       }
     }
 
