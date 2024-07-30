@@ -82,9 +82,21 @@ const AppointmentForm = () => {
               new Date(appDoc.month).getMonth() >= new Date().getMonth()
           )
       );
-      console.log(disabledMonth);
     };
     fetchScheuldeManagementMonth();
+
+    const fetchScheuldeManagementWeek = async () => {
+      const scheduleManagementWeekSnapshot = await getDocs(
+        collection(db, "scheduleManagementWeek")
+      );
+      setDisabledWeek(
+        scheduleManagementWeekSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => appDoc.year >= new Date().getFullYear())
+      );
+      console.log(disabledWeek);
+    };
+    fetchScheuldeManagementWeek();
   }, [bookedSlots]);
 
   const formatDate = (date) => {
@@ -110,9 +122,19 @@ const AppointmentForm = () => {
   };
 
   const filterDate = (date) => {
-    return !disabledMonth.some(
-      (item) => new Date(item.month).getMonth() == new Date(date).getMonth()
-    );
+    if (
+      disabledWeek.some(
+        (item) =>
+          item.year == new Date(date).getFullYear() &&
+          item.week.includes(moment(date).week())
+      ) ||
+      disabledMonth.some(
+        (item) => new Date(item.month).getMonth() == new Date(date).getMonth()
+      )
+    )
+      return false;
+
+    return true;
   };
 
   const filterPassedTime = (time) => {
