@@ -210,6 +210,8 @@ const ScheduleManagement = () => {
       disabledMonth.some(
         (item) =>
           item.disabled &&
+          new Date(item.month).getFullYear() ==
+            new Date(dateTime).getFullYear() &&
           new Date(item.month).getMonth() == new Date(dateTime).getMonth()
       )
     )
@@ -221,8 +223,8 @@ const ScheduleManagement = () => {
         (item) =>
           item.year &&
           item.year == new Date(dateTime).getFullYear() &&
-          moment(dateTime).week() >= moment(new Date()).week() &&
-          item.week.includes(currentWeekNumber)
+          item.week.includes(currentWeekNumber) &&
+          moment(dateTime).week() >= moment(new Date()).week()
       )
     )
       return "disabledWeek";
@@ -701,6 +703,8 @@ const ScheduleManagement = () => {
             <BootstrapSwitchButton
               checked={disabledMonth.some(
                 (item) =>
+                  new Date(item.month).getFullYear() ==
+                    new Date(selectedDate).getFullYear() &&
                   getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
                   item.disabled
               )}

@@ -129,7 +129,9 @@ const AppointmentForm = () => {
           item.week.includes(moment(date).week())
       ) ||
       disabledMonth.some(
-        (item) => new Date(item.month).getMonth() == new Date(date).getMonth()
+        (item) =>
+          new Date(item.month).getMonth() == new Date(date).getMonth() &&
+          new Date(item.month).getFullYear() == new Date(date).getFullYear()
       )
     )
       return false;
@@ -139,8 +141,15 @@ const AppointmentForm = () => {
 
   const filterPassedTime = (time) => {
     if (
+      disabledWeek.some(
+        (item) =>
+          item.year == new Date(time).getFullYear() &&
+          item.week.includes(moment(time).week())
+      ) ||
       disabledMonth.some(
-        (item) => new Date(item.month).getMonth() == new Date(time).getMonth()
+        (item) =>
+          new Date(item.month).getMonth() == new Date(time).getMonth() &&
+          new Date(item.month).getFullYear() == new Date(time).getFullYear()
       )
     )
       return false;
