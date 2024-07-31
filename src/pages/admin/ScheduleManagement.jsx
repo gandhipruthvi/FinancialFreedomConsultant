@@ -219,13 +219,14 @@ const ScheduleManagement = () => {
 
     const currentWeekNumber = moment(dateTime).week();
     if (
-      disabledWeek.some(
-        (item) =>
-          item.year &&
+      disabledWeek.some((item) => {
+        return (
           item.year == new Date(dateTime).getFullYear() &&
           item.week.includes(currentWeekNumber) &&
-          moment(dateTime).week() >= moment(new Date()).week()
-      )
+          "" + moment(dateTime).year() + moment(dateTime).format("ww") >=
+            "" + moment(new Date()).year() + moment(new Date()).format("ww")
+        );
+      })
     )
       return "disabledWeek";
 
@@ -721,7 +722,13 @@ const ScheduleManagement = () => {
                 (item) =>
                   item.year &&
                   item.year == new Date(selectedDate).getFullYear() &&
-                  item.week.includes(moment(selectedDate).week())
+                  item.week.includes(moment(selectedDate).week()) &&
+                  "" +
+                    moment(selectedDate).year() +
+                    moment(selectedDate).format("ww") >=
+                    "" +
+                      moment(new Date()).year() +
+                      moment(new Date()).format("ww")
               )}
               onlabel="Enable Week"
               offlabel="Disable Week"
