@@ -23,6 +23,7 @@ const AppointmentForm = () => {
   const [isLoadingActive, setLoadingActive] = useState(false);
   const [previousDate, setpreviousDate] = useState();
   const [disabledMonth, setDisabledMonth] = useState([]);
+  const [disabledWeek, setDisabledWeek] = useState([]);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -81,9 +82,21 @@ const AppointmentForm = () => {
               new Date(appDoc.month).getMonth() >= new Date().getMonth()
           )
       );
-      console.log(disabledMonth);
     };
     fetchScheuldeManagementMonth();
+
+    const fetchScheuldeManagementWeek = async () => {
+      const scheduleManagementWeekSnapshot = await getDocs(
+        collection(db, "scheduleManagementWeek")
+      );
+      setDisabledWeek(
+        scheduleManagementWeekSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => appDoc.year >= new Date().getFullYear())
+      );
+      console.log(disabledWeek);
+    };
+    fetchScheuldeManagementWeek();
   }, [bookedSlots]);
 
   const formatDate = (date) => {
@@ -109,15 +122,34 @@ const AppointmentForm = () => {
   };
 
   const filterDate = (date) => {
-    return !disabledMonth.some(
-      (item) => new Date(item.month).getMonth() == new Date(date).getMonth()
-    );
+    if (
+      disabledWeek.some(
+        (item) =>
+          item.year == new Date(date).getFullYear() &&
+          item.week.includes(moment(date).week())
+      ) ||
+      disabledMonth.some(
+        (item) =>
+          new Date(item.month).getMonth() == new Date(date).getMonth() &&
+          new Date(item.month).getFullYear() == new Date(date).getFullYear()
+      )
+    )
+      return false;
+
+    return true;
   };
 
   const filterPassedTime = (time) => {
     if (
+      disabledWeek.some(
+        (item) =>
+          item.year == new Date(time).getFullYear() &&
+          item.week.includes(moment(time).week())
+      ) ||
       disabledMonth.some(
-        (item) => new Date(item.month).getMonth() == new Date(time).getMonth()
+        (item) =>
+          new Date(item.month).getMonth() == new Date(time).getMonth() &&
+          new Date(item.month).getFullYear() == new Date(time).getFullYear()
       )
     )
       return false;

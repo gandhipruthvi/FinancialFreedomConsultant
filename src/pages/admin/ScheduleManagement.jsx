@@ -16,12 +16,14 @@ import moment from "moment-timezone";
 import LoadingOverlay from "react-loading-overlay-ts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 const ScheduleManagement = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [bookedSlots, setBookedSlots] = useState([]);
   const [disabledDateTime, setDisabledDateTime] = useState([]);
   const [disabledMonth, setDisabledMonth] = useState([]);
+  const [disabledWeek, setDisabledWeek] = useState([]);
   const [isLoadingActive, setLoadingActive] = useState(false);
   const [previousDate, setpreviousDate] = useState();
 
@@ -70,15 +72,23 @@ const ScheduleManagement = () => {
       );
     };
     fetchScheuldeManagementMonth();
+
+    const fetchScheuldeManagementWeek = async () => {
+      const scheduleManagementWeekSnapshot = await getDocs(
+        collection(db, "scheduleManagementWeek")
+      );
+      setDisabledWeek(
+        scheduleManagementWeekSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => appDoc.year >= new Date().getFullYear())
+      );
+    };
+    fetchScheuldeManagementWeek();
   }, []);
 
   useEffect(() => {
-    // console.log(disabledMonth);
-  }, [disabledMonth]);
-
-  useEffect(() => {
-    // console.log(disabledDateTime);
-  }, [disabledDateTime]);
+    console.log(disabledWeek);
+  }, [disabledWeek]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
@@ -134,6 +144,17 @@ const ScheduleManagement = () => {
     )
       return false;
 
+    const currentWeekNumber = moment(time).week();
+    if (
+      disabledWeek.some(
+        (item) =>
+          item.year &&
+          item.year == new Date(time).getFullYear() &&
+          item.week.includes(currentWeekNumber)
+      )
+    )
+      return false;
+
     if (
       disabledDateTime.some(
         (item) =>
@@ -153,11 +174,25 @@ const ScheduleManagement = () => {
           item.disabled &&
           new Date(item.month).getMonth() == new Date().getMonth()
       )
-    ) {
+    )
       return new Date().setDate(1);
-    } else {
-      return new Date();
+
+    const currentWeekNumber = moment(new Date()).week();
+    if (
+      disabledWeek.some(
+        (item) =>
+          item.year &&
+          item.year == new Date().getFullYear() &&
+          item.week.includes(currentWeekNumber)
+      )
+    ) {
+      let d = new Date();
+      let day = d.getDay(),
+        diff = d.getDate() - day + (day == 0 ? -6 : 1);
+      return new Date(d.setDate(diff - 1));
     }
+
+    return new Date();
   };
 
   const getBookedTimesForDate = (date) => {
@@ -170,27 +205,43 @@ const ScheduleManagement = () => {
     return timesToExclude;
   };
 
-  let handleDayColor = (time) => {
+  const handleDayColor = (dateTime) => {
     if (
       disabledMonth.some(
         (item) =>
           item.disabled &&
-          new Date(item.month).getMonth() == new Date(time).getMonth()
+          new Date(item.month).getFullYear() ==
+            new Date(dateTime).getFullYear() &&
+          new Date(item.month).getMonth() == new Date(dateTime).getMonth()
       )
     )
       return "disabledMonth";
+
+    const currentWeekNumber = moment(dateTime).week();
+    if (
+      disabledWeek.some((item) => {
+        return (
+          item.year == new Date(dateTime).getFullYear() &&
+          item.week.includes(currentWeekNumber) &&
+          "" + moment(dateTime).year() + moment(dateTime).format("ww") >=
+            "" + moment(new Date()).year() + moment(new Date()).format("ww")
+        );
+      })
+    )
+      return "disabledWeek";
 
     if (
       disabledDateTime.some(
         (item) =>
           item.disabled &&
-          new Date(item.date).toDateString() === new Date(time).toDateString()
+          new Date(item.date).toDateString() ===
+            new Date(dateTime).toDateString()
       )
     )
       return "disabledDay";
   };
 
-  let handleTimeColor = (time) => {
+  const handleTimeColor = (time) => {
     if (
       disabledDateTime.some(
         (item) =>
@@ -199,6 +250,15 @@ const ScheduleManagement = () => {
       )
     )
       return "";
+
+    const currentWeekNumber = moment(time).week();
+    if (
+      disabledMonth.some(
+        (item) => item.week && item.week.includes(currentWeekNumber)
+      )
+    )
+      return "";
+
     let dateTime = disabledDateTime.find(
       (dateObj) => dateObj.date === formatDate(time)
     );
@@ -206,9 +266,9 @@ const ScheduleManagement = () => {
       return dateTime.time.some((time1) => time1 === formatDateTime(time))
         ? "disabledDateTime"
         : "";
-    } else {
-      return "";
     }
+
+    return "";
   };
 
   const handleMonthToggle = async () => {
@@ -249,7 +309,7 @@ const ScheduleManagement = () => {
         });
 
         if (newDisabledStatus) {
-          toast.success("Month disabled successfully", {
+          toast.warn("Month disabled successfully", {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -273,7 +333,7 @@ const ScheduleManagement = () => {
         }
       }
 
-      // Refresh disabled times
+      // Refresh disabled month
       const scheduleManagementMonthSnapshot = await getDocs(
         collection(db, "scheduleManagementMonth")
       );
@@ -451,6 +511,117 @@ const ScheduleManagement = () => {
     });
   };
 
+  const handleWeekToggle = async () => {
+    setLoadingActive(true);
+    try {
+      const selectedWeekNumber = moment(selectedDate).week();
+      const scheduleDocRef = collection(db, "scheduleManagementWeek");
+
+      // Check if the document for the year exists
+      const querySnapshot = await getDocs(
+        query(
+          scheduleDocRef,
+          where("year", "==", new Date(selectedDate).getFullYear())
+        )
+      );
+      let weekDocs = querySnapshot.docs;
+
+      if (weekDocs.length === 0) {
+        await addDoc(scheduleDocRef, {
+          year: new Date(selectedDate).getFullYear(),
+          week: [selectedWeekNumber],
+        });
+        toast.success("Week disabled successfully", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        const docRef = doc(db, "scheduleManagementWeek", weekDocs[0].id);
+
+        if (weekDocs[0].data().week) {
+          let weekArray = weekDocs[0].data().week;
+          let index = weekArray.indexOf(selectedWeekNumber);
+          if (index == -1) {
+            weekArray.push(selectedWeekNumber);
+          } else {
+            weekArray.splice(index, 1);
+          }
+
+          await updateDoc(docRef, {
+            week: weekArray,
+          });
+
+          if (index == -1) {
+            toast.warn("Week disabled successfully", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          } else {
+            toast.warn("Week enabled successfully", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
+        } else {
+          await updateDoc(docRef, {
+            week: [selectedWeekNumber],
+          });
+          toast.warn("Week disabled successfully", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      }
+
+      // Refresh disabled month
+      const scheduleManagementWeekSnapshot = await getDocs(
+        collection(db, "scheduleManagementWeek")
+      );
+      setDisabledWeek(
+        scheduleManagementWeekSnapshot.docs
+          .map((doc) => doc.data())
+          .filter((appDoc) => appDoc.year >= new Date().getFullYear())
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error("Unable to update the week!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    setLoadingActive(false);
+  };
+
   return (
     <div className="scheduleManagementPage">
       <div className="container">
@@ -460,6 +631,27 @@ const ScheduleManagement = () => {
           spinner
           text="Updating Available Time"
         >
+          <div className="colorDisplay">
+            <div className="d-flex">
+              <div className="box red"></div>
+              <div>Disabled Date</div>
+            </div>
+
+            <div className="d-flex">
+              <div className="box grey"></div>
+              <div>Disabled Time</div>
+            </div>
+
+            <div className="d-flex">
+              <div className="box yellow"></div>
+              <div>Disabled Month</div>
+            </div>
+
+            <div className="d-flex">
+              <div className="box blue"></div>
+              <div>Disabled Week</div>
+            </div>
+          </div>
           <DatePicker
             selected={selectedDate}
             className={
@@ -487,40 +679,64 @@ const ScheduleManagement = () => {
           />
 
           <div className="buttons">
-            <Button
-              onClick={handleSave}
-              type="submit"
-              variant="info"
-              className="m-3"
-            >
+            <Button onClick={handleSave} variant="secondary" type="submit">
               Save Time Changes
             </Button>
 
             {disabledDateTime.some(
               (day) => day.date === formatDate(selectedDate) && day.disabled
             ) ? (
-              <Button variant="primary" onClick={handleDayToggle}>
+              <Button variant="danger" onClick={handleDayToggle}>
                 Enable Day
               </Button>
             ) : (
-              <Button variant="danger" onClick={handleDayToggle}>
+              <Button variant="primary" onClick={handleDayToggle}>
                 Disable Day
               </Button>
             )}
+          </div>
 
-            {disabledMonth.some(
-              (item) =>
-                getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
-                item.disabled
-            ) ? (
-              <Button variant="primary" onClick={handleMonthToggle}>
-                Enable Month
-              </Button>
-            ) : (
-              <Button variant="danger" onClick={handleMonthToggle}>
-                Disable Month
-              </Button>
-            )}
+          <div className="switchButton">
+            <p>
+              Selected Date:{" "}
+              <b>{moment(selectedDate).format("DD MMMM YYYY")}</b>
+            </p>
+            <BootstrapSwitchButton
+              checked={disabledMonth.some(
+                (item) =>
+                  new Date(item.month).getFullYear() ==
+                    new Date(selectedDate).getFullYear() &&
+                  getMonthNumber(item.month) === getMonthNumber(selectedDate) &&
+                  item.disabled
+              )}
+              onlabel="Enable Month"
+              offlabel="Disable Month"
+              width={150}
+              onstyle="warning"
+              offstyle="outline-warning"
+              onChange={handleMonthToggle}
+            />
+
+            <BootstrapSwitchButton
+              checked={disabledWeek.some(
+                (item) =>
+                  item.year &&
+                  item.year == new Date(selectedDate).getFullYear() &&
+                  item.week.includes(moment(selectedDate).week()) &&
+                  "" +
+                    moment(selectedDate).year() +
+                    moment(selectedDate).format("ww") >=
+                    "" +
+                      moment(new Date()).year() +
+                      moment(new Date()).format("ww")
+              )}
+              onlabel="Enable Week"
+              offlabel="Disable Week"
+              width={150}
+              onstyle="info"
+              offstyle="outline-info"
+              onChange={handleWeekToggle}
+            />
           </div>
         </LoadingOverlay>
       </div>

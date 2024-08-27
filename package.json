@@ -16,6 +16,7 @@
     "@paypal/react-paypal-js": "^8.3.0",
     "@splidejs/react-splide": "^0.7.12",
     "bootstrap": "^5.3.3",
+    "bootstrap-switch-button-react": "^1.2.0",
     "crypto-js": "^4.2.0",
     "firebase": "^10.12.2",
     "moment": "^2.30.1",
