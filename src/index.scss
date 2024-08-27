@@ -1,4 +1,4 @@
-$theme-color: #009CFF;
+$theme-color: #009cff;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -68,7 +68,7 @@ button:focus-visible {
   bottom: 30px;
   width: 40px;
   height: 40px;
-  background: #009CFF;
+  background: #009cff;
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -78,14 +78,13 @@ button:focus-visible {
   border-radius: 50%;
 
   &:hover {
-    background: #009CFF;
+    background: #009cff;
     color: #143a52;
     text-decoration: none;
   }
 
   i {
     line-height: inherit;
-
   }
 }
 
@@ -165,6 +164,18 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+  }
+}
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+
+  &.hidden {
+    display: none;
+  }
+
+  &:not(.hidden) {
+    opacity: 1;
   }
 }
 

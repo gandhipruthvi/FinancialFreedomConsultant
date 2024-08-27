@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import {
@@ -8,7 +8,12 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "./Layout.jsx";
-import Home from "./pages/Home.jsx";
+import Loader from "./components/Loader.jsx";
+
+// Lazy load the Home component
+const Home = React.lazy(() => import("./pages/Home.jsx"));
+
+// Directly import other components
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Academy from "./pages/Academy.jsx";
@@ -46,8 +51,31 @@ const router = createBrowserRouter(
   )
 );
 
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      <Loader hidden={!loading} />
+      <Suspense fallback={<Loader hidden={false} />}>
+        <div className={`main-content ${loading ? "hidden" : ""}`}>
+          <RouterProvider router={router} />
+        </div>
+      </Suspense>
+    </>
+  );
+};
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
