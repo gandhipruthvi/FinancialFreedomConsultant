@@ -86,10 +86,6 @@ const ScheduleManagement = () => {
     fetchScheuldeManagementWeek();
   }, []);
 
-  useEffect(() => {
-    console.log(disabledWeek);
-  }, [disabledWeek]);
-
   const formatDate = (date) => {
     return moment(date).format("MMMM DD YYYY");
   };
@@ -302,7 +298,6 @@ const ScheduleManagement = () => {
         // Update the existing document to toggle the disabled flag
         const docRef = doc(db, "scheduleManagementMonth", monthDocs[0].id);
         const newDisabledStatus = !monthDocs[0].data().disabled;
-        console.log(newDisabledStatus);
 
         await updateDoc(docRef, {
           disabled: newDisabledStatus,

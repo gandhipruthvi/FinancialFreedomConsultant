@@ -94,7 +94,6 @@ const AppointmentForm = () => {
           .map((doc) => doc.data())
           .filter((appDoc) => appDoc.year >= new Date().getFullYear())
       );
-      console.log(disabledWeek);
     };
     fetchScheuldeManagementWeek();
   }, [bookedSlots]);

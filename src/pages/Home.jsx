@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import "../styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { reviews } from "../components/reviewsData";
-import AppointmentForm from "../components/AppointmentForm";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+
+const AppointmentForm = React.lazy(() =>
+  import("../components/AppointmentForm")
+);
 
 // import ServicesImg1 from "../assets/our services/s1.jpg";
 // import ServicesImg2 from "../assets/our services/s2.jpg";
@@ -545,7 +548,9 @@ const Home = () => {
               <div className="appointment_form">
                 <p>Do it right now!</p>
                 <h3>Make an Appointment</h3>
-                <AppointmentForm />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <AppointmentForm />
+                </Suspense>
                 <br />
                 <p className="note-section">
                   Note: The displayed time here corresponds to the UAE time
@@ -609,56 +614,6 @@ const Home = () => {
                   </Splide>
                 </div>
               </section>
-              {/* <div class="testimonialslider01">
-                <div class="testiItem01">
-                  <img src={Quote} alt />
-                  <p class="quotation">
-                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
-                    sources. roductize tailers before
-                  </p>
-                  <div class="ts_author">
-                    <img src="assets/images/home1/t1.jpg" alt />
-                    <h5>David Smith</h5>
-                    <span>CEO & Founder</span>
-                  </div>
-                </div>
-                <div class="testiItem01">
-                  <img src={Quote} alt />
-                  <p class="quotation">
-                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
-                    sources. roductize tailers before
-                  </p>
-                  <div class="ts_author">
-                    <img src="assets/images/home1/t2.jpg" alt />
-                    <h5>Jasmine Dola</h5>
-                    <span>Founder</span>
-                  </div>
-                </div>
-                <div class="testiItem01">
-                  <img src={Quote} alt />
-                  <p class="quotation">
-                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
-                    sources. roductize tailers before
-                  </p>
-                  <div class="ts_author">
-                    <img src="assets/images/home1/t3.jpg" alt />
-                    <h5>Sowat Ahsan</h5>
-                    <span>Designer</span>
-                  </div>
-                </div>
-                <div class="testiItem01">
-                  <img src={Quote} alt />
-                  <p class="quotation">
-                    Grow tactical "outside the box" thinking whereas principle entered internal or "organic"
-                    sources. roductize tailers before
-                  </p>
-                  <div class="ts_author">
-                    <img src="assets/images/home1/t1.jpg" alt />
-                    <h5>Mark Smith</h5>
-                    <span>Co Founder</span>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
