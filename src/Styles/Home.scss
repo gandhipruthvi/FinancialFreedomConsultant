@@ -1,9 +1,11 @@
 $theme-color: #009cff;
+
 @font-face {
   font-family: "CustomFont";
   src: url("CustomFont.woff2") format("woff2");
   font-display: swap;
 }
+
 /*------------------------------------------------------------------
 / Common
 /-------------------------------------------------------------------*/
@@ -74,11 +76,9 @@ $theme-color: #009cff;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      // align-items: center;
       text-align: left;
       padding-top: 10%;
       padding-left: 10%;
-      // width: 100%;
     }
 
     .clearfix::after {
@@ -274,8 +274,7 @@ $theme-color: #009cff;
 
     .boxService {
       position: relative;
-      background: url("/src/assets/our services/3.png") no-repeat center center /
-        cover #f6f6f6;
+      background: url("/src/assets/our services/3.png") no-repeat center center / cover #f6f6f6;
       padding: 30px 75px;
       margin: 0 0 30px;
       height: 376px;
@@ -284,13 +283,13 @@ $theme-color: #009cff;
         font-size: 45px;
         line-height: 60px;
         margin: 0 0 30px;
-        font-family: "General Sans" "sans-serif";
+        font-family: "General Sans""sans-serif";
       }
 
       p {
         line-height: 28px;
         margin: 0;
-        font-family: "General Sans" "sans-serif";
+        font-family: "General Sans""sans-serif";
       }
     }
 
@@ -408,7 +407,7 @@ $theme-color: #009cff;
     .ibMeta span {
       font-size: 60px;
       line-height: 82px;
-      font-family: "General Sans" "sans-serif";
+      font-family: "General Sans""sans-serif";
       font-weight: 700;
       color: rgba(255, 255, 255, 0.1);
       position: absolute;
@@ -1356,13 +1355,13 @@ $theme-color: #009cff;
       -moz-box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
       box-shadow: 0px 20px 60px 0px rgba(23, 30, 39, 0.05);
 
-      > p {
+      >p {
         color: $theme-color;
         font-size: 14px;
         margin: 0 0 3px;
       }
 
-      > h3 {
+      >h3 {
         font-size: 30px;
         line-height: 1;
         margin: 0 0 36px;
