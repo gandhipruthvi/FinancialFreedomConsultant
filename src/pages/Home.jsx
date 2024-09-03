@@ -11,10 +11,6 @@ const AppointmentForm = React.lazy(() =>
   import("../components/AppointmentForm")
 );
 
-// import ServicesImg1 from "../assets/our services/s1.jpg";
-// import ServicesImg2 from "../assets/our services/s2.jpg";
-// import ServicesImg3 from "../assets/our services/s3.jpg";
-
 const Home = () => {
   const easeOutQuad = (t) => t * (2 - t);
   const frameDuration = 1000 / 60;
