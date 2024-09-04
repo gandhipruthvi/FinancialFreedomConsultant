@@ -1,19 +1,27 @@
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Layout() {
   const [visible, setVisible] = useState(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
-  };
+  useEffect(() => {
+    const toggleVisible = () => {
+      const scrolled = document.documentElement.scrollTop;
+      setVisible(scrolled > 300);
+    };
+
+    const handleScroll = () => {
+      toggleVisible();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -22,21 +30,19 @@ function Layout() {
     });
   };
 
-  window.addEventListener("scroll", toggleVisible);
-
   return (
     <>
       <Header />
       <ScrollRestoration />
       <Outlet />
       <Footer />
-      <a
-        className="scrollToTopButton"
-        style={{ display: visible ? "inline" : "none" }}
+      <button
+        className={`scrollToTopButton ${visible ? "visible" : "hidden"}`}
         onClick={scrollToTop}
+        aria-label="Scroll to top"
       >
         <i className="twi-arrow-to-top1"></i>
-      </a>
+      </button>
     </>
   );
 }

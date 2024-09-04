@@ -2,7 +2,7 @@ export const reviews = [
   {
     id: 1,
     image: "/src/assets/reviews/review1.webp",
-    name: "John Ciril",
+    name: "Emily Davis",
     text: "Working with Financial Freedom Consultant has been a game-changer for me. Their personalized approach and expert guidance have given me the confidence to take control of my financial future.",
   },
   {
@@ -20,7 +20,7 @@ export const reviews = [
   {
     id: 4,
     image: "/src/assets/reviews/review4.webp",
-    name: "Emily Davis",
+    name: "John Ciril",
     text: "The team exhibited a profound grasp of my financial aspirations. They skillfully encapsulated the core of my vision and delivered solutions that surpassed my expectations, ultimately propelling me closer to my journey towards financial freedom.",
   },
   {

@@ -77,6 +77,10 @@ button:focus-visible {
   z-index: 999;
   border-radius: 50%;
 
+  &.hidden {
+    display: none;
+  }
+
   &:hover {
     background: #009cff;
     color: #143a52;
