@@ -1,11 +1,12 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import "../styles/Home.scss";
 import Quote from "../assets/bg/blockquote.svg";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { reviews } from "../components/reviewsData";
+import reviewsData from "../utils/reviewsData";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import { getImageURL } from "../utils/image-util";
 
 const AppointmentForm = React.lazy(() =>
   import("../components/AppointmentForm")
@@ -569,9 +570,13 @@ const Home = () => {
                       rewindByDrag: true,
                     }}
                   >
-                    {reviews.map((review) => (
+                    {reviewsData.map((review) => (
                       <SplideSlide key={review.id}>
-                        <img className="review-img" src={review.image} alt="" />
+                        <img
+                          className="review-img"
+                          src={getImageURL(review.image)}
+                          alt=""
+                        />
                         <div className="content">
                           <p className="text">{review.text}</p>
                           <div className="info">
