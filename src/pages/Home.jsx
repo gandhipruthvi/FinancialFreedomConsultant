@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import "../styles/Home.scss";
-import Quote from "../assets/bg/blockquote.svg";
+import Quote from "../assets/home/blockquote.svg";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import reviewsData from "../utils/reviewsData";

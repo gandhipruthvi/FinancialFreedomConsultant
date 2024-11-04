@@ -1,11 +1,11 @@
 import "../styles/Services.scss";
 import { Link } from "react-router-dom";
-import image1 from "../assets/bg/t1.jpg";
-import image2 from "../assets/bg/s2.jpg";
-import image3 from "../assets/bg/1.jpg";
-import image4 from "../assets/bg/service1.jpg";
-import image5 from "../assets/bg/7.png";
-import image6 from "../assets/bg/academy.jpg";
+import image1 from "../assets/services/t1.webp";
+import image2 from "../assets/services/s2.webp";
+import image3 from "../assets/services/1.webp";
+import image4 from "../assets/services/service1.webp";
+import image5 from "../assets/services/7.webp";
+import image6 from "../assets/services/academy.webp";
 import logo from "../assets/logo.png";
 
 const Services = () => {

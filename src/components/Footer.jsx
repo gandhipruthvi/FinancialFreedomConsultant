@@ -1,12 +1,12 @@
 import "../styles/Footer.scss";
-import t1 from "../assets/footer/t1.jpg";
-import t2 from "../assets/footer/t2.jpg";
-import g1 from "../assets/footer/g1.jpg";
-import g2 from "../assets/footer/g2.jpg";
-import g3 from "../assets/footer/g3.jpg";
-import g4 from "../assets/footer/g4.jpg";
-import g5 from "../assets/footer/g5.jpg";
-import g6 from "../assets/footer/g6.jpg";
+import t1 from "../assets/footer/t1.webp";
+import t2 from "../assets/footer/t2.webp";
+import g1 from "../assets/footer/g1.webp";
+import g2 from "../assets/footer/g2.webp";
+import g3 from "../assets/footer/g3.webp";
+import g4 from "../assets/footer/g4.webp";
+import g5 from "../assets/footer/g5.webp";
+import g6 from "../assets/footer/g6.webp";
 import { NavLink } from "react-router-dom";
 
 function Footer() {

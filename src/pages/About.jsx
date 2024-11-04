@@ -1,11 +1,11 @@
 import "../styles/About.scss";
 import { NavLink } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
-import SymbolImg from "../assets/about/symbol.png";
-import AboutImg from "../assets/about/about.png";
-import VideoImg from "../assets/about/video.jpg";
-import WhyChooseUsImg from "../assets/about/whychooseus.png";
-import Symbol2Img from "../assets/about/symbol2.png";
+import SymbolImg from "../assets/about/symbol.webp";
+import AboutImg from "../assets/about/about.webp";
+import VideoImg from "../assets/about/video.webp";
+import WhyChooseUsImg from "../assets/about/whychooseus.webp";
+import Symbol2Img from "../assets/about/symbol2.webp";
 
 const About = () => {
   return (

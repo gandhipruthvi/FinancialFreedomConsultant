@@ -62,7 +62,7 @@ $theme-color: #009cff;
   /*------------------------------------------------------------------
     / Banner /-------------------------------------------------------------------*/
   .banner {
-    background-image: url("/src/assets/slider/1.webp");
+    background-image: url("/src/assets/home/banner.webp");
     background-size: cover;
     background-position: center;
     color: white;
@@ -261,7 +261,7 @@ $theme-color: #009cff;
         content: "";
         width: 77px;
         height: 74px;
-        background: url(../assets/bg/2_arrow.png) no-repeat left bottom;
+        background: url(../assets/home/2_arrow.webp) no-repeat left bottom;
       }
     }
   }
@@ -274,7 +274,7 @@ $theme-color: #009cff;
 
     .boxService {
       position: relative;
-      background: url("/src/assets/our services/3.png") no-repeat center center / cover #f6f6f6;
+      background: url("/src/assets/home/3.webp") no-repeat center center / cover #f6f6f6;
       padding: 30px 75px;
       margin: 0 0 30px;
       height: 376px;
@@ -341,7 +341,7 @@ $theme-color: #009cff;
       z-index: -1;
       visibility: hidden;
       opacity: 0;
-      background: url(/src/assets/bg/1.jpg) no-repeat center center / cover;
+      background: url(/src/assets/home/1.webp) no-repeat center center / cover;
       transition: all ease 400ms;
       -moz-transition: all ease 400ms;
       -webkit-transition: all ease 400ms;
@@ -704,7 +704,7 @@ $theme-color: #009cff;
   /*------------------------------------------------------------------
     / How We Work Section /-------------------------------------------------------------------*/
   .processSectionHome {
-    background: url(/src/assets/bg/work.png) no-repeat center center / cover;
+    background: url(/src/assets/home/work.webp) no-repeat center center / cover;
     position: relative;
 
     .subTitle {
@@ -855,7 +855,7 @@ $theme-color: #009cff;
     / Why Choose Us Section /-------------------------------------------------------------------*/
   .whyChooseUsSection {
     position: relative;
-    background: url("../assets/bg/8.jpg") no-repeat center center / cover;
+    background: url("../assets/home/8.webp") no-repeat center center / cover;
     padding: 120px 0 100px;
 
     .white {
@@ -1308,7 +1308,7 @@ $theme-color: #009cff;
     .reviewArea {
       position: relative;
       min-height: 835px;
-      background: url(../assets/bg/7.png) no-repeat bottom left #f7f7f7;
+      background: url(../assets/home/7.webp) no-repeat bottom left #f7f7f7;
       padding: 73px 75px 0;
 
       .secTitle {
@@ -1347,7 +1347,7 @@ $theme-color: #009cff;
 
     .appointment_form {
       position: relative;
-      background: url(../assets/bg/4.jpg) no-repeat center center / cover;
+      background: url(../assets/home/4.webp) no-repeat center center / cover;
       position: relative;
       padding: 74px 75px 80px;
       background: #fff;
