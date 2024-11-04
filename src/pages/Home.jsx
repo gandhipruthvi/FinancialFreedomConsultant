@@ -11,7 +11,6 @@ import { getImageURL } from "../utils/image-util";
 const AppointmentForm = React.lazy(() =>
   import("../components/AppointmentForm")
 );
-
 const CountUpAnimation = React.lazy(() =>
   import("../components/CountUpAnimation")
 );
